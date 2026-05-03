@@ -71,10 +71,15 @@ const result = checkAction(agent, {
 ## Установка
 
 ```bash
+# Когда пакет появится в npm registry:
 npm install pantheon-guard
+
+# Пока не опубликован в registry — рабочий вариант:
+npm install github:alkanfel1987/pantheon-guard#v0.1.0
 ```
 
 Zero runtime dependencies. ~43 КБ минифицировано (ESM + CJS вместе).
+Тег `v0.1.0` соответствует версии, которая пойдёт в npm.
 
 ## Быстрый старт — 3 примера до/после
 

@@ -71,10 +71,15 @@ This is not moral rhetoric — it is an **architectural choice**. Rules without 
 ## Install
 
 ```bash
+# Once published to npm registry:
 npm install pantheon-guard
+
+# Until then (works today):
+npm install github:alkanfel1987/pantheon-guard#v0.1.0
 ```
 
 Zero runtime dependencies. ~43 KB minified (ESM + CJS bundled together).
+Pinned tag `v0.1.0` matches the version that will land on npm.
 
 ## Quick start — 3 before/after examples
 
