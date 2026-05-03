@@ -1,0 +1,23 @@
+node_modules/
+dist/
+coverage/
+
+# editor/IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# logs and env
+*.log
+npm-debug.log*
+.env
+.env.local
+
+# build artefacts
+*.tgz
+.tsbuildinfo
