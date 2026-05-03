@@ -74,7 +74,7 @@ const result = checkAction(agent, {
 npm install @pantheon/guard
 ```
 
-Zero runtime dependencies. 18 KB минифицировано.
+Zero runtime dependencies. ~43 КБ минифицировано (ESM + CJS вместе).
 
 ## Быстрый старт — 3 примера до/после
 
@@ -268,7 +268,7 @@ await cycle.init();
 - `checkMahavrata`: ~0.1 ms
 - `checkAction` (полный алгоритм): ~0.3 ms
 - Zero LLM calls в самом валидаторе
-- 18 KB минифицировано, 0 рантайм-зависимостей
+- ~43 КБ минифицировано (большую часть занимают frozen-таблицы правил; сам алгоритм маленький), 0 рантайм-зависимостей
 - Работает в Node.js 16+, браузере, Chrome extensions (через `ChromeStorage` адаптер)
 
 Для сравнения: NeMo Guardrails добавляет 100–300ms латентности, Guardrails AI — 50–150ms.

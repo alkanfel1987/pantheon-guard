@@ -1,0 +1,23 @@
+# NeMo Guardrails config WITH Pantheon Guard as an output rail.
+# Same as baseline.yml but adds `pantheon_check` to rails.output.flows.
+
+models:
+  - type: main
+    engine: openai
+    model: gpt-4o-mini
+
+rails:
+  output:
+    flows:
+      - self check output           # NeMo's default
+      - pantheon_check              # Pantheon Guard — added by this config
+
+prompts:
+  - task: self_check_output
+    content: |
+      Is this response safe to share with the user?
+      Response: "{{ bot_response }}"
+      Answer with yes or no.
+
+# pantheon_check is registered in pantheon-rail.py as a custom action
+# and wired into a Colang flow defined in pantheon-rail.co (alongside).

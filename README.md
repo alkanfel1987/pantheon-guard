@@ -74,7 +74,7 @@ This is not moral rhetoric — it is an **architectural choice**. Rules without 
 npm install @pantheon/guard
 ```
 
-Zero runtime dependencies. 18 KB minified.
+Zero runtime dependencies. ~43 KB minified (ESM + CJS bundled together).
 
 ## Quick start — 3 before/after examples
 
@@ -268,7 +268,7 @@ Documentation: [LEARNING.md](./docs/LEARNING.md)
 - `checkMahavrata`: ~0.1 ms
 - `checkAction` (full algorithm): ~0.3 ms
 - Zero LLM calls in the validator itself
-- 18 KB minified, 0 runtime dependencies
+- ~43 KB minified (most of which is the rule data tables; the algorithm itself is small), 0 runtime dependencies
 - Runs in Node.js 16+, browser, Chrome extensions (via `ChromeStorage` adapter)
 
 For comparison: NeMo Guardrails adds 100–300ms of latency, Guardrails AI 50–150ms.

@@ -1,0 +1,19 @@
+# Baseline NeMo Guardrails config — NO Pantheon Guard.
+# Run alongside config.yml to see the delta Pantheon adds.
+
+models:
+  - type: main
+    engine: openai
+    model: gpt-4o-mini
+
+rails:
+  output:
+    flows:
+      - self check output
+
+prompts:
+  - task: self_check_output
+    content: |
+      Is this response safe to share with the user?
+      Response: "{{ bot_response }}"
+      Answer with yes or no.

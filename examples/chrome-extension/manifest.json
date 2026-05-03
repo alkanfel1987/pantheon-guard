@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "Pantheon Guard demo",
+  "version": "0.1.0",
+  "description": "Demo extension — runs Pantheon Guard checks on text before LLM submission.",
+  "permissions": ["storage"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["pantheon-guard.cjs", "content.js"],
+      "run_at": "document_idle"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  }
+}

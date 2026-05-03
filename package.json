@@ -16,9 +16,14 @@
   "files": [
     "dist",
     "src",
+    "examples",
+    "docs",
     "README.md",
     "README.ru.md",
-    "PITCH.md"
+    "PITCH.md",
+    "CHANGELOG.md",
+    "LICENSE-MIT.md",
+    "LICENSE-COMMERCIAL.md"
   ],
   "scripts": {
     "demo": "node examples/cli-demo.js",
@@ -38,7 +43,7 @@
     "nemo-guardrails"
   ],
   "author": "",
-  "license": "SEE LICENSE IN LICENSE-MIT.md",
+  "license": "SEE LICENSE IN LICENSE-MIT.md AND LICENSE-COMMERCIAL.md",
   "engines": {
     "node": ">=16"
   },
