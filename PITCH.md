@@ -1,8 +1,8 @@
 # Pantheon Guard
 ## A deterministic conscience layer for agentic AI
 
-> **For:** NVIDIA NeMo Guardrails / Agent Blueprints team
-> **Status:** v0.2.1 calibrated + conformal layers shipping; v0.3 benchmark numbers next
+> **For:** NVIDIA NeMo Guardrails / Agent Blueprints team (and parallel-form for AWS / Microsoft / Salesforce — see TARGETS.md)
+> **Status:** v0.4.0-pre.2 — calibrated + conformal + adversarial-hardened + signed + first commercial pack (`@pantheon/guard-healthcare`) shipping; public benchmark with numbers in v0.5 (Q3 2026)
 > **Ask:** integration pilot + co-positioning as a complementary layer in NeMo
 
 ---
@@ -47,7 +47,19 @@ A drop-in JavaScript / TypeScript module that sits on top of any LLM output (or 
 
 These five rules are taken from Yoga-sūtra II.30–31 (Patañjali, ~400 CE), where they are explicitly defined as *jāti-deśa-kāla-samayānavacchinna* — **not corrected by class, place, time, or circumstance**. That is not a moral statement; it is an engineering one. **Rules without exceptions are deterministically formalizable.** No fuzzy classifier, no LLM call inside the validator, no hallucination risk in the safety layer itself.
 
-A 2,500-year-old taxonomy of manipulation, packaged as a ~46 KB module with zero runtime dependencies.
+A 2,500-year-old taxonomy of manipulation, packaged as a ~64 KB module with zero runtime dependencies.
+
+### 2.0.1. Domain rule packs — the platform layer (new in v0.4)
+
+The same deterministic core composes with **domain-specific rule packs** for regulated industries. A pack adds three things on top of core:
+
+1. **Detection patterns** routed through the existing five mahā-vratas (no new top-level categories — domain harm maps onto Yoga-sūtra rules for principled audit)
+2. **Positive requirements** — what a compliant AI text MUST contain in this domain (e.g. healthcare AI must include provider-escalation language when discussing symptoms)
+3. **Calibrator overrides** — per-domain tightened thresholds (higher-stakes contexts get lower noise floors)
+
+The first commercial pack — `@pantheon/guard-healthcare` — is **shipped in v0.4.0-pre.2** with FDA SaMD / EU AI Act Annex III mapped ruleset (RU + EN coverage, 19 dedicated tests). Roadmapped packs: `-finance` (Q3 2026), `-education` (Q4 2026), `-recruiting` (Q1 2027). Packs stack composably (`stackPacks([healthcare, finance])` for medtech-fintech apps) and share normalized text in the hot path.
+
+This converts the library into a **platform per regulated domain** — same architectural pattern as Apache Foundation modules over the Apache core, scoped to AI safety verticals.
 
 ---
 
@@ -88,11 +100,11 @@ The whole calibration layer is deterministic, ~150 lines, zero LLM calls. Same a
 
 ### 2.1.1. Formal generalization theorem (McAllester PAC-Bayes) — *aggregate*
 
-The above is not just an empirical claim. Under the McAllester PAC-Bayes theorem (1999, Catoni 2007 form), we commit to publish a *bounded out-of-distribution risk* for the calibrator with each release:
+Under the McAllester PAC-Bayes theorem (1999, Catoni 2007 form), the OOD-risk gap for the calibrator is bounded by an explicitly computable expression. **What is currently in repo:** the formula, the prior committed in git *before* any benchmark data exists (which makes the prior data-independent — verifiable via git history), and `docs/pac_bayes_compute.py` which evaluates the bound for any `(n, KL, δ)` triple.
 
-> **Theorem (instantiated for v0.3 release plan).** With our v0.3 benchmark of `n = 1000` hand-labelled examples and a fitted posterior within `KL ≤ 10` of the data-independent v0.2 prior, the out-of-distribution Brier risk of the `pantheon-guard` calibrator is upper-bounded by the empirical Brier risk plus **0.093** with probability ≥ 95%.
+> **Theorem (planned v0.5 instantiation).** With the v0.5 benchmark of `n = 1000` hand-labelled examples and a fitted posterior within `KL ≤ 10` of the data-independent v0.4 prior, the OOD Brier risk of the `pantheon-guard` calibrator is upper-bounded by the *empirical* Brier risk plus **0.093** with probability ≥ 95%.
 
-Each component is reproducible: `docs/pac_bayes_compute.py` in the repo computes the bound for any `(n, KL, δ)` triple. Full derivation in `docs/PAC-BAYES-BOUND.md`.
+The formula is valid today. The empirical Brier-risk numerator on the right-hand side is the **v0.5 deliverable** — what the benchmark publishes alongside precision / recall / ECE per class. Until then, the published bound is correctly characterized as a *theoretical upper bound parameterized by future empirical data*, not as a measured production result. Full derivation: `docs/PAC-BAYES-BOUND.md`.
 
 ### 2.1.2. Per-request coverage guarantee (Vovk conformal prediction) — *per-instance*
 
@@ -264,17 +276,20 @@ We are not asking for funding. We are asking to be part of the safety story NVID
 | | |
 |---|---|
 | Package | `pantheon-guard` (npm) |
-| Version | v0.2.0-pre.1 |
-| Size | ~46 KB minified (rule data tables; the algorithm itself is ~5 KB) |
+| Version | **v0.4.0-pre.2** |
+| Size | ~64 KB minified (rule data + packs runtime + watermark + integrity) |
 | Runtime deps | 0 |
-| Latency | 0.1–0.3 ms |
+| Latency | 0.1–0.3 ms (ASCII fast-path skips ~70% of normalization work for English text) |
 | LLM calls inside validator | 0 |
-| Calibration | per-flag confidence in [0, 1] + abstain on thin input (v0.2) |
+| Calibration | per-flag confidence + abstain + per-pack calibrator overrides |
+| Pack architecture | composable; first pack `@pantheon/guard-healthcare` shipped |
+| Watermarking | HMAC-SHA-256 verdict signing + frozen-rule SHA-256 integrity hash |
+| Adversarial resistance | 9 bypass vectors closed with regression suite (test-driven workflow) |
 | Runtimes supported | Node.js 16+, browsers, Chrome extensions |
-| License | MIT (OSS) / Commercial (SaaS, enterprise) |
-| Tests | 79 / 79 passing on Node 18 / 20 / 22 (CI) |
-| Install (today) | `npm install github:alkanfel1987/pantheon-guard#v0.2.0-pre.1` |
-| Status | v0.2 calibrated layer shipping; v0.3 benchmark with published ECE next |
+| License | MIT (OSS) / Commercial (SaaS, enterprise) / per-pack subscription |
+| Tests | **167 / 167 passing** on Node 18 / 20 / 22 (CI) |
+| Install (today) | `npm install github:alkanfel1987/pantheon-guard#v0.4.0-pre.2` |
+| Status | v0.4 pack architecture + healthcare pack shipping; v0.5 public benchmark with measured ECE next |
 
 ---
 
