@@ -40,8 +40,15 @@ const FEAR_EN = /\b(?:regret|miss out|fall behind|left behind|too late|lose ever
 const CLICKBAIT_EN = /\b(?:secret|nobody knows|the one thing|they don'?t want you|shocking|exposed|revealed)\b/i;
 const SCARCITY_EN = /\b(?:only \d+ left|\d+ spots left|last \d+|while supplies last)\b/i;
 
+import { normalizeText } from './normalize.js';
+
 /**
  * Inspect text for known manipulation patterns.
+ *
+ * Applies Unicode and leetspeak normalization (`normalizeText`) before
+ * regex matching to defeat homoglyph / zero-width / fullwidth bypasses.
+ * The original text is unchanged; only the regex layer sees the
+ * normalized view.
  *
  * The returned shape matches the `action.contains` keys consumed by
  * {@link checkMahavrata}, so the typical pipeline is:
@@ -66,20 +73,21 @@ export function detectPatterns(text) {
       manipulation: false,
     };
   }
+  const normalized = normalizeText(text);
 
   const falseUrgency =
-    URGENCY_RU.test(text) ||
-    URGENCY_EN.test(text) ||
-    SCARCITY_RU.test(text) ||
-    SCARCITY_EN.test(text);
+    URGENCY_RU.test(normalized) ||
+    URGENCY_EN.test(normalized) ||
+    SCARCITY_RU.test(normalized) ||
+    SCARCITY_EN.test(normalized);
 
   const fearBased =
-    FEAR_RU.test(text) ||
-    FEAR_EN.test(text);
+    FEAR_RU.test(normalized) ||
+    FEAR_EN.test(normalized);
 
   const clickbait =
-    CLICKBAIT_RU.test(text) ||
-    CLICKBAIT_EN.test(text);
+    CLICKBAIT_RU.test(normalized) ||
+    CLICKBAIT_EN.test(normalized);
 
   // "manipulation" is a meta-flag — true when at least two manipulation
   // signals fire together. A single urgency word in a benign sentence
@@ -139,11 +147,12 @@ export function detectPatternsCalibrated(text) {
     reason: 'empty input',
   };
   if (typeof text !== 'string' || text.length === 0) return empty;
+  const normalized = normalizeText(text);
 
-  // Collect evidence per flag.
+  // Collect evidence per flag (matched against normalized view).
   const evidence = { falseUrgency: [], fearBased: [], clickbait: [] };
   for (const { flag, name, re } of PATTERNS) {
-    const m = text.match(re);
+    const m = normalized.match(re);
     if (m) evidence[flag].push(`${name}:${m[0]}`);
   }
 

@@ -6,6 +6,98 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.3.0-pre.1] — 2026-05-04
+
+### Added — security hardening + watermarking layer
+
+The v0.2.2 calibrated detector had real bypass vectors. Audit found
+that with neutral metadata (`urgency: 0.3, paused: true`), the
+following attacks let manipulative content through:
+
+- Cyrillic / Greek homoglyph swaps (`Huррy` with Cyrillic `р`).
+- Mixed homoglyphs in fear words (`rеgrеt` with Cyrillic `е`).
+- Zero-width / BOM insertions (`Hu​rry`).
+- Fullwidth Latin (`Ｈｕｒｒｙ`).
+- Leetspeak (`y0u'll r3gr3t`).
+- Spaced-out tokens (`H u r r y`).
+
+v0.3.0-pre.1 closes all of them and adds two watermarking layers
+on top.
+
+#### `src/normalize.js` — text normalization layer
+
+- NFKC unicode normalization (collapses fullwidth, ligatures, compat).
+- Zero-width / BOM / bidi-override stripping.
+- **Mixed-script homoglyph fold.** Cyrillic/Greek lookalikes are
+  folded to Latin only inside words containing both scripts; pure
+  Russian text passes through untouched, preserving Russian regex
+  matches.
+- Leetspeak digit-to-letter fold (between letter neighbors only).
+- Spaced-out single-letter collapse.
+- Wired into `detectPatterns()` and `detectPatternsCalibrated()`.
+
+#### `src/sign.js` — verdict signing (watermark layer)
+
+- `inspectSigned(text, { secret, ...opts })` — runs `inspect()` and
+  returns the verdict together with a HMAC-SHA-256 signature over a
+  canonical-JSON serialization of the payload. Includes timestamp,
+  library version, and signature version.
+- `verifySignedVerdict(signed, secret)` — timing-safe verification.
+  Returns `{ valid, reason }`. Catches: tampered fields, wrong secret,
+  unknown library identifier, unsupported signature version.
+- `canonicalize(value)` — deterministic JSON with keys sorted at every
+  level (exposed for callers needing the same canonicalization).
+- `signPayload()` / `verifyPayload()` — low-level primitives.
+
+#### `src/integrity.js` — frozen-rule hash (rule-watermark)
+
+- `getIntegrity()` — returns SHA-256 hashes of frozen rule structures
+  (MAHAVRATA, LAWS, PRINCIPLES, FIVE_STEP_ALGORITHM, SVADHARMA_SCHEMA,
+  LAYERS, GUNAS, PRIORITY) and a separately-versioned hash of
+  CALIBRATOR_PARAMS.
+- `assertRuleSetHash(expected)` — CI / startup integrity check; throws
+  on drift.
+- `getBuildFingerprint()` — 16-char fingerprint combining rule and
+  calibrator hashes plus library version.
+
+v0.3.0-pre.1 baseline:
+```
+rule_set_hash:          1da1b908e3577579fb01e43811f255c4f772b4de5e96d20deb5c265f72797848
+calibrator_params_hash: 718349b8fd5dbdb150da61c5b9e91aca18cd297be16ba49c44002b6613ad5664
+build_fingerprint:      1434724a34f04e30
+```
+
+#### Tests
+
+- 22 `test/adversarial.test.js` — systematic bypass attempts per rule,
+  including all v0.2.2 audit findings + ReDoS stress tests.
+- 14 `test/sign.test.js` — round-trip, tampering rejection, timing-safe
+  on length mismatch, signature-version + library-id rejection.
+- 7 `test/integrity.test.js` — hash stability, mismatch detection,
+  malformed hash rejection.
+- Suite now **146/146 passing** (was 103).
+
+#### Docs
+
+- `docs/SECURITY.md` — threat model (4 adversary classes), defense
+  layer mapping, audit transcript (v0.2.2 → v0.3.0), watermarking
+  comparison to LLM output watermarks.
+
+### Why this is a 0.3.x bump (not 0.2.3)
+
+Three new public modules (`normalize`, `sign`, `integrity`), 11 new
+exports, and a behavior change in `detectPatterns()` (now applies
+normalization before regex). Backward-compatible at the level of
+*intent* (clean text still produces clean verdicts; bypass attempts
+now produce blocking verdicts) — but the *behavior* on adversarial
+input changes by design.
+
+### Build delta
+
+- ESM 49.04 KB → ~52 KB (+3 KB for normalize + sign + integrity)
+- CJS comparable
+- Tests 103 → 146
+
 ## [0.2.2-pre.1] — 2026-05-04
 
 ### Added — three more theorems closing the formal-guarantees suite

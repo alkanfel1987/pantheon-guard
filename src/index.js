@@ -50,6 +50,19 @@ export {
   fitWeightedConformal,
   inspectWeightedConformal,
 } from './conformal-weighted.js';
+export { normalizeText, normalizeDiagnostic } from './normalize.js';
+export {
+  canonicalize,
+  signPayload,
+  verifyPayload,
+  inspectSigned,
+  verifySignedVerdict,
+} from './sign.js';
+export {
+  getIntegrity,
+  assertRuleSetHash,
+  getBuildFingerprint,
+} from './integrity.js';
 
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)
