@@ -7,9 +7,7 @@
  *   node examples/cli-demo.js
  */
 
-'use strict';
-
-const {
+import {
   CORE_VERSION,
   LAYERS,
   GUNAS,
@@ -19,7 +17,7 @@ const {
   LAWS,
   checkMahavrata,
   runFiveSteps,
-} = require('../src');
+} from '../src/index.js';
 
 console.log('\n' + '═'.repeat(72));
 console.log('  ПАНТЕОН · CORE v' + CORE_VERSION);

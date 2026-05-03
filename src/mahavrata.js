@@ -11,11 +11,9 @@
  * A mahavrata violation invalidates an action regardless of who sanctioned it.
  */
 
-'use strict';
+import { PRIORITY } from './constants.js';
 
-const { PRIORITY } = require('./constants');
-
-const MAHAVRATA = Object.freeze({
+export const MAHAVRATA = Object.freeze({
   name: 'Маха-врата · Великий обет',
   source: 'Yoga-sūtra II.30-31',
   priority: PRIORITY.MAHAVRATA,
@@ -102,7 +100,7 @@ const MAHAVRATA = Object.freeze({
  *   - paused    {boolean}  — was there a pause for reflection
  * @returns {{passes: boolean, violations: Array<{rule:string, reason:string}>, details: Object}}
  */
-function checkMahavrata(action = {}) {
+export function checkMahavrata(action = {}) {
   const violations = [];
   const details = {};
 
@@ -173,8 +171,3 @@ function checkMahavrata(action = {}) {
     details,
   };
 }
-
-module.exports = {
-  MAHAVRATA,
-  checkMahavrata,
-};

@@ -5,9 +5,7 @@
  * Each law names where it is enforced (algorithm step, agent, principle).
  */
 
-'use strict';
-
-const LAWS = Object.freeze([
+export const LAWS = Object.freeze([
   {
     number: 1,
     name: 'Свадхарма',
@@ -76,5 +74,3 @@ const LAWS = Object.freeze([
     note: 'Добавлен в v3.1: явное указание, что Маха-врата выше Апад-дхармы.',
   },
 ]);
-
-module.exports = { LAWS };

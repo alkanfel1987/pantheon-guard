@@ -1,9 +1,7 @@
-'use strict';
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
 
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-
-const { MAHAVRATA, checkMahavrata } = require('../src/mahavrata');
+import { MAHAVRATA, checkMahavrata } from '../src/mahavrata.js';
 
 test('MAHAVRATA structure exposes all 5 yamas with sanskrit + iast + meaning', () => {
   const expected = ['ahimsa', 'satya', 'asteya', 'shaucha', 'indriya_nigraha'];

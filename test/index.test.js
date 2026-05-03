@@ -1,9 +1,7 @@
-'use strict';
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
 
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-
-const guard = require('../src');
+import * as guard from '../src/index.js';
 
 test('public API exposes all expected names', () => {
   const expected = [

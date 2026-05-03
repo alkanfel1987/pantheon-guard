@@ -14,13 +14,11 @@
  * All 5 must pass. Otherwise the action is deferred or delegated.
  */
 
-'use strict';
+import { PRIORITY } from './constants.js';
+import { checkMahavrata } from './mahavrata.js';
+import { checkSvadharmaConsistency } from './svadharma.js';
 
-const { PRIORITY } = require('./constants');
-const { checkMahavrata } = require('./mahavrata');
-const { checkSvadharmaConsistency } = require('./svadharma');
-
-const FIVE_STEP_ALGORITHM = Object.freeze({
+export const FIVE_STEP_ALGORITHM = Object.freeze({
   name: 'Пятишаговый алгоритм',
   source: 'Bhagavad-Gītā II-IV, XVII-XVIII (синтез)',
   priority: PRIORITY.ALGORITHM,
@@ -79,7 +77,7 @@ const FIVE_STEP_ALGORITHM = Object.freeze({
  * @param {Object} action — action object (see checkMahavrata)
  * @returns {{passes:boolean, mahavrataResult:Object, steps:Array, failedStep:?string, recommendation:?string}}
  */
-function runFiveSteps(agent, action = {}) {
+export function runFiveSteps(agent, action = {}) {
   const result = {
     passes: false,
     mahavrataResult: null,
@@ -179,7 +177,7 @@ function runFiveSteps(agent, action = {}) {
 // Helper checks for the 5 steps
 // ─────────────────────────────────────────────
 
-function checkDharma(action) {
+export function checkDharma(action) {
   const violations = [];
 
   if (action.violatesLaws && Array.isArray(action.violatesLaws) && action.violatesLaws.length > 0) {
@@ -199,7 +197,7 @@ function checkDharma(action) {
   };
 }
 
-function checkGuna(agent, action) {
+export function checkGuna(agent, action) {
   const agentGuna = agent.svadharma?.guna || '';
   const actionGuna = action.currentGuna;
 
@@ -217,7 +215,7 @@ function checkGuna(agent, action) {
   };
 }
 
-function checkYajna(action) {
+export function checkYajna(action) {
   const explicitIntrinsic = action.intrinsicValue === true;
   const resultDriven = action.resultDriven === true;
 
@@ -241,7 +239,7 @@ function checkYajna(action) {
   };
 }
 
-function checkDana(action) {
+export function checkDana(action) {
   const danaType = action.danaType;
   if (!danaType) {
     return {
@@ -267,12 +265,3 @@ function checkDana(action) {
     detail: FIVE_STEP_ALGORITHM.danaTypes[danaType],
   };
 }
-
-module.exports = {
-  FIVE_STEP_ALGORITHM,
-  runFiveSteps,
-  checkDharma,
-  checkGuna,
-  checkYajna,
-  checkDana,
-};

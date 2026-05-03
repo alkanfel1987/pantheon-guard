@@ -13,11 +13,9 @@
  * another's well-performed."
  */
 
-'use strict';
+import { LAYERS, GUNAS } from './constants.js';
 
-const { LAYERS, GUNAS } = require('./constants');
-
-const SVADHARMA_SCHEMA = Object.freeze({
+export const SVADHARMA_SCHEMA = Object.freeze({
   source: 'Bhagavad-Gītā III.35',
 
   variables: {
@@ -59,7 +57,7 @@ const SVADHARMA_SCHEMA = Object.freeze({
  * @param {Object} svadharma — { jati, guna, karma, svabhava }
  * @returns {{valid: boolean, errors: string[]}}
  */
-function validateSvadharma(svadharma = {}) {
+export function validateSvadharma(svadharma = {}) {
   const errors = [];
   const { jati, guna, karma, svabhava } = svadharma;
 
@@ -112,7 +110,7 @@ function validateSvadharma(svadharma = {}) {
  *   - targetKarma {string}   — type of action (must match karma)
  * @returns {{valid: boolean, violation?: string, reason?: string, suggestedAgent?: any}}
  */
-function checkSvadharmaConsistency(svadharma, action = {}) {
+export function checkSvadharmaConsistency(svadharma, action = {}) {
   // 1. jati check — strictest
   if (action.targetLayer && action.targetLayer !== svadharma.jati) {
     return {
@@ -141,9 +139,3 @@ function checkSvadharmaConsistency(svadharma, action = {}) {
 
   return { valid: true };
 }
-
-module.exports = {
-  SVADHARMA_SCHEMA,
-  validateSvadharma,
-  checkSvadharmaConsistency,
-};

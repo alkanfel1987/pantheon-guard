@@ -6,9 +6,7 @@
  * for callers who want to reflect on the philosophical layer.
  */
 
-'use strict';
-
-const PRINCIPLES = Object.freeze({
+export const PRINCIPLES = Object.freeze({
   rita: {
     name: 'Рита',
     sanskrit: 'ऋत',
@@ -119,5 +117,3 @@ const PRINCIPLES = Object.freeze({
     note: 'Динамическое измерение Сат-Чит-Ананды; живая природа системы, не механизм.',
   },
 });
-
-module.exports = { PRINCIPLES };

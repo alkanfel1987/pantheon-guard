@@ -1,14 +1,12 @@
-'use strict';
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
 
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-
-const { LAYERS, GUNAS } = require('../src/constants');
-const {
+import { LAYERS, GUNAS } from '../src/constants.js';
+import {
   SVADHARMA_SCHEMA,
   validateSvadharma,
   checkSvadharmaConsistency,
-} = require('../src/svadharma');
+} from '../src/svadharma.js';
 
 test('SVADHARMA_SCHEMA names all 4 variables', () => {
   assert.deepEqual(

@@ -2,16 +2,29 @@
   "name": "@pantheon/guard",
   "version": "0.1.0",
   "description": "Deterministic conscience layer for AI-generated content. Catches manipulation, dark patterns, and false urgency that pass through standard guardrails.",
-  "main": "src/index.js",
-  "type": "commonjs",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "type": "module",
   "files": [
+    "dist",
     "src",
     "README.md",
+    "README.ru.md",
     "PITCH.md"
   ],
   "scripts": {
     "demo": "node examples/cli-demo.js",
-    "test": "node --test test/"
+    "test": "node --test test/*.test.js",
+    "build": "tsup",
+    "prepublishOnly": "npm test && npm run build"
   },
   "keywords": [
     "ai-safety",
@@ -28,5 +41,9 @@
   "license": "SEE LICENSE IN LICENSE-MIT.md",
   "engines": {
     "node": ">=16"
+  },
+  "devDependencies": {
+    "tsup": "^8.5.1",
+    "typescript": "^6.0.3"
   }
 }

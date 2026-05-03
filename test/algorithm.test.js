@@ -1,15 +1,13 @@
-'use strict';
+import { test } from 'node:test';
+import assert from 'node:assert/strict';
 
-const { test } = require('node:test');
-const assert = require('node:assert/strict');
-
-const { LAYERS, GUNAS } = require('../src/constants');
-const {
+import { LAYERS, GUNAS } from '../src/constants.js';
+import {
   FIVE_STEP_ALGORITHM,
   runFiveSteps,
   checkDana,
   checkYajna,
-} = require('../src/algorithm');
+} from '../src/algorithm.js';
 
 const validAgent = {
   name: 'Варуна',

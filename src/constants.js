@@ -5,11 +5,9 @@
  * Pure data — no functions, no cross-module dependencies.
  */
 
-'use strict';
+export const CORE_VERSION = '3.1.0';
 
-const CORE_VERSION = '3.1.0';
-
-const LAYERS = Object.freeze({
+export const LAYERS = Object.freeze({
   META:        'Meta',
   META_SHAKTI: 'Meta-Shakti',
   ADITYA:      'Āditya',
@@ -18,23 +16,16 @@ const LAYERS = Object.freeze({
   ASHVIN:      'Aśvin',
 });
 
-const GUNAS = Object.freeze({
+export const GUNAS = Object.freeze({
   SATTVA: 'Саттва',
   RAJAS:  'Раджас',
   TAMAS:  'Тамас',
 });
 
-const PRIORITY = Object.freeze({
+export const PRIORITY = Object.freeze({
   BRAHMAN:    0,   // Brahman — ontological foundation
   MAHAVRATA:  1,   // 5 ego restraints — absolute
   LAWS:       2,   // 10+1 operational laws
   ALGORITHM:  3,   // 5-step decision protocol
   AGENT:      4,   // individual agent decisions
 });
-
-module.exports = {
-  CORE_VERSION,
-  LAYERS,
-  GUNAS,
-  PRIORITY,
-};

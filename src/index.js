@@ -5,69 +5,76 @@
  * Catches manipulation, dark patterns, and false urgency that pass through
  * standard guardrails.
  *
- * Phase 1 of B3-ACTION-PLAN: extract from monolithic pantheon-core.js into
- * focused modules. Still CommonJS — Phase 2 will switch to dual ESM/CJS via tsup.
+ * Phase 2 of B3-ACTION-PLAN: ESM source + tsup dual ESM/CJS build.
  *
  * Source of truth: C:\Pantheon\vault\04-Projects\Этический фильтр от Пантеона как продукт\
  */
 
-'use strict';
-
-const {
+export {
   CORE_VERSION,
   LAYERS,
   GUNAS,
   PRIORITY,
-} = require('./constants');
+} from './constants.js';
 
-const {
+export {
   MAHAVRATA,
   checkMahavrata,
-} = require('./mahavrata');
+} from './mahavrata.js';
 
-const {
+export {
   SVADHARMA_SCHEMA,
   validateSvadharma,
   checkSvadharmaConsistency,
-} = require('./svadharma');
+} from './svadharma.js';
 
-const {
+export {
   FIVE_STEP_ALGORITHM,
   runFiveSteps,
-} = require('./algorithm');
+  checkDharma,
+  checkGuna,
+  checkYajna,
+  checkDana,
+} from './algorithm.js';
 
-const { PRINCIPLES } = require('./principles');
-const { LAWS } = require('./laws');
+export { PRINCIPLES } from './principles.js';
+export { LAWS } from './laws.js';
 
 // ─────────────────────────────────────────────
-// Getters
+// Aliases & getters (kept stable for callers)
 // ─────────────────────────────────────────────
+
+import { MAHAVRATA as _MAHAVRATA } from './mahavrata.js';
+import { FIVE_STEP_ALGORITHM as _FIVE_STEP_ALGORITHM } from './algorithm.js';
+import { PRINCIPLES as _PRINCIPLES } from './principles.js';
+import { LAWS as _LAWS } from './laws.js';
+import { runFiveSteps as _runFiveSteps } from './algorithm.js';
 
 /** @returns {Object} the frozen Mahā-vrata structure */
-function getMahavrata() {
-  return MAHAVRATA;
+export function getMahavrata() {
+  return _MAHAVRATA;
 }
 
 /** @returns {Object} the frozen 5-step algorithm description */
-function getAlgorithm() {
-  return FIVE_STEP_ALGORITHM;
+export function getAlgorithm() {
+  return _FIVE_STEP_ALGORITHM;
 }
 
 /**
  * @param {string} [name] — principle key (rita, dharma, yajna, ...)
  * @returns {Object} the named principle, or all principles if name omitted
  */
-function getPrinciple(name) {
-  return name ? PRINCIPLES[name] : PRINCIPLES;
+export function getPrinciple(name) {
+  return name ? _PRINCIPLES[name] : _PRINCIPLES;
 }
 
 /**
  * @param {number} [number] — law number 1..11
  * @returns {Object|Array|null} a law by number, all laws if number omitted, or null
  */
-function getLaw(number) {
-  if (number === undefined) return LAWS;
-  return LAWS.find((l) => l.number === number) || null;
+export function getLaw(number) {
+  if (number === undefined) return _LAWS;
+  return _LAWS.find((l) => l.number === number) || null;
 }
 
 /**
@@ -78,36 +85,6 @@ function getLaw(number) {
  * @param {Object} action — action descriptor
  * @returns {Object} runFiveSteps result (includes mahavrataResult inside)
  */
-function checkAction(agent, action) {
-  return runFiveSteps(agent, action);
+export function checkAction(agent, action) {
+  return _runFiveSteps(agent, action);
 }
-
-module.exports = {
-  // Version
-  CORE_VERSION,
-
-  // Constants
-  LAYERS,
-  GUNAS,
-  PRIORITY,
-
-  // Frozen structures
-  MAHAVRATA,
-  SVADHARMA_SCHEMA,
-  FIVE_STEP_ALGORITHM,
-  PRINCIPLES,
-  LAWS,
-
-  // Check functions
-  checkMahavrata,
-  validateSvadharma,
-  checkSvadharmaConsistency,
-  runFiveSteps,
-  checkAction,
-
-  // Getters
-  getMahavrata,
-  getAlgorithm,
-  getPrinciple,
-  getLaw,
-};
