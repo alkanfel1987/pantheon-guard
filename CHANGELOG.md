@@ -6,6 +6,68 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.1-pre.1] — 2026-05-04
+
+### Added — conformal prediction layer
+
+- `src/conformal.js` — split conformal prediction wrapper over the v0.2
+  calibrator. Distribution-free finite-sample marginal coverage
+  guarantee per Vovk, Gammerman, Shafer (2005). For exchangeable
+  calibration data, the prediction set covers the true label with
+  probability ≥ 1-α regardless of underlying model accuracy.
+- `fitConformal(calibrationSet, options)` — offline fit; computes the
+  finite-sample quantile threshold and returns a calibrator object
+  with explicit coverage guarantee.
+- `inspectConformal(text, options)` — request-time wrapper around
+  `inspect()`. Returns `verdict_set ⊆ {manipulation, safe}` plus the
+  full inspect() output. Three set shapes map cleanly onto
+  block/pass/abstain actions; abstain is the certified-uncertainty
+  signal no other guardrail vendor offers.
+- `nonconformityScore(text, label, options)` — exposed for advanced
+  callers building custom score functions or weighted variants.
+- `examples/conformal-data.json` — 32 hand-labelled calibration
+  examples (RU+EN, balanced manipulation/safe). Production swaps for
+  the v0.3 hand-labelled benchmark (~1000 examples) at which point
+  the marginal coverage guarantee becomes meaningfully tight.
+- `examples/conformal-demo.js` — live demonstration of the three
+  verdict shapes plus held-out empirical coverage check (8/8 covered
+  at α=0.2 in the bundled split).
+- `docs/CONFORMAL.md` — formal theorem statement, mapping onto guard,
+  comparison with PAC-Bayes (defense-in-depth pair), references
+  to Tibshirani 2019 (covariate shift) and Gibbs 2021 (online
+  adaptive) for v0.4 extensions.
+- 14 new tests including empirical-coverage check on held-out split.
+  Suite now 93/93 passing.
+
+### Why conformal in addition to PAC-Bayes (not instead of)
+
+The two bounds form a defense-in-depth pair, not redundancy:
+
+| Layer | Type of guarantee | Right context |
+|---|---|---|
+| PAC-Bayes (v0.2.0-pre.1) | average risk gap | aggregate claim on benchmark page |
+| Conformal (v0.2.1-pre.1) | per-instance coverage | production request-time decision |
+
+Neither subsumes the other. PAC-Bayes asks "how good is the calibrator
+on average?" — the right tool for PITCH/benchmark numbers. Conformal
+asks "what does the calibrator honestly know about *this* input?" —
+the right tool for production routing decisions. Section 2.1 of PITCH
+now references both as a complementary pair.
+
+### Build delta
+
+- ESM 45.59 KB → 47.01 KB (+1.42 KB)
+- CJS 45.74 KB → 47.18 KB (+1.44 KB)
+- DTS 46.08 KB → 53.30 KB
+
+1.4 KB of code for one of the strongest formal guarantees in
+machine-learning theory. The ratio is the point.
+
+### Backward compatibility
+
+All v0.1 and v0.2.0-pre.1 exports unchanged. `inspect()` continues
+to work without conformal; `inspectConformal()` is strictly additive.
+
 ## [0.2.0-pre.1] — 2026-05-04
 
 ### Added — calibration layer

@@ -3,10 +3,11 @@
 > **The conscience layer for AI-generated marketing.**
 > Catches what guardrails miss: fear-based copywriting, false urgency, dark patterns in AI-generated sales funnels.
 
-[![npm](https://img.shields.io/badge/npm-v0.2.0--pre.1-blue)](https://www.npmjs.com/package/pantheon-guard)
+[![npm](https://img.shields.io/badge/npm-v0.2.1--pre.1-blue)](https://www.npmjs.com/package/pantheon-guard)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
 [![Calibrated](https://img.shields.io/badge/v0.2-honest%20uncertainty-orange)]()
+[![Conformal](https://img.shields.io/badge/v0.2.1-conformal%20coverage-red)]()
 
 ---
 
@@ -81,6 +82,37 @@ const r = inspect("Hurry, only 3 spots left! Don't miss out, you'll regret it fo
 - `policy: 'strict'` — reproduces v0.1 behavior; any pattern hit fires the flag.
 
 The whole calibration layer is deterministic, ~150 lines, zero runtime dependencies — same audit story as v0.1.
+
+### v0.2.1 — `inspectConformal()` with distribution-free coverage guarantee
+
+For production deployment that needs a formal per-request certificate, a thin layer adds split conformal prediction (Vovk 1999, 2005). Given any labelled calibration set (the upcoming v0.3 benchmark, or your own internal labelled data) and a target miscoverage rate `α`, every request produces a prediction set whose marginal coverage of the true label is ≥ 1−α — *regardless of distribution, model, or sample size*:
+
+```javascript
+import { fitConformal, inspectConformal } from 'pantheon-guard';
+
+const calibrator = fitConformal(calibrationSet, { alpha: 0.1 });
+// → 90% coverage guarantee, finite-sample quantile fitted
+
+const r = inspectConformal(text, { calibrator, urgency: 0.5, paused: true });
+// →
+// {
+//   verdict_set: ['manipulation'] | ['safe'] | ['manipulation', 'safe'],
+//   coverage: 0.9,
+//   passes: ...,
+//   confidence: { ... },
+//   ...
+// }
+```
+
+The three verdict-set shapes map onto three guarded actions:
+
+| `verdict_set` | Meaning |
+|---|---|
+| `['manipulation']` | confident block + regenerate |
+| `['safe']` | confident pass |
+| `['manipulation', 'safe']` | conformal abstain — escalate to human reviewer |
+
+The abstain shape is what no other guardrail vendor produces. It is a *certified* uncertainty signal: the math guarantees that across a sufficiently large run of inputs, the true label is in the set ≥ 1−α of the time. Full derivation in `docs/CONFORMAL.md`. PAC-Bayes (`docs/PAC-BAYES-BOUND.md`) and conformal form a defense-in-depth pair: PAC-Bayes for average-risk benchmark numbers, conformal for per-request decisions.
 
 ## How it works — the foundation
 

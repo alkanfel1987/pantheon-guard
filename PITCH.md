@@ -2,7 +2,7 @@
 ## A deterministic conscience layer for agentic AI
 
 > **For:** NVIDIA NeMo Guardrails / Agent Blueprints team
-> **Status:** v0.2 calibrated layer shipping; v0.3 benchmark numbers next
+> **Status:** v0.2.1 calibrated + conformal layers shipping; v0.3 benchmark numbers next
 > **Ask:** integration pilot + co-positioning as a complementary layer in NeMo
 
 ---
@@ -86,7 +86,7 @@ Three modes the integrator can route on:
 
 The whole calibration layer is deterministic, ~150 lines, zero LLM calls. Same audit story as v0.1.
 
-### 2.1.1. Formal generalization theorem (McAllester PAC-Bayes)
+### 2.1.1. Formal generalization theorem (McAllester PAC-Bayes) — *aggregate*
 
 The above is not just an empirical claim. Under the McAllester PAC-Bayes theorem (1999, Catoni 2007 form), we commit to publish a *bounded out-of-distribution risk* for the calibrator with each release:
 
@@ -94,7 +94,32 @@ The above is not just an empirical claim. Under the McAllester PAC-Bayes theorem
 
 Each component is reproducible: `docs/pac_bayes_compute.py` in the repo computes the bound for any `(n, KL, δ)` triple. Full derivation in `docs/PAC-BAYES-BOUND.md`.
 
-**No competing guardrail publishes a comparable bound.** They report accuracy on a fixed test set — an empirical statement about a fixed distribution. We report a theorem about *any* distribution. The forensic check is the git history: the v0.2 prior was committed before any benchmark data exists, which is what makes the prior data-independent and the bound valid.
+### 2.1.2. Per-request coverage guarantee (Vovk conformal prediction) — *per-instance*
+
+PAC-Bayes is the right tool for the *aggregate claim on a benchmark page*. For *production request-time decisions*, the right tool is split conformal prediction (Vovk, Gammerman, Shafer 2005). The v0.2.1 release ships `inspectConformal()` — a thin wrapper that, given any labelled calibration set and a target miscoverage rate `α`, returns a prediction set whose marginal coverage of the true label is **≥ 1−α regardless of distribution**.
+
+> **Theorem (Vovk's marginal coverage).** For exchangeable calibration data and any score function, `P(Y_test ∈ verdict_set(X_test)) ≥ 1 − α` exactly, with no asymptotic argument or distributional assumption beyond exchangeability.
+
+The three possible verdict-set shapes map onto three actionable production routes:
+
+| `verdict_set` | Production action |
+|---|---|
+| `['manipulation']` | confident block + regenerate |
+| `['safe']` | confident pass |
+| `['manipulation', 'safe']` | **conformal abstain — escalate to human reviewer** |
+
+The abstain shape is the *certified uncertainty signal* no other guardrail vendor offers. Full derivation, comparison to PAC-Bayes, and reproducible demo in `docs/CONFORMAL.md` and `examples/conformal-demo.js`.
+
+### 2.1.3. Defense-in-depth — both, not either
+
+The two bounds answer different questions and form a complementary pair:
+
+| Layer | Question it answers | Output | Right context |
+|---|---|---|---|
+| PAC-Bayes (v0.2.0-pre.1) | "How good is the calibrator on average across a future distribution?" | single bound number | PITCH numbers, NIST submission, academic citation |
+| Conformal (v0.2.1-pre.1) | "What does the calibrator honestly know about *this* request?" | per-instance verdict set | production request-time routing |
+
+**No competing guardrail publishes a comparable bound — let alone two.** They report accuracy on a fixed test set: an empirical statement about a fixed distribution. We report theorems about *any* distribution. The forensic check is git history: the v0.2 prior was committed before any benchmark data exists, which is what makes the prior data-independent and the PAC-Bayes bound valid; the conformal layer adds the per-request certificate on top.
 
 ---
 
