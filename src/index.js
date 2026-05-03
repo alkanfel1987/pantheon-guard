@@ -40,6 +40,9 @@ export {
 export { PRINCIPLES } from './principles.js';
 export { LAWS } from './laws.js';
 
+export { detectPatterns } from './detect-patterns.js';
+export { wrapAgent } from './wrap-agent.js';
+
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)
 // ─────────────────────────────────────────────
