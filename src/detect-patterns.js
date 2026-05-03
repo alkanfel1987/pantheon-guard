@@ -89,3 +89,98 @@ export function detectPatterns(text) {
 
   return { falseUrgency, fearBased, clickbait, manipulation };
 }
+
+// ─────────────────────────────────────────────
+// v0.2 calibrated detector — collects evidence per pattern, exposes
+// raw markers for the calibrator. Backward compatible: it does not
+// change the shape of `detectPatterns`.
+// ─────────────────────────────────────────────
+
+const PATTERNS = Object.freeze([
+  { flag: 'falseUrgency', name: 'urgency_ru',   re: URGENCY_RU },
+  { flag: 'falseUrgency', name: 'urgency_en',   re: URGENCY_EN },
+  { flag: 'falseUrgency', name: 'scarcity_ru',  re: SCARCITY_RU },
+  { flag: 'falseUrgency', name: 'scarcity_en',  re: SCARCITY_EN },
+  { flag: 'fearBased',    name: 'fear_ru',      re: FEAR_RU },
+  { flag: 'fearBased',    name: 'fear_en',      re: FEAR_EN },
+  { flag: 'clickbait',    name: 'clickbait_ru', re: CLICKBAIT_RU },
+  { flag: 'clickbait',    name: 'clickbait_en', re: CLICKBAIT_EN },
+]);
+
+/**
+ * Calibrated v0.2 detector.
+ *
+ * Returns the same boolean keys as {@link detectPatterns} for compatibility,
+ * plus per-flag confidence in [0, 1], evidence markers explaining which
+ * sub-patterns fired, and an `abstain` flag set when the input is too
+ * short or too weak to support any honest claim.
+ *
+ * The calibration logic lives in `calibrator.js` and is replaceable —
+ * BENCHMARK.md will fit it to ground truth in v0.3.
+ *
+ * @param {string} text — text to inspect
+ * @returns {{
+ *   flags: { falseUrgency: boolean, fearBased: boolean, clickbait: boolean, manipulation: boolean },
+ *   confidence: { falseUrgency: number, fearBased: number, clickbait: number, manipulation: number },
+ *   evidence: { falseUrgency: string[], fearBased: string[], clickbait: string[] },
+ *   abstain: boolean,
+ *   reason: string|null
+ * }}
+ */
+export function detectPatternsCalibrated(text) {
+  // Lazy import to avoid circular dependency surprises in some bundlers.
+  // eslint-disable-next-line global-require
+  // (calibrator has zero deps on detect-patterns, so this is only stylistic.)
+  const empty = {
+    flags: { falseUrgency: false, fearBased: false, clickbait: false, manipulation: false },
+    confidence: { falseUrgency: 0, fearBased: 0, clickbait: 0, manipulation: 0 },
+    evidence: { falseUrgency: [], fearBased: [], clickbait: [] },
+    abstain: true,
+    reason: 'empty input',
+  };
+  if (typeof text !== 'string' || text.length === 0) return empty;
+
+  // Collect evidence per flag.
+  const evidence = { falseUrgency: [], fearBased: [], clickbait: [] };
+  for (const { flag, name, re } of PATTERNS) {
+    const m = text.match(re);
+    if (m) evidence[flag].push(`${name}:${m[0]}`);
+  }
+
+  // Boolean flags compatible with checkMahavrata.action.contains.
+  const flags = {
+    falseUrgency: evidence.falseUrgency.length > 0,
+    fearBased:    evidence.fearBased.length > 0,
+    clickbait:    evidence.clickbait.length > 0,
+    manipulation: false, // computed below from confidence
+  };
+
+  // Calibrate.
+  return calibrateFromEvidence(text, evidence, flags);
+}
+
+// Lazy-imported to keep the file ESM-clean and avoid bundler quirks.
+import { calibrate } from './calibrator.js';
+
+function calibrateFromEvidence(text, evidence, flags) {
+  const cal = calibrate(text, evidence);
+  // Promote calibrator-computed manipulation confidence + boolean.
+  const confidence = {
+    falseUrgency: cal.confidence.falseUrgency || 0,
+    fearBased:    cal.confidence.fearBased || 0,
+    clickbait:    cal.confidence.clickbait || 0,
+    manipulation: cal.manipulation,
+  };
+  // manipulation boolean = ≥ 2 strong claims OR overall confidence ≥ 0.7.
+  const strongCount = [confidence.falseUrgency, confidence.fearBased, confidence.clickbait]
+    .filter((c) => c >= 0.5).length;
+  flags.manipulation = strongCount >= 2 || confidence.manipulation >= 0.7;
+
+  return {
+    flags,
+    confidence,
+    evidence,
+    abstain: cal.abstain,
+    reason: cal.reason,
+  };
+}

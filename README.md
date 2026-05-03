@@ -3,9 +3,10 @@
 > **The conscience layer for AI-generated marketing.**
 > Catches what guardrails miss: fear-based copywriting, false urgency, dark patterns in AI-generated sales funnels.
 
-[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/pantheon-guard)
+[![npm](https://img.shields.io/badge/npm-v0.2.0--pre.1-blue)](https://www.npmjs.com/package/pantheon-guard)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
+[![Calibrated](https://img.shields.io/badge/v0.2-honest%20uncertainty-orange)]()
 
 ---
 
@@ -51,6 +52,35 @@ const result = checkAction(agent, {
 ```
 
 If `passes: true` — you ship the text to the user. If `false` — you ask the model to regenerate with a different prompt or return a "something is off here" signal to your client.
+
+### v0.2 — `inspect()` with calibrated honest uncertainty
+
+The shorter API used in real codebases. Takes raw text, returns the verdict plus per-flag confidence and an abstain decision when the input is too thin to support any honest claim:
+
+```javascript
+import { inspect } from 'pantheon-guard';
+
+const r = inspect("Hurry, only 3 spots left! Don't miss out, you'll regret it forever.", {
+  urgency: 0.95,
+  paused: false,
+});
+
+// {
+//   passes: false,
+//   abstain: false,
+//   confidence: { falseUrgency: 0.81, fearBased: 0.63, clickbait: 0, manipulation: 0.79 },
+//   evidence:   { falseUrgency: ['urgency_en:Hurry', 'scarcity_en:3 spots left'], fearBased: [...], clickbait: [] },
+//   violations: [{ rule: 'ahimsa', ... }, { rule: 'indriya_nigraha', ... }],
+//   policy: 'calibrated'
+// }
+```
+
+**Why this matters and why no competitor offers it:** every other guardrail layer (NeMo, Llama Guard, Lakera, Guardrails AI) emits a single boolean or always-confident scalar. They are silently overconfident on short, ambiguous, or out-of-distribution inputs — a failure mode we measured directly in a controlled experiment (see `docs/PHILOSOPHY.md` and the linked phase-2 report). v0.2 surfaces that uncertainty to the caller and lets them choose:
+
+- `policy: 'calibrated'` (default) — a flag fires only when its confidence ≥ 0.7. Short or borderline input returns `abstain: true` instead of a fake verdict.
+- `policy: 'strict'` — reproduces v0.1 behavior; any pattern hit fires the flag.
+
+The whole calibration layer is deterministic, ~150 lines, zero runtime dependencies — same audit story as v0.1.
 
 ## How it works — the foundation
 
