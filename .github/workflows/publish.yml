@@ -1,0 +1,45 @@
+name: Publish to npm
+
+# Triggered when a tag matching v*.*.* is pushed.
+# Uses npm Trusted Publishing (OIDC) — no NPM_TOKEN secret required.
+# Setup precondition (one-time, on npmjs.com side):
+#   1. Visit https://www.npmjs.com/package/pantheon-guard/access (after first publish)
+#      OR https://www.npmjs.com/settings/alkanfel1987/packages (before first publish)
+#   2. "Trusted Publishers" → "Add" → choose GitHub Actions
+#   3. Repository: alkanfel1987/pantheon-guard
+#      Workflow filename: publish.yml
+#      Environment: (leave empty unless using GitHub environment)
+
+on:
+  push:
+    tags:
+      - 'v*.*.*'
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write   # required for OIDC (npm Trusted Publishing)
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run tests
+        run: npm test
+
+      - name: Build
+        run: npm run build
+
+      - name: Publish to npm with provenance
+        run: npm publish --access public --provenance
