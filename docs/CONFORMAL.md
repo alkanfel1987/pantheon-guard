@@ -124,10 +124,29 @@ than nothing.
   calibration.
 
 **Mitigation:** weighted conformal (Tibshirani et al. 2019) extends
-the guarantee to known covariate shift; fully adaptive online
-conformal (Gibbs & Candès 2021) handles arbitrary drift at the cost
-of looser per-step coverage. We will add a weighted variant in v0.4
-once we have multi-source calibration data.
+the guarantee to known covariate shift; this is **shipped in v0.2.2-pre.1**
+as `fitWeightedConformal()` / `inspectWeightedConformal()` — the caller
+supplies importance weights `w(x_i) = dP_test/dP_cal` and the threshold
+becomes the weighted (1-α-p_test) quantile, restoring marginal coverage
+under any `P_test ≪ P_cal`. Fully adaptive online conformal
+(Gibbs & Candès 2021) handles unknown arbitrary drift at the cost of
+looser per-step coverage; we will add it in v0.4 once we have
+multi-source calibration data.
+
+```javascript
+import { fitWeightedConformal, inspectWeightedConformal } from 'pantheon-guard';
+
+// Caller-supplied weights — typically from a small density-ratio
+// classifier on unlabelled production samples (Sugiyama 2012).
+const calib = labelledExamples.map((e) => ({
+  ...e,
+  weight: estimateProdRatio(e.text),  // w(x_i) = dP_prod / dP_cal at x_i
+}));
+
+const weighted = fitWeightedConformal(calib, { alpha: 0.1, weightTest: 1 });
+const r = inspectWeightedConformal(text, { calibrator: weighted, urgency: 0.5 });
+// → coverage 0.9 holds even when production distribution differs from calibration
+```
 
 ---
 

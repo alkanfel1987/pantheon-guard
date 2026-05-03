@@ -110,16 +110,44 @@ The three possible verdict-set shapes map onto three actionable production route
 
 The abstain shape is the *certified uncertainty signal* no other guardrail vendor offers. Full derivation, comparison to PAC-Bayes, and reproducible demo in `docs/CONFORMAL.md` and `examples/conformal-demo.js`.
 
-### 2.1.3. Defense-in-depth — both, not either
+### 2.1.3. Distribution-shift PAC-Bayes (Germain et al. 2016/2020) — *robustness under shift*
 
-The two bounds answer different questions and form a complementary pair:
+Production traffic distribution `Q` is rarely identical to the benchmark distribution `P`. The Germain–Habrard–Laviolette–Morvant extension of PAC-Bayes adds an explicit divergence term and gives a meaningful bound under shift:
 
-| Layer | Question it answers | Output | Right context |
+```
+R_Q(ρ)  ≤  R̂_P(ρ)  +  PAC-Bayes(n, KL, δ)  +  √( D₂(Q‖P) / 2 )  +  λ
+```
+
+where `D₂(Q‖P)` is the Rényi-2 divergence between distributions and `λ` is the reducible-by-relabelling component the customer drives down with their own labelled production data. Numerical instantiation (n=1000, KL=10, δ=0.05, base bound = 0.093):
+
+| `D₂(Q‖P)` | Total bound |
+|---:|---:|
+| 0.0  (no shift) | 0.093 |
+| 0.1  (mild shift) | 0.32 |
+| 0.5  (moderate shift) | 0.59 |
+| 1.0  (heavy shift) | 0.80 |
+
+**Honest reading:** at `D₂ ≤ 0.1` we ship as-is. At `D₂ ≥ 0.5` the bound becomes loose enough that the customer should supplement with their own labelled traffic. The mitigation on the conformal side is `inspectWeightedConformal()`, which restores tight coverage under known shift via importance weights. Full derivation in `docs/DISTRIBUTION-SHIFT-PAC-BAYES.md`.
+
+### 2.1.4. Sion-minimax benchmark design
+
+The v0.3 benchmark is constructed under a pre-committed category × language budget hashed in git history before any example is selected. For every reported metric we additionally publish the worst-case score under the pre-published stress-test space, and the gap. By Sion's theorem (1958), a small gap certifies that the test distribution lies near a saddle point of the (publisher, reviewer) minimax game — i.e., the publisher cannot retroactively claim a more favorable distribution exists.
+
+**No competing benchmark in the AI-safety space publishes this gap.** Full protocol in `docs/MINIMAX-BENCHMARK.md`.
+
+### 2.1.5. Defense-in-depth — five complementary guarantees
+
+| Layer | Theorem | Question answered | Right context |
 |---|---|---|---|
-| PAC-Bayes (v0.2.0-pre.1) | "How good is the calibrator on average across a future distribution?" | single bound number | PITCH numbers, NIST submission, academic citation |
-| Conformal (v0.2.1-pre.1) | "What does the calibrator honestly know about *this* request?" | per-instance verdict set | production request-time routing |
+| Maha-vrata | (axiomatic) | "what is forbidden, with no exception?" | non-corrupting safety floor |
+| Calibration | Cox 1946 + de Finetti 1937 | "what is the rationally unique confidence shape?" | inspect() output |
+| PAC-Bayes (aggregate) | McAllester 1999 / Catoni 2007 | "how good on average across a future distribution?" | benchmark numbers |
+| Distribution-shift PAC-Bayes | Germain et al. 2016/2020 | "how does the bound widen under shift?" | enterprise deploy in different verticals |
+| Conformal (per-instance) | Vovk 1999 / 2005 | "what does the calibrator honestly know about *this* request?" | production request-time routing |
+| Weighted conformal | Tibshirani et al. 2019 | "per-instance coverage under known covariate shift?" | enterprise with own labelled traffic |
+| Benchmark design | Sion 1958 | "publisher cannot retroactively cherry-pick the test distribution" | benchmark publication credibility |
 
-**No competing guardrail publishes a comparable bound — let alone two.** They report accuracy on a fixed test set: an empirical statement about a fixed distribution. We report theorems about *any* distribution. The forensic check is git history: the v0.2 prior was committed before any benchmark data exists, which is what makes the prior data-independent and the PAC-Bayes bound valid; the conformal layer adds the per-request certificate on top.
+**No competing guardrail publishes a comparable suite — let alone seven complementary guarantees.** They report accuracy on a fixed test set: an empirical statement about a fixed distribution. We report theorems about *any* distribution, *under shift*, *per-request*, and even *about how the benchmark itself was selected*. The forensic check is git history: every prior is committed before any benchmark data exists, which is what makes the bounds valid.
 
 ---
 

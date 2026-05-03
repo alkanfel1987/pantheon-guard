@@ -6,6 +6,60 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.2.2-pre.1] — 2026-05-04
+
+### Added — three more theorems closing the formal-guarantees suite
+
+- `src/conformal-weighted.js` — weighted conformal prediction under
+  covariate shift (Tibshirani, Foygel-Barber, Candès, Ramdas, NeurIPS
+  2019). Caller supplies importance weights `w(x_i) = dP_test/dP_cal`
+  per calibration point and an optional `weightTest`. The threshold
+  becomes the weighted (1-α-p_test) empirical quantile, restoring
+  marginal coverage under any `P_test ≪ P_cal`.
+- New API: `fitWeightedConformal()`, `inspectWeightedConformal()`,
+  `weightedQuantile()` (low-level, exposed for advanced callers).
+- 10 new tests including coverage check under simulated shift.
+  Suite now 103/103 passing.
+- `docs/DISTRIBUTION-SHIFT-PAC-BAYES.md` + `distshift_pac_bayes_compute.py`
+  — Germain–Habrard–Laviolette–Morvant 2016/2020 extension of the
+  McAllester bound to the case `P_bench ≠ P_prod`. Adds
+  `√(D₂(Q‖P) / 2) + λ` shift-correction term. Headline numerical
+  instantiation: at base bound = 0.093, total widens to 0.32 under
+  mild shift (`D₂=0.1`) and saturates near `D₂=2`.
+- `docs/MINIMAX-BENCHMARK.md` — Sion's minimax theorem (1958)
+  applied to v0.3 benchmark design. Pre-commits category × language
+  budget in git, publishes worst-case stress-test gap alongside
+  every metric. Certifies that the test distribution lies near a
+  saddle point — publisher cannot retroactively cherry-pick.
+- PITCH.md sections 2.1.3, 2.1.4, 2.1.5 — three new sub-sections
+  on distribution-shift PAC-Bayes, Sion-minimax benchmark, and the
+  full seven-guarantee defense-in-depth table.
+
+### The seven-guarantee suite (complete after v0.2.2)
+
+| Layer | Theorem |
+|---|---|
+| Maha-vrata | (axiomatic) Yoga-sūtra II.30-31 |
+| Calibration | Cox 1946 + de Finetti 1937 |
+| PAC-Bayes (aggregate) | McAllester 1999 / Catoni 2007 |
+| Distribution-shift PAC-Bayes | Germain et al. 2016/2020 |
+| Conformal (per-instance) | Vovk 1999 / 2005 |
+| Weighted conformal | Tibshirani et al. 2019 |
+| Benchmark design (Sion-minimax) | Sion 1958 |
+
+### Build delta
+
+- ESM 47.01 KB → 48.5 KB (+1.5 KB for weighted conformal)
+- Tests: 93 → 103
+- New docs: 3 (DISTRIBUTION-SHIFT-PAC-BAYES, MINIMAX-BENCHMARK,
+  weighted-conformal section in CONFORMAL.md)
+
+### Backward compatibility
+
+All v0.1, v0.2.0-pre.1, v0.2.1-pre.1 exports unchanged. Weighted
+conformal is strictly additive; standard `inspectConformal()` continues
+to work.
+
 ## [0.2.1-pre.1] — 2026-05-04
 
 ### Added — conformal prediction layer
