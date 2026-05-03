@@ -44,6 +44,7 @@ export { detectPatterns, detectPatternsCalibrated } from './detect-patterns.js';
 export { wrapAgent } from './wrap-agent.js';
 export { calibrate, flagConfidence, isStrong, CALIBRATOR_PARAMS } from './calibrator.js';
 export { inspect } from './inspect.js';
+export { nonconformityScore, fitConformal, inspectConformal } from './conformal.js';
 
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)
