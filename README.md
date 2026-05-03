@@ -3,13 +3,14 @@
 > **The conscience layer for AI-generated marketing.**
 > Catches what guardrails miss: fear-based copywriting, false urgency, dark patterns in AI-generated sales funnels.
 
-[![npm](https://img.shields.io/badge/npm-v0.3.0--pre.1-blue)](https://www.npmjs.com/package/pantheon-guard)
+[![npm](https://img.shields.io/badge/npm-v0.4.0--pre.1-blue)](https://www.npmjs.com/package/pantheon-guard)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
 [![Calibrated](https://img.shields.io/badge/v0.2-honest%20uncertainty-orange)]()
 [![Conformal](https://img.shields.io/badge/v0.2.1-conformal%20coverage-red)]()
 [![Theorems](https://img.shields.io/badge/v0.2.2-7%20formal%20guarantees-darkgreen)]()
 [![Hardened](https://img.shields.io/badge/v0.3-adversarial%20%2B%20signed-black)]()
+[![Packs](https://img.shields.io/badge/v0.4-domain%20rule%20packs-blueviolet)]()
 
 ---
 

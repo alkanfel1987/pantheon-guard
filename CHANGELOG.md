@@ -6,6 +6,109 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.4.0-pre.1] — 2026-05-04
+
+### Added — domain rule-pack architecture + first pack (`healthcare`)
+
+Introduces a composable extension point for domain-specific manipulation
+detection. Packs add specialized regex patterns and positive requirements
+on top of the deterministic mahā-vrata core, without altering it.
+
+#### `src/packs/index.js` — pack architecture
+
+Three composable pieces:
+
+1. **`detectionPatterns`** — regex matchers tagged with the existing
+   mahā-vrata rule they route through (ahimsa / satya / asteya /
+   shaucha / indriya_nigraha). Packs do NOT introduce new top-level
+   ethical categories — every domain harm maps onto a Yoga-sūtra rule
+   for principled audit consistency.
+2. **`requirements`** — domain-specific *positive* requirements (e.g.
+   "healthcare AI must include provider-escalation language when
+   discussing symptoms"). Each requirement has a `condition`, a
+   `check`, a severity, and an audit message.
+3. **`calibratorOverrides`** — per-pack tightening of calibration
+   thresholds. Higher-stakes domains use lower noise floors and lower
+   strong thresholds.
+
+API:
+
+- `applyPack(pack)` — wraps `inspect()` with a pack, returning an
+  enhanced inspect function. Backward compatible: core inspect()
+  unchanged; only callers that opt in see pack output.
+- `stackPacks([pack1, pack2, ...])` — composes multiple packs (e.g.
+  healthcare + finance for medtech-fintech apps). Violations and
+  evidence merge into a single result object.
+- `runPack(pack, text)` — direct pack run for testing / instrumentation.
+- `validatePack(pack)` — defensive registration check.
+
+#### `src/packs/healthcare.js` — first commercial pack
+
+Healthcare-specific manipulation detection covering RU + EN:
+
+| Category | Routes through | Patterns |
+|---|---|---|
+| Self-diagnosis overclaim | satya | `self_dx_en`, `self_dx_ru`, `self_dx_listicle_en` |
+| Cure / 100% guarantee claim | satya | `cure_claim_en`, `cure_claim_ru` |
+| False reassurance | satya | `false_reassurance_en`, `false_reassurance_ru` |
+| Medication-adjustment advice | ahimsa | `med_adjust_en`, `med_adjust_ru`, `med_recommend_en` |
+| Red-flag symptom dismissal | ahimsa | `serious_dismissal_en` |
+| Off-prescription urgency | indriya_nigraha | `urgent_self_med_en` |
+| "Studies show" without source | satya | `studies_show_en` |
+
+Plus one **positive requirement**:
+- `provider_escalation` — when text discusses symptoms / treatment /
+  medication / medical conditions, it MUST include language directing
+  the user to a healthcare provider. Failing this is a high-severity
+  violation. Implemented for both English and Russian.
+
+Calibrator overrides for higher-stakes context:
+- `NOISE_FLOOR`: 0.30 → 0.20
+- `STRONG_THRESHOLD`: 0.70 → 0.55
+
+19 new tests in `test/packs-healthcare.test.js` covering each pattern,
+the requirement in both languages, the positive (clean) cases, the
+override behavior, and stacking. Suite now **165/165 passing**.
+
+#### `examples/healthcare-pack-demo.js`
+
+Runnable demo showing 9 representative inputs through both core
+(`inspect`) and `applyPack(healthcarePack)`. Demonstrates the
+commercial value: clean medical text passes both; manipulative or
+unsafe text passes core but is blocked by the healthcare pack with
+named pack-violation source and unmet-requirement id.
+
+#### Why a new minor version
+
+This is the first new architectural surface since v0.2: packs are an
+extension point, not just a code add. They open a commercial product
+line (paid per-domain packs) that the OSS core monetizes through the
+existing dual-license model.
+
+### Commercial — first paid pack pricing tier
+
+`@pantheon/guard-healthcare`:
+- Free: evaluation / pilot
+- Starter: $499 / month (small healthtech, < $5M ARR)
+- Enterprise: $4 990 / month + (large healthtech / hospital)
+- Custom regulatory geography rules: negotiated
+
+Same pattern will apply to upcoming packs:
+- `@pantheon/guard-finance` — FOMO, pressure CTA, mandatory risk disclosure
+- `@pantheon/guard-education` — child-safety, anti-comparative-ranking
+- `@pantheon/guard-recruiting` — false-urgency-in-offers, salary disclosure
+
+### Backward compatibility
+
+All v0.1, v0.2, v0.2.1, v0.2.2, v0.3.0 exports unchanged. Pack support
+is purely additive. Existing `inspect()` / `inspectConformal()` /
+`inspectSigned()` consumers see no behavior change.
+
+### Build delta
+
+- ESM 53.07 KB → 56.5 KB (+3.5 KB for pack runtime + healthcare pack)
+- Tests: 146 → 165
+
 ## [0.3.0-pre.1] — 2026-05-04
 
 ### Added — security hardening + watermarking layer

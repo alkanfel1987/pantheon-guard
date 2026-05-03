@@ -63,6 +63,13 @@ export {
   assertRuleSetHash,
   getBuildFingerprint,
 } from './integrity.js';
+export {
+  validatePack,
+  runPack,
+  applyPack,
+  stackPacks,
+} from './packs/index.js';
+export { healthcarePack } from './packs/healthcare.js';
 
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)
