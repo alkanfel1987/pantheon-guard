@@ -42,8 +42,21 @@
     "marketing-ethics",
     "nemo-guardrails"
   ],
-  "author": "",
+  "author": {
+    "name": "Aleksandr Baryshnikov",
+    "email": "alkanfel1987@gmail.com",
+    "url": "https://github.com/alkanfel1987"
+  },
   "license": "SEE LICENSE IN LICENSE-MIT.md AND LICENSE-COMMERCIAL.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkanfel1987/pantheon-guard.git"
+  },
+  "homepage": "https://github.com/alkanfel1987/pantheon-guard#readme",
+  "bugs": {
+    "url": "https://github.com/alkanfel1987/pantheon-guard/issues",
+    "email": "alkanfel1987@gmail.com"
+  },
   "engines": {
     "node": ">=16"
   },
