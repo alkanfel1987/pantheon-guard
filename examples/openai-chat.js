@@ -71,7 +71,7 @@ async function generateGuarded(userPrompt) {
   };
 }
 
-console.log(`@pantheon/guard v${CORE_VERSION} · OpenAI guarded chat\n`);
+console.log(`pantheon-guard v${CORE_VERSION} · OpenAI guarded chat\n`);
 
 const userPrompt = 'Write a 2-line ad for a productivity course.';
 const r = await generateGuarded(userPrompt);

@@ -1,5 +1,5 @@
 /**
- * basic.js — minimal hello-world for @pantheon/guard
+ * basic.js — minimal hello-world for pantheon-guard
  *
  *   node examples/basic.js
  */
@@ -13,7 +13,7 @@ import {
   CORE_VERSION,
 } from '../src/index.js';
 
-console.log(`@pantheon/guard v${CORE_VERSION}\n`);
+console.log(`pantheon-guard v${CORE_VERSION}\n`);
 
 // 1. Direct Mahā-vrata check on a manipulative line.
 const text = 'Hurry, only 3 spots left! Don\'t miss out!';

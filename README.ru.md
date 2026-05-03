@@ -1,9 +1,9 @@
-# @pantheon/guard
+# pantheon-guard
 
 > **The conscience layer for AI-generated marketing.**
 > Ловит то, чего не ловят guardrails: fear-based копирайтинг, false urgency, dark patterns в AI-сгенерированных воронках продаж.
 
-[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/@pantheon/guard)
+[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/pantheon-guard)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
 
@@ -26,14 +26,14 @@
 
 Это ваш клиент — владелец малого бизнеса — потом звонит и спрашивает, почему его AI-бот «звучит как инфоцыган».
 
-`@pantheon/guard` решает именно эту задачу.
+`pantheon-guard` решает именно эту задачу.
 
 ## Что делает
 
 Работает **поверх** ваших существующих guardrails, не заменяя их. Двухстрочная интеграция:
 
 ```javascript
-import { checkAction } from '@pantheon/guard';
+import { checkAction } from 'pantheon-guard';
 
 const result = checkAction(agent, {
   text: "Успей, пока не поздно! Только 3 места!",
@@ -54,7 +54,7 @@ const result = checkAction(agent, {
 
 ## Как это работает — философский фундамент
 
-`@pantheon/guard` построен на Yoga-sūtra II.30–31 (Patañjali, ~400 г. н.э.). Там описана **Маха-врата** — пять запретов, которые **не корректируются** по ситуации, классу, месту или времени (санскр. *jāti-deśa-kāla-samayānavacchinna*).
+`pantheon-guard` построен на Yoga-sūtra II.30–31 (Patañjali, ~400 г. н.э.). Там описана **Маха-врата** — пять запретов, которые **не корректируются** по ситуации, классу, месту или времени (санскр. *jāti-deśa-kāla-samayānavacchinna*).
 
 Это не моральная риторика — это **архитектурное решение**. Правила, которые не имеют исключений, легко формализовать в детерминированный валидатор. Никакого fuzzy-classifier, никаких LLM-вызовов для проверки, никаких галлюцинаций в самом фильтре.
 
@@ -71,7 +71,7 @@ const result = checkAction(agent, {
 ## Установка
 
 ```bash
-npm install @pantheon/guard
+npm install pantheon-guard
 ```
 
 Zero runtime dependencies. ~43 КБ минифицировано (ESM + CJS вместе).
@@ -93,7 +93,7 @@ await sendEmail(email); // клиент в шоке
 
 **С Pantheon:**
 ```javascript
-import { checkAction, detectPatterns } from '@pantheon/guard';
+import { checkAction, detectPatterns } from 'pantheon-guard';
 
 let email = await llm.generate({ prompt: "..." });
 let attempts = 0;
@@ -179,7 +179,7 @@ checkAction(agent, {
 Быстрая проверка. ~0.1ms latency, нет LLM-вызовов.
 
 ```javascript
-import { checkMahavrata } from '@pantheon/guard';
+import { checkMahavrata } from 'pantheon-guard';
 
 const { passes, violations, details } = checkMahavrata({
   text: "...",
@@ -200,7 +200,7 @@ const { passes, violations, details } = checkMahavrata({
 Добавляет ещё 4 проверки поверх Маха-враты: Dharma (польза), Svadharma (соответствие роли агента), Guna (правильное состояние), Yajna (собственная ценность), Dana (тип отдачи).
 
 ```javascript
-import { checkAction } from '@pantheon/guard';
+import { checkAction } from 'pantheon-guard';
 
 const agent = {
   name: "BrandVoice",
@@ -220,7 +220,7 @@ const result = checkAction(agent, action);
 Если проверка прошла — выполняет executor. Если нет — блокирует и возвращает причину.
 
 ```javascript
-import { wrapAgent } from '@pantheon/guard';
+import { wrapAgent } from 'pantheon-guard';
 
 const brandBot = wrapAgent("BrandVoice");
 
@@ -239,7 +239,7 @@ if (!result.allowed) {
 Анализирует текст и возвращает объект флагов для передачи в `checkAction`. Использует детерминированные эвристики, не LLM.
 
 ```javascript
-import { detectPatterns } from '@pantheon/guard';
+import { detectPatterns } from 'pantheon-guard';
 
 const flags = detectPatterns("Успей до полуночи, осталось 3 места!");
 // { falseUrgency: true, fearBased: true, manipulation: true }
@@ -250,7 +250,7 @@ const flags = detectPatterns("Успей до полуночи, осталось
 Если хотите, чтобы система **училась** на отказах и со временем улучшала промпты — подключите цикл обучения:
 
 ```javascript
-import { LearningCycle } from '@pantheon/guard';
+import { LearningCycle } from 'pantheon-guard';
 
 const cycle = new LearningCycle({
   storage: new FileStorage('./pantheon-data.json')
@@ -331,7 +331,7 @@ A: Да. `LearningCycle` позволяет добавлять доменные 
 ## Старт
 
 ```bash
-npm install @pantheon/guard
+npm install pantheon-guard
 ```
 
 Примеры: [`/examples`](./examples)

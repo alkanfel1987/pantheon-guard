@@ -19,11 +19,11 @@ After extraction:
   it offered are now reachable as `require('../')` (i.e. `src/index.js`).
 - **`pantheon-agents.js` was not copied.** It contains agent dossiers
   (Indra, Lakshmi, Shiva, Varuna, …) that are part of the Pantheon vault
-  but not part of `@pantheon/guard`'s public surface.
+  but not part of `pantheon-guard`'s public surface.
 
 ## TODO (Phase 3)
 
-1. Decide whether `LearningCycle` belongs in `@pantheon/guard` at all, or
+1. Decide whether `LearningCycle` belongs in `pantheon-guard` at all, or
    in a separate `@pantheon/agents` package.
 2. If kept here:
    - Replace `require('./pantheon-core')` with `require('../')`.

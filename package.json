@@ -1,5 +1,5 @@
 {
-  "name": "@pantheon/guard",
+  "name": "pantheon-guard",
   "version": "0.1.0",
   "description": "Deterministic conscience layer for AI-generated content. Catches manipulation, dark patterns, and false urgency that pass through standard guardrails.",
   "main": "./dist/index.cjs",

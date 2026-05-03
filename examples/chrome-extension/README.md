@@ -1,7 +1,7 @@
 # Chrome extension example — Pantheon Guard pre-flight check
 
 A minimal MV3 extension that intercepts text before it is sent to an LLM
-and runs `checkMahavrata` + `detectPatterns` from `@pantheon/guard`.
+and runs `checkMahavrata` + `detectPatterns` from `pantheon-guard`.
 
 This is the integration pattern proven in production in the
 Avito-extension (where the original Pantheon code came from): every call
@@ -10,7 +10,7 @@ to a model is gated by a deterministic ethics layer.
 ## Files
 
 - `manifest.json` — MV3 manifest with `storage` permission for caching.
-- `content.js` — bundles `@pantheon/guard` and exposes `pantheonCheck()`.
+- `content.js` — bundles `pantheon-guard` and exposes `pantheonCheck()`.
 - `background.js` — service worker; receives messages from content
   scripts, runs the check, returns the verdict.
 - `popup.html` / `popup.js` — quick UI to demonstrate gating.

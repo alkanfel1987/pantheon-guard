@@ -13,14 +13,14 @@ To wire into NeMo, register this action and call it from Colang:
         bot inform blocked
 
 The Node script is intentionally minimal — for production deploy
-@pantheon/guard as a long-lived sidecar to avoid 150ms cold-start cost.
+pantheon-guard as a long-lived sidecar to avoid 150ms cold-start cost.
 """
 
 import json
 import subprocess
 from pathlib import Path
 
-# Path to the @pantheon/guard package — adjust if installed elsewhere.
+# Path to the pantheon-guard package — adjust if installed elsewhere.
 GUARD_DIR = Path(__file__).resolve().parent.parent.parent
 GUARD_DIST = GUARD_DIR / "dist" / "index.cjs"
 

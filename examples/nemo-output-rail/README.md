@@ -1,6 +1,6 @@
 # NeMo Guardrails ↔ Pantheon Guard — output rail integration
 
-This is the **primary integration example** for `@pantheon/guard`. NVIDIA
+This is the **primary integration example** for `pantheon-guard`. NVIDIA
 NeMo Guardrails users can drop Pantheon Guard in as an output rail that
 catches manipulation patterns NeMo's default rails do not catch (false
 urgency, fear-based content, dark patterns, clickbait).
@@ -37,14 +37,14 @@ on top of NeMo's standard topical and jailbreak rails.
 
 - Python 3.10+ with `pip install nemoguardrails`
 - Node 16+ (Pantheon Guard runtime)
-- `@pantheon/guard` installed in this folder or available globally
+- `pantheon-guard` installed in this folder or available globally
 - An LLM provider key in `OPENAI_API_KEY` or equivalent
 
 ## Setup
 
 ```bash
 pip install nemoguardrails
-npm install @pantheon/guard      # or use the local checkout
+npm install pantheon-guard      # or use the local checkout
 chmod +x run.sh pantheon-rail.py
 ```
 

@@ -161,7 +161,7 @@ We are not asking for funding. We are asking to be part of the safety story NVID
 
 | | |
 |---|---|
-| Package | `@pantheon/guard` (npm) |
+| Package | `pantheon-guard` (npm) |
 | Size | 18 KB minified |
 | Runtime deps | 0 |
 | Latency | 0.1–0.3 ms |

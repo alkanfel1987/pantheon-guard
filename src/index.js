@@ -1,5 +1,5 @@
 /**
- * @pantheon/guard · public API
+ * pantheon-guard · public API
  *
  * Deterministic conscience layer for AI-generated content.
  * Catches manipulation, dark patterns, and false urgency that pass through

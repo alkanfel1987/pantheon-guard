@@ -33,19 +33,19 @@ const { AGENTS, getAgent } = require('./pantheon-agents');
 After extraction:
 
 - `pantheon-core.js` was split across the seven modules in `src/` and
-  is now reachable as the package's main entry (`@pantheon/guard`).
+  is now reachable as the package's main entry (`pantheon-guard`).
 - `pantheon-agents.js` was **not** extracted. It contains agent
   dossiers (Indra, Lakshmi, Shiva, Varuna, …) which live in the
-  Pantheon vault, not in `@pantheon/guard`.
+  Pantheon vault, not in `pantheon-guard`.
 
 A clean integration needs a decision: do those dossiers belong here, or
 does `LearningCycle` move to a separate `@pantheon/agents` package that
-depends on `@pantheon/guard`?
+depends on `pantheon-guard`?
 
 ## Phase 3+ TODO
 
 1. Decide on package boundary (here vs. separate package).
-2. Rewire imports — `require('./pantheon-core')` → `require('@pantheon/guard')`
+2. Rewire imports — `require('./pantheon-core')` → `require('pantheon-guard')`
    if kept, or extract `pantheon-agents.js` into a sibling module.
 3. Add storage adapters per B3-ACTION-PLAN Phase 3:
    - `storage-file.js`  — Node `fs` adapter

@@ -7,7 +7,7 @@
 
 ## What MIT covers
 
-`@pantheon/guard` is dual-licensed. Under [LICENSE-MIT.md](./LICENSE-MIT.md)
+`pantheon-guard` is dual-licensed. Under [LICENSE-MIT.md](./LICENSE-MIT.md)
 you may use, copy, modify, distribute and embed the package in:
 
 - personal projects
@@ -23,11 +23,11 @@ permission notice in any substantial copy of the code.
 
 A commercial subscription is required when:
 
-1. You embed `@pantheon/guard` in a **commercial product** that you
+1. You embed `pantheon-guard` in a **commercial product** that you
    sell or license to customers;
-2. You deploy `@pantheon/guard` at runtime inside a **production**
+2. You deploy `pantheon-guard` at runtime inside a **production**
    commercial AI service or SaaS;
-3. You use `@pantheon/guard` **internally** at a corporation with
+3. You use `pantheon-guard` **internally** at a corporation with
    greater than 50 employees in production-facing AI systems.
 
 Evaluation, pilots, and trials do not require a subscription.
@@ -47,7 +47,7 @@ on volume, support requirements, and any custom-rule co-development.
 
 ## What you get with a paid subscription
 
-- Permission to use `@pantheon/guard` per the use cases above
+- Permission to use `pantheon-guard` per the use cases above
 - Email support, response within 2 business days
 - Priority on new rules, additional language patterns, and benchmark
   data releases

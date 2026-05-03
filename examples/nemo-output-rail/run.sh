@@ -3,7 +3,7 @@
 #
 # Usage: ./run.sh
 # Requires: nemoguardrails CLI in PATH, OPENAI_API_KEY env var, Node 16+,
-#           and `npm run build` already executed in the @pantheon/guard root.
+#           and `npm run build` already executed in the pantheon-guard root.
 
 set -euo pipefail
 

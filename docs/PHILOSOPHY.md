@@ -1,4 +1,4 @@
-# Philosophy of `@pantheon/guard`
+# Philosophy of `pantheon-guard`
 
 > This document is for engineers who want to know *why* the rules look
 > the way they do. The package itself works without any of this — read
@@ -6,7 +6,7 @@
 
 ## What this package is
 
-`@pantheon/guard` is a **deterministic conscience layer** for AI-generated
+`pantheon-guard` is a **deterministic conscience layer** for AI-generated
 content. It runs alongside (not instead of) the standard guardrails
 suites — NVIDIA NeMo Guardrails, AWS Bedrock Guardrails, Microsoft Azure
 AI Content Safety, Salesforce Einstein Trust Layer.
@@ -71,7 +71,7 @@ They are evaluated *after* Mahā-vrata, not instead of:
 4. **Yajna** — does the action have intrinsic value?
 5. **Dana** — what form of giving am I performing?
 
-Most calls to `@pantheon/guard` will care only about Mahā-vrata; the
+Most calls to `pantheon-guard` will care only about Mahā-vrata; the
 five-step algorithm is what an agentic system uses to route work between
 specialised agents and to refuse work it should not do at all.
 

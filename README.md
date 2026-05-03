@@ -1,9 +1,9 @@
-# @pantheon/guard
+# pantheon-guard
 
 > **The conscience layer for AI-generated marketing.**
 > Catches what guardrails miss: fear-based copywriting, false urgency, dark patterns in AI-generated sales funnels.
 
-[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/@pantheon/guard)
+[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/pantheon-guard)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
 
@@ -26,14 +26,14 @@ None of the existing guardrails catch this. They were built to defend against le
 
 This is the customer — a small-business owner — who later calls and asks why their AI bot "sounds like a scammer."
 
-`@pantheon/guard` solves exactly that problem.
+`pantheon-guard` solves exactly that problem.
 
 ## What it does
 
 Runs **on top of** your existing guardrails, not replacing them. Two-line integration:
 
 ```javascript
-import { checkAction } from '@pantheon/guard';
+import { checkAction } from 'pantheon-guard';
 
 const result = checkAction(agent, {
   text: "Hurry, only 3 spots left!",
@@ -54,7 +54,7 @@ If `passes: true` — you ship the text to the user. If `false` — you ask the 
 
 ## How it works — the foundation
 
-`@pantheon/guard` is built on Yoga-sūtra II.30–31 (Patañjali, ~400 CE). It defines the **Mahā-vrata** — five constraints explicitly described as **not corrected by class, place, time, or circumstance** (Skt. *jāti-deśa-kāla-samayānavacchinna*).
+`pantheon-guard` is built on Yoga-sūtra II.30–31 (Patañjali, ~400 CE). It defines the **Mahā-vrata** — five constraints explicitly described as **not corrected by class, place, time, or circumstance** (Skt. *jāti-deśa-kāla-samayānavacchinna*).
 
 This is not moral rhetoric — it is an **architectural choice**. Rules without exceptions are easy to formalize as a deterministic validator. No fuzzy classifier, no LLM calls inside the check, no hallucinations in the safety layer itself.
 
@@ -71,7 +71,7 @@ This is not moral rhetoric — it is an **architectural choice**. Rules without 
 ## Install
 
 ```bash
-npm install @pantheon/guard
+npm install pantheon-guard
 ```
 
 Zero runtime dependencies. ~43 KB minified (ESM + CJS bundled together).
@@ -93,7 +93,7 @@ await sendEmail(email); // client horrified
 
 **With Pantheon:**
 ```javascript
-import { checkAction, detectPatterns } from '@pantheon/guard';
+import { checkAction, detectPatterns } from 'pantheon-guard';
 
 let email = await llm.generate({ prompt: "..." });
 let attempts = 0;
@@ -179,7 +179,7 @@ checkAction(agent, {
 Fast check. ~0.1 ms latency, no LLM calls.
 
 ```javascript
-import { checkMahavrata } from '@pantheon/guard';
+import { checkMahavrata } from 'pantheon-guard';
 
 const { passes, violations, details } = checkMahavrata({
   text: "...",
@@ -200,7 +200,7 @@ const { passes, violations, details } = checkMahavrata({
 Adds 4 more checks on top of Mahā-vrata: Dharma (benefit), Svadharma (alignment with the agent's role), Guna (correct operating mode), Yajna (intrinsic value), Dana (mode of contribution).
 
 ```javascript
-import { checkAction } from '@pantheon/guard';
+import { checkAction } from 'pantheon-guard';
 
 const agent = {
   name: "BrandVoice",
@@ -220,7 +220,7 @@ const result = checkAction(agent, action);
 If the check passes — runs the executor. If it fails — blocks and returns the reason.
 
 ```javascript
-import { wrapAgent } from '@pantheon/guard';
+import { wrapAgent } from 'pantheon-guard';
 
 const brandBot = wrapAgent("BrandVoice");
 
@@ -239,7 +239,7 @@ if (!result.allowed) {
 Analyzes text and returns a flag object to pass into `checkAction`. Uses deterministic heuristics, not an LLM.
 
 ```javascript
-import { detectPatterns } from '@pantheon/guard';
+import { detectPatterns } from 'pantheon-guard';
 
 const flags = detectPatterns("Hurry, only 3 spots left until midnight!");
 // { falseUrgency: true, fearBased: true, manipulation: true }
@@ -250,7 +250,7 @@ const flags = detectPatterns("Hurry, only 3 spots left until midnight!");
 If you want the system to **learn** from rejections and improve prompts over time — wire in the learning loop:
 
 ```javascript
-import { LearningCycle } from '@pantheon/guard';
+import { LearningCycle } from 'pantheon-guard';
 
 const cycle = new LearningCycle({
   storage: new FileStorage('./pantheon-data.json')
@@ -331,7 +331,7 @@ Not because it sounds impressive, but because these traditions have been working
 ## Get started
 
 ```bash
-npm install @pantheon/guard
+npm install pantheon-guard
 ```
 
 Examples: [`/examples`](./examples)
