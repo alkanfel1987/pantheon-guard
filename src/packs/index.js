@@ -4,54 +4,49 @@
  * A "pack" is a domain-specific extension to the deterministic core. It adds:
  *
  *   1. detectionPatterns — additional regex matchers, each tagged with a
- *      core mahā-vrata rule it routes through (ahimsa, satya, asteya,
- *      shaucha, indriya_nigraha). Packs do NOT introduce new top-level
- *      ethical categories — every domain-specific harm maps onto a
- *      Yoga-sūtra rule for principled consistency.
+ *      core mahā-vrata rule (ahimsa / satya / asteya / shaucha /
+ *      indriya_nigraha). Packs do NOT introduce new top-level ethical
+ *      categories — every domain harm maps onto a Yoga-sūtra rule for
+ *      principled audit consistency.
  *
- *   2. requirements — domain-specific *positive* requirements: things a
- *      compliant AI text MUST contain in this domain (e.g. healthcare
- *      AI must recommend professional consultation when discussing
- *      symptoms). Failing a requirement is its own violation class.
+ *   2. requirements — domain-specific *positive* requirements (e.g.
+ *      healthcare AI must include provider-escalation language when
+ *      discussing symptoms). Failing one is its own violation class.
  *
- *   3. calibratorOverrides — per-pack tightening of the calibrator
- *      thresholds. Higher-stakes domains (medical, financial advice) use
- *      lower noise floors and lower strong-thresholds, because the cost
- *      of a confident-but-wrong "pass" is higher.
+ *   3. calibratorOverrides — per-pack tightening of CALIBRATOR_PARAMS.
+ *      Higher-stakes domains use lower noise floors and lower
+ *      strong-thresholds because the cost of a confident-but-wrong
+ *      "pass" is higher.
  *
- * The pack does NOT replace the core; it composes with it. Calling
- * `applyPack(pack)` returns an enhanced inspect() function that runs
- * core detection PLUS the pack rules in a single pipeline.
- *
- * Why this design:
- *   - Backward compatible: core inspect() unchanged.
- *   - Principled: domain rules route through existing mahā-vrata, so
- *     audit logs stay consistent across packs.
- *   - Composable: callers can stack packs (e.g. healthcare + finance for
- *     a hybrid medtech-fintech app).
- *   - Commercial fit: packs are the natural unit for paid subscriptions
- *     in the open-core model.
+ * `applyPack(pack)` returns an inspect() variant that runs core detection
+ * with the pack's calibrator overrides AND the pack's patterns +
+ * requirements. The normalized text is shared between the two passes so
+ * normalization runs only once per inspect call.
  */
 
 import { inspect as coreInspect } from '../inspect.js';
 import { CALIBRATOR_PARAMS } from '../calibrator.js';
 import { normalizeText } from '../normalize.js';
+import { MAHAVRATA } from '../mahavrata.js';
+
+const VALID_RULES = Object.freeze(Object.keys(MAHAVRATA.rules));
+const VALID_SEVERITIES = Object.freeze(['low', 'medium', 'high']);
 
 /**
  * @typedef {Object} DetectionPattern
- * @property {'ahimsa'|'satya'|'asteya'|'shaucha'|'indriya_nigraha'} rule  Maha-vrata rule this pattern routes through.
- * @property {string} name                 Marker name for evidence trail.
- * @property {RegExp} regex                Pattern to match against normalized text.
- * @property {string} [description]        Human-readable description for audit.
+ * @property {'ahimsa'|'satya'|'asteya'|'shaucha'|'indriya_nigraha'} rule
+ * @property {string} name
+ * @property {RegExp} regex
+ * @property {string} [description]
  */
 
 /**
  * @typedef {Object} Requirement
- * @property {string} id                   Unique requirement id.
- * @property {(text: string) => boolean} condition  When this requirement applies (e.g. "if text mentions symptoms").
- * @property {(text: string) => boolean} check       Whether the requirement is satisfied.
- * @property {'low'|'medium'|'high'} severity        Severity if unmet.
- * @property {string} message                        Audit log message.
+ * @property {string} id
+ * @property {(text: string) => boolean} condition
+ * @property {(text: string) => boolean} check
+ * @property {'low'|'medium'|'high'} severity
+ * @property {string} message
  */
 
 /**
@@ -65,23 +60,13 @@ import { normalizeText } from '../normalize.js';
  */
 
 // ─────────────────────────────────────────────
-// Pack validation — defensive checks at registration
+// Validation
 // ─────────────────────────────────────────────
 
-const VALID_RULES = Object.freeze(
-  ['ahimsa', 'satya', 'asteya', 'shaucha', 'indriya_nigraha']
-);
-
 export function validatePack(pack) {
-  if (!pack || typeof pack !== 'object') {
-    throw new TypeError('pack must be an object');
-  }
-  if (typeof pack.id !== 'string' || !pack.id) {
-    throw new TypeError('pack.id must be a non-empty string');
-  }
-  if (typeof pack.version !== 'string') {
-    throw new TypeError('pack.version must be a string');
-  }
+  if (!pack || typeof pack !== 'object') throw new TypeError('pack must be an object');
+  if (typeof pack.id !== 'string' || !pack.id) throw new TypeError('pack.id must be a non-empty string');
+  if (typeof pack.version !== 'string') throw new TypeError('pack.version must be a string');
   if (!Array.isArray(pack.detectionPatterns)) {
     throw new TypeError('pack.detectionPatterns must be an array');
   }
@@ -106,9 +91,9 @@ export function validatePack(pack) {
     if (typeof r.condition !== 'function' || typeof r.check !== 'function') {
       throw new TypeError(`pack ${pack.id}: requirement "${r.id}" missing condition/check`);
     }
-    if (!['low', 'medium', 'high'].includes(r.severity)) {
+    if (!VALID_SEVERITIES.includes(r.severity)) {
       throw new TypeError(
-        `pack ${pack.id}: requirement "${r.id}" severity must be low|medium|high`
+        `pack ${pack.id}: requirement "${r.id}" severity must be ${VALID_SEVERITIES.join('|')}`
       );
     }
   }
@@ -116,24 +101,25 @@ export function validatePack(pack) {
 }
 
 // ─────────────────────────────────────────────
-// Pack runner — runs additional patterns + requirements over text
+// Pack runner
 // ─────────────────────────────────────────────
 
 /**
- * Run a pack's detection patterns + requirements against text.
- * Returns the additional violations and pack-specific evidence found.
+ * Run a pack's detection patterns + requirements.
  *
  * @param {Pack} pack
  * @param {string} text
+ * @param {Object} [options]
+ * @param {string} [options.normalized] precomputed normalized view (shared with core inspect)
  * @returns {{
  *   packViolations: Array<{rule: string, source: string, reason: string, severity: string}>,
  *   packEvidence: Object<string, string[]>,
  *   unmetRequirements: Array<{id: string, severity: string, message: string}>,
  * }}
  */
-export function runPack(pack, text) {
+export function runPack(pack, text, options = {}) {
   validatePack(pack);
-  const normalized = normalizeText(text);
+  const normalized = options.normalized ?? normalizeText(text);
   const packEvidence = {};
   const packViolations = [];
 
@@ -166,20 +152,14 @@ export function runPack(pack, text) {
 }
 
 // ─────────────────────────────────────────────
-// applyPack — produces an inspect() variant enhanced with the pack
+// applyPack — one pack
 // ─────────────────────────────────────────────
 
 /**
- * Wraps `inspect()` so every call also runs the supplied pack.
- *
- * The returned function has the same signature as inspect(), and adds
- * three fields to the returned object:
- *   - packViolations: pack-specific violations (in addition to core)
- *   - packEvidence:   markers naming which pack patterns fired
- *   - unmetRequirements: domain-specific positive checks that failed
- *
- * The `passes` field is conjunction: passes-core AND no-pack-violations
- * AND all-requirements-met.
+ * Wrap `inspect()` so every call also runs the supplied pack. The pack's
+ * `calibratorOverrides` are passed through to inspect; the normalized
+ * text is computed once and shared between core detection and pack
+ * detection.
  *
  * @param {Pack} pack
  * @returns {(text: string, options?: Object) => Object}
@@ -187,8 +167,14 @@ export function runPack(pack, text) {
 export function applyPack(pack) {
   validatePack(pack);
   return function inspectWithPack(text, options = {}) {
-    const baseResult = coreInspect(text, options);
-    const { packViolations, packEvidence, unmetRequirements } = runPack(pack, text);
+    const normalized = typeof text === 'string' ? normalizeText(text) : '';
+    const baseResult = coreInspect(text, {
+      ...options,
+      calibratorOverrides: pack.calibratorOverrides ?? options.calibratorOverrides,
+      normalized,
+    });
+    const { packViolations, packEvidence, unmetRequirements } =
+      runPack(pack, text, { normalized });
 
     const passesPack = packViolations.length === 0 && unmetRequirements.length === 0;
     return {
@@ -202,9 +188,14 @@ export function applyPack(pack) {
   };
 }
 
+// ─────────────────────────────────────────────
+// stackPacks — multiple packs
+// ─────────────────────────────────────────────
+
 /**
- * Stack multiple packs. Calls run sequentially; violations and evidence
- * from each pack are merged into the result.
+ * Stack multiple packs. The merged calibratorOverrides apply (later packs
+ * win on key collisions). Normalized text is computed once and shared
+ * across all pack runs.
  *
  * @param {Pack[]} packs
  * @returns {(text: string, options?: Object) => Object}
@@ -214,14 +205,28 @@ export function stackPacks(packs) {
     throw new TypeError('stackPacks requires non-empty pack array');
   }
   packs.forEach(validatePack);
+
+  // Merge calibrator overrides at composition time so per-call work is just
+  // a shallow read.
+  const mergedOverrides = packs.reduce((acc, p) => (
+    p.calibratorOverrides ? { ...acc, ...p.calibratorOverrides } : acc
+  ), undefined);
+
   return function inspectWithStack(text, options = {}) {
-    let result = coreInspect(text, options);
+    const normalized = typeof text === 'string' ? normalizeText(text) : '';
+    const baseResult = coreInspect(text, {
+      ...options,
+      calibratorOverrides: mergedOverrides ?? options.calibratorOverrides,
+      normalized,
+    });
+
     const allPackViolations = [];
     const allPackEvidence = {};
     const allUnmet = [];
     const packIds = [];
     for (const pack of packs) {
-      const { packViolations, packEvidence, unmetRequirements } = runPack(pack, text);
+      const { packViolations, packEvidence, unmetRequirements } =
+        runPack(pack, text, { normalized });
       allPackViolations.push(...packViolations);
       for (const [k, v] of Object.entries(packEvidence)) {
         if (!allPackEvidence[k]) allPackEvidence[k] = [];
@@ -230,10 +235,11 @@ export function stackPacks(packs) {
       allUnmet.push(...unmetRequirements);
       packIds.push(`${pack.id}@${pack.version}`);
     }
+
     const passesPacks = allPackViolations.length === 0 && allUnmet.length === 0;
     return {
-      ...result,
-      passes: result.passes && passesPacks,
+      ...baseResult,
+      passes: baseResult.passes && passesPacks,
       packs: packIds,
       packViolations: allPackViolations,
       packEvidence: allPackEvidence,

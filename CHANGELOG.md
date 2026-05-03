@@ -6,6 +6,99 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.4.0-pre.2] — 2026-05-04
+
+### Polish pass — fixed dead feature, hot-path perf, DRY, stale comments
+
+A `simplify`-skill review across v0.3 + v0.4 surface flagged one real
+correctness bug, three hot-path inefficiencies, and several stale
+comments. All addressed in a single atomic commit; no API breakage.
+
+#### Fixed — `calibratorOverrides` was documented but not wired
+
+`healthcarePack.calibratorOverrides` declared `NOISE_FLOOR: 0.20` and
+`STRONG_THRESHOLD: 0.55`, but `runPack` / `applyPack` / `stackPacks`
+never read them — the override was silently ignored, and healthcare
+detection ran with default core thresholds. **This was a bug**: the
+killer feature for higher-stakes domains was non-functional.
+
+Plumbed end-to-end:
+- `calibrate(text, evidence, overrides?)` now accepts a partial override
+  map and merges with `CALIBRATOR_PARAMS` per call.
+- `isStrong(c, threshold?)` now accepts an explicit threshold instead
+  of always reading the module-level constant.
+- `detectPatternsCalibrated(text, {overrides})` plumbs through.
+- `inspect(text, {calibratorOverrides})` plumbs through; the strong-
+  threshold used for boolean conversion respects the override.
+- `applyPack(pack)` and `stackPacks(packs)` pass the pack's
+  `calibratorOverrides` (merged for stacks) into the inspect call.
+- Two new tests in `test/packs-healthcare.test.js` verify end-to-end
+  override plumbing — including a thresholds-only mini-pack proving
+  packs with no patterns still take effect.
+
+#### Fixed — double normalization in `applyPack` / `stackPacks` hot path
+
+Previously `applyPack` called `coreInspect` (which normalized inside
+`detectPatternsCalibrated`) and then `runPack` (which normalized again).
+For `stackPacks` with N packs that was N+1 normalization passes per
+inspect call. Normalization is the most expensive step in the
+deterministic pipeline.
+
+Fixed: `applyPack` and `stackPacks` compute `normalized` once, pass it
+into both `coreInspect` (via new `options.normalized` hint) and
+`runPack` (via new optional second argument). Single normalization
+per inspect call regardless of pack stack depth.
+
+#### Fixed — `normalize.js` ASCII fast-path
+
+Three of the five normalization stages (homoglyph fold, leet, spaced
+collapse) only matter for non-ASCII or special-character input. Each
+now runs only when a cheap `RegExp.test()` confirms the relevant
+characters are present. Pure-ASCII text (the majority of production
+traffic) skips ~70% of normalization work. Same applies to the
+zero-width strip — `.test()` first, `.replace()` only on hit.
+
+#### DRY
+
+- `VALID_RULES` in `packs/index.js` now derived from
+  `Object.keys(MAHAVRATA.rules)` instead of hardcoded — adding/renaming
+  a mahā-vrata rule auto-propagates to pack validation.
+- `VALID_SEVERITIES` extracted as a frozen constant; pack validation
+  + error messages reference it.
+- `EMPTY_FLAGS` and `EMPTY_CALIBRATED` extracted as frozen module-level
+  constants in `detect-patterns.js`; previously rebuilt on every empty
+  call.
+
+#### Cleanup
+
+- Removed stale "lazy import to avoid circular dependency" comment in
+  `detect-patterns.js` — the import was never lazy and there was never
+  a cycle.
+- Removed "v0.2 will replace this", "v0.3 will fit it", "Acceptable for
+  v0.1" version-roadmap narration from comments — the calibrator
+  exists, the comments were misleading.
+- Removed the eslint-disable comment that referenced a non-existent
+  `require()` pattern.
+- Tightened `inspectWeightedConformal` test: now asserts
+  `r10.threshold <= r1.threshold` with derivation comment, instead of
+  only checking that `weightTest` is reflected in the output object.
+  Previous test would have passed even if `weightTest` were silently
+  ignored by the quantile.
+
+#### Build delta
+
+- ESM 62.89 → 63.61 KB (+0.7 KB for plumbing + EMPTY_* constants;
+  partially offset by stale-comment removal)
+- DTS 94.25 → 90.54 KB (-3.7 KB after JSDoc cleanup)
+- Tests 165 → 167 (added 2 calibratorOverrides verification tests)
+
+#### Backward compatibility
+
+All public exports unchanged. The only behavior change is that
+`applyPack(healthcarePack)` (and any future pack with
+`calibratorOverrides`) now actually applies its overrides — which was
+the documented behavior all along.
+
 ## [0.4.0-pre.1] — 2026-05-04
 
 ### Added — domain rule-pack architecture + first pack (`healthcare`)

@@ -77,64 +77,57 @@ const LEET_MAP = Object.freeze({
  * @param {boolean} [options.collapseSpacedLetters=true] — "h u r r y" → "hurry"
  * @returns {string} normalized form
  */
+// Cheap pre-checks for hot-path fast-paths. Each is a `.test()` rather than
+// a `.replace()` so we allocate nothing when the input has no target chars.
+const HAS_NON_ASCII = /[^\x00-\x7F]/;
+const HAS_LEET_CHAR = /[01345 7@$]/;
+const HAS_SPACED_LETTERS = /(?<![\p{L}])(?:[\p{L}] ){2}[\p{L}]/u;
+
 export function normalizeText(text, options = {}) {
   if (typeof text !== 'string' || text.length === 0) return '';
   const deLeet = options.deLeet ?? true;
   const collapseSpacedLetters = options.collapseSpacedLetters ?? true;
 
-  // 1. NFKC unicode normalization — collapses fullwidth, ligatures,
-  //    compatibility decompositions. Cheap, well-defined.
+  // 1. NFKC — cheap, always run (catches fullwidth + compat forms).
   let s = text.normalize('NFKC');
 
-  // 2. Strip zero-width and bidi-override formatting characters.
-  s = s.replace(ZERO_WIDTH_REGEX, '');
+  // 2. Zero-width / bidi-override strip — only if any are present.
+  if (ZERO_WIDTH_REGEX.test(s)) {
+    ZERO_WIDTH_REGEX.lastIndex = 0;
+    s = s.replace(ZERO_WIDTH_REGEX, '');
+  }
 
-  // 3. Mixed-script homoglyph fold.
-  //    Only fold a Cyrillic/Greek homoglyph to its Latin twin when the
-  //    enclosing word is *mixed-script* (contains both Cyrillic AND
-  //    Latin characters). Mixed script is the attack signature itself —
-  //    legitimate Russian or English words do not mix alphabets.
-  //    Pure-Cyrillic Russian text passes through untouched, so the
-  //    Russian regex layer keeps working on it.
-  s = s.replace(/[\p{L}\p{N}'’\-]+/gu, (word) => {
-    let hasCyrillic = false;
-    let hasLatin = false;
-    for (const ch of word) {
-      if (/[Ѐ-ӿ]/.test(ch)) hasCyrillic = true;
-      else if (/[A-Za-z]/.test(ch))    hasLatin = true;
-    }
-    if (hasCyrillic && hasLatin) {
-      let folded = '';
-      for (const ch of word) folded += HOMOGLYPH_MAP[ch] ?? ch;
-      return folded;
-    }
-    // Greek-mixed-with-Latin same idea (rarer but still an attack vector).
-    let hasGreek = false;
-    for (const ch of word) {
-      if (/[Ͱ-Ͽ]/.test(ch)) { hasGreek = true; break; }
-    }
-    if (hasGreek && hasLatin) {
-      let folded = '';
-      for (const ch of word) folded += HOMOGLYPH_MAP[ch] ?? ch;
-      return folded;
-    }
-    return word;
-  });
+  // 3. Mixed-script homoglyph fold. Skipped entirely for pure-ASCII text:
+  // mixed-script attacks require non-ASCII characters by definition.
+  if (HAS_NON_ASCII.test(s)) {
+    s = s.replace(/[\p{L}\p{N}'’\-]+/gu, (word) => {
+      let hasCyrillic = false;
+      let hasLatin = false;
+      let hasGreek = false;
+      for (const ch of word) {
+        if (/[Ѐ-ӿ]/.test(ch))      hasCyrillic = true;
+        else if (/[A-Za-z]/.test(ch)) hasLatin = true;
+        else if (/[Ͱ-Ͽ]/.test(ch))    hasGreek = true;
+      }
+      if (hasLatin && (hasCyrillic || hasGreek)) {
+        let folded = '';
+        for (const ch of word) folded += HOMOGLYPH_MAP[ch] ?? ch;
+        return folded;
+      }
+      return word;
+    });
+  }
 
-  // 4. Leetspeak normalization — apply BETWEEN letters only, so we
-  //    don't break legitimate digits like "3 spots left" or "v0.2".
-  //    Heuristic: a digit becomes a letter only if both neighbors are
-  //    Unicode letters.
-  if (deLeet) {
+  // 4. Leetspeak — only if any leet-substitute char is present, and only
+  // between two letter neighbours (so "3 spots" / "v0.2" stay intact).
+  if (deLeet && HAS_LEET_CHAR.test(s)) {
     const chars = Array.from(s);
-    for (let i = 0; i < chars.length; i++) {
+    for (let i = 1; i < chars.length - 1; i++) {
       const c = chars[i];
       if (LEET_MAP[c]) {
         const prev = chars[i - 1];
         const next = chars[i + 1];
-        const prevIsLetter = prev && /[\p{L}]/u.test(prev);
-        const nextIsLetter = next && /[\p{L}]/u.test(next);
-        if (prevIsLetter && nextIsLetter) {
+        if (/\p{L}/u.test(prev) && /\p{L}/u.test(next)) {
           chars[i] = LEET_MAP[c];
         }
       }
@@ -142,10 +135,9 @@ export function normalizeText(text, options = {}) {
     s = chars.join('');
   }
 
-  // 5. Collapse single-letter spaced tokens. "h u r r y" → "hurry".
-  //    Only triggers on runs of single letters separated by single
-  //    spaces; doesn't touch normal phrases.
-  if (collapseSpacedLetters) {
+  // 5. Collapse "h u r r y" → "hurry". Only when the spaced pattern
+  // actually exists in the string.
+  if (collapseSpacedLetters && HAS_SPACED_LETTERS.test(s)) {
     s = s.replace(/(?<![\p{L}])((?:[\p{L}] ){2,}[\p{L}])(?![\p{L}])/gu,
                   (match) => match.replace(/ /g, ''));
   }
