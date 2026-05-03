@@ -60,9 +60,46 @@ guarded. Look at the **delta** — that's what Pantheon adds.
 ## How the Python wrapper talks to Pantheon Guard
 
 `pantheon-rail.py` shells out to a tiny Node one-liner that imports
-`detectPatterns` and `checkMahavrata`, then prints JSON. Latency ~50ms
+the v0.2 `inspect()` API and prints a JSON verdict. Latency ~50ms
 per call on a warm Node, ~150ms cold start. For production, run the
 Node wrapper as a long-lived sidecar (see `examples/openai-chat.js`).
+
+## v0.2 — what `inspect()` returns over a v0.1 boolean rail
+
+The verdict is richer than `passes: bool` so your Colang flow can
+make smarter routing decisions:
+
+```python
+verdict = await pantheon_check("Hurry, only 3 spots left!")
+# {
+#   "passes": False,
+#   "abstain": False,
+#   "confidence": {
+#       "falseUrgency": 0.81,
+#       "fearBased": 0.0,
+#       "clickbait": 0.0,
+#       "manipulation": 0.79
+#   },
+#   "evidence": {
+#       "falseUrgency": ["urgency_en:Hurry", "scarcity_en:3 spots left"],
+#       ...
+#   },
+#   "violations": [{"rule": "ahimsa", ...}, ...],
+#   "policy": "calibrated"
+# }
+```
+
+Three modes your flow can implement:
+
+| Output | Action |
+|---|---|
+| `passes: true` | ship the draft to the user |
+| `passes: false, confidence.manipulation > 0.7` | block + regenerate |
+| `abstain: true` | route to human reviewer (input was too thin) |
+
+This abstain path is what no other guardrail vendor offers — they all
+emit a confident verdict regardless of input quality. The cost of a
+silently-wrong "pass" on a corner case is what the abstain mode prevents.
 
 ## What Pantheon catches that NeMo's defaults don't
 

@@ -5,6 +5,9 @@
  * reaches the user. If it fails, the agent regenerates with stricter
  * instructions; after N retries we fall back to a safe canned reply.
  *
+ * Uses v0.2 `inspect()` — one call instead of three, plus calibrated
+ * confidence so we can log how sure the guard was about each block.
+ *
  * Run:  OPENAI_API_KEY=sk-... node examples/openai-chat.js
  *
  * Requires: npm i openai
@@ -12,8 +15,7 @@
 
 import OpenAI from 'openai';
 import {
-  checkMahavrata,
-  detectPatterns,
+  inspect,
   CORE_VERSION,
 } from '../src/index.js';
 
@@ -46,20 +48,22 @@ async function generateGuarded(userPrompt) {
 
   for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
     const draft = await generateOnce(systemPrompt, userPrompt);
-    const contains = detectPatterns(draft);
-    const verdict = checkMahavrata({
-      text: draft,
+    // v0.2: one call, calibrated mode is the default.
+    const verdict = inspect(draft, {
       intent: 'persuade',
       urgency: 0.5,
       paused: true,
-      contains,
     });
 
     if (verdict.passes) {
-      return { ok: true, text: draft, attempts: attempt + 1 };
+      return { ok: true, text: draft, attempts: attempt + 1, verdict };
     }
 
-    console.log(`[attempt ${attempt + 1}] blocked:`, verdict.violations.map(v => v.rule).join(','));
+    console.log(
+      `[attempt ${attempt + 1}] blocked:`,
+      verdict.violations.map((v) => v.rule).join(','),
+      `(manipulation conf=${verdict.confidence.manipulation.toFixed(2)})`
+    );
     systemPrompt = STRICTER; // tighten for next round
   }
 
@@ -77,3 +81,6 @@ const userPrompt = 'Write a 2-line ad for a productivity course.';
 const r = await generateGuarded(userPrompt);
 console.log(`Result (after ${r.attempts} attempts, allowed: ${r.ok}):`);
 console.log(r.text);
+if (r.verdict) {
+  console.log(`\nFinal confidence: manipulation=${r.verdict.confidence.manipulation.toFixed(2)}`);
+}
