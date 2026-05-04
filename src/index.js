@@ -70,6 +70,9 @@ export {
   stackPacks,
 } from './packs/index.js';
 export { healthcarePack } from './packs/healthcare.js';
+export { epistemologyPack } from './packs/epistemology.js';
+export { newsPack } from './packs/news.js';
+export { newsDePack } from './packs/news-de.js';
 
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)

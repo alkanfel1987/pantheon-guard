@@ -144,11 +144,18 @@ const PATTERNS = Object.freeze([
 // (used by the provider-escalation requirement)
 // ─────────────────────────────────────────────
 
-const MEDICAL_CONTEXT_RE_EN = /\b(?:symptom|diagnos\w+|treatment|medication|prescription|medicine|disease|condition|pain|fever|infection|surgery|therapy|drug|antibiotic|painkiller|headache|migraine|ache|cough|cold|flu|sore\s+throat|allerg\w+|rash|dizz\w+|nausea|vomit\w*|swelling|bleeding|bruise|inflammation|dehydration|insomnia|anxiety\s+disorder|depression|blood\s+pressure|cholesterol|asthma|diabet\w+|cancer|tumou?r|stroke|heart\s+attack|ulcer|hypertension|arrhythmia)s?\b/i;
+// "cold" alone is too greedy ("cold water", "cold call") — require disease
+// context. "flu" is fine standalone. Same for ambiguous one-word terms.
+const MEDICAL_CONTEXT_RE_EN = /\b(?:symptom|diagnos\w+|treatment|medication|prescription|medicine|disease|condition|pain|fever|infection|surgery|therapy|drug|antibiotic|painkiller|headache|migraine|cough|flu|sore\s+throat|allerg\w+|rash|dizz\w+|nausea|vomit\w*|swelling|bleeding|inflammation|dehydration|insomnia|anxiety\s+disorder|depression|blood\s+pressure|cholesterol|asthma|diabet\w+|cancer|tumou?r|stroke|heart\s+attack|ulcer|hypertension|arrhythmia|common\s+cold|head\s+cold|cold\s+(?:symptom|virus|sore))s?\b/i;
+// Specific medical-stem matches. "боль" was too greedy (matched "больше",
+// "большой", "большим"). "операц" was too greedy (matched military
+// "операция США"). Now: explicit stems + word boundaries via PRE/POST.
 const MEDICAL_CONTEXT_RE_RU = re(
-  'симптом' + W_STAR + '|диагноз' + W_STAR + '|лечен' + W_PLUS +
-  '|лекарств' + W_STAR + '|таблетк' + W_STAR + '|болезнь|заболеван' + W_PLUS +
-  '|боль' + W_STAR + '|инфекц' + W_STAR + '|операц' + W_STAR + '|терапи' + W_STAR
+  'симптом[а-яё]*|диагноз[а-яё]*|лечен[а-яё]+|' +
+  'лекарств[а-яё]*|таблетк[а-яё]*|болезн[а-яё]*|заболеван[а-яё]+|' +
+  'инфекц[а-яё]+|терапи[а-яё]+|' +
+  'боль|боли|болью|болей|болевой|болевая|болевое|болевые|' +
+  'хирургическ[а-яё]+\\s+операц[а-яё]+|медицинск[а-яё]+\\s+операц[а-яё]+'
 );
 const PROVIDER_ESCALATION_EN = /\b(?:consult|talk\s+to|see|contact|reach\s+out\s+to)\s+(?:a\s+|an\s+|your\s+)?(?:doctor|physician|healthcare\s+provider|medical\s+professional|nurse|pharmacist|specialist|gp|primary\s+care)\b/i;
 const PROVIDER_ESCALATION_RU = re(
@@ -168,12 +175,70 @@ function hasProviderEscalation(text) {
 }
 
 // ─────────────────────────────────────────────
+// News-report context detection (added 2026-05-05)
+//
+// Distinguishes "AI advising user about user's condition" (escalation
+// required) from "news report about medicine in third person" (escalation
+// NOT required). Multi-region benchmark surfaced 4 UK FPs where BBC/Sky
+// news headlines triggered the escalation requirement on factual reports
+// like "Thousands could benefit from cancer jab" or "Giuliani in critical
+// condition in hospital".
+//
+// Heuristic: news markers are third-person plural / institutional /
+// statistical / past-tense factual. Advice markers are second-person /
+// possessive / recommendation-verb.
+// ─────────────────────────────────────────────
+
+const NEWS_REPORT_RE_EN = /\b(?:thousands|millions|hundreds|tens\s+of\s+thousands)\s+of\s+(?:patients|people|cases|deaths|cancer|americans|britons)\b|\b(?:NHS|FDA|WHO|CDC|EMA|NICE|NIH|CMS|VA|Medicaid|Medicare|HHS|EU\s+health|EMA)\b|\b(?:study|trial|research|report)\s+(?:found|shows|published|by|in)\b|\baccording\s+to\s+(?:the\s+)?(?:study|report|trial|research|journal)\b|\bin\s+hospital\b|\b(?:approved|cleared|recalled|launched|paused)\s+by\b|\b(?:will|could|may|might)\s+benefit\s+from\b|\b(?:patients|people|cases)\s+(?:will|could|may|are|were|have\s+been)\s+\w+|\bhere'?s\s+(?:how|what|why)\s+\w+(?:\s+\w+)?\s+(?:works|happens|works\s+with|happens\s+with)\b|\b(?:explainer|fact-?check)\b|\b(?:hospitalized|hospitalised|admitted)\s+to\b|\bwhat\s+is\s+\w+(?:[,\s]\s*the\s+(?:infection|disease|virus|condition|illness|syndrome|disorder))?\b|\bthought\s+to\s+have\s+(?:killed|caused|infected)\b/i;
+const NEWS_REPORT_RE_RU = re(
+  'тысяч[а-яё]+\\s+пациент[а-яё]+|пациент[а-яё]+\\s+(?:смогут|могут|получат)' +
+  '|(?:Минздрав|ВОЗ|FDA|РАМН|РАН|ВЦИОМ|Роспотребнадзор|Росздравнадзор)' +
+  '|по\\s+данным\\s+(?:исследован|клиническ|научн)[а-яё]+' +
+  '|опубликован[а-яё]+\\s+в\\s+(?:Lancet|NEJM|JAMA|BMJ)' +
+  '|пройт[а-яё]+\\s+процедур[а-яё]+' +
+  '|(?:Reuters|Bloomberg|TASS|РИА|Axios|FT|WSJ|NYT|Spiegel|Bild|BBC):' +
+  '|выявили\\s+(?:еще\\s+)?\\w+\\s+(?:человек|пациент)[а-яё]+\\s+с\\s+симптом' +
+  '|умер[а-яё]+|скончал[а-яё]+\\s+во\\s+время' +
+  '|(?:операц[а-яё]+\\s+(?:США|ВКС|армии|ВС|ВСУ|РФ|израильск|иранск|сионистск|спец))' +
+  '|опера[а-яё]+\\s+в\\s+(?:Ормузе|Сирии|Ливии|Ираке|Афганистане)'
+);
+
+const ADVICE_CONTEXT_RE_EN = /\byour\s+(?:symptom|condition|disease|pain|treatment|medication|prescription|dose|dosage|illness|diagnosis)\b|\byou\s+(?:should\s+take|might\s+have|definitely\s+have|probably\s+have|can\s+(?:safely\s+)?(?:stop|skip|double|increase|decrease))\b|\bif\s+you\s+(?:experience|feel|have|notice|are\s+experiencing)\b|\bI\s+(?:recommend|suggest)\s+(?:taking|using|trying|that\s+you)\b/i;
+const ADVICE_CONTEXT_RE_RU = re(
+  'у\\s+вас\\s+(?:точно|однозначно|совершенно|определённо|вероятно|возможно)' +
+  '|перестаньте\\s+принимать|пропустите\\s+дозу|удвойте\\s+дозу|увеличьте\\s+дозу|уменьшите\\s+дозу' +
+  '|если\\s+у\\s+вас\\s+(?:есть|появ|болит|чувствуете)' +
+  '|я\\s+рекомендую\\s+(?:вам|принять|попробовать)'
+);
+
+function isLikelyMedicalNewsReport(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return NEWS_REPORT_RE_EN.test(text) || NEWS_REPORT_RE_RU.test(text);
+}
+
+function isLikelyAdviceContext(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return ADVICE_CONTEXT_RE_EN.test(text) || ADVICE_CONTEXT_RE_RU.test(text);
+}
+
+// Provider escalation is required when the text:
+//   1. Discusses medical content (medical context detected)
+//   2. AND is NOT clearly a news report
+//   3. OR explicitly looks like advice (second-person)
+function escalationRequirementCondition(text) {
+  if (!looksLikeMedicalAdvice(text)) return false;
+  if (isLikelyAdviceContext(text)) return true;       // advice always requires escalation
+  if (isLikelyMedicalNewsReport(text)) return false;  // news reports don't
+  return true;                                          // default: medical context requires escalation
+}
+
+// ─────────────────────────────────────────────
 // Pack export
 // ─────────────────────────────────────────────
 
 export const healthcarePack = Object.freeze({
   id: 'healthcare',
-  version: '0.1.0',
+  version: '0.1.1',
   description:
     'Healthcare-specific manipulation detection for medical / health AI agents. ' +
     'Catches self-diagnosis overclaim, cure / guarantee claims, false reassurance, ' +
@@ -185,14 +250,16 @@ export const healthcarePack = Object.freeze({
   requirements: Object.freeze([
     {
       id: 'provider_escalation',
-      condition: looksLikeMedicalAdvice,
+      condition: escalationRequirementCondition,
       check: hasProviderEscalation,
       severity: 'high',
       message:
         'Healthcare AI must include provider-escalation language ' +
-        '("consult a doctor / physician / medical professional") whenever it ' +
-        'discusses symptoms, treatment, medication, or medical conditions. ' +
-        'Missing this language risks unauthorized practice of medicine.',
+        '("consult a doctor / physician / medical professional") when ' +
+        'advising about symptoms, treatment, medication, or medical conditions. ' +
+        'Missing this language risks unauthorized practice of medicine. ' +
+        'Note (v0.1.1): news reports about medicine in third-person factual ' +
+        'style do NOT trigger this requirement.',
     },
   ]),
 
@@ -222,4 +289,10 @@ export const healthcarePack = Object.freeze({
   }),
 });
 
-export { looksLikeMedicalAdvice, hasProviderEscalation };
+export {
+  looksLikeMedicalAdvice,
+  hasProviderEscalation,
+  isLikelyMedicalNewsReport,
+  isLikelyAdviceContext,
+  escalationRequirementCondition,
+};

@@ -1,0 +1,36 @@
+# NOTE: package.json uses whitelist "files": [...] — this .npmignore is
+# defense-in-depth, not the primary mechanism. If someone adds research/
+# or similar dirs to "files" by mistake, .npmignore catches it.
+
+# Research / data / catalogue artifacts (cross-linked to alkanfel1987/pantheon-vedic-catalogue)
+research/
+catalogue/
+fixtures/
+corpus/
+
+# Working / scratch
+*.tmp
+*.scratch
+.scratch/
+work/
+todo.md
+notes.md
+
+# Build / dev artefacts
+.DS_Store
+node_modules/
+coverage/
+.nyc_output/
+*.log
+
+# Editor / IDE
+.vscode/
+.idea/
+*.swp
+*~
+
+# Local secrets (should never be in repo, but belt + suspenders)
+.env
+.env.*
+*.pem
+*.key

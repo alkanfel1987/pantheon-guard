@@ -6,6 +6,37 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added — `newsPack` (closes solo-clickbait gap)
+
+Domain pack for news / media AI output. Closes the gap documented in
+`REAL-WORLD-DOMAIN-TESTS-2026-05-04.md` where standalone clickbait stacks
+slipped through core detection because all hits routed to a single
+`clickbait` flag and the meta-flag required ≥2 flags.
+
+Approach: news-specific clickbait phrases route to `satya`,
+anonymous-source phrases to `asteya`, panic framing to `ahimsa`, and
+"before-it's-deleted" urgency to `indriya_nigraha`. Pack violations
+block independently of the core meta-flag — a single hit fails.
+
+Pattern coverage (RU + EN):
+- Shocking-secret / hidden-truth / "secret nobody knows" framing
+- "They don't want you to know" / "скрывают от народа" conspiracy frames
+- "You won't believe" / "вы не поверите"
+- "Media silence" / "о чём молчат СМИ" / "what the mainstream media won't tell you"
+- "Doctors hate this" / "эксперты ненавидят"
+- "Exposed!" / "разоблачение!" sensational-bang
+- "Will change everything / the world / history"
+- Anonymous "sources say" / "according to reports" — suppressed when a
+  named outlet (Reuters, Bloomberg, NYT, etc.) appears within 200 chars
+- Panic framing in headlines/ledes
+- "Read this before it's deleted" / "пока не удалили"
+
+Calibrator overrides: `NOISE_FLOOR: 0.20`, `STRONG_THRESHOLD: 0.55` —
+same logic as healthcare pack (high downstream cost via virality).
+
+Tests: 36 new fixtures including 3 regression cases for the documented
+solo-clickbait gap (EN, RU, mixed-script bypass).
+
 ## [0.4.0-pre.2] — 2026-05-04
 
 ### Polish pass — fixed dead feature, hot-path perf, DRY, stale comments
