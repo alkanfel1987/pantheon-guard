@@ -1,7 +1,7 @@
 {
   "name": "pantheon-guard",
-  "version": "0.4.0-pre.2",
-  "description": "Deterministic conscience layer for AI-generated content. Catches manipulation, dark patterns, and false urgency that pass through standard guardrails.",
+  "version": "0.4.0-pre.3",
+  "description": "Deterministic conscience layer for AI agent output. Catches manipulative copy, false urgency, and dark patterns — the content-safety failure mode missed by input-attack guardrails.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
@@ -18,6 +18,7 @@
     "src",
     "examples",
     "docs",
+    "bench",
     "README.md",
     "README.ru.md",
     "PITCH.md",
@@ -28,6 +29,11 @@
   "scripts": {
     "demo": "node examples/cli-demo.js",
     "test": "node --test test/*.test.js",
+    "bench:freeze": "node bench/freeze-baseline.js",
+    "bench:check": "node bench/check.js",
+    "bench:split": "node bench/holdout.js",
+    "bench:annotate2": "node bench/annotator2.js",
+    "bench:kappa": "node bench/kappa.js",
     "build": "tsup",
     "prepublishOnly": "npm test && npm run build"
   },

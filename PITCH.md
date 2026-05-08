@@ -2,7 +2,7 @@
 ## A deterministic conscience layer for agentic AI
 
 > **For:** NVIDIA NeMo Guardrails / Agent Blueprints team (and parallel-form for AWS / Microsoft / Salesforce — see TARGETS.md)
-> **Status:** v0.4.0-pre.2 — calibrated + conformal + adversarial-hardened + signed + first commercial pack (`@pantheon/guard-healthcare`) shipping; public benchmark with numbers in v0.5 (Q3 2026)
+> **Status:** v0.4.0-pre.3 — calibrated + conformal + adversarial-hardened + signed + 4 production packs (healthcare, news RU+EN, news-DE, epistemology); pre-registered cross-language benchmark N=509 (RU 95.7%, FP 0.4%); public NIST submission Q3 2026
 > **Ask:** integration pilot + co-positioning as a complementary layer in NeMo
 
 ---
@@ -276,7 +276,7 @@ We are not asking for funding. We are asking to be part of the safety story NVID
 | | |
 |---|---|
 | Package | `pantheon-guard` (npm) |
-| Version | **v0.4.0-pre.2** |
+| Version | **v0.4.0-pre.3** |
 | Size | ~64 KB minified (rule data + packs runtime + watermark + integrity) |
 | Runtime deps | 0 |
 | Latency | 0.1–0.3 ms (ASCII fast-path skips ~70% of normalization work for English text) |
@@ -287,15 +287,15 @@ We are not asking for funding. We are asking to be part of the safety story NVID
 | Adversarial resistance | 9 bypass vectors closed with regression suite (test-driven workflow) |
 | Runtimes supported | Node.js 16+, browsers, Chrome extensions |
 | License | MIT (OSS) / Commercial (SaaS, enterprise) / per-pack subscription |
-| Tests | **167 / 167 passing** on Node 18 / 20 / 22 (CI) |
-| Install (today) | `npm install github:alkanfel1987/pantheon-guard#v0.4.0-pre.2` |
+| Tests | **203 / 203 passing** on Node 18 / 20 / 22 (CI) |
+| Install | `npm install pantheon-guard@next` (or pin: `pantheon-guard@0.4.0-pre.3`) |
 | Status | v0.4 pack architecture + healthcare pack shipping; v0.5 public benchmark with measured ECE next |
 
 ---
 
 ## Contact
 
-Project lead: Aleksandr Kanfel
+Project lead: Aleksandr Shevchenko
 Email: alkanfel1987@gmail.com
 Repo: GitHub (link on request)
 Demo: 15-minute live walkthrough available on request — we can run NeMo Guardrails and Pantheon Guard side-by-side on your adversarial inputs.

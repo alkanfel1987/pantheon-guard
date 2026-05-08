@@ -6,6 +6,198 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.4.1] — 2026-05-08
+
+### Added — real-OOS learning cycle + A.1 lexical broadening
+
+A two-cycle learning sprint that took real-distribution recall on fresh
+out-of-sample data from **5.3% (N=119, 15 RU publishers, 3 domains)** to
+**57.1% on replication probe (N=40, same publishers, section-level URLs,
+unseen items)**, while preserving 0.0% FP-rate on replication and
+maintaining 95.7% accuracy + 0.8% FP-rate on curated phase1 N=280.
+
+The cycle exposed and corrected a critical overfit pattern: the cycle-2
+v0.3.0 patterns matched cycle-1 frozen-corpus FNs lexically (84.2% recall
+on training corpus) but failed completely (0% recall) on parallel
+manipulation expressed in different vocabulary. Cycle-2.A1 replaced
+discrete pattern enumeration with **family patterns** (modifier-list
+grammar) and lifted replication recall to 57.1% with 5/5 acceptance
+criteria passing.
+
+This is documented as **deliberate methodology, not isolated lift**:
+real-distribution claims now require pre-registered + replication-probed
+metrics; curated benchmark numbers are no longer presented standalone.
+
+### Added — `news` v0.4.0 (was 0.2.0): family-pattern broadening
+
+13 new patterns + 9 broadenings replacing v0.3.0 discrete forms:
+
+- **Q-clickbait family pattern** — `(что|как|почему|зачем) + (важно|нужно|стоит|...) + (знать|реагировать|...)` covers parallel constructions in single regex
+- **Direct-reaction Q** — restored from v0.3 for "Как на это отреагировал X"
+- **Vague-reveal open verb-list** — `раскрыл/выдал/поделился + (тайн|особенност|деталь|...)` with named-source inhibitor
+- **Western-media broader** — `утверждают западные СМИ` + `по данным западн... СМИ`
+- **Managerial moral-framing** — `абьюзер в (топ-менеджменте|команде|...)` + `токсичн... (руководит|босс|...)`
+- **Hostage metaphor** — `держит ... в (заложник|плену|клетке|...)`
+- **Sensational-survival narrative** — `(упал|разбил|...) + ... + (выжил|спасся|...)` with emergency-services inhibitor
+- Family patterns retained narrow forms for direct-form coverage
+
+Calibrator overrides unchanged (NOISE_FLOOR 0.20, STRONG_THRESHOLD 0.55).
+
+### Added — `epistemology` v0.2.0 (was 0.1.0)
+
+Two new requirements + verb-list expansion for existing patterns:
+
+- **`epistemic_closure`** detector (M-7 in pantheon-guard manipulation
+  registry) — captures pre-conclusion framing where observation is
+  presented as confirmation of foregone outcome ("ожидаемо не стал",
+  "как и предполагалось", "сразу возникла мысль")
+- **`ad_hominem`** detector — characterological attacks in political
+  context ("руки заточены", "Иуда X", "не доверили бы X инструмент")
+- **Closure verb-list expansion** — added `остаются/оказал/попал/...`
+  to capture parallel constructions
+- **Parenthetical em-dash pattern** — `— (ожидаемо|закономерно|...) —`
+  catches the closure-as-aside form
+
+### Added — `healthcare` v0.1.3 (was 0.1.1): two new context-discrimination inhibitors
+
+Healthcare pack's `provider_escalation` requirement is now suppressed in
+two additional contexts beyond the original news-report inhibitor:
+
+- **`isLikelyLegalCommentary`** — markers `спор/иск/суд/обзор ВС/...`
+  suppress in legal-commentary contexts about pharma-injunctions / drug
+  regulation discussions (cycle-1 FP-1 fix)
+- **`isLikelyCulturalReference`** — markers `книга/фильм/альбом/...`
+  suppress in cultural-reference contexts (e.g. book titles containing
+  medical vocabulary) — replication probe FP fix
+
+### Added — `news-hi` v0.1.0-stub (Hindi/Devanagari pack)
+
+12-pattern Devanagari pack — first Indic-language coverage. Routes onto
+the same five mahā-vrata rules; calibrator overrides match `news` /
+`news-de` (NOISE_FLOOR 0.20, STRONG_THRESHOLD 0.55).
+
+Patterns cover Hindi tabloid manipulation classes:
+- Sensational reveal adjective (`हैरान करने वाला`)
+- Q-clickbait (`जानिए क्यों` / `देखें क्या`)
+- Conspiracy framing (`छिपा रखा` / `नहीं बताया गया`)
+- Vague-source attribution (`सूत्रों के अनुसार`)
+- Urgency framing (`अभी देखें`)
+- Sensational-reveal noun (`बड़ा खुलासा`)
+- Sensational-survival (`जिंदा बच गया`)
+- Body-metaphor political (`मुर्दा देश`)
+- Listicle clickbait (`10 बातें`)
+- You-don't-know frame (`आप नहीं जानते`)
+
+**Status: SCAFFOLD.** Full v0.2.0 pending native Hindi linguistic
+contributor — open invitation in pack metadata.
+
+### Added — Multi-cycle replication-probe protocol formalized
+
+Three new examples in the test harness for the learning-cycle protocol:
+
+- `examples/learning-cycle-3domains-corpus-{law,journalism,influencer}.js`
+  — frozen real-OOS corpus, 119 cases across 3 domains × 15 RU publishers
+- `examples/learning-cycle-3domains-runner.js` — frozen-corpus runner with
+  Wilson 95% CI per domain + per-source breakdown + FN/FP listings
+- `examples/learning-cycle-3domains-replication-corpus.js` — N=40 fresh
+  items pulled from section URLs of same publishers (overfit check)
+- `examples/learning-cycle-3domains-replication-runner.js` — replication
+  probe runner
+
+This formalizes pre-registered + replication-probed methodology as part
+of the release protocol. Per CLAUDE.md verification-first principle:
+**no commercial-grade claim without replication recall ≥ ½ frozen recall.**
+
+### Added — regression bench harness vs frozen N=509 baseline
+
+`bench/` directory wires the cross-language corpus into a paired-comparison
+gate that runs in CI on every PR. Three files:
+
+- `bench/run.js` — shared runner; loads multiregion (229) + phase1 (280)
+  corpora, hashes both files, runs the production stack
+  (`news + news-de + epistemology + healthcare`), returns per-case results.
+- `bench/freeze-baseline.js` — writes `bench/baseline.json` with current
+  guard version, frozen timestamp, corpus SHA-256 and full per-case verdicts.
+  Re-run only on intentional behavior changes; commit the diff with reasoning.
+- `bench/check.js` — re-runs the corpus, diffs case-by-case against the frozen
+  baseline, reports accuracy / FP / FN delta and runs an exact-binomial
+  McNemar test on discordant pairs. Fails CI on:
+    - any new false positive (strict gate),
+    - statistically significant regression (one-sided p < 0.05 with
+      newly-wrong > newly-correct),
+    - corpus-hash mismatch (silent corpus mutation).
+
+Frozen baseline at v0.4.0-pre.3: accuracy **92.53 %** (471 / 509),
+FP = 1, FN = 37, corpus SHA-256 `8503c598…`. Detection sensitivity on
+N=509 ≈ 5 cases shifted one-sided ≈ 0.98 pp accuracy delta.
+
+CI integration: `.github/workflows/ci.yml` runs `npm run bench:check`
+after the test suite on every push and PR. Local: `npm run bench:check`.
+
+### Added — `bench/` shipped in published tarball
+
+`package.json` `files` now includes the `bench` directory so npm consumers
+can run `node bench/check.js` against the bundled `baseline.json` and
+verify the documented 92.53 % claim against the same corpus we used —
+moves the accuracy claim from self-reported to externally reproducible.
+
+### Added — external-validity protocol (holdout + Cohen's kappa)
+
+A 10 % holdout (N=51) is now carved out of the N=509 corpus deterministically
+via seeded shuffle (`bench/holdout.js`, ids persisted in
+`bench/holdout-ids.json`) and pack development is forbidden from looking at
+those cases. Holdout accuracy reports separately as a blind external number.
+
+Inter-annotator agreement is measured by sending the holdout cases to Claude
+Haiku 4.5 (`bench/annotator2.js`) with the exact rubric the human author
+applied, then computing Cohen's kappa with 95 % CI and a Landis-Koch band
+(`bench/kappa.js`). Verdicts cache per `(case_id, model, rubric_version)` to
+`bench/annotator2-cache.json` so the run is one-shot, then offline-reproducible.
+
+Honest framing: an LLM second annotator is a rubric-ambiguity detector and a
+LOWER bound for publishable rigor — not a substitute for paid human IAA.
+Protocol: `docs/EXTERNAL-VALIDITY.md`. npm scripts: `bench:split`,
+`bench:annotate2`, `bench:kappa`.
+
+**First run results (2026-05-08, N=51 holdout, claude-haiku-4-5-20251001):**
+
+- 2×2 confusion table (rows = author, cols = Haiku):
+  - pass / pass = 38, pass / catch = 3
+  - catch / pass = 2, catch / catch = 8
+- Observed agreement p_o = 90.2 %, chance p_e = 67.3 %
+- **Cohen's κ = 0.700, 95 % CI [0.451, 0.950]** — Landis-Koch *substantial*
+- Blind holdout pack accuracy: **88.2 %**, Wilson 95 % CI [76.6 %, 94.5 %],
+  FP = 0/41 (0 %), FN = 6/10
+- Holdout FP-rate of 0 % is consistent with full-corpus FP-rate (0.2 %); the
+  holdout point-estimate accuracy (88.2 %) is 4.3 pp below the full-corpus
+  92.53 %, but the CIs overlap so the divergence is not statistically
+  significant on N=51. The honest publishable phrasing: *"92.53 % on N=509
+  pre-registered corpus; 88.2 % [76.6, 94.5] on a 10 % blind holdout (κ=0.70)."*
+
+## [0.4.0-pre.3] — 2026-05-07
+
+### Released — first npm publication
+
+- Package published to npm registry under `next` dist-tag.
+- `npm install pantheon-guard@next` now works without GitHub-tag fallback.
+- `package.json` description updated to clarify positioning: **content-safety
+  for AI agent output**, distinct from input-attack guardrails (NeMo, Bedrock,
+  Lakera, Llama-Guard).
+
+### Added — cross-language benchmark (N=509, pre-registered)
+
+Multi-region production headlines from 12 RSS sources across RU + DE + EN/UK,
+with labels assigned BEFORE running guard and SHA-256 hash captured per
+corpus file. Aggregate accuracy 92.5% (Wilson 95% CI [89.9%, 94.5%]),
+FP-rate 0.2%. Per-region breakdown:
+
+- Russian (N=280): 95.7% accuracy, FP=0.4%
+- German (N=100): 96.0% accuracy, FP=0.0%
+- English/UK (N=129): ~90% accuracy, FP=0.0%
+
+All three pre-registered hypotheses HOLD (accuracy ≥85%, mainstream FP ≤5%,
+tabloid catch ≥60%). Reproducible: `node examples/benchmark-phase1-runner.js`.
+
 ### Added — `newsPack` (closes solo-clickbait gap)
 
 Domain pack for news / media AI output. Closes the gap documented in
