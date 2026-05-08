@@ -234,14 +234,63 @@ function isLikelyAdviceContext(text) {
   return ADVICE_CONTEXT_RE_EN.test(text) || ADVICE_CONTEXT_RE_RU.test(text);
 }
 
+// v0.1.2 — Legal-commentary inhibitor for medical-content-in-legal-context.
+// Calibrated against learning-cycle-2026-05-08 FP on pravo.ru pharma-injunction
+// commentary. See LEARNING-CYCLE-2026-05-08-RESULTS.md FP-1 group.
+//
+// Heuristic: legal-commentary mentions medicine in context of disputes,
+// injunctions, court rulings — markers are case-procedural Russian terms
+// that don't appear in advice or news-feed copy.
+const LEGAL_COMMENTARY_RE_RU = re(
+  '(?:фармацевтическ' + W_PLUS + '|медицинск' + W_PLUS + ')\\s+спор' +
+  '|обеспечительн' + W_PLUS + '\\s+мер' + W_PLUS +
+  '|дефицит' + W_PLUS + '\\s+лекарств' +
+  '|кассац' + W_PLUS + '\\s+(?:рассмотрен|представлен|жалоб)' +
+  '|обзор\\s+(?:ВС|Верховного\\s+Суда)' +
+  '|постановлени' + W_PLUS + '\\s+(?:КС|Конституционного\\s+Суда)' +
+  '|(?:разъяснил|обобщил)\\s+(?:практику|порядок|нюансы)' +
+  '|косвенн' + W_PLUS + '\\s+иск' +
+  '|субсидиарк' + W_PLUS + '|банкротн' + W_PLUS + '\\s+обзор' +
+  '|техрегламент' + W_PLUS + '\\s+(?:о\\s+безопасности|на|по)' +
+  '|госзакуп' + W_PLUS + '\\s+услуг' +
+  '|(?:гост|сан-?пин)' + W_PLUS + '\\s+(?:для|о|по)'
+);
+
+function isLikelyLegalCommentary(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return LEGAL_COMMENTARY_RE_RU.test(text);
+}
+
+// v0.1.3 — Cultural-reference inhibitor (cycle-2.A1).
+// Calibrated against replication-corpus FP on Kots book promo: «Курск. Боль и
+// слава. Хроника 264 опаленных дней» — word «боль» triggered medical context,
+// but it's a book title. Cultural references aren't medical advice, regardless
+// of medical-vocabulary occurrence in title.
+const CULTURAL_REFERENCE_RE_RU = re(
+  '(?:книг[аиу]|новая\\s+книга|новой\\s+книги)' +
+  '|(?:фильм|сериал|спектакль|альбом|роман|повесть|рассказ|сборник|мемуары|пьеса)' +
+  '|(?:в\\s+продаже|на\\s+премьере|в\\s+прокате|вышел\\s+в\\s+свет|представля[еюя]т\\s+(?:книгу|альбом|фильм))' +
+  '|(?:Хроника\\s+\\d|роман\\s+о|повесть\\s+о)' +
+  '|(?:автор|режиссёр|сценарист|композитор|поэт)' +
+  '|(?:песня\\s+о|песни\\s+о|концерт|выставка|экспозиция)'
+);
+
+function isLikelyCulturalReference(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return CULTURAL_REFERENCE_RE_RU.test(text);
+}
+
 // Provider escalation is required when the text:
 //   1. Discusses medical content (medical context detected)
 //   2. AND is NOT clearly a news report
-//   3. OR explicitly looks like advice (second-person)
+//   3. AND is NOT legal commentary about pharma / medical disputes
+//   4. OR explicitly looks like advice (second-person)
 function escalationRequirementCondition(text) {
   if (!looksLikeMedicalAdvice(text)) return false;
   if (isLikelyAdviceContext(text)) return true;       // advice always requires escalation
   if (isLikelyMedicalNewsReport(text)) return false;  // news reports don't
+  if (isLikelyLegalCommentary(text)) return false;    // legal commentary doesn't (v0.1.2)
+  if (isLikelyCulturalReference(text)) return false;  // book/film/song titles don't (v0.1.3)
   return true;                                          // default: medical context requires escalation
 }
 
@@ -251,7 +300,7 @@ function escalationRequirementCondition(text) {
 
 export const healthcarePack = Object.freeze({
   id: 'healthcare',
-  version: '0.1.1',
+  version: '0.1.3',
   description:
     'Healthcare-specific manipulation detection for medical / health AI agents. ' +
     'Catches self-diagnosis overclaim, cure / guarantee claims, false reassurance, ' +
@@ -263,6 +312,7 @@ export const healthcarePack = Object.freeze({
   requirements: Object.freeze([
     {
       id: 'provider_escalation',
+      // catalogue: manu-satya-priya-4-138
       // catalogue: manu-satya-priya-4-138
       condition: escalationRequirementCondition,
       check: hasProviderEscalation,

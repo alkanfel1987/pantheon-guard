@@ -561,6 +561,345 @@ const PATTERNS = Object.freeze([
     ),
     description: 'cannibalistic / violent body-metaphor as political headline (RU tabloid)',
   },
+
+  // ─────────────────────────────────────────────
+  // v0.3.0 — Real-OOS recall extensions (2026-05-08)
+  // Calibrated against learning-cycle-2026-05-08 N=119 fresh-pull corpus
+  // showing 5.3% recall vs 92.5% on curated benchmark — see
+  // LEARNING-CYCLE-2026-05-08-RESULTS.md for FN groupings.
+  // ─────────────────────────────────────────────
+
+  // ── Q-clickbait — family pattern (v0.4.0 broadening from cycle-2.A1)
+  // Replaces 5 discrete v0.3.0 patterns with one generative family.
+  // Calibrated against cycle-1 frozen + cycle-2 replication FNs:
+  //   v0.3.0 caught: «В чем причина?», «Что об этом известно», «Как отреагировал»
+  //   v0.4.0 also catches: «что важно знать», «как надо ответить», «что нужно знать»
+  {
+    rule: 'satya',
+    name: 'q_clickbait_family_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re(
+      '(?:что|как|почему|зачем)\\s+' +
+      '(?:важно|нужно|стоит|следует|интересно|правильно|надо|можно|об\\s+этом)\\s+' +
+      '(?:знать|понимать|помнить|учитывать|делать|реагировать|ответить|ответил|отреагировать)'
+    ),
+    description: 'Q-clickbait family "что/как (важно/нужно/надо/...) (знать/делать/...)" (RU)',
+  },
+  // Direct-reaction Q-clickbait (no modifier between Q-word and verb)
+  // Restored from v0.3.0 — family pattern misses "Как на это отреагировал X"
+  {
+    rule: 'satya',
+    name: 'q_clickbait_direct_reaction_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re('как\\s+(?:на\\s+это\\s+)?(?:отреагировал|ответил)' + W_STAR),
+    description: 'Q-clickbait "Как на это отреагировал X" (RU, direct form)',
+  },
+  {
+    rule: 'satya',
+    name: 'q_clickbait_in_what_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re('в\\s+чём?\\s+(?:причина|дело|подвох|секрет|смысл|суть)'),
+    description: 'Q-clickbait "В чём причина/дело/подвох/секрет" (RU)',
+  },
+  {
+    rule: 'satya',
+    name: 'q_clickbait_what_was_famous_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re('чем\\s+(?:он|она|они|это)\\s+(?:был|была|было|были)\\s+(?:знаменит|известен|известна|известны|примечат)' + W_STAR),
+    description: 'Q-clickbait "Чем он был знаменит" (RU)',
+  },
+  {
+    rule: 'satya',
+    name: 'q_clickbait_will_x_do_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re('будет\\s+ли\\s+[а-яё]+(?:\\s+[а-яё]+){0,4}\\s+(?:соблюдать|выполнять|поддерживать|нарушать|подписывать)'),
+    description: 'Q-clickbait "Будет ли X соблюдать/выполнять Y" (RU)',
+  },
+
+  // ── Vague reveal: "сделал/раскрыл (что-то) (неожиданное)" → satya
+  // v0.4.0 broadening from cycle-2.A1: open verb-list (раскрыл/выдал/поделился)
+  // + open noun-list (особенность/деталь/подробность/тайна/...) without
+  // requiring sensational adjective. Inhibitor: named source within 100 chars
+  // suppresses (mirrors news-pack vague_discovery_passive_broad_ru pattern).
+  {
+    rule: 'satya',
+    name: 'vague_reveal_open_ru',
+    // catalogue: ns-arthantara-5-2-7
+    regex: new RegExp(
+      PRE +
+      '(?:раскрыл|раскрыла|раскрыли|выдал|выдала|выдали|поделил' + W_STAR + ')\\s+' +
+      '(?:[а-яё]+\\s+){0,2}' +
+      '(?:тайн|секрет|особенност|деталь|деталями|подробност|обстоятельств|информаци|нов|новость|правд|истин|причин|факт|данн|план|стратеги|схем|механизм)' +
+      W_STAR +
+      '(?![\\s\\S]{0,150}\\b(?:Reuters|Bloomberg|AP|Spiegel|FT|WSJ|NYT|РАН|МВД|ФСБ|СКР|МЧС|Минздрав|Минобороны|Росстат|ВЦИОМ|Левада|Lancet|Nature|Science|NEJM|по\\s+данным|сообщает)\\b)' +
+      POST,
+      'iu'
+    ),
+    description: 'vague-reveal "раскрыл/выдал тайну/особенность" without named source (RU)',
+  },
+  // Keep narrow v0.3.0 pattern for sensational-adjective cases (additive)
+  {
+    rule: 'satya',
+    name: 'vague_reveal_statement_ru',
+    // catalogue: ns-arthantara-5-2-7
+    regex: re(
+      'сделал[аио]?\\s+' +
+      '(?:неожиданн|странн|резонансн|сенсационн|шокирующ|громк|скандальн|дерзк|удивительн|странн)' +
+      W_STAR +
+      '\\s+(?:заявлени|комментари|признани|откровени|высказывани)' +
+      W_STAR
+    ),
+    description: 'vague-reveal "сделал неожиданное заявление" (RU)',
+  },
+
+  // ── v0.4.0 — Western-source broader (cycle-2.A1)
+  // Cycle-2 caught only «На Западе X-verb»; replication FN «утверждают
+  // западные СМИ» showed pattern was too narrow.
+  {
+    rule: 'asteya',
+    name: 'vague_western_media_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      '(?:утвержда[ею]т|сообща[ею]т|пишут|пишет|заявля[ею]т)\\s+западны' + W_STAR + '\\s+(?:сми|медиа|пресс|изда' + W_STAR + ')'
+    ),
+    description: 'vague western-media attribution (RU)',
+  },
+  {
+    rule: 'asteya',
+    name: 'vague_western_media_inverted_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      'по\\s+данным\\s+западны' + W_STAR + '\\s+(?:сми|пресс|медиа|изда' + W_STAR + ')'
+    ),
+    description: 'vague "по данным западных СМИ" attribution (RU)',
+  },
+
+  // ── v0.4.0 — Managerial moral framing (cycle-2.A1)
+  // Cycle-1 covered only family-relationship moral framing; replication FN
+  // «Абьюзер в топ-менеджменте», «токсичный руководитель» showed managerial
+  // axis exists separately.
+  {
+    rule: 'ahimsa',
+    name: 'managerial_moral_framing_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      '(?:абьюзер|токсик|психопат|социопат|тиран|диктатор|деспот)' + W_STAR +
+      '\\s+(?:в\\s+(?:топ-?менеджмент|команд|коллектив|руководств|правлени)|на\\s+посту)'
+    ),
+    description: 'managerial-context moral-judgment label (RU)',
+  },
+  {
+    rule: 'ahimsa',
+    name: 'toxic_leader_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      'токсичн' + W_STAR + '\\s+(?:руководит|босс|менеджер|начальник|лидер|команд|коллектив|корпоратив|культур)' + W_STAR
+    ),
+    description: 'toxic-leader moral framing (RU)',
+  },
+
+  // ── v0.4.0 — Hostage-metaphor in business context (cycle-2.A1)
+  // Replication FN «Wildberries держит клиентов в заложниках» — moral
+  // metaphor for legitimate corporate behavior.
+  {
+    rule: 'ahimsa',
+    name: 'hostage_metaphor_ru',
+    // catalogue: manu-vangmaya-karma-12-5-6
+    regex: re(
+      'держит\\s+(?:[а-яё]+\\s+){0,3}в\\s+(?:заложник|плену|клетке|оковах|кабале)' + W_STAR
+    ),
+    description: 'hostage / captivity metaphor in business context (RU)',
+  },
+
+  // ── v0.4.0 — Sensational-survival narrative (cycle-2.A1)
+  // Replication FN «Подросток упал с 18-метровой высоты в огонь...и выжил» —
+  // extraordinary outcome verb without medical/emergency-services attribution.
+  {
+    rule: 'satya',
+    name: 'sensational_survival_ru',
+    // catalogue: bg-asuri-self-narration-16-13-15
+    regex: new RegExp(
+      PRE +
+      '(?:упал|упала|упали|разбил' + W_STAR + '|провалил' + W_STAR + '|вылетел|сорвался|загорел' + W_STAR + ')' +
+      '[\\s\\S]{1,80}?' +
+      '(?:выжил|выжила|выжили|спасся|спаслась|спаслись|уцелел' + W_STAR + ')' +
+      '(?![\\s\\S]{0,150}\\b(?:МЧС|МВД|по\\s+данным|сообщает|больниц|госпитал|врач|медик)\\b)' +
+      POST,
+      'iu'
+    ),
+    description: 'sensational-survival narrative without emergency-services attribution (RU)',
+  },
+
+  // ── Superlative without attribution: "самой масштабной X с начала Y" → satya
+  // Tabloid-style record claim without source for the superlative. Real
+  // factual reporting attributes superlative claims to a source (Росстат,
+  // Минобороны, Reuters). Inhibit when named source within 100 chars.
+  {
+    rule: 'satya',
+    name: 'superlative_no_attribution_ru',
+    // catalogue: ns-arthantara-5-2-7
+    regex: new RegExp(
+      PRE +
+      '(?:сам(?:ой|ым|ая|ый|ое|ого|ому)?)\\s+' +
+      '(?:масштабн|крупн|больш|серьёзн|жесток|мощн|тяжёл|разрушительн|кровопролитн|трагичн)' +
+      W_STAR +
+      '(?![\\s\\S]{0,150}\\b(?:Reuters|Bloomberg|AP|Spiegel|FT|WSJ|NYT|РАН|МВД|ФСБ|СКР|МЧС|Минздрав|Минобороны|Росстат|ВЦИОМ|Левада|Lancet|Nature|Science|NEJM|по\\s+данным|сообщает\\s+[А-Я])\\b)' +
+      POST,
+      'iu'
+    ),
+    description: 'superlative claim without named-source attribution (RU)',
+  },
+
+  // ── Moral-framing label: "родительское/материнское предательство" → ahimsa
+  // Tabloid moral-judgment label applied to family relationship in headline,
+  // commonly used by Mash. Routes to ahimsa (reputational injury without consent).
+  {
+    rule: 'ahimsa',
+    name: 'family_moral_framing_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      '(?:родительск|материнск|отцовск|супружеск|дружеск|братск|сестринск)' +
+      W_STAR + '\\s+' +
+      '(?:предательств|преступлени|злодеяни|подлост|низост|насили)' +
+      W_STAR
+    ),
+    description: 'family-relationship moral judgment label (RU tabloid)',
+  },
+
+  // ── Slang sensationalism: "Стонкс / треш / кринж / жесть" headline-leading → satya
+  // Anglo-slang or Russian slang as headline category, signalling tabloid
+  // editorial framing rather than factual reporting.
+  {
+    rule: 'satya',
+    name: 'slang_sensationalism_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
+    regex: new RegExp(
+      PRE +
+      '(?:стонкс|треш|кринж|жесть|дичь|зашквар|угар)\\s+(?:года|месяца|недели|дня|сезона|от)' +
+      POST,
+      'iu'
+    ),
+    description: 'slang-as-headline-category sensationalism (RU tabloid)',
+  },
+
+  // ── Iconic gossip pattern: "X заметили в компании эскорт-..." → ahimsa
+  // Voyeuristic personal-life surveillance framing. Differs from celebrity
+  // public-event reporting; the "эскорт" / "элит-" qualifier is the tell.
+  // Bounded non-greedy gap allows punctuation between "в компании" and label.
+  {
+    rule: 'ahimsa',
+    name: 'gossip_escort_frame_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: new RegExp(
+      PRE +
+      '(?:заметили|поймали|засняли|подловили)' +
+      '[\\s\\S]{1,120}?' +
+      '(?:эскорт|элит-эскорт|премиум-элит|премиум-эскорт|содержанк|любовниц)' +
+      W_STAR + POST,
+      'iu'
+    ),
+    description: 'celebrity-gossip escort/voyeur framing (RU tabloid)',
+  },
+
+  // ── Vague-source verb-before-noun: "сообщил/заявил источник" → asteya
+  // Mirror of sources_say_ru (which catches "источник сообщает") for the
+  // reverse word order common in RIA-style headlines.
+  {
+    rule: 'asteya',
+    name: 'sources_say_inverted_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      '(?:сообщил|заявил|раскрыл|рассказал|поделился|передал)\\s+(?:источник' + W_STAR + '|инсайдер' + W_STAR + '|собеседник' + W_STAR + ')'
+    ),
+    description: 'verb-before-noun anonymous source (RU)',
+  },
+
+  // ── "Почему X (ведет|нарушает|игнорирует|обещает) ...?" Q-clickbait → satya
+  // Differs from analytical journalism — analytical "Почему X" elaborates
+  // in body; this pattern is the headline-ending question form.
+  {
+    rule: 'satya',
+    name: 'q_clickbait_why_does_x_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re(
+      'почему\\s+[А-ЯЁ][а-яё]+(?:\\s+[а-яё]+){0,3}\\s+' +
+      '(?:ведёт|ведет|нарушает|игнорирует|молчит|обещает|скрывает|обманывает|предаёт|предает)'
+    ),
+    description: 'Q-clickbait "Почему X нарушает/обманывает/ведёт..." (RU)',
+  },
+
+  // ── Extended sensational reporting verbs (расширение quote_then_sensational_verb)
+  // Cycle 1 caught "жёстко пригрозил"; corpus shows also "жёстко ответить",
+  // "жёстко ответил" used in same editorial position.
+  {
+    rule: 'satya',
+    name: 'sensational_call_to_action_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
+    regex: re(
+      '(?:жёстко|жестко|резко|сурово|свирепо)\\s+' +
+      '(?:ответить|ответил|ответила|отреагировать|отреагировал|отреагировала|отомстить|отомстил|наказать|наказал)'
+    ),
+    description: 'sensational adverb + reactive verb (RU clickbait CTA frame)',
+  },
+
+  // ── Quote-as-headline + sensational verb: 〈"...". X жёстко/яростно Y〉 → satya
+  // Composite pattern: opens with short quoted statement (or capitalized
+  // declaration), then second clause with sensational reporting verb.
+  // The "жёстко пригрозил / резко обвинил / яростно атаковал" verb is
+  // the editorial tell separating quote-context news from sensationalised.
+  {
+    rule: 'satya',
+    name: 'quote_then_sensational_verb_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
+    regex: re(
+      '(?:жёстко|жестко|яростно|резко|остро|свирепо|гневно)\\s+' +
+      '(?:пригрозил|пригрозила|обвинил|обвинила|атаковал|атаковала|раскритиковал|раскритиковала|осудил|осудила|ответил|ответила|обрушился|обрушилась)'
+    ),
+    description: 'sensational-adverb + reporting-verb (RU clickbait architecture)',
+  },
+
+  // ─────────────────────────────────────────────
+  // v0.5.0-pre.1 — Parikīrtana detector (SCAFFOLD)
+  // catalogue: manu-apavada-parikirtana-4-236
+  // Manu 4.237: «dānaṃ ca parikīrtanāt kṣarati» — charity wanes through
+  // self-aggrandizement. Detects first-person quantified-giving where
+  // the speaker promotes their own giving rather than third-party reportage.
+  // Inhibitor planned (not yet wired): third-party attribution markers
+  // («сообщает», «according to», named source preceding clause).
+  // ─────────────────────────────────────────────
+  {
+    rule: 'satya',
+    name: 'parikirtana_first_person_quantified_giving_ru',
+    // catalogue: manu-apavada-parikirtana-4-236
+    regex: re(
+      '(?:мы|наша\\s+(?:компания|организация|команда|группа))\\s+' +
+      '(?:помогл' + W_STAR + '|поддержал' + W_STAR + '|инвестировал' + W_STAR + '|пожертвовал' + W_STAR + '|вложил' + W_STAR + '|выделил' + W_STAR + ')\\s+' +
+      '(?:уже\\s+)?(?:более\\s+)?\\d+\\s+' +
+      '(?:рубл' + W_STAR + '|доллар' + W_STAR + '|евро|млн|миллион' + W_STAR + '|тысяч' + W_STAR + '|семей|семь' + W_STAR + '|дет' + W_STAR + '|проект' + W_STAR + '|организаци' + W_STAR + '|человек)'
+    ),
+    description: 'first-person quantified self-praise after charitable act (parikīrtana)',
+  },
+  {
+    rule: 'satya',
+    name: 'parikirtana_first_person_quantified_giving_en',
+    // catalogue: manu-apavada-parikirtana-4-236
+    regex: /\b(?:we|our\s+(?:company|firm|team|organi[sz]ation))\s+(?:have\s+)?(?:already\s+)?(?:donated|invested|contributed|pledged|provided)\s+(?:over\s+)?\$?\d[\d,\.]*\s*(?:million|billion|thousand|families|children|projects|people)\b/i,
+    description: 'first-person quantified self-praise after charitable act (parikīrtana, EN)',
+  },
+  {
+    rule: 'satya',
+    name: 'parikirtana_responsible_self_label_ru',
+    // catalogue: manu-apavada-parikirtana-4-236
+    // Catches "as a responsible X" first-person framing — combined dharma-flag
+    // self-display. Most legitimate news reports describe companies in third
+    // person; first-person + dharma-flag is structurally PR-voice.
+    regex: re(
+      '(?:как|будучи)\\s+ответственн' + W_STAR + '\\s+' +
+      '(?:компани' + W_STAR + '|организаци' + W_STAR + '|гражданин' + W_STAR + '|бизнес' + W_STAR + ')' +
+      ',?\\s*(?:мы|наша\\s+(?:компания|организация))'
+    ),
+    description: 'responsible-self-label + first-person follow (parikīrtana via dharma-flag)',
+  },
 ]);
 
 // ─────────────────────────────────────────────
@@ -569,7 +908,7 @@ const PATTERNS = Object.freeze([
 
 export const newsPack = Object.freeze({
   id: 'news',
-  version: '0.2.0',
+  version: '0.5.0-pre.1',
   description:
     'News / media manipulation detection. Closes the solo-clickbait gap ' +
     'documented in REAL-WORLD-DOMAIN-TESTS by routing news-specific ' +
@@ -613,5 +952,22 @@ export const newsPack = Object.freeze({
       'attribution requires structured input, not free text. v0.2.0 may ' +
       'add a heuristic source-density requirement for headline-shaped ' +
       'output (short text + factual claim + date / number).',
+    v050pre1: {
+      addedDetectors: [
+        'parikirtana_first_person_quantified_giving_ru (manu-apavada-parikirtana-4-236)',
+        'parikirtana_first_person_quantified_giving_en (manu-apavada-parikirtana-4-236)',
+        'parikirtana_responsible_self_label_ru (manu-apavada-parikirtana-4-236)',
+      ],
+      status:
+        'SCAFFOLD — patterns target first-person voice (PR copy) vs third-person ' +
+        'reportage. Author=tester until real-corpus probe runs. Per CLAUDE.md ' +
+        '«empirical verification» rule, NOT real-corpus validated. Inhibitor for ' +
+        'third-party attribution markers («сообщает», «according to») planned for ' +
+        'v0.5.0 stable.',
+      antaḥkṣurāNote:
+        'Full antaḥkṣurā detection (Mbh 12.152) is two-stage co-occurrence — ' +
+        'requires dharma-language + paiśunya/blame in same text. Single-shot ' +
+        'regex covers parikīrtana element only. Multi-signal fusion deferred.',
+    },
   }),
 });
