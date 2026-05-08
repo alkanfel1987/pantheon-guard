@@ -2,9 +2,10 @@
 pantheon-rail.py — register Pantheon Guard as a NeMo output action.
 
 Mounts a custom action `pantheon_check` that NeMo can invoke from a Colang
-flow. The action shells out to Node, runs Pantheon Guard's v0.2 `inspect()`
-over the model's draft, and returns a structured verdict with calibrated
-confidence and evidence markers.
+flow. The action shells out to Node, runs Pantheon Guard's v0.4.1 stacked-
+pack inspect over the model's draft, and returns a structured verdict
+with calibrated confidence, evidence markers, pack-level violations, and
+unmet domain requirements.
 
 To wire into NeMo, register this action and call it from Colang:
 
@@ -16,11 +17,18 @@ To wire into NeMo, register this action and call it from Colang:
 The Node script is intentionally minimal — for production deploy
 pantheon-guard as a long-lived sidecar to avoid 150ms cold-start cost.
 
-v0.2 difference: the verdict carries `confidence` per flag and an
-`abstain` field set when input is too thin to support any honest claim.
-This lets your NeMo flow distinguish "verdict said pass" from "verdict
-abstained" — useful for auditing and for routing borderline cases to
-a human reviewer.
+v0.4.1 differences vs v0.2:
+- Full pack stack (healthcare + news + news-de + news-hi + epistemology)
+- Pack-level violations and unmet requirements surfaced separately
+- `policy: 'calibrated'` + per-pack metadata in verdict
+- Replication-probed: pack patterns survived overfit check (replication
+  recall 57.1% on N=40 fresh OOS, vs 84.2% on training corpus — see
+  `examples/learning-cycle-3domains-replication-runner.js`)
+
+The verdict carries `confidence` per flag and an `abstain` field set when
+input is too thin to support any honest claim. This lets your NeMo flow
+distinguish "verdict said pass" from "verdict abstained" — useful for
+auditing and for routing borderline cases to a human reviewer.
 """
 
 import json
@@ -32,18 +40,25 @@ GUARD_DIR = Path(__file__).resolve().parent.parent.parent
 GUARD_DIST = GUARD_DIR / "dist" / "index.cjs"
 
 
-# v0.2 Node script — uses the top-level inspect() API. Returns the full
-# verdict including calibrated confidence and evidence markers, so the
-# Colang flow can act on confidence (not just the boolean) if it wants.
+# v0.4.1 Node script — uses stackPacks() for full pack coverage.
+# Returns the full verdict including pack-level violations and unmet
+# requirements, so the Colang flow can route based on which pack class
+# triggered (e.g. healthcare-specific vs generic manipulation).
 NODE_SCRIPT_TEMPLATE = """
 const path = require('path');
-const g = require(path.resolve(process.argv[2]));
-const text = process.argv[3];
-const r = g.inspect(text, {
-  intent: 'persuade',
-  urgency: 0.5,
-  paused: true,
-});
+// argv tail = [GUARD_DIST, text] regardless of Node version (16-24+).
+// Older Node (≤22) had argv[1]='[eval]'; newer Node (24+) skips that.
+const args = process.argv.slice(-2);
+const g = require(path.resolve(args[0]));
+const text = args[1];
+const stack = g.stackPacks([
+  g.healthcarePack,
+  g.newsPack,
+  g.newsDePack,
+  g.newsHiPack,
+  g.epistemologyPack,
+]);
+const r = stack(text);
 process.stdout.write(JSON.stringify({
   passes: r.passes,
   abstain: r.abstain,
@@ -51,6 +66,10 @@ process.stdout.write(JSON.stringify({
   confidence: r.confidence,
   evidence: r.evidence,
   violations: r.violations,
+  packViolations: r.packViolations || [],
+  packEvidence: r.packEvidence || {},
+  unmetRequirements: r.unmetRequirements || [],
+  packs: r.packs || [],
   policy: r.policy,
 }));
 """
@@ -65,7 +84,7 @@ def call_pantheon(text: str) -> dict:
         )
 
     proc = subprocess.run(
-        ["node", "-e", NODE_SCRIPT_TEMPLATE, "--", str(GUARD_DIST), text],
+        ["node", "-e", NODE_SCRIPT_TEMPLATE, str(GUARD_DIST), text],
         capture_output=True,
         text=True,
         timeout=10,

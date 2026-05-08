@@ -1,9 +1,21 @@
-# NeMo Guardrails ↔ Pantheon Guard — output rail integration
+# NeMo Guardrails ↔ Pantheon Guard — output rail integration (v0.4.1)
 
 This is the **primary integration example** for `pantheon-guard`. NVIDIA
 NeMo Guardrails users can drop Pantheon Guard in as an output rail that
 catches manipulation patterns NeMo's default rails do not catch (false
 urgency, fear-based content, dark patterns, clickbait).
+
+**v0.4.1 stack:** healthcare + news + news-de + news-hi + epistemology
+(5 production / scaffold packs covering RU + EN + DE + Hindi).
+
+**Pre-registered + replication-probed:** unlike vendor benchmarks that
+quote a single curated number, this integration is calibrated against
+two independent test sets — frozen N=119 corpus across 3 domains × 15
+RU publishers (recall 84.2%) and replication probe N=40 with fresh
+items pulled from section URLs of the same publishers (recall 57.1%,
+honestly disclosed as the OOS ceiling for the regex layer). Replication
+discipline is part of the release protocol; see
+`examples/learning-cycle-3domains-replication-runner.js`.
 
 ## What you'll see
 
@@ -64,10 +76,11 @@ the v0.2 `inspect()` API and prints a JSON verdict. Latency ~50ms
 per call on a warm Node, ~150ms cold start. For production, run the
 Node wrapper as a long-lived sidecar (see `examples/openai-chat.js`).
 
-## v0.2 — what `inspect()` returns over a v0.1 boolean rail
+## v0.4.1 — what `pantheon_check()` returns
 
-The verdict is richer than `passes: bool` so your Colang flow can
-make smarter routing decisions:
+The verdict is richer than `passes: bool` so your Colang flow can route
+based on which pack class triggered, what mahā-vrata rule routed, and
+which positive requirement was unmet:
 
 ```python
 verdict = await pantheon_check("Hurry, only 3 spots left!")
@@ -85,6 +98,10 @@ verdict = await pantheon_check("Hurry, only 3 spots left!")
 #       ...
 #   },
 #   "violations": [{"rule": "ahimsa", ...}, ...],
+#   "packViolations": [],
+#   "packEvidence": {},
+#   "unmetRequirements": [],
+#   "packs": ["healthcare@0.1.3", "news@0.4.0", "news-de@0.1.0", "news-hi@0.1.0-stub", "epistemology@0.2.0"],
 #   "policy": "calibrated"
 # }
 ```
