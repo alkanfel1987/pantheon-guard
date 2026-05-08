@@ -44,6 +44,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'sensationalist_verb_de',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: re('wackelt|wütet|poltert|tobt|schwört|donnert|kracht'),
     description: 'tabloid-leaning sensationalist verb (DE)',
   },
@@ -52,6 +53,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'sensationalist_adj_de',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: re('(?:bushend|tobend|wütend|donnernd|krachend)' + W_STAR + '\\s+(?:Krise|Sturm|Welle|Skandal|Affäre|Streit)' + W_STAR),
     description: 'sensational adj + crisis-noun framing (DE)',
   },
@@ -63,6 +65,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'vague_discovery_passive_de',
+    // catalogue: ns-arthantara-5-2-7
     regex: re(
       '(?:ein\\s+)?(?:Hausmittel|Mittel|Trick|Tipp|Methode|Geheimrezept)\\s+' +
       '(?:hilft|schützt|wirkt|löst|verhindert|bekämpft)'
@@ -74,6 +77,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'dieses_clickbait_de',
+    // catalogue: ns-arthantara-5-2-7
     regex: re(
       'dieses?\\s+(?:Mittel|Hausmittel|Geheimnis|Geheimrezept|Hausmittel|Wundermittel|Ritual)\\s+' +
       '(?:schützt|hilft|wirkt|verändert|löst|verhindert)'
@@ -86,6 +90,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'q_curiosity_de',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: re(
       '(?:Lebt|Lässt\\s+sich|Wird|Ist|Kann)\\s+' +
       W_PLUS + '(?:\\s+' + W_PLUS + '){0,3}\\s+' +
@@ -100,6 +105,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'personal_life_sensational_de',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: re(
       '(?:Das\\s+kostet\\s+' + W_PLUS + '\\s+den\\s+Schlaf|' +
       'So\\s+(?:abgeschottet|allein|einsam|verzweifelt|entrückt)\\s+lebt|' +
@@ -114,6 +120,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'ahimsa',
     name: 'body_metaphor_political_de',
+    // catalogue: manu-vangmaya-karma-12-5-6
     regex: re(
       '(?:kaputtes|zerbrochenes|sterbendes|krankes|fauliges|vergiftetes|verseuchtes)\\s+' +
       '(?:Land|Volk|Staat|Nation|Reich|Europa|Deutschland|Russland|Amerika|Ukraine|Polen)'
@@ -126,6 +133,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'sensational_political_de',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: re(
       '(?:heimliche[a-z]?|geheime[a-z]?|verborgene[a-z]?)\\s+' +
       '(?:Hoffnungsträger|Star|Held|Kaiser|König|Königin|Macht|Plan|Strategie|Anführer)'

@@ -39,6 +39,7 @@ const re = (body) => new RegExp(PRE + '(?:' + body + ')' + POST, 'iu');
 // Trigger patterns — assertions made WITHOUT source/uncertainty
 // ─────────────────────────────────────────────
 
+// catalogue (pattern-array cluster): bg-asuri-epistemology-16-8
 const CERTAINTY_PATTERNS = [
   re('на\\s+самом\\s+деле'),
   re('истин[а-яё]+\\s+в\\s+том,?\\s+что'),
@@ -56,6 +57,7 @@ const CERTAINTY_PATTERNS = [
   re('абсолютно\\s+так\\s+же'),
 ];
 
+// catalogue (pattern-array cluster): bg-asuri-epistemology-16-8
 const CONSPIRACY_PATTERNS = [
   re('замалчива[ею]т(?:ся)?'),
   re('тщательно\\s+скрыва[ею]тся?'),
@@ -70,6 +72,7 @@ const CONSPIRACY_PATTERNS = [
   re('разрушает\\s+(?:принят[а-яё]+|европоцентрическ[а-яё]+)'),
 ];
 
+// catalogue (pattern-array cluster): ns-arthantara-5-2-7
 const VAGUE_SOURCE_PATTERNS = [
   re('древние\\s+(?:тексты|свидетельства|источники)'),
   re('в\\s+ведах\\s+(?:сказано|написано|есть)'),
@@ -86,6 +89,7 @@ const VAGUE_SOURCE_PATTERNS = [
   re('известно\\s+тем,?\\s+кто\\s+работает'),
 ];
 
+// catalogue (pattern-array cluster): ns-jalpa-definition-1-2-2
 const LEAP_PATTERNS = [
   re('прозрачно\\s+читаются?\\s+по-русски'),
   re('явно\\s+читается\\s+как'),
@@ -100,6 +104,7 @@ const LEAP_PATTERNS = [
 // Inhibit patterns — uncertainty markers / named sources
 // ─────────────────────────────────────────────
 
+// catalogue (pattern-array cluster): ys-satya-pratistha-2-36
 const UNCERTAINTY_PATTERNS = [
   re('гипотез[а-яё]+'),
   re('по\\s+реконструкци[а-яё]+'),
@@ -118,6 +123,7 @@ const UNCERTAINTY_PATTERNS = [
   re('(?:может|могло|могли)\\s+быть\\s+инициирован[а-яё]*'),
 ];
 
+// catalogue (pattern-array cluster): manu-satya-priya-4-138
 const NAMED_SOURCE_PATTERNS = [
   // Initials + surname: "В. В. Иванов", "Т. В. Гамкрелидзе" — Cyrillic-aware
   /(?<![\p{L}\p{N}_])[А-ЯЁ]\.\s*(?:[А-ЯЁ]\.\s*)?[А-ЯЁ][а-яё]+/u,
@@ -191,6 +197,7 @@ export const epistemologyPack = Object.freeze({
   requirements: Object.freeze([
     {
       id: 'indifference_to_truth',
+      // catalogue: bg-asuri-epistemology-16-8
       condition: hasCertaintyAssertion,
       check: hasInhibitor,
       severity: 'medium',
@@ -201,6 +208,7 @@ export const epistemologyPack = Object.freeze({
     },
     {
       id: 'simulacrum_of_source',
+      // catalogue: ns-arthantara-5-2-7
       condition: hasVagueSourceCitation,
       check: hasNamedSource,
       severity: 'medium',
@@ -212,6 +220,7 @@ export const epistemologyPack = Object.freeze({
     },
     {
       id: 'source_trace_break',
+      // catalogue: ns-jalpa-definition-1-2-2
       condition: hasLogicalLeap,
       check: () => false,
       severity: 'medium',

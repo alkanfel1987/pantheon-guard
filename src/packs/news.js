@@ -55,18 +55,21 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'shocking_secret_en',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: /\b(?:shocking|hidden|forbidden|dark)\s+(?:secret|truth|fact)s?\b/i,
     description: 'shocking-secret framing — fabricated epistemic exclusivity',
   },
   {
     rule: 'satya',
     name: 'shocking_secret_ru',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: re('(?:шокирующ' + W_PLUS + '|скрыт' + W_PLUS + '|запретн' + W_PLUS + '|тёмн' + W_PLUS + ')\\s+(?:секрет' + W_STAR + '|правд' + W_PLUS + '|истин' + W_PLUS + '|факт' + W_STAR + ')'),
     description: 'shocking-secret framing (RU)',
   },
   {
     rule: 'satya',
     name: 'shocking_bang_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: re('шок!|сенсация!|разоблачени(?:е|я)!'),
     description: 'sensation-bang framing (RU)',
   },
@@ -75,6 +78,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'secret_nobody_knows_en',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: /\bsecret\s+(?:that\s+)?(?:nobody|no\s+one)\s+(?:knows|wants\s+to\s+(?:tell|share))\b/i,
     description: 'composite "secret nobody knows" — fabricated exclusivity',
   },
@@ -83,12 +87,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'they_dont_want_en',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: /\bthey\s+(?:don'?t|do\s+not)\s+want\s+you\s+to\s+(?:know|see|hear|find\s+out|read)\b/i,
     description: 'they-don\'t-want-you frame — anonymous-conspiracy assertion',
   },
   {
     rule: 'satya',
     name: 'they_dont_want_ru',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: re('(?:скрыва[ею]т|прячут|умалчива[ею]т)\\s+(?:от\\s+(?:вас|тебя|нас|народа|людей|общества))'),
     description: 'they-hide-from-you frame (RU)',
   },
@@ -97,12 +103,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'you_wont_believe_en',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: /\byou\s+(?:won'?t|will\s+not|wont)\s+believe\s+(?:what|how|why|this|the)\b/i,
     description: 'you-won\'t-believe clickbait',
   },
   {
     rule: 'satya',
     name: 'you_wont_believe_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: re('вы не поверите|невозможно поверить'),
     description: 'you-won\'t-believe clickbait (RU)',
   },
@@ -111,12 +119,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'media_silence_ru',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: re('о чём (?:молчат|умалчива[ею]т|не говорят)\\s+(?:СМИ|медиа|власти|учёные|пресса|официальн' + W_PLUS + '|правительств' + W_STAR + ')'),
     description: 'media-silence conspiracy frame (RU)',
   },
   {
     rule: 'satya',
     name: 'media_silence_en',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: /\bwhat\s+(?:the\s+)?(?:mainstream\s+|corporate\s+|legacy\s+|liberal\s+|leftist\s+|big\s+)?(?:media|press|news|government|officials)\s+(?:won'?t|wont|do(?:es)?n'?t|never)\s+(?:tell|say|report|cover|show|admit)\b/i,
     description: 'media-silence conspiracy frame (EN)',
   },
@@ -125,12 +135,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'experts_hate_en',
+    // catalogue: ns-jati-definition-1-2-18
     regex: /\b(?:doctors|experts|scientists|professionals|insiders|the\s+experts)\s+(?:hate|don'?t\s+want\s+you\s+to\s+know|are\s+furious\s+about)\b/i,
     description: 'experts-hate clickbait — fabricated authority opposition',
   },
   {
     rule: 'satya',
     name: 'experts_hate_ru',
+    // catalogue: ns-jati-definition-1-2-18
     regex: re('(?:врачи|эксперты|учёные|специалисты|профессионалы)\\s+(?:ненавидят|в ярости|боятся)\\s+(?:это|этого|такого)'),
     description: 'experts-hate clickbait (RU)',
   },
@@ -141,6 +153,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'exposed_bang_en',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: /\b(?:exposed|revealed|uncovered)\s*[!]+/i,
     description: 'sensational-bang framing on exposed/revealed',
   },
@@ -151,12 +164,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'change_everything_en',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: /\b(?:will|is\s+going\s+to|could|may|might)\s+change\s+(?:everything|the\s+(?:world|future)|history|how\s+we\s+(?:see|think|live|work))\b/i,
     description: 'totalising-impact prediction without source',
   },
   {
     rule: 'satya',
     name: 'change_everything_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: re('(?:это|то|оно)\\s+(?:изменит|перевернёт|разрушит)\\s+(?:всё|мир|историю|представлени' + W_PLUS + ')'),
     description: 'totalising-impact prediction (RU)',
   },
@@ -169,24 +184,28 @@ const PATTERNS = Object.freeze([
   {
     rule: 'asteya',
     name: 'sources_say_en',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: /\b(?:sources?|insiders?|whistleblowers?)\s+(?:are\s+|were\s+|is\s+|was\s+)?(?:say|sayin?g?|report|reporting|claim|claiming|reveal|revealing|tell\s+us|telling\s+us|allege|alleging)\b(?![\s\S]{0,200}\b(?:reuters|bloomberg|associated\s+press|afp|nyt|wsj|npr|bbc|cnn|the\s+(?:new\s+york\s+)?times|the\s+(?:washington\s+)?post|the\s+guardian|wall\s+street\s+journal|financial\s+times|named\s+source|identified\s+as)\b)/i,
     description: 'anonymous "sources say" — no named outlet within range',
   },
   {
     rule: 'asteya',
     name: 'sources_say_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: re('(?:источник' + W_STAR + '|инсайдер' + W_STAR + ')\\s+(?:сообща[ею]т|раскрыва[ею]т|утвержда[ею]т|расска(?:зали|зывают))'),
     description: 'anonymous "sources say" (RU)',
   },
   {
     rule: 'asteya',
     name: 'according_to_reports_en',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: /\baccording\s+to\s+(?:reports|sources|insiders|some|many|a\s+report)\b(?![\s\S]{0,150}\b(?:reuters|bloomberg|associated\s+press|afp|nyt|wsj|npr|bbc|cnn|the\s+(?:new\s+york\s+)?times|the\s+(?:washington\s+)?post|the\s+guardian|wall\s+street\s+journal|financial\s+times|named|identified\s+as|by\s+name)\b)/i,
     description: 'vague "according to reports" — no named outlet',
   },
   {
     rule: 'asteya',
     name: 'data_says_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: re('по\\s+(?:данным|сведениям|информации)\\s+(?:инсайдер' + W_STAR + '|источник' + W_STAR + '|неназванн' + W_PLUS + '|анонимн' + W_PLUS + ')'),
     description: 'vague-attribution "по данным источников" (RU)',
   },
@@ -195,12 +214,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'ahimsa',
     name: 'panic_frame_en',
+    // catalogue: mbh-mayacara-12-110-26
     regex: /\bpanic\s+(?:in|across|grips|spreads|sweeps|engulfs|sets\s+in)\b/i,
     description: 'panic-framing in news headline / lede',
   },
   {
     rule: 'ahimsa',
     name: 'panic_frame_ru',
+    // catalogue: mbh-mayacara-12-110-26
     regex: re('паника\\s+(?:охватила|охватывает|распространя[ею]тся|нараста[ею]т|растёт)'),
     description: 'panic-framing (RU)',
   },
@@ -209,12 +230,14 @@ const PATTERNS = Object.freeze([
   {
     rule: 'indriya_nigraha',
     name: 'before_deleted_en',
+    // catalogue: mbh-mayacara-12-110-26
     regex: /\b(?:read|share|watch|save|download)\s+(?:this\s+)?(?:before|while)\s+(?:it'?s\s+|its\s+)?(?:still\s+)?(?:deleted|removed|taken\s+down|censored|gone|up)\b/i,
     description: 'urgent-before-deletion framing',
   },
   {
     rule: 'indriya_nigraha',
     name: 'before_deleted_ru',
+    // catalogue: mbh-mayacara-12-110-26
     regex: re('(?:читай|смотри|поделись|сохрани|скачай)\\s+пока\\s+не\\s+(?:удалили|заблокировали|сняли|зацензурили)'),
     description: 'urgent-before-deletion (RU)',
   },
@@ -231,6 +254,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'vague_discovery_passive_ru',
+    // catalogue: ns-arthantara-5-2-7
     regex: re(
       '(?:найден[оы]|обнаружен[оы]|раскрыт[оы]|открыт[оы])\\s+' +
       '(?:природное|уникальное|чудо-?|новое|революционное|секретное|единственное|эффективное|простое|неожиданное)\\s+' +
@@ -246,6 +270,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'reaction_as_news_ru',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: re(
       '(?:и|,)\\s+' +
       '(?:озадачил|восхитил|шокировал|разозлил|удивил|поразил|развеселил|насторожил|испугал|разочаровал|повеселил|возмутил)' +
@@ -261,6 +286,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'genre_label_headline_ru',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: re(
       '(?:триллер|скандал|драма|сенсация|трагикомедия|детектив|шоу|цирк)\\s+' +
       '(?:на|в|с|со\\s+|вокруг|в\\s+мире|года)'
@@ -278,6 +304,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'ahimsa',
     name: 'personal_drama_judgment_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: new RegExp(
       PRE +
       '(?:вдова|вдовец|жена|муж|невеста|жених|любовница|любовник|пасынок|падчерица|мать|отец|дочь|сын)' +
@@ -301,6 +328,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'vague_discovery_passive_broad_ru',
+    // catalogue: ns-arthantara-5-2-7
     regex: new RegExp(
       PRE +
       '(?:найден[оы]|обнаружен[оы]|раскрыт[оы]|назван[оы]|стало\\s+известно)\\s+' +
@@ -318,6 +346,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'vague_listicle_ru',
+    // catalogue: ns-arthantara-5-2-7
     regex: re(
       '(?:россиянам|россиянину|россиянкам|россиянке|жителям|читателям|зрителям|пользователям)\\s+' +
       '(?:назвал|раскрыл|сообщил|перечислил)' +
@@ -331,6 +360,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'vague_subject_reveal_ru',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: re(
       '(?:обычный|обычная|обычное|обыкновенный|обыкновенная|неожиданн' + W_STAR +
       '|секретн' + W_STAR + '|загадочн' + W_STAR + '|необычн' + W_STAR + '|тайн' + W_STAR + ')' +
@@ -345,6 +375,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'vague_place_sensational_ru',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: re(
       '(?:российск' + W_STAR + '|русск' + W_STAR + ')\\s+' +
       '(?:город|регион|деревня|село|посёлок|край|область)\\s+' +
@@ -358,6 +389,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'sensationalist_marker_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: re('воскресит|воскрешает|бушующ' + W_STAR + '|потрясла|ошеломил' + W_STAR + '|ужаснул' + W_STAR),
     description: 'tabloid-leaning sensationalist verb (RU)',
   },
@@ -366,6 +398,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'sensational_adj_abstract_ru',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: re(
       'бешен' + W_STAR + '\\s+' +
       '(?:популярност|спрос|интерес|мода|резонанс|восторг|ажиотаж)' +
@@ -380,6 +413,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'asteya',
     name: 'vague_geo_political_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
     regex: re(
       'на\\s+западе\\s+' +
       '(?:[а-яё]+\\s+){0,2}' +
@@ -401,6 +435,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'listicle_en',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: /\b\d{1,3}\s+(?:celebrities|celebs|stars|things|reasons|ways|signs|times|moments|movies|songs|recipes|tricks|tips|hacks|secrets|facts|times|actors|actresses|other\s+famous|famous\s+people|of\s+the\s+(?:best|worst|funniest|craziest|wildest))\b/i,
     description: 'numerical-listicle clickbait (e.g. "11 celebrities who...", "26 famous people")',
   },
@@ -409,6 +444,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'quiz_en',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: /\b(?:which|what)\s+\w+(?:\s+\w+)?\s+(?:are\s+you|do\s+you|is\s+your|describes\s+you|matches\s+you)\b|\bpick\s+\w+(?:\s+\w+){0,3}\s+to\s+(?:determine|find\s+out|reveal|see|guess)\b|\b(?:everyone\s+is\s+a|are\s+you\s+more)\b/i,
     description: 'personality-quiz clickbait',
   },
@@ -417,6 +453,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'challenge_en',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: /\bI\s+(?:highly\s+)?(?:doubt|bet|guarantee|swear|wager)\s+(?:you|no\s+one|nobody)\s+can(?:'t|not)?\b|\bno\s+one\s+(?:born\s+after|over|under)\s+\d{4}\s+(?:will\s+be\s+able\s+to|can)\b|\bif\s+you\s+can\s+(?:name|identify|guess|score|solve)\s+(?:all|these|the)\s+\d+\b/i,
     description: 'challenge / "you can\'t do this" clickbait',
   },
@@ -425,6 +462,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'got_real_en',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: /\b(?:got\s+(?:real|candid|honest|emotional)|opens?\s+up|spills?(?:\s+the\s+tea)?|breaks?\s+(?:silence|down))\s+about\b/i,
     description: 'celebrity "got real / opens up" emotional-revelation clickbait',
   },
@@ -435,6 +473,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'slammed_caps_en',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: /\b[A-Z][a-z]+(?:\s+[A-Z][a-z]+){0,3}\s+(?:SLAMMED|SLAMS|DESTROYED|DESTROYS|OBLITERATED|ANNIHILATED|EVISCERATED|TORE\s+INTO|RIPS|RIPPED|CALLS\s+OUT|BLASTS|TROLLS)\b/,
     description: 'capitalised sensationalist verb (SLAMMED-style clickbait)',
   },
@@ -446,6 +485,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'q_resolved_celeb_en',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: /\bhere'?s\s+(?:why|what|how)\s+\w+(?:\s+\w+)?\s+(?:is|are|did|said|reacted|responded)\b(?![\s\S]{0,80}\b(?:works|happens|operates|explained|study|report|data)\b)/i,
     description: 'Q-resolved celebrity teaser ("Here\'s why X said Y")',
   },
@@ -454,6 +494,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'drama_reaction_en',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: /\b(?:celebrities|celebs|fans|the\s+internet|social\s+media|users|viewers)\s+(?:are\s+(?:reacting|talking|outraged|shocked|loving|hating)|reacted|exploded|went\s+wild|are\s+saying)\b/i,
     description: 'drama-reaction-as-news clickbait (EN tabloid)',
   },
@@ -464,6 +505,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'sensational_editorial_adj_en',
+    // catalogue: ns-vitanda-definition-1-2-3
     regex: /\b(?:harrowing|stunning|incredible|unbelievable|jaw-dropping|mind-blowing|breathtaking|heartbreaking|terrifying|devastating)\s+(?:footage|moment|video|photo|image|sight|scene|admission|confession|revelation|discovery|comeback|performance|concert)\b/i,
     description: 'sensational editorial adj + factual-event noun',
   },
@@ -472,6 +514,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'and_n_more_en',
+    // catalogue: ns-jalpa-definition-1-2-2
     regex: /\band\s+\d{1,3}\s+more\s+(?:famous|celebrities|celebs|times|things|ways|reasons)\b/i,
     description: 'listicle "and N more" continuation',
   },
@@ -481,6 +524,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'everyones_saying_en',
+    // catalogue: bg-asuri-epistemology-16-8
     regex: /\beveryone'?s\s+(?:saying|thinking|noticing|realizing|talking\s+about)\s+(?:the\s+same\s+thing|this|that)\b/i,
     description: 'social-proof "everyone\'s saying" clickbait',
   },
@@ -489,6 +533,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'celebrity_life_clickbait_en',
+    // catalogue: bg-asuri-self-narration-16-13-15
     regex: /\b(?:living\s+it\s+up|loving\s+life|all\s+smiles|stuns\s+in|turns\s+heads|breaks\s+the\s+internet|spotted\s+with)\b/i,
     description: 'celebrity-lifestyle clickbait verb (EN tabloid)',
   },
@@ -499,6 +544,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'ahimsa',
     name: 'sensationalist_body_metaphor_ru',
+    // catalogue: manu-vangmaya-karma-12-5-6
     regex: re(
       '(?:пить|сосать|обескровить|обескровл' + W_STAR + '|душить|задушить|давить|раздавить|выпотрошить|сожрать|съесть)' +
       '\\s+(?:[а-яё]+\\s+){0,2}' +
