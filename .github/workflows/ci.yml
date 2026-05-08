@@ -29,6 +29,9 @@ jobs:
       - name: Run tests
         run: npm test
 
+      - name: Regression bench vs frozen N=509 baseline
+        run: npm run bench:check
+
       - name: Build (verifies tsup config)
         run: npm run build
 

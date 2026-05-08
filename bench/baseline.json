@@ -1,0 +1,4602 @@
+{
+  "schema_version": 1,
+  "pack_stack": [
+    "news",
+    "news-de",
+    "epistemology",
+    "healthcare"
+  ],
+  "corpus_hash": "8503c5980aba7e7e976767e5e267006ee2861b4b08462540afe8caba72047823",
+  "corpus_size": 509,
+  "summary": {
+    "accuracy": 0.925343811394892,
+    "ok": 471,
+    "fp": 1,
+    "fn": 37
+  },
+  "results": [
+    {
+      "id": "multiregion:0",
+      "src": "bbc",
+      "region": "UK",
+      "label": "jet fuel shortages",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:1",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Iranians fear regime entrenched",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:2",
+      "src": "bbc",
+      "region": "UK",
+      "label": "cruise ship virus deaths",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:3",
+      "src": "bbc",
+      "region": "UK",
+      "label": "cancer jab one-minute",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:4",
+      "src": "bbc",
+      "region": "UK",
+      "label": "empty car park UK debt",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:5",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Princess Eugenie pregnancy",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:6",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Peter Kay bomb hoax court",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:7",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Reform migrant detention",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:8",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Israeli attacks Lebanon",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:9",
+      "src": "bbc",
+      "region": "UK",
+      "label": "UK Ukraine loan scheme Starmer",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:10",
+      "src": "bbc",
+      "region": "UK",
+      "label": "BBC dog scammers",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:11",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Trump Project Freedom Hormuz",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:12",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Met Gala 2026 watch guide",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:13",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Chris Mason elections analysis",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:14",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Tenby mobile signal town",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:15",
+      "src": "bbc",
+      "region": "UK",
+      "label": "F1 Antonelli",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:16",
+      "src": "bbc",
+      "region": "UK",
+      "label": "European leaders Armenia",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:17",
+      "src": "bbc",
+      "region": "UK",
+      "label": "United flight strike vehicle",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:18",
+      "src": "bbc",
+      "region": "UK",
+      "label": "temperatures fall",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:19",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Squishy toy traumatising burns",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:20",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Giuliani critical condition",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:21",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Ukrainian drone Moscow high-rise",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:22",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Bristol suspicious explosion",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:23",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Modi BJP Bengal",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:24",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Hurzeler Brighton deal",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:25",
+      "src": "fox",
+      "region": "US",
+      "label": "Cam Young Doral snooze",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:26",
+      "src": "fox",
+      "region": "US",
+      "label": "GOP sheriff backing",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:27",
+      "src": "fox",
+      "region": "US",
+      "label": "Buy it for life products",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:28",
+      "src": "fox",
+      "region": "US",
+      "label": "DOJ Illinois gender investigation",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:29",
+      "src": "fox",
+      "region": "US",
+      "label": "George Strait stunning concert",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:30",
+      "src": "fox",
+      "region": "US",
+      "label": "UFO expert mystery craft",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:31",
+      "src": "fox",
+      "region": "US",
+      "label": "Sanders Michigan candidate",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:32",
+      "src": "fox",
+      "region": "US",
+      "label": "WWE Liv Morgan Roxanne",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:33",
+      "src": "fox",
+      "region": "US",
+      "label": "United harrowing footage",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:34",
+      "src": "fox",
+      "region": "US",
+      "label": "Jessica Alba 45th yacht",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:35",
+      "src": "fox",
+      "region": "US",
+      "label": "Pritzker ICE investigation",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:36",
+      "src": "fox",
+      "region": "US",
+      "label": "Anne Heche tape sewer",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:37",
+      "src": "fox",
+      "region": "US",
+      "label": "Steve Forbes media merger",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:38",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Cameron baby announcement",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:39",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "BuzzFeed oral history",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:40",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Final editor note",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:41",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Livies France quiz",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:42",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Ahsoka changed me",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:43",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "movie chains super tough",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:44",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Taylor Swift dress quiz",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:45",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Olivia Wilde unrecognizable",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:46",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Devil Wears Prada 2 character",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:47",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Meryl Streep Met Gala skip",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:48",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Nick Cannon raising eyebrows",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:49",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Aziz Ansari SNL return",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:50",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "90s rap trivia 22/24",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:51",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Keke Palmer quote",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:52",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Met Gala slay or nay",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:53",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Politician Met Gala banned 16 more",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:54",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Met Gala vibe celeb quiz",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:55",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "19 actors costars love",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:56",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Heritage outfits 26 famous",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:57",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "AOC gay president priceless",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:58",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Tommy Dorfman plane",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:59",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Ashley Graham GLP-1 smack",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:60",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Megyn Kelly SLAMMED Trump",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:61",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Met Gala 15 celebs invite",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:62",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "11 celebs grocery store 12",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:63",
+      "src": "sky",
+      "region": "UK",
+      "label": "King delighted Eugenie",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:64",
+      "src": "sky",
+      "region": "UK",
+      "label": "Oklahoma shooting 12 hospital",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:65",
+      "src": "sky",
+      "region": "UK",
+      "label": "Giuliani Sky",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:66",
+      "src": "sky",
+      "region": "UK",
+      "label": "NHS one-minute jab",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:67",
+      "src": "sky",
+      "region": "UK",
+      "label": "Tuesday holiday booking",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:68",
+      "src": "sky",
+      "region": "UK",
+      "label": "Spanish cocaine record",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:69",
+      "src": "sky",
+      "region": "UK",
+      "label": "Peter Kay Sky",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:70",
+      "src": "sky",
+      "region": "UK",
+      "label": "Meteor shower Britain",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:71",
+      "src": "sky",
+      "region": "UK",
+      "label": "UK food inflation 50%",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:72",
+      "src": "sky",
+      "region": "UK",
+      "label": "SAG-AFTRA tentative",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:73",
+      "src": "npr",
+      "region": "US",
+      "label": "Trump DC changes",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:74",
+      "src": "npr",
+      "region": "US",
+      "label": "Trump Strait Hormuz Senate",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:75",
+      "src": "npr",
+      "region": "US",
+      "label": "Mom Mothers Day NPR",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:76",
+      "src": "npr",
+      "region": "US",
+      "label": "Medication abortion one drug",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:77",
+      "src": "npr",
+      "region": "US",
+      "label": "2026 Met Gala Fashion Art",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:78",
+      "src": "npr",
+      "region": "US",
+      "label": "Wildfire prevention Trump",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:79",
+      "src": "npr",
+      "region": "US",
+      "label": "Election deniers control voting",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:80",
+      "src": "npr",
+      "region": "US",
+      "label": "Claim sharks vets bill",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:81",
+      "src": "npr",
+      "region": "US",
+      "label": "Millennials 45 longevity tool",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:82",
+      "src": "npr",
+      "region": "US",
+      "label": "Indiana primary Trump retribution",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:83",
+      "src": "heise",
+      "region": "DE",
+      "label": "Ottocast Mini Tube test",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:84",
+      "src": "heise",
+      "region": "DE",
+      "label": "SAP npm packages compromised",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:85",
+      "src": "heise",
+      "region": "DE",
+      "label": "Verbraucherzentrale dangerous products",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:86",
+      "src": "heise",
+      "region": "DE",
+      "label": "tirreno fraud detection",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:87",
+      "src": "heise",
+      "region": "DE",
+      "label": "KI-Update Anthropic",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:88",
+      "src": "heise",
+      "region": "DE",
+      "label": "iPhone 17 charging issues",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:89",
+      "src": "heise",
+      "region": "DE",
+      "label": "Cowboy E-Bike recall",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:90",
+      "src": "heise",
+      "region": "DE",
+      "label": "DigiCert malware certificates",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:91",
+      "src": "heise",
+      "region": "DE",
+      "label": "iX-Workshop AD security",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:92",
+      "src": "heise",
+      "region": "DE",
+      "label": "Trellix source code",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:93",
+      "src": "heise",
+      "region": "DE",
+      "label": "Objective-See Berlin",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:94",
+      "src": "heise",
+      "region": "DE",
+      "label": "Intelligente Wartungskonzepte",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:95",
+      "src": "heise",
+      "region": "DE",
+      "label": "Bosch E-Bike 120 Nm",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:96",
+      "src": "heise",
+      "region": "DE",
+      "label": "Tails 7.7.2 update",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:97",
+      "src": "heise",
+      "region": "DE",
+      "label": "Radiant Mobile Jesus",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:98",
+      "src": "heise",
+      "region": "DE",
+      "label": "Windows Update preview",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:99",
+      "src": "heise",
+      "region": "DE",
+      "label": "Apple EU regulator",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:100",
+      "src": "heise",
+      "region": "DE",
+      "label": "Italo Bahn",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:101",
+      "src": "heise",
+      "region": "DE",
+      "label": "MQ-9A Reaper drone",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:102",
+      "src": "heise",
+      "region": "DE",
+      "label": "EUDI-Wallet PID",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:103",
+      "src": "heise",
+      "region": "DE",
+      "label": "Scrum Master Day 2026",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:104",
+      "src": "heise",
+      "region": "DE",
+      "label": "Apple Self-Service Repair",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:105",
+      "src": "heise",
+      "region": "DE",
+      "label": "Vibe-Coder Informatiker",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:106",
+      "src": "heise",
+      "region": "DE",
+      "label": "Billig-iPad late summer",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:107",
+      "src": "heise",
+      "region": "DE",
+      "label": "Microsoft Souveränität interview",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:108",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "US strikes Iranian boats",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:109",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Golders Green arson arrest",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:110",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Leipzig car crowds 2 killed",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:111",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Madeleine McCann UK trial",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:112",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "UAE Iran drone attacks",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:113",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Tributes teenager falling tree",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:114",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Bank of Dave Warburtons fire",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:115",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "EU cold water Starmer Brexit",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:116",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Man fell rooftop bar dies",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:117",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "What is hantavirus explainer",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:118",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Hotel owner dead inside crocodile",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:119",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "China plane fuel switches deliberately",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:120",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "US military Europe Trump withdraw",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:121",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Rental homes London plunge fifth",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:122",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Anthropic Blackstone enterprise AI",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:123",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "GameStop eBay $55.5bn",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:124",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "iOS 27 Apple Wallet Create Pass",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:125",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Wired headphone Bluetooth backlash",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:126",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Britney Spears guilty reckless",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:127",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Met Gala live Bezos protests",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:128",
+      "src": "sky",
+      "region": "UK",
+      "label": "Coventry City Premier League 25 years",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:129",
+      "src": "sky",
+      "region": "UK",
+      "label": "Woman man die explosion domestic",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:130",
+      "src": "sky",
+      "region": "UK",
+      "label": "Fish eels River Spey pollution",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:131",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "People naming celebs everyone nice",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:132",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Met Gala 2026 Red Carpet looks",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:133",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "celebrity passport photos",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:134",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Emily Blunt John Krasinski date",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:135",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Atlantic Great Actor Perfect Celebrity",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:136",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Kentucky Derby celebrity sightings",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:137",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "celebrity outfits Derby photos",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:138",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Derby Belichick Hudson Bird Gronk",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:139",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Angelina Jolie estate quit US",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:140",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Cameron Diaz Madden third child",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:141",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrity Traitors 2 BBC",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:142",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "21 Celebrity Traitors stars",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:143",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Only Sane Celebrity America",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:144",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Famous birthdays May 4",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:145",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrity Autobiography Broadway",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:146",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "9 Celebrity Moms after 50",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:147",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Stars NYC Met Gala arrived",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:148",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrity chef Louisville cheesecake",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:149",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Desert Hot Springs sculptors celebrity",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:150",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Every notable celebrity absence Met Gala",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:151",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Bobby Flay cheesecake",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:152",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrities Love Setting Sprays",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:153",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "MET Gala social media circle",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:154",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "US Stryker Vilseck",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:155",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Hantavirus Kap Verde",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:156",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Hormus USA Iran Angriff zurück",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:157",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Wal Timmy Vitalzeichen",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:158",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Laschet wütet Strack-Zimmermann",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:159",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Merz Klempner-Azubi",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:160",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Elbtunnel Weströhre",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:161",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Linke Grüne SPD X Rückzug",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:162",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Minenjagdboot Fulda Mittelmeer",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:163",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Rhein in Flammen Drohnenshow",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:164",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Österreich russische Diplomaten",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:165",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Schwedische Küstenwache Tanker",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:166",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Putin Angst Attentat Umsturz",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:167",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Trump kaputtes Land Merz",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:168",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "UniCredit Commerzbank",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:169",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "GameStop eBay 56 Mrd",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:170",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Negativer Strompreis 499 Euro",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:171",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "VW Sachsen-Werke",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:172",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "WhatsApp Avatare Profilbilder",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:173",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "iPhone 17 USB-C charging",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:174",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "007 First Light Spielzeit",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:175",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "PS Plus Mai Meisterwerk",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:176",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Prinzessin Eugenie schwanger BILD",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:177",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Cameron Diaz Mutter 53",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:178",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Nina Chuba Therapie",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:179",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Memmingen 14-Jähriger tot",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:180",
+      "src": "tonline",
+      "region": "DE",
+      "label": "US-Kriegsschiffe Hormus",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:181",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Tomahawk-Deal Experten warnen",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:182",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Vielseck Stützpunkt wackelt",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:183",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Russland Gefangene Nordkoreaner",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:184",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Cameron Diaz Eltern",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:185",
+      "src": "tonline",
+      "region": "DE",
+      "label": "PKV Pflegegrad 1",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:186",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Pflegereform VdK warnt",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:187",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Moos Pflaster Hausmittel",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:188",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Hammerschlagsrecht Grundstück",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:189",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Blattläuse bekämpfen schnell",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:190",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Tatort Hollywood-Niveau",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:191",
+      "src": "tonline",
+      "region": "DE",
+      "label": "DAX hinkt Gründe",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:192",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Trump Konsequenz Kolumne",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:193",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Armenien EU Wahl",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:194",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Holm Brandmauer AfD heimliche",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:195",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Festungsgürtel Kostjantyniwka",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:196",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Alzheimer rückgängig",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:197",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Putin Schlaf",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:198",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Gesundheitsreform Pflegerin",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:199",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Estland Zivilisten Russland",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:200",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Russland queere Männer",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:201",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Putin abgeschottet Bunker",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:202",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Tankrabatt Miersch Ölkonzerne",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:203",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Deutschland am Morgen emotionslos",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:204",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "NBA Magic Mosley entlassen",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:205",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Potsdam Bürgerforen",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:206",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "artspring Berlin Pankow",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:207",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Köpke Neuer WM",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:208",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Wandeltheater Orangerieschloss",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:209",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Ramelow Polen Grenze",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:210",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "NRW Tochter eingesperrt",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:211",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "WirVerlassenX Parteien",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:212",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Sonnensystem Eisbrocken 550km",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:213",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Persiusspeicher Investitionen",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:214",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Eintracht Riera Dortmund",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:215",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "CDU Star Wars Tag",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:216",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "FU-Professorin Wissenschaftspreis",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:217",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Freibadsaison 25000",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:218",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Pedro Pascal Lehrer",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:219",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Städtebau Brandenburg",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:220",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Iran Biennale Venedig",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:221",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Potsdam Jugendinnovationspreis",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:222",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Berlin Tötung Tabletten",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:223",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Klingbeil Trump Zoll",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:224",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Iran Sanktionen Öl",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:225",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Brandenburg Beamtenbesoldung",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:226",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Seethaler Roman",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:227",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Spahn Plum Merz",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:228",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Goldspürhunde Manching",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:0",
+      "src": "kom",
+      "region": null,
+      "label": "Жители Тюмени массово жаловаться на запах газа",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:1",
+      "src": "kom",
+      "region": null,
+      "label": "Фицо: Словакия не поддержит кредиты Украине",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:2",
+      "src": "kom",
+      "region": null,
+      "label": "Родные Мохаммади об ухудшении здоровья",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:3",
+      "src": "kom",
+      "region": null,
+      "label": "Армения–UK партнёрство",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:4",
+      "src": "kom",
+      "region": null,
+      "label": "Туапсе мазут после пожаров",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:5",
+      "src": "kom",
+      "region": null,
+      "label": "Суда США через Ормуз",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:6",
+      "src": "kom",
+      "region": null,
+      "label": "Меликов поможет врио Дагестана",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:7",
+      "src": "kom",
+      "region": null,
+      "label": "Бывший начальник РХБЗ найден мертвым",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:8",
+      "src": "kom",
+      "region": null,
+      "label": "Сбито 8 БПЛА на подлете",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:9",
+      "src": "kom",
+      "region": null,
+      "label": "Axios: США разрешили атаковать в Ормузе",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:10",
+      "src": "kom",
+      "region": null,
+      "label": "4 госпитализированы после ДТП на МКАД",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:11",
+      "src": "kom",
+      "region": null,
+      "label": "ОАЭ обвинили Иран в атаке на танкер",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:12",
+      "src": "kom",
+      "region": null,
+      "label": "NTSB причина крушения Boeing",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:13",
+      "src": "kom",
+      "region": null,
+      "label": "Умер солист Земляне",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:14",
+      "src": "kom",
+      "region": null,
+      "label": "Бывшему помощнику Жириновского 8 лет",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:15",
+      "src": "kom",
+      "region": null,
+      "label": "Путин сменил шерпу G20",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:16",
+      "src": "kom",
+      "region": null,
+      "label": "Путин поддержал Здунова Мордовия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:17",
+      "src": "kom",
+      "region": null,
+      "label": "FT: страховки от политнасилия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:18",
+      "src": "kom",
+      "region": null,
+      "label": "Швеция арест капитана Jin Hui",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:19",
+      "src": "kom",
+      "region": null,
+      "label": "Linkerbot $6 млрд",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:20",
+      "src": "kom",
+      "region": null,
+      "label": "Путин продлил срок Чиханчина",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:21",
+      "src": "kom",
+      "region": null,
+      "label": "МОК приостановил киберспорт",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:22",
+      "src": "kom",
+      "region": null,
+      "label": "3 БПЛА сбиты",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:23",
+      "src": "kom",
+      "region": null,
+      "label": "Совбез: учения Финляндии",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:24",
+      "src": "kom",
+      "region": null,
+      "label": "Краснодар осквернили могилы СВО",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:25",
+      "src": "ria",
+      "region": null,
+      "label": "Что случилось со звездой КВН",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:26",
+      "src": "ria",
+      "region": null,
+      "label": "Мелони о выводе войск США",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:27",
+      "src": "ria",
+      "region": null,
+      "label": "Путин гранты АПК",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:28",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биотех безопасность",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:29",
+      "src": "ria",
+      "region": null,
+      "label": "Путин медаль экс-главе",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:30",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биотех популяризация",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:31",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биоэкопоселения",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:32",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биотех приборостроение",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:33",
+      "src": "ria",
+      "region": null,
+      "label": "Путин нацпроект биоэкономика",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:34",
+      "src": "ria",
+      "region": null,
+      "label": "Путин стратегия биоэкономики",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:35",
+      "src": "ria",
+      "region": null,
+      "label": "Путин БРИКС наука",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:36",
+      "src": "ria",
+      "region": null,
+      "label": "Путин Ночная хоккейная лига",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:37",
+      "src": "ria",
+      "region": null,
+      "label": "Путин ядерные технологии медицина",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:38",
+      "src": "ria",
+      "region": null,
+      "label": "Места вузах биоэкономика",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:39",
+      "src": "ria",
+      "region": null,
+      "label": "Боевик ВСУ инсульт",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:40",
+      "src": "ria",
+      "region": null,
+      "label": "На Западе высказались",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:41",
+      "src": "ria",
+      "region": null,
+      "label": "Фицо моральный долг Москва",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:42",
+      "src": "ria",
+      "region": null,
+      "label": "Метро поезд День Победы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:43",
+      "src": "ria",
+      "region": null,
+      "label": "ПМР молдавский национализм",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:44",
+      "src": "ria",
+      "region": null,
+      "label": "Танзания SputnikPro",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:45",
+      "src": "ria",
+      "region": null,
+      "label": "Минпромторг ноутбуки",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:46",
+      "src": "ria",
+      "region": null,
+      "label": "Челябинск благоустройство",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:47",
+      "src": "ria",
+      "region": null,
+      "label": "Умер актер Бандитский Петербург",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:48",
+      "src": "ria",
+      "region": null,
+      "label": "Путин многодетные семьи",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:49",
+      "src": "ria",
+      "region": null,
+      "label": "Путин Хованский медаль",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:50",
+      "src": "lenta",
+      "region": null,
+      "label": "Xiaomi воскресит модель",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:51",
+      "src": "lenta",
+      "region": null,
+      "label": "Турецкий город завалило снегом",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:52",
+      "src": "lenta",
+      "region": null,
+      "label": "Лучшие наряды для выпускного",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:53",
+      "src": "lenta",
+      "region": null,
+      "label": "Язык переговоров Зеленский Пашинян",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:54",
+      "src": "lenta",
+      "region": null,
+      "label": "Брекоткин о популярности",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:55",
+      "src": "lenta",
+      "region": null,
+      "label": "Аномальное потепление в Москве",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:56",
+      "src": "lenta",
+      "region": null,
+      "label": "Археолог о предчувствии перед арестом",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:57",
+      "src": "lenta",
+      "region": null,
+      "label": "Космонавты выход в космос",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:58",
+      "src": "lenta",
+      "region": null,
+      "label": "Российский город невыносимый запах",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:59",
+      "src": "lenta",
+      "region": null,
+      "label": "ЦСКА тренер иностранец",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:60",
+      "src": "lenta",
+      "region": null,
+      "label": "Десятки могил повредили",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:61",
+      "src": "lenta",
+      "region": null,
+      "label": "Эндокринолог секреты шашлыка",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:62",
+      "src": "lenta",
+      "region": null,
+      "label": "Помощнику Жириновского срок",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:63",
+      "src": "lenta",
+      "region": null,
+      "label": "Met Gala протестующие",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:64",
+      "src": "lenta",
+      "region": null,
+      "label": "Причины нападения на губернатора",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:65",
+      "src": "lenta",
+      "region": null,
+      "label": "Овощ защита клеток мозга",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:66",
+      "src": "lenta",
+      "region": null,
+      "label": "Чубайс секретное досье",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:67",
+      "src": "lenta",
+      "region": null,
+      "label": "Выгодные месяцы для отпусков",
+      "expected": "pass",
+      "caught": true,
+      "correct": false
+    },
+    {
+      "id": "phase1:68",
+      "src": "lenta",
+      "region": null,
+      "label": "Блокировка VPN миллиарды",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:69",
+      "src": "lenta",
+      "region": null,
+      "label": "Зеленский переговоры Пашинян",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:70",
+      "src": "lenta",
+      "region": null,
+      "label": "Производитель сжиженного газа",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:71",
+      "src": "lenta",
+      "region": null,
+      "label": "Балетмейстер схема Долиной",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:72",
+      "src": "lenta",
+      "region": null,
+      "label": "Россиянина женили и отправили на СВО",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:73",
+      "src": "lenta",
+      "region": null,
+      "label": "Призвали к изменениям на СВО",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:74",
+      "src": "lenta",
+      "region": null,
+      "label": "Предпринимателя заставляли отдать миллионы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:75",
+      "src": "kp",
+      "region": null,
+      "label": "Хантавирус нужно ли бояться",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:76",
+      "src": "kp",
+      "region": null,
+      "label": "Защитите ваш счёт мошенники",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:77",
+      "src": "kp",
+      "region": null,
+      "label": "Лекарства от хантавируса нет",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:78",
+      "src": "kp",
+      "region": null,
+      "label": "Молодая вдова и могила мужа",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:79",
+      "src": "kp",
+      "region": null,
+      "label": "Очевидная попытка испортить майские",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:80",
+      "src": "kp",
+      "region": null,
+      "label": "Друг оказался Николом",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:81",
+      "src": "kp",
+      "region": null,
+      "label": "Пить украинскую кровь",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:82",
+      "src": "kp",
+      "region": null,
+      "label": "Ставки депозитам банки",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:83",
+      "src": "kp",
+      "region": null,
+      "label": "Онищенко Парад Победы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:84",
+      "src": "kp",
+      "region": null,
+      "label": "Триллер на круизном лайнере",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:85",
+      "src": "kp",
+      "region": null,
+      "label": "В мае выгоднее трудиться",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:86",
+      "src": "kp",
+      "region": null,
+      "label": "Боевики оружие бросали",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:87",
+      "src": "kp",
+      "region": null,
+      "label": "Путешествие к себе тур",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:88",
+      "src": "kp",
+      "region": null,
+      "label": "Отдых с заботой лагеря",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:89",
+      "src": "kp",
+      "region": null,
+      "label": "Сцена для подвига Чувашия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:90",
+      "src": "kp",
+      "region": null,
+      "label": "Зеленский угрожает Параду",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:91",
+      "src": "kp",
+      "region": null,
+      "label": "Щукин назначен главой Дагестана",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:92",
+      "src": "kp",
+      "region": null,
+      "label": "Человекоподобные роботы 2027",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:93",
+      "src": "kp",
+      "region": null,
+      "label": "Met Gala скандал Безос",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:94",
+      "src": "kp",
+      "region": null,
+      "label": "Виза талантов бешеная популярность",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:95",
+      "src": "kp",
+      "region": null,
+      "label": "Дом-2 золотой состав",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:96",
+      "src": "kp",
+      "region": null,
+      "label": "Армения променяла правду",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:97",
+      "src": "kp",
+      "region": null,
+      "label": "Юбилей Андрейченко",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:98",
+      "src": "kp",
+      "region": null,
+      "label": "В заначках в четыре раза больше",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "phase1:99",
+      "src": "kp",
+      "region": null,
+      "label": "2027 каждый третий день отдыха",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:100",
+      "src": "rbc",
+      "region": null,
+      "label": "Трамп и Мерц о Иране",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:101",
+      "src": "rbc",
+      "region": null,
+      "label": "Путин ядерные технологии медицина",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:102",
+      "src": "rbc",
+      "region": null,
+      "label": "Германия лишится Stryker",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:103",
+      "src": "rbc",
+      "region": null,
+      "label": "МОК комитет киберспорту",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:104",
+      "src": "rbc",
+      "region": null,
+      "label": "ЕГЭ без выгорания стресс",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:105",
+      "src": "rbc",
+      "region": null,
+      "label": "Боеприпас взорвался у ребенка Крым",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:106",
+      "src": "rbc",
+      "region": null,
+      "label": "Отопительный сезон Подмосковье",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:107",
+      "src": "rbc",
+      "region": null,
+      "label": "Ракетная опасность Дубай",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:108",
+      "src": "rbc",
+      "region": null,
+      "label": "АвтоВАЗ корпоративный отпуск",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:109",
+      "src": "rbc",
+      "region": null,
+      "label": "Погиб БПЛА Белгород",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:110",
+      "src": "rbc",
+      "region": null,
+      "label": "Умер Филонов",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:111",
+      "src": "rbc",
+      "region": null,
+      "label": "Алиев топливо Армении",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:112",
+      "src": "rbc",
+      "region": null,
+      "label": "Челестини ЦСКА увольнение",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:113",
+      "src": "rbc",
+      "region": null,
+      "label": "ДТП КАМАЗ МКАД",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:114",
+      "src": "rbc",
+      "region": null,
+      "label": "Axios Трамп Иран война",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:115",
+      "src": "rbc",
+      "region": null,
+      "label": "Собянин 2 БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:116",
+      "src": "rbc",
+      "region": null,
+      "label": "Взрыв на заводе фейерверков Китай",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:117",
+      "src": "rbc",
+      "region": null,
+      "label": "3 муниципалитета Белгород",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:118",
+      "src": "rbc",
+      "region": null,
+      "label": "PZU MetLife Украина",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:119",
+      "src": "rbc",
+      "region": null,
+      "label": "Европарламент пошлины Трампа",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:120",
+      "src": "rbc",
+      "region": null,
+      "label": "Меликов попросил время",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:121",
+      "src": "rbc",
+      "region": null,
+      "label": "ЦСКА причина неудач",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:122",
+      "src": "rbc",
+      "region": null,
+      "label": "Теннисисты Ролан Гаррос",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:123",
+      "src": "rbc",
+      "region": null,
+      "label": "РБЦ 3 БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:124",
+      "src": "rbc",
+      "region": null,
+      "label": "Челестини не убедил ЦСКА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:125",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Мособлсуд контрабанда наркотиков",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:126",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Газпром рекордный объем газа",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:127",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Причина ДТП Камаз",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:128",
+      "src": "vedomosti",
+      "region": null,
+      "label": "США выводят военных Германия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:129",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Умер Жучков",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:130",
+      "src": "vedomosti",
+      "region": null,
+      "label": "СПБ Биржа объем торгов",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:131",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Газпром медиа убыток",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:132",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Собянин ПВО БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:133",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Моторика прибыль -21%",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:134",
+      "src": "vedomosti",
+      "region": null,
+      "label": "ОАЭ обвинили Иран ADNOC",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:135",
+      "src": "vedomosti",
+      "region": null,
+      "label": "ПВО 90 БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:136",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Источники Ведомостей Чайко ВКС",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:137",
+      "src": "vedomosti",
+      "region": null,
+      "label": "ВСМПО убыток квартал",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:138",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Меликов не направлять",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:139",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Axios право удары Ормуз",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:140",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Белоусов взятие Мирополья",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:141",
+      "src": "vedomosti",
+      "region": null,
+      "label": "НРА Сибавтотранс рейтинг",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:142",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Армения UK партнёрство",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:143",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Внуково 50 рейсов задержки",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:144",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Путин шерпа G20",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:145",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Ведомости 3 БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:146",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Умер химзащита СССР",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:147",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Накопительные счета ставки",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:148",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Путин Чиханчин Росфинмониторинг",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:149",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Москва ответит высылку Австрия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:150",
+      "src": "meduza",
+      "region": null,
+      "label": "Опрос про 9 Мая",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:151",
+      "src": "meduza",
+      "region": null,
+      "label": "Банки отключают чаты",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:152",
+      "src": "meduza",
+      "region": null,
+      "label": "Oracle уволила 30 тыс письмом",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:153",
+      "src": "meduza",
+      "region": null,
+      "label": "Чайко командующий ВКС",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:154",
+      "src": "meduza",
+      "region": null,
+      "label": "Spiegel издательства цензоры",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:155",
+      "src": "meduza",
+      "region": null,
+      "label": "Русагро арест имущества",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:156",
+      "src": "meduza",
+      "region": null,
+      "label": "Захарова о гражданстве США",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:157",
+      "src": "meduza",
+      "region": null,
+      "label": "56% россиян возвращение брендов",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:158",
+      "src": "meduza",
+      "region": null,
+      "label": "Операторы отключения интернета",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:159",
+      "src": "meduza",
+      "region": null,
+      "label": "Задержан директор Красмаша",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:160",
+      "src": "meduza",
+      "region": null,
+      "label": "Путин опасается покушения",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:161",
+      "src": "meduza",
+      "region": null,
+      "label": "Роскомнадзор VPN 92%",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:162",
+      "src": "meduza",
+      "region": null,
+      "label": "Гладков продлил отпуск",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:163",
+      "src": "meduza",
+      "region": null,
+      "label": "США сопровождать суда Ормуз",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:164",
+      "src": "meduza",
+      "region": null,
+      "label": "БПЛА в многоэтажку Москва",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:165",
+      "src": "meduza",
+      "region": null,
+      "label": "Delta Chat обход блокировок",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:166",
+      "src": "meduza",
+      "region": null,
+      "label": "Чепик принудительное видео ФСБ",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:167",
+      "src": "meduza",
+      "region": null,
+      "label": "Лидеры ЕС в Ереване",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:168",
+      "src": "tass",
+      "region": null,
+      "label": "Москва жёлтый уровень",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:169",
+      "src": "tass",
+      "region": null,
+      "label": "Ставрополье террористы 10 лет",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:170",
+      "src": "tass",
+      "region": null,
+      "label": "Тува лесные пожары ЧС",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:171",
+      "src": "tass",
+      "region": null,
+      "label": "Фицо Зеленский консультации",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:172",
+      "src": "tass",
+      "region": null,
+      "label": "Чечня линия электропередачи 579 млн",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:173",
+      "src": "tass",
+      "region": null,
+      "label": "Путин биоэкопоселения Трансарктика",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:174",
+      "src": "tass",
+      "region": null,
+      "label": "США Норвегия задержки оружия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:175",
+      "src": "tass",
+      "region": null,
+      "label": "Metro Baikal Pearl небезопасная",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:176",
+      "src": "tass",
+      "region": null,
+      "label": "Минздрав Ливана 2696 человек",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:177",
+      "src": "tass",
+      "region": null,
+      "label": "Меликов Дагестан 5 лет",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:178",
+      "src": "tass",
+      "region": null,
+      "label": "Эксперт Данилин о Щукине",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:179",
+      "src": "tass",
+      "region": null,
+      "label": "Путин Сириус биоисследования",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:180",
+      "src": "tass",
+      "region": null,
+      "label": "Эксперт Шуров кофе зависимость",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:181",
+      "src": "tass",
+      "region": null,
+      "label": "Путин кадры биоэкономика",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:182",
+      "src": "tass",
+      "region": null,
+      "label": "Reuters хантавирус двое симптомы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:183",
+      "src": "tass",
+      "region": null,
+      "label": "Путин Стратегия биоэкономики 2036",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:184",
+      "src": "tass",
+      "region": null,
+      "label": "Путин стандарты ИИ",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:185",
+      "src": "tass",
+      "region": null,
+      "label": "Форум технологий 2027 цифра",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:186",
+      "src": "tass",
+      "region": null,
+      "label": "Замглавы Великолепетихского выписали",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:187",
+      "src": "tass",
+      "region": null,
+      "label": "Путин МИД БРИКС наука",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:188",
+      "src": "tass",
+      "region": null,
+      "label": "США влияние цен Иран",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:189",
+      "src": "tass",
+      "region": null,
+      "label": "Бессмертный полк Амстердам",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:190",
+      "src": "tass",
+      "region": null,
+      "label": "Воронеж отменили Парад",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:191",
+      "src": "tass",
+      "region": null,
+      "label": "Газпром апрель рекорд газа",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:192",
+      "src": "tass",
+      "region": null,
+      "label": "Mein Kampf Украина",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:193",
+      "src": "iz",
+      "region": null,
+      "label": "Хантавирус M/V Hondius россиянин",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:194",
+      "src": "iz",
+      "region": null,
+      "label": "Электромобили с пробегом 23%",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:195",
+      "src": "iz",
+      "region": null,
+      "label": "Владивосток теплотрасса",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:196",
+      "src": "iz",
+      "region": null,
+      "label": "Аварийные автомобили Lada",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:197",
+      "src": "iz",
+      "region": null,
+      "label": "Путин Леонидова заслуж артистка",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:198",
+      "src": "iz",
+      "region": null,
+      "label": "UVB-76 плавбаза",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:199",
+      "src": "iz",
+      "region": null,
+      "label": "Оман воды покраснели креветки",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:200",
+      "src": "iz",
+      "region": null,
+      "label": "Крым ребенок взрыв боеприпаса",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:201",
+      "src": "iz",
+      "region": null,
+      "label": "Эксперт договоры дарения",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:202",
+      "src": "iz",
+      "region": null,
+      "label": "США поставки оружия Европе",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:203",
+      "src": "iz",
+      "region": null,
+      "label": "ЕР Здоровая семья",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:204",
+      "src": "iz",
+      "region": null,
+      "label": "Остров Мечты 9 Мая",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:205",
+      "src": "iz",
+      "region": null,
+      "label": "МО ФРГ Tomahawk",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:206",
+      "src": "iz",
+      "region": null,
+      "label": "Адвокат запрещенные цветы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:207",
+      "src": "iz",
+      "region": null,
+      "label": "Госдума ВСУ День Победы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:208",
+      "src": "iz",
+      "region": null,
+      "label": "Графика вакансии пенсионеров",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:209",
+      "src": "iz",
+      "region": null,
+      "label": "Приморье минивэн в реку",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:210",
+      "src": "iz",
+      "region": null,
+      "label": "Умер Филонов Иззвестия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:211",
+      "src": "iz",
+      "region": null,
+      "label": "Путин Приходько медаль Горловка",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:212",
+      "src": "iz",
+      "region": null,
+      "label": "UMO электрокар каршеринг",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:213",
+      "src": "iz",
+      "region": null,
+      "label": "Туапсе 250 помещений",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:214",
+      "src": "iz",
+      "region": null,
+      "label": "Axios катера КСИР Ормуз",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:215",
+      "src": "iz",
+      "region": null,
+      "label": "Абельцеву 8 лет",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:216",
+      "src": "iz",
+      "region": null,
+      "label": "Дефект свободы Ормуз",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:217",
+      "src": "iz",
+      "region": null,
+      "label": "Волгоград ограничения полётов",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:218",
+      "src": "iz",
+      "region": null,
+      "label": "Графика помочь подростку",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:219",
+      "src": "iz",
+      "region": null,
+      "label": "Белгород БПЛА 1 погиб 7 ранены",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:220",
+      "src": "iz",
+      "region": null,
+      "label": "ЦСКА Челестини видео прощания",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:221",
+      "src": "iz",
+      "region": null,
+      "label": "Хорватия 4 мигранта тела",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:222",
+      "src": "iz",
+      "region": null,
+      "label": "Baikal Pearl 112 тыс бутылок",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:223",
+      "src": "forbes",
+      "region": null,
+      "label": "Cerebras IPO $3.5 млрд",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:224",
+      "src": "forbes",
+      "region": null,
+      "label": "ЭсЭфАй дивиденды 172 руб",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:225",
+      "src": "forbes",
+      "region": null,
+      "label": "ATP/WTA Ролан Гаррос призовые",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:226",
+      "src": "forbes",
+      "region": null,
+      "label": "Билайн ограничения интернета",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:227",
+      "src": "forbes",
+      "region": null,
+      "label": "Аиом Технологии 25 млн",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:228",
+      "src": "forbes",
+      "region": null,
+      "label": "Мир миллиардеров digest",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "phase1:229",
+      "src": "forbes",
+      "region": null,
+      "label": "Агата Кристи памятная доска",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:230",
+      "src": "forbes",
+      "region": null,
+      "label": "Forbes Club Вьюгин экономика",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:231",
+      "src": "forbes",
+      "region": null,
+      "label": "Свобода фабрика банкротство",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:232",
+      "src": "forbes",
+      "region": null,
+      "label": "8 альтернативных педсистем",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:233",
+      "src": "forbes",
+      "region": null,
+      "label": "Керлингисты ЧМ визы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:234",
+      "src": "forbes",
+      "region": null,
+      "label": "Москва жесткая реакция Австрия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:235",
+      "src": "forbes",
+      "region": null,
+      "label": "56% за возвращение брендов Forbes",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:236",
+      "src": "forbes",
+      "region": null,
+      "label": "Ричард Гир Асимметрия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:237",
+      "src": "forbes",
+      "region": null,
+      "label": "Русагро арест 100% акций",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:238",
+      "src": "forbes",
+      "region": null,
+      "label": "РБК Чайко главком ВКС",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:239",
+      "src": "forbes",
+      "region": null,
+      "label": "Заболотный допинг-тест",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:240",
+      "src": "forbes",
+      "region": null,
+      "label": "Генпрокуратура Мошкович активы",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:241",
+      "src": "kom-econ",
+      "region": null,
+      "label": "ВШЭ цифровая маркировка прибыль",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:242",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Долг регионам -114 млрд",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:243",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Минэкономики ОЭЗ",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:244",
+      "src": "kom-econ",
+      "region": null,
+      "label": "ВВП Q1 темп спада 0.3%",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:245",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Джини 0.375",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:246",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Минфин 200 млрд нефть",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:247",
+      "src": "kom-econ",
+      "region": null,
+      "label": "ОПЕК+ 188K баррелей",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:248",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Турция импорт -3.5 млрд",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:249",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Дмитриев пошлины Трампа удар ЕС",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:250",
+      "src": "rt",
+      "region": null,
+      "label": "Макдональд КНР санкции",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:251",
+      "src": "rt",
+      "region": null,
+      "label": "Домогаров и Сурганова Кубок",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:252",
+      "src": "rt",
+      "region": null,
+      "label": "Михал Эстония БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:253",
+      "src": "rt",
+      "region": null,
+      "label": "Лавров МИД Египта",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:254",
+      "src": "rt",
+      "region": null,
+      "label": "Axios Проект Свобода Иран",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:255",
+      "src": "rt",
+      "region": null,
+      "label": "Bild США 5 тыс солдат Германия",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:256",
+      "src": "rt",
+      "region": null,
+      "label": "Колосков Челестини",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:257",
+      "src": "rt",
+      "region": null,
+      "label": "Госдума подработка мошенничество",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:258",
+      "src": "rt",
+      "region": null,
+      "label": "Путин биотех приборостроение RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:259",
+      "src": "rt",
+      "region": null,
+      "label": "Путин ядерные технологии медицина RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:260",
+      "src": "rt",
+      "region": null,
+      "label": "Путин места биоэкономика RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:261",
+      "src": "rt",
+      "region": null,
+      "label": "МОК отказался киберспорт",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:262",
+      "src": "rt",
+      "region": null,
+      "label": "Минпромторг параллельный импорт RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:263",
+      "src": "rt",
+      "region": null,
+      "label": "Yle Финляндия БПЛА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:264",
+      "src": "rt",
+      "region": null,
+      "label": "Безос яхта $500 млн",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:265",
+      "src": "rt",
+      "region": null,
+      "label": "Игдисамов ЦСКА",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:266",
+      "src": "rt",
+      "region": null,
+      "label": "Умер Филонов RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:267",
+      "src": "rt",
+      "region": null,
+      "label": "Крым ребёнок взрыв RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:268",
+      "src": "rt",
+      "region": null,
+      "label": "Россияне регучёт",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:269",
+      "src": "rt",
+      "region": null,
+      "label": "Путин омский школьник медаль",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:270",
+      "src": "rt",
+      "region": null,
+      "label": "Колесник лишить безопасности Киев",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:271",
+      "src": "rt",
+      "region": null,
+      "label": "РИА Дубай ракетная угроза",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:272",
+      "src": "rt",
+      "region": null,
+      "label": "Кизеветтер Томагавк",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:273",
+      "src": "rt",
+      "region": null,
+      "label": "Бабаев Челестини отставка",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:274",
+      "src": "rt",
+      "region": null,
+      "label": "Россияне фото геолокация",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:275",
+      "src": "rt",
+      "region": null,
+      "label": "Интерфакс 32% Киев украинский",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:276",
+      "src": "rt",
+      "region": null,
+      "label": "Россияне фишинг 9 Мая",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:277",
+      "src": "rt",
+      "region": null,
+      "label": "Меликов отсрочка назначения",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:278",
+      "src": "rt",
+      "region": null,
+      "label": "Белгород 1 погиб 7 ранены RT",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "phase1:279",
+      "src": "rt",
+      "region": null,
+      "label": "Туск Польша военные США",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    }
+  ],
+  "frozen_at": "2026-05-07T15:57:10.112Z",
+  "guard_version": "0.4.0-pre.3"
+}

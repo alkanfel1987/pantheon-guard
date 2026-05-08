@@ -1,0 +1,461 @@
+{
+  "multiregion:1::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:1",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:08.034Z",
+    "label": "pass",
+    "rationale": "Factual reporting of Iranian public sentiment regarding political situation and regime stability.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of Iranian public sentiment regarding political situation and regime stability.\"}\n```"
+  },
+  "multiregion:13::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:13",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:09.483Z",
+    "label": "pass",
+    "rationale": "Straightforward political analysis about upcoming elections without sensationalism or manipulation tactics.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Straightforward political analysis about upcoming elections without sensationalism or manipulation tactics.\"}\n```"
+  },
+  "multiregion:25::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:25",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:10.708Z",
+    "label": "catch",
+    "rationale": "Sensationalist editorial framing mixed with subjective judgments ('snooze', 'dominance') as news headline.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Sensationalist editorial framing mixed with subjective judgments ('snooze', 'dominance') as news headline.\"}\n```"
+  },
+  "multiregion:26::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:26",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:15.933Z",
+    "label": "pass",
+    "rationale": "Factual political news reporting endorsements and support without sensational framing.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual political news reporting endorsements and support without sensational framing.\"}\n```"
+  },
+  "multiregion:29::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:29",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:17.074Z",
+    "label": "catch",
+    "rationale": "Sensationalist adjectives ('incredible', 'stunning') for routine career event without specifics.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Sensationalist adjectives ('incredible', 'stunning') for routine career event without specifics.\"}\n```"
+  },
+  "multiregion:44::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:44",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:18.310Z",
+    "label": "catch",
+    "rationale": "Clickbait quiz framing disguises trivial content as personality determination.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Clickbait quiz framing disguises trivial content as personality determination.\"}\n```"
+  },
+  "multiregion:49::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:49",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:19.691Z",
+    "label": "pass",
+    "rationale": "Factual reporting of entertainment event without sensationalism or manipulation.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of entertainment event without sensationalism or manipulation.\"}\n```"
+  },
+  "multiregion:56::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:56",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:20.913Z",
+    "label": "pass",
+    "rationale": "Factual celebrity fashion reporting with named subjects and clear descriptive framing.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual celebrity fashion reporting with named subjects and clear descriptive framing.\"}\n```"
+  },
+  "multiregion:57::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:57",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:22.328Z",
+    "label": "catch",
+    "rationale": "Voyeur + reaction pattern; 'priceless' response framing obscures actual content.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Voyeur + reaction pattern; 'priceless' response framing obscures actual content.\"}\n```"
+  },
+  "multiregion:87::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:87",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:24.721Z",
+    "label": "pass",
+    "rationale": "Factual tech news headline listing AI developments and research topics without sensational framing.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual tech news headline listing AI developments and research topics without sensational framing.\"}\n```"
+  },
+  "multiregion:91::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:91",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:26.015Z",
+    "label": "pass",
+    "rationale": "Factual announcement of workshop on securing local Active Directory against attacks.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual announcement of workshop on securing local Active Directory against attacks.\"}\n```"
+  },
+  "multiregion:97::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:97",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:27.480Z",
+    "label": "catch",
+    "rationale": "Sensationalist framing of religious business decision; clickbait-style combining religious ideology with explicit content mention.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Sensationalist framing of religious business decision; clickbait-style combining religious ideology with explicit content mention.\"}\n```"
+  },
+  "multiregion:107::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:107",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:28.509Z",
+    "label": "pass",
+    "rationale": "Factual reporting of Microsoft statement on sovereignty policy without sensational framing.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of Microsoft statement on sovereignty policy without sensational framing.\"}\n```"
+  },
+  "multiregion:111::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:111",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:29.719Z",
+    "label": "pass",
+    "rationale": "Factual reporting of legal proceedings involving named suspect and official institution.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of legal proceedings involving named suspect and official institution.\"}\n```"
+  },
+  "multiregion:131::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:131",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:31.043Z",
+    "label": "catch",
+    "rationale": "Voyeur + reaction pattern framing routine celebrity discussion as dramatic discovery.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Voyeur + reaction pattern framing routine celebrity discussion as dramatic discovery.\"}\n```"
+  },
+  "multiregion:140::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:140",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:32.177Z",
+    "label": "pass",
+    "rationale": "Factual celebrity news reporting birth announcement without sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual celebrity news reporting birth announcement without sensationalism.\"}\n```"
+  },
+  "multiregion:150::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:150",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:33.840Z",
+    "label": "catch",
+    "rationale": "Voyeur + reaction pattern; sensationalizes celebrity attendance as dramatic narrative.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Voyeur + reaction pattern; sensationalizes celebrity attendance as dramatic narrative.\"}\n```"
+  },
+  "multiregion:167::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:167",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:35.286Z",
+    "label": "catch",
+    "rationale": "Sensationalist framing with inflammatory language ('gnadenlos', 'rechnet ab'); dramatic judgment rather than factual reporting.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Sensationalist framing with inflammatory language ('gnadenlos', 'rechnet ab'); dramatic judgment rather than factual reporting.\"}\n```"
+  },
+  "multiregion:170::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:170",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:36.384Z",
+    "label": "pass",
+    "rationale": "Factual reporting on energy market phenomenon and political argument with specific price data.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting on energy market phenomenon and political argument with specific price data.\"}\n```"
+  },
+  "multiregion:173::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:173",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:37.707Z",
+    "label": "pass",
+    "rationale": "Factual reporting of user-reported technical issue with iPhone product.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of user-reported technical issue with iPhone product.\"}\n```"
+  },
+  "multiregion:175::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:175",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:39.100Z",
+    "label": "catch",
+    "rationale": "Sensationalist framing ('Meisterwerk', 'nicht übersehen dürft') for routine game announcement.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Sensationalist framing ('Meisterwerk', 'nicht übersehen dürft') for routine game announcement.\"}\n```"
+  },
+  "multiregion:186::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:186",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:41.055Z",
+    "label": "pass",
+    "rationale": "Factual reporting of organizational warning about healthcare policy changes.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of organizational warning about healthcare policy changes.\"}\n```"
+  },
+  "multiregion:204::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:204",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:42.191Z",
+    "label": "pass",
+    "rationale": "Factual sports news reporting coaching decision after playoff elimination.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual sports news reporting coaching decision after playoff elimination.\"}\n```"
+  },
+  "multiregion:207::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:207",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:43.329Z",
+    "label": "pass",
+    "rationale": "Sports news reporting on transfer rumors and player commentary without sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Sports news reporting on transfer rumors and player commentary without sensationalism.\"}\n```"
+  },
+  "multiregion:218::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "multiregion:218",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:44.523Z",
+    "label": "catch",
+    "rationale": "Voyeur-reaction pattern, dramatizes mundane teacher comment, sensationalist framing for clicks",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Voyeur-reaction pattern, dramatizes mundane teacher comment, sensationalist framing for clicks\"}\n```"
+  },
+  "phase1:12::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:12",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:46.309Z",
+    "label": "pass",
+    "rationale": "Factual reporting of official investigation results from NTSB on documented 2022 incident.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of official investigation results from NTSB on documented 2022 incident.\"}\n```"
+  },
+  "phase1:15::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:15",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:47.709Z",
+    "label": "pass",
+    "rationale": "Factual reporting of personnel appointment decision with named officials and positions.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of personnel appointment decision with named officials and positions.\"}\n```"
+  },
+  "phase1:16::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:16",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:49.002Z",
+    "label": "pass",
+    "rationale": "Factual political reporting of presidential meeting and statement.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual political reporting of presidential meeting and statement.\"}\n```"
+  },
+  "phase1:24::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:24",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:50.124Z",
+    "label": "pass",
+    "rationale": "Factual reporting of criminal investigation into desecration of war memorials.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of criminal investigation into desecration of war memorials.\"}\n```"
+  },
+  "phase1:43::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:43",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:51.622Z",
+    "label": "pass",
+    "rationale": "Factual reporting of political statement/call from PMR authorities to Moldova.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of political statement/call from PMR authorities to Moldova.\"}\n```"
+  },
+  "phase1:45::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:45",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:54.580Z",
+    "label": "pass",
+    "rationale": "Factual reporting of government ministry statement on trade policy decision.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of government ministry statement on trade policy decision.\"}\n```"
+  },
+  "phase1:49::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:49",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:55.779Z",
+    "label": "pass",
+    "rationale": "Factual reporting of official award ceremony with named recipient and specific honor.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of official award ceremony with named recipient and specific honor.\"}\n```"
+  },
+  "phase1:76::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:76",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:56.870Z",
+    "label": "pass",
+    "rationale": "Factual warning about fraud scheme from banks, legitimate public-health notification.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual warning about fraud scheme from banks, legitimate public-health notification.\"}\n```"
+  },
+  "phase1:112::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:112",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:58.537Z",
+    "label": "pass",
+    "rationale": "Factual sports reporting of coaching decision with mutual agreement, no sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual sports reporting of coaching decision with mutual agreement, no sensationalism.\"}\n```"
+  },
+  "phase1:115::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:115",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:12:59.895Z",
+    "label": "pass",
+    "rationale": "Factual reporting of military/defense event with specific action and official source attribution.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of military/defense event with specific action and official source attribution.\"}\n```"
+  },
+  "phase1:142::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:142",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:00.996Z",
+    "label": "pass",
+    "rationale": "Factual diplomatic reporting of bilateral partnership agreement between named officials.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual diplomatic reporting of bilateral partnership agreement between named officials.\"}\n```"
+  },
+  "phase1:168::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:168",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:02.270Z",
+    "label": "pass",
+    "rationale": "Legitimate weather alert with specific time, location, and meteorological information.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Legitimate weather alert with specific time, location, and meteorological information.\"}\n```"
+  },
+  "phase1:171::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:171",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:03.625Z",
+    "label": "pass",
+    "rationale": "Factual political reporting of government meeting and policy positions.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual political reporting of government meeting and policy positions.\"}\n```"
+  },
+  "phase1:180::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:180",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:04.935Z",
+    "label": "pass",
+    "rationale": "Factual reporting with expert quote on coffee's effects, no sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting with expert quote on coffee's effects, no sensationalism.\"}\n```"
+  },
+  "phase1:197::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:197",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:06.346Z",
+    "label": "pass",
+    "rationale": "Factual reporting of official governmental decision with named individual and specific honor granted.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of official governmental decision with named individual and specific honor granted.\"}\n```"
+  },
+  "phase1:208::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:208",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:07.733Z",
+    "label": "pass",
+    "rationale": "Factual reporting with data visualization about job vacancies for retirees.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting with data visualization about job vacancies for retirees.\"}\n```"
+  },
+  "phase1:239::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:239",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:09.046Z",
+    "label": "pass",
+    "rationale": "Factual reporting of athlete's doping test result with verifiable facts.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of athlete's doping test result with verifiable facts.\"}\n```"
+  },
+  "phase1:248::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:248",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:10.146Z",
+    "label": "pass",
+    "rationale": "Factual reporting of trade statistics from official source without sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of trade statistics from official source without sensationalism.\"}\n```"
+  },
+  "phase1:250::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:250",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:11.331Z",
+    "label": "pass",
+    "rationale": "Factual reporting of journalist's statement about geopolitical developments and sanctions policy.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of journalist's statement about geopolitical developments and sanctions policy.\"}\n```"
+  },
+  "phase1:255::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:255",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:13.261Z",
+    "label": "pass",
+    "rationale": "Factual military news reporting troop movements from named source.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual military news reporting troop movements from named source.\"}\n```"
+  },
+  "phase1:258::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:258",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:14.476Z",
+    "label": "pass",
+    "rationale": "Factual reporting of government directive, standard political news format.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of government directive, standard political news format.\"}\n```"
+  },
+  "phase1:260::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:260",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:15.895Z",
+    "label": "pass",
+    "rationale": "Factual reporting of political decision and policy directive without sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of political decision and policy directive without sensationalism.\"}\n```"
+  },
+  "phase1:262::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:262",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:18.236Z",
+    "label": "pass",
+    "rationale": "Factual reporting of government ministry statement on trade policy without sensationalism.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of government ministry statement on trade policy without sensationalism.\"}\n```"
+  },
+  "phase1:269::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:269",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:19.298Z",
+    "label": "pass",
+    "rationale": "Factual reporting of a presidential award for a documented heroic act.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual reporting of a presidential award for a documented heroic act.\"}\n```"
+  },
+  "phase1:270::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:270",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:20.878Z",
+    "label": "catch",
+    "rationale": "Inflammatory political framing with threat rhetoric ('deprive of security'), sensationalist commentary on conflict.",
+    "raw_response": "```json\n{\"label\": \"catch\", \"rationale\": \"Inflammatory political framing with threat rhetoric ('deprive of security'), sensationalist commentary on conflict.\"}\n```"
+  },
+  "phase1:279::claude-haiku-4-5-20251001::v1.2026-05-08": {
+    "id": "phase1:279",
+    "model": "claude-haiku-4-5-20251001",
+    "rubric_version": "v1.2026-05-08",
+    "annotated_at": "2026-05-07T16:13:21.961Z",
+    "label": "pass",
+    "rationale": "Factual political statement from named official on defense policy matter.",
+    "raw_response": "```json\n{\"label\": \"pass\", \"rationale\": \"Factual political statement from named official on defense policy matter.\"}\n```"
+  }
+}
