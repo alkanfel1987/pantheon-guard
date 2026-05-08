@@ -181,6 +181,14 @@ const PATTERNS = Object.freeze([
   // (mirrors healthcare's studies_show pattern, which uses keyword inhibitors
   //  rather than capitalisation — capital-letter heuristics break under
   //  the case-insensitive flag).
+  //
+  // calibrator FP-suppression anchor: mbh-raja-vrtta-dissimulation-12-69
+  // (Mbh 12.69 AMBIGUITY entry, medium confidence). Documents that
+  // institutional speech-with-attribution (Reuters, Bloomberg, named outlets)
+  // is context-bounded legitimate communication — the same FP-suppression
+  // logic that distinguishes anonymous denunciation (rājagāmi paiśuna,
+  // mahāpātaka-level) from attributed reporting (legitimate institutional
+  // speech under the source's institutional role).
   {
     rule: 'asteya',
     name: 'sources_say_en',
