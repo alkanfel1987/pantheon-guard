@@ -1,0 +1,148 @@
+/**
+ * Learning Cycle 2026-05-08 · REPLICATION corpus (N=40)
+ *
+ * Pulled 2026-05-08 from SECTION-LEVEL URLs of the same 9 publishers
+ * tested on the frozen corpus, to test for overfit. Labels assigned
+ * before running the post-fix pack stack (news v0.3.0 + epistemology
+ * v0.1.0 + healthcare v0.1.2).
+ *
+ * Distribution: law 5, journalism 15, influencer 20.
+ */
+
+export const REPLICATION = [
+  // ─── LAW · pravo.ru/news (5) ───
+  { src: 'pravo.ru/news', domain: 'law', label: 'VS share fragmentation',
+    text: 'ВС пресек схему с искусственным дроблением доли. Судьи предупредили: при выплате действительной стоимости доли её размер нужно определять на основании бухгалтерской отчётности.',
+    expected: 'pass' },
+  { src: 'pravo.ru/news', domain: 'law', label: 'Bashkirautodor shares unfrozen',
+    text: 'Акционеры госпредприятия Башкиравтодор добились снятия ареста с акций. Региональное министерство указало, что заморозка активов препятствует приватизации.',
+    expected: 'pass' },
+  { src: 'pravo.ru/news', domain: 'law', label: 'FAS trademark abuse',
+    text: 'ФАС выдала предписание за злоупотребление правом на товарный знак. Право на товарный знак нельзя использовать как инструмент для вытеснения с рынка добросовестных конкурентов.',
+    expected: 'pass' },
+  { src: 'pravo.ru/news', domain: 'law', label: 'Rosprirodnadzor Dulisma 721mln',
+    text: 'Росприроднадзор требует с нефтяной компании Дулисьма 721 млн руб. Предприятие перешло в государственную собственность в 2023 году.',
+    expected: 'pass' },
+  { src: 'pravo.ru/news', domain: 'law', label: 'Duma criminal mining',
+    text: 'Думский комитет одобрил уголовку за незаконный майнинг. Нарушителям будут грозить миллионные штрафы и лишение свободы до пяти лет.',
+    expected: 'pass' },
+
+  // ─── JOURNALISM · ria.ru/politics (5) ───
+  { src: 'ria.ru/politics', domain: 'journalism', label: 'Voting day Q-clickbait',
+    text: 'В России стартовал Единый день голосования: что важно знать.',
+    expected: 'catch' },
+  { src: 'ria.ru/politics', domain: 'journalism', label: 'Peskov dialogue mirror',
+    text: 'Песков: Россия готова к диалогу настолько, насколько готова к нему Европа.',
+    expected: 'pass' },
+  { src: 'ria.ru/politics', domain: 'journalism', label: 'Kremlin Putin negotiations',
+    text: 'В Кремле заявили о готовности Путина к переговорам.',
+    expected: 'pass' },
+  { src: 'ria.ru/politics', domain: 'journalism', label: 'Prilepin politics',
+    text: 'Захар Прилепин заявил, что остается в политике.',
+    expected: 'pass' },
+  { src: 'ria.ru/politics', domain: 'journalism', label: 'Semenovich politician',
+    text: 'Семенович считает, что из неё получится хороший политик.',
+    expected: 'pass' },
+
+  // ─── JOURNALISM · lenta.ru/parts/news (5) ───
+  { src: 'lenta.ru/news', domain: 'journalism', label: 'Military vague reveal',
+    text: 'Военный раскрыл особенность ответных ударов России в перемирие.',
+    expected: 'catch' },
+  { src: 'lenta.ru/news', domain: 'journalism', label: 'Zelensky vague reveal',
+    text: 'Зеленский раскрыл детали дальнейших переговоров с США.',
+    expected: 'catch' },
+  { src: 'lenta.ru/news', domain: 'journalism', label: 'Iran tanker',
+    text: 'ВМС Ирана захватили нефтяной танкер.',
+    expected: 'pass' },
+  { src: 'lenta.ru/news', domain: 'journalism', label: 'Resale find viral',
+    text: 'Находка мужчины на ресейл-платформе прославила его в сети.',
+    expected: 'catch' },
+  { src: 'lenta.ru/news', domain: 'journalism', label: 'Teen 18m fall',
+    text: 'Подросток упал с 18-метровой высоты в огонь после удара током и выжил.',
+    expected: 'catch' },
+
+  // ─── JOURNALISM · kommersant.ru/economics (5) ───
+  { src: 'kommersant/econ', domain: 'journalism', label: 'CB inflation forecast',
+    text: 'Банк России спрогнозировал инфляцию на уровне 5,9 процентов во втором квартале.',
+    expected: 'pass' },
+  { src: 'kommersant/econ', domain: 'journalism', label: 'Infrastructure loan limit',
+    text: 'Инфраструктуру встроят в лимит. Регионам установят ограничение по объёму льготных займов.',
+    expected: 'pass' },
+  { src: 'kommersant/econ', domain: 'journalism', label: 'GDP Q1 decline',
+    text: 'ВВП России в первом квартале снизился на 0,5 процентов.',
+    expected: 'pass' },
+  { src: 'kommersant/econ', domain: 'journalism', label: 'FAS aluminum exchange',
+    text: 'ФАС и Минпромторг предложили продавать на бирже минимум 10 процентов алюминия.',
+    expected: 'pass' },
+  { src: 'kommersant/econ', domain: 'journalism', label: 'China-EU transit',
+    text: 'Минтранс: объём перевозок между Китаем и Европой через Россию вырос вдвое.',
+    expected: 'pass' },
+
+  // ─── INFLUENCER · mash older (5) ───
+  { src: 'mash/old', domain: 'influencer', label: 'Kerch shooter past',
+    text: 'Влад Росляков, устроивший бойню в Керчи, мечтал стать моряком, но не набрал проходной балл. В детстве парень хотел ходить в рейсы — как дед.',
+    expected: 'catch' },
+  { src: 'mash/old', domain: 'influencer', label: 'GAI bribe how-to',
+    text: 'Как не нарваться на штраф, когда можно дать взятку, а когда лучше и не пытаться. Зачем экипажу автоматы и какая у них зп.',
+    expected: 'catch' },
+  { src: 'mash/old', domain: 'influencer', label: 'Kokorin expectedly SIZO',
+    text: 'Братья Кокорины — ожидаемо — тоже остаются в СИЗО, оба.',
+    expected: 'catch' },
+  { src: 'mash/old', domain: 'influencer', label: 'Kokorin chair telegram',
+    text: 'Александр Кокорин жалуется в суде на травлю в интернете и просит отпустить его из СИЗО, чтобы избить стулом весь телеграм.',
+    expected: 'catch' },
+  { src: 'mash/old', domain: 'influencer', label: 'Kokorin mama bail adopted',
+    text: 'Мама Кокорина предлагает суду 10 миллионов в качестве залога за сына, старшего. За младшего не предлагали ничего. Так Кирилл узнал, что он приёмный.',
+    expected: 'catch' },
+
+  // ─── INFLUENCER · kotsnews older (5) ───
+  { src: 'kots/old', domain: 'influencer', label: 'How to respond provocation',
+    text: 'Как надо ответить на украинскую провокацию 9 мая. Зеленский вновь обвинил Россию в нарушениях режима тишины 6-8 мая, на который Москва не соглашалась, и пригрозил зеркальным ответом.',
+    expected: 'catch' },
+  { src: 'kots/old', domain: 'influencer', label: 'Returned from beyond',
+    text: 'Вернулся с того света: как восстановить статус ожившего. Война пишется не только кровью, но и сухими строчками приказов.',
+    expected: 'pass' },
+  { src: 'kots/old', domain: 'influencer', label: 'Soldier found alive procedure',
+    text: 'Как только боец нашёлся живым в госпитале, в плену, в составе вышедшей из окружения группы, командование части обязано отменить прежний приказ.',
+    expected: 'pass' },
+  { src: 'kots/old', domain: 'influencer', label: 'Kots book Kursk',
+    text: 'Друзья, новая книга Александра Коца уже в продаже! Курск. Боль и слава. Хроника 264 опалённых дней.',
+    expected: 'pass' },
+  { src: 'kots/old', domain: 'influencer', label: 'Latvia drone fall',
+    text: 'Балтийский коридор. В Латвии снова упал дрон. В ночь на 7 мая Латгалию снова посетили непонятно откуда взявшиеся дроны.',
+    expected: 'pass' },
+
+  // ─── INFLUENCER · readovka older (5) ───
+  { src: 'readovka/old', domain: 'influencer', label: 'SVO documents lost awards',
+    text: 'Проблемы с документами и потерявшиеся награды: с чем могут столкнуться ветераны СВО, вернувшиеся с фронта. Ветераны и их семьи месяцами пытаются добиться того, что им положено по закону.',
+    expected: 'pass' },
+  { src: 'readovka/old', domain: 'influencer', label: 'Bauman secret hackers',
+    text: 'В МГТУ им. Баумана есть секретная кафедра, которая готовит будущих хакеров для ГРУ, утверждают западные СМИ.',
+    expected: 'catch' },
+  { src: 'readovka/old', domain: 'influencer', label: 'HRWF Europe religion',
+    text: 'Human Rights Without Frontiers увидела угрозу свободе веры там, где Европе впору думать о собственной безопасности.',
+    expected: 'pass' },
+  { src: 'readovka/old', domain: 'influencer', label: 'EU Norway cod espionage',
+    text: 'ЕС увидел угрозу шпионажа и диверсий в сотрудничестве Норвегии и России по промыслу трески.',
+    expected: 'pass' },
+  { src: 'readovka/old', domain: 'influencer', label: 'Russian forces Donets',
+    text: 'ВС РФ форсировали Северский Донец у Святогорска — итоговая сводка Readovka за 7 мая. Русские войска форсировали Северский Донец в районе Святогорска.',
+    expected: 'pass' },
+
+  // ─── INFLUENCER · vc.ru/tribuna (5) ───
+  { src: 'vc.ru/trib', domain: 'influencer', label: 'Mintsifry reorg',
+    text: 'Минцифры реорганизуется: ИБ-департамент могут разделить между ФСБ и ФСТЭК. РБК сообщил о реорганизации Минцифры, которая идёт уже полтора месяца.',
+    expected: 'pass' },
+  { src: 'vc.ru/trib', domain: 'influencer', label: 'NASA name on map',
+    text: 'Имя на карте или адаптация сервиса NASA. На днях увидел, как во многих пабликах завирусился сервис от NASA, где можно написать любое слово.',
+    expected: 'pass' },
+  { src: 'vc.ru/trib', domain: 'influencer', label: 'SmartCode Neuronomer launch',
+    text: 'Когда нейросеть летает на процессоре: как мы создали СмартКод Нейрономер и почему это поменяет рынок. В этом году мы представили коммьюнити наш флагманский продукт.',
+    expected: 'pass' },
+  { src: 'vc.ru/trib', domain: 'influencer', label: 'Abuser top-management',
+    text: 'Абьюзер в топ-менеджменте: как стили управления руководителя превращают токсичность в убытки. Встреча с токсичным руководителем в среднем звене — это тяжело, но решаемо.',
+    expected: 'catch' },
+  { src: 'vc.ru/trib', domain: 'influencer', label: 'Wildberries hostages',
+    text: '120 дней в режиме ожидания: как Wildberries игнорирует закон и держит клиентов в заложниках. Иногда, чтобы вернуть свои деньги за товар, недостаточно просто подождать.',
+    expected: 'catch' },
+];
