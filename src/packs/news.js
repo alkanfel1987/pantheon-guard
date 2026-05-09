@@ -959,15 +959,23 @@ export const newsPack = Object.freeze({
         'parikirtana_responsible_self_label_ru (manu-apavada-parikirtana-4-236)',
       ],
       status:
-        'SCAFFOLD — patterns target first-person voice (PR copy) vs third-person ' +
-        'reportage. Author=tester until real-corpus probe runs. Per CLAUDE.md ' +
-        '«empirical verification» rule, NOT real-corpus validated. Inhibitor for ' +
-        'third-party attribution markers («сообщает», «according to») planned for ' +
-        'v0.5.0 stable.',
+        'SCAFFOLD — real-corpus probe 2026-05-09 ran (test-corpus/parikirtana-2026-05-09/). ' +
+        'Result: catch 22.2% [9.0%, 45.2%] / FP 0.0% [0.0%, 18.4%] on N=35 (18 pos + 17 neg). ' +
+        'In-scope catch 80% (4/5), out-of-scope 0% (0/13) — detector is precise but ' +
+        'narrowly scoped to {помогли|поддержали|инвестировали|пожертвовали|вложили|выделили} ' +
+        '+ {donated|invested|contributed|pledged|provided}. NOT promoted to stable.',
+      iter2Plan:
+        'Iter-2 fixes (deferred until fresh held-out corpus): ' +
+        '(1) «более чем X» phrasing — extend prefix to (?:более\\s+(?:чем\\s+)?)?, ' +
+        '(2) RU verb stems — add помога/поддержива/спонсиру/финансиру/направил/перевели, ' +
+        '(3) EN verbs — add gave/granted/gifted/funded/sponsored/supported. ' +
+        'Per CLAUDE.md cycle-2 trap rule: do NOT tune on probe corpus; ' +
+        'build fresh corpus for iter-2 validation.',
       antaḥkṣurāNote:
         'Full antaḥkṣurā detection (Mbh 12.152) is two-stage co-occurrence — ' +
         'requires dharma-language + paiśunya/blame in same text. Single-shot ' +
         'regex covers parikīrtana element only. Multi-signal fusion deferred.',
+      probeReportPath: 'test-corpus/parikirtana-2026-05-09/REPORT.md',
     },
   }),
 });

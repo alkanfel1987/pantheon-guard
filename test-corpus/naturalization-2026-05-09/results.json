@@ -1,0 +1,62 @@
+{
+  "date": "2026-05-08T22:22:21.305Z",
+  "corpus_size": {
+    "positive": 15,
+    "negative": 12
+  },
+  "metrics": {
+    "catch_raw": {
+      "mean": 0.7333333333333333,
+      "lo": 0.48049110342313245,
+      "hi": 0.8910272389681717
+    },
+    "fp_raw": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.2425007574992425
+    },
+    "catch_effective": {
+      "mean": 0.7333333333333333,
+      "lo": 0.48049110342313245,
+      "hi": 0.8910272389681717
+    },
+    "fp_effective": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.2425007574992425
+    },
+    "catch_in_scope": {
+      "mean": 0.8461538461538461,
+      "lo": 0.5776482949136899,
+      "hi": 0.9567427368172621
+    },
+    "catch_out_of_scope": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.6576280471103807
+    },
+    "catch_en": {
+      "mean": 0.6363636363636364,
+      "lo": 0.35379677689163724,
+      "hi": 0.8483377638586862
+    },
+    "catch_ru": {
+      "mean": 1,
+      "lo": 0.5100999795960008,
+      "hi": 1
+    },
+    "fp_en": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.35433884297520657
+    },
+    "fp_ru": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.43449149475208104
+    },
+    "inhibitor_specificity": 0.25,
+    "inhibitor_false_suppression": 0
+  },
+  "decision": "PROMOTE → naturalization detector v0.3.0 stable"
+}

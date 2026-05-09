@@ -575,17 +575,28 @@ export const epistemologyPack = Object.freeze({
       '(from EPISTEMOLOGY-PACK-{POSITIVE,NEGATIVE}-CONTROL.md)',
     v030pre1: {
       addedDetectors: [
-        'naturalization_fallacy (ns-nityasama-5-1-35)',
-        'false_equivalence_levelling (ns-avisesa-sama-5-1-23, ns-anityasama-5-1-32)',
-        'absence_argument (ns-anupalabdhi-sama-5-1-29)',
-        'anecdotal_override (ns-upalabdhi-sama-5-1-27)',
-        'silence_as_concession (ns-apratibha-5-2-18)',
+        'naturalization_fallacy (ns-nityasama-5-1-35) — EN release-candidate (probe 2026-05-09: catch 63.6% [35.4%, 84.8%], FP 0%, N=11 EN live)',
+        'false_equivalence_levelling (ns-avisesa-sama-5-1-23, ns-anityasama-5-1-32) — pre.1 scaffold, probe pending',
+        'absence_argument (ns-anupalabdhi-sama-5-1-29) — pre.1 scaffold, probe pending',
+        'anecdotal_override (ns-upalabdhi-sama-5-1-27) — pre.1 scaffold, probe pending',
+        'silence_as_concession (ns-apratibha-5-2-18) — pre.1 scaffold, probe pending',
       ],
       status:
-        'SCAFFOLD — patterns seeded from contemporary_examples + bhāṣya glosses, ' +
-        'NOT real-corpus validated. Per CLAUDE.md «empirical verification» rule, ' +
-        'a real-corpus probe is required before promotion to v0.3.0 stable. ' +
-        'Author=tester until probe runs.',
+        'MIXED — naturalization_fallacy passed EN real-corpus probe 2026-05-09 ' +
+        '(test-corpus/naturalization-2026-05-09/), promoted to EN release-candidate. ' +
+        'RU evidence is synthesis-only and does not constitute external validation; ' +
+        'iter-2 needs RU live corpus before bilingual stable claim. Other 4 ' +
+        'detectors remain pre.1 scaffold awaiting individual probes.',
+      naturalizationProbeResult: {
+        date: '2026-05-09',
+        report: 'test-corpus/naturalization-2026-05-09/REPORT.md',
+        catch_en_live: '63.6% [35.4%, 84.8%] (N=11)',
+        fp_en_live: '0.0% [0.0%, 35.4%] (N=7)',
+        fp_ru_live: '0.0% [0.0%, 43.4%] (N=5)',
+        catch_ru_synthesis: '100% [51.0%, 100%] (N=4 SYNTHESIS-CANONICAL — not external validation)',
+        status: 'PROMOTE_PARTIAL — EN release-candidate; RU pending',
+        iter2: 'Source 8-10 RU live-corpus op-ed positives; add «inherently» adverb pattern; add long-phrase patterns («laws of nature», «genetically inborn»). Fresh corpus required (cycle-2 trap protection).',
+      },
     },
   }),
 });

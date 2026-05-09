@@ -1,0 +1,229 @@
+{
+  "_meta": {
+    "date": "2026-05-09",
+    "purpose": "Real-corpus probe for epistemology v0.3.0-pre.1 naturalization_fallacy detector",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "deviation_from_prereg": "RU live-corpus positives sparse (vc.ru opinion piece deleted; mainstream Russian outlets either paywalled or did not surface clean naturalization framing in queries). Added 3 synthesis-canonical RU samples (clearly tagged). EN-heavy positive class compared to original 6-8/6-8 target."
+  },
+  "entries": [
+    {
+      "id": "P-EN-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "townhall.com (Mark Lewis op-ed)",
+      "text": "It's always been this way, folks. And it's not just democracy — no form of government is perfect or immune to tyranny.",
+      "in_scope": true,
+      "notes": "explicit «always been this way» + suppression-of-reform framing"
+    },
+    {
+      "id": "P-EN-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "townhall.com (Mark Lewis op-ed)",
+      "text": "It's a major reason why our Founders did not believe in democracy. The majority has eternally usurped over the rights of minorities.",
+      "in_scope": false,
+      "notes": "«eternally usurped» — eternalist claim but lexical marker «eternally» NOT in detector pattern list"
+    },
+    {
+      "id": "P-EN-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (paraphrase of John von Neumann)",
+      "text": "Humans are inherently selfish and treacherous, like laws of nature that cannot be changed.",
+      "in_scope": true,
+      "notes": "«inherently» (inherent in/to) + «laws of nature that cannot be changed» — marks both in detector"
+    },
+    {
+      "id": "P-EN-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (Pinker paraphrase)",
+      "text": "History demonstrates humans are naturally prone to knavery throughout history.",
+      "in_scope": true,
+      "notes": "«throughout history» — explicit detector marker"
+    },
+    {
+      "id": "P-EN-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (Friedman paraphrase)",
+      "text": "Society fundamentally operates on individual greed across all systems and across human nature.",
+      "in_scope": true,
+      "notes": "«human nature» — direct detector marker"
+    },
+    {
+      "id": "P-EN-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (Bahn/Flenley quote)",
+      "text": "Humankind's covetousness is boundless. Its selfishness appears to be genetically inborn.",
+      "in_scope": false,
+      "notes": "«genetically inborn» = naturalization but lexical phrasing not in detector"
+    },
+    {
+      "id": "P-EN-07",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (Machiavelli quote)",
+      "text": "For this can be said of men in general: that they are ungrateful, fickle, hypocrites — it has always been this way.",
+      "in_scope": true,
+      "notes": "«always been this way»"
+    },
+    {
+      "id": "P-EN-08",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (de Waal veneer-theory paraphrase)",
+      "text": "Civilization's morality is merely a thin veneer easily cracked to expose warlike instincts inherent in humans.",
+      "in_scope": true,
+      "notes": "«inherent in humans» — detector pattern"
+    },
+    {
+      "id": "P-EN-09",
+      "lang": "en",
+      "class": "positive",
+      "source": "currentaffairs.org (Garton Ash paraphrase)",
+      "text": "Remove civilization's basics and humans revert to Hobbesian warfare within hours — it is human nature.",
+      "in_scope": true,
+      "notes": "«human nature» — detector pattern"
+    },
+    {
+      "id": "P-EN-10",
+      "lang": "en",
+      "class": "positive",
+      "source": "tutor2u.net (conservative-philosophy summary)",
+      "text": "Humans are flawed and incapable of reaching a state of perfection — this is the conservative view of human nature.",
+      "in_scope": true,
+      "notes": "«human nature» — direct marker"
+    },
+    {
+      "id": "P-EN-11",
+      "lang": "en",
+      "class": "positive",
+      "source": "alevelpolitics.com (conservative summary)",
+      "text": "Society is naturally hierarchical, based on fixed social ranks and inequalities throughout history.",
+      "in_scope": true,
+      "notes": "«throughout history» — detector marker"
+    },
+    {
+      "id": "P-RU-01",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis-canonical-ru",
+      "text": "Коррупция в России — это просто человеческая природа, нельзя изменить, всегда так было.",
+      "in_scope": true,
+      "notes": "synthesis: canonical RU naturalization with 3 detector markers"
+    },
+    {
+      "id": "P-RU-02",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis-canonical-ru",
+      "text": "Бюрократия в нашей стране существует испокон веков, такова природа человека.",
+      "in_scope": true,
+      "notes": "synthesis: «испокон веков» + «природа человека» — 2 detector markers"
+    },
+    {
+      "id": "P-RU-03",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis-canonical-ru",
+      "text": "Жадность сильнее закона во все времена — это вечная проблема человеческого общества.",
+      "in_scope": true,
+      "notes": "synthesis: «во все времена» + «вечная проблема» — 2 detector markers"
+    },
+    {
+      "id": "P-RU-04",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis-canonical-ru",
+      "text": "Так устроен мир: одни управляют, другие подчиняются — этого не побороть.",
+      "in_scope": true,
+      "notes": "synthesis: «так устроен мир» + «не побороть» — 2 detector markers"
+    },
+    {
+      "id": "N-EN-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "wikipedia.org (Post-WWII Economic Expansion)",
+      "text": "OECD members enjoyed real GDP growth averaging over 4% per year in the 1950s, and nearly 5% per year in the 1960s, compared with 3% in the 1970s and 2% in the 1980s."
+    },
+    {
+      "id": "N-EN-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "wikipedia.org (Post-WWII Economic Expansion)",
+      "text": "Between 1947 and 1973, France experienced average annual growth of approximately 5%, a period labeled the Trente Glorieuses by economist Jean Fourastié."
+    },
+    {
+      "id": "N-EN-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "wikipedia.org (Post-WWII Economic Expansion)",
+      "text": "In the 1950s and early 1960s the Italian economy boomed, with record high growth-rates, including 6.4% in 1959, 5.8% in 1960, 6.8% in 1961, and 6.1% in 1962."
+    },
+    {
+      "id": "N-EN-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "wikipedia.org (Post-WWII Economic Expansion)",
+      "text": "During the post-1950 recovery period, Japan achieved the world's fastest growth rates, propelled by manufacturing sectors and the Korean War demand for supplies."
+    },
+    {
+      "id": "N-EN-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "wikipedia.org (Post-WWII Economic Expansion)",
+      "text": "Unemployment was significantly lower during the Golden Age than before or after, with UK figures showing 1.6% unemployment during 1950–1969 versus 13.4% in the pre-war 1921–1938 period."
+    },
+    {
+      "id": "N-EN-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "britannica.com (Post-Soviet Russia, paraphrase)",
+      "text": "Following the economic collapse of the early 1990s, Russia suffered from a sharp increase in the rates of poverty and economic inequality."
+    },
+    {
+      "id": "N-EN-07",
+      "lang": "en",
+      "class": "negative",
+      "source": "britannica.com (Post-Soviet Russia, paraphrase)",
+      "text": "By mid-1993 between 39% and 49% of the population was living in poverty, compared with 1.5% in the late Soviet era."
+    },
+    {
+      "id": "N-RU-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "historyrussia.org",
+      "text": "Переломным периодом в истории России в Новое время принято считать рубеж XVII и XVIII столетий."
+    },
+    {
+      "id": "N-RU-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "historyrussia.org",
+      "text": "В 1767 году для выработки нового свода законов была созвана Уложенная комиссия."
+    },
+    {
+      "id": "N-RU-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "historyrussia.org",
+      "text": "20 февраля 1803 года вышел указ о вольных хлебопашцах, позволявший помещикам освобождать своих крепостных."
+    },
+    {
+      "id": "N-RU-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "historyrussia.org",
+      "text": "18 марта 1818 года в Варшаве при открытии работы первого польского парламента Александр I произнёс речь о распространении конституционных начал."
+    },
+    {
+      "id": "N-RU-05",
+      "lang": "ru",
+      "class": "negative",
+      "source": "historyrussia.org",
+      "text": "После поражения восстания на Сенатской площади для следующего российского императора, Николая I, сама идея какого-либо ограничения самодержавной власти была неприемлема."
+    }
+  ]
+}

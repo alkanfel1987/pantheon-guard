@@ -1,0 +1,291 @@
+{
+  "_meta": {
+    "date": "2026-05-09",
+    "purpose": "Real-corpus probe for news v0.5.0-pre.1 parikīrtana detectors",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "deviation_from_prereg": "Pre-reg specified 'corporate' positive sources; included nonprofit / charitable foundations because (a) live corporate CSR pages frequently 403'd, (b) nonprofit first-person quantified-charity voice is structurally identical to corporate parikīrtana voice. Documented and locked for honest reporting."
+  },
+  "entries": [
+    {
+      "id": "P-RU-01",
+      "lang": "ru",
+      "class": "positive",
+      "source": "nakedheart.ru",
+      "text": "За последние 20 лет мы помогли более чем 28 000 детей и молодых взрослых с нарушениями развития и их семей.",
+      "in_scope_narrow_detector": true,
+      "notes": "first-person + verb помогли + number 28 000 + beneficiary детей — should fire"
+    },
+    {
+      "id": "P-RU-02",
+      "lang": "ru",
+      "class": "positive",
+      "source": "nakedheart.ru",
+      "text": "Мы создали 215 инклюзивных игровых объектов и запустили 13 проектов.",
+      "in_scope_narrow_detector": false,
+      "notes": "first-person + number, but verbs создали/запустили are NOT in detector list"
+    },
+    {
+      "id": "P-RU-03",
+      "lang": "ru",
+      "class": "positive",
+      "source": "sos-dd.ru",
+      "text": "Более 30 000 детей, для которых мы сохранили родные семьи.",
+      "in_scope_narrow_detector": false,
+      "notes": "first-person + number, but verb сохранили NOT in detector list; word order non-canonical"
+    },
+    {
+      "id": "P-RU-04",
+      "lang": "ru",
+      "class": "positive",
+      "source": "sos-dd.ru",
+      "text": "Более 20 000 семей в кризисе получили нашу поддержку.",
+      "in_scope_narrow_detector": false,
+      "notes": "passive voice — no мы/наша + verb construction"
+    },
+    {
+      "id": "P-RU-05",
+      "lang": "ru",
+      "class": "positive",
+      "source": "sos-dd.ru",
+      "text": "С 1994 года помогаем детям-сиротам и детям, оставшимся без попечения кровных близких.",
+      "in_scope_narrow_detector": false,
+      "notes": "no мы pronoun (implied subject); no specific number"
+    },
+    {
+      "id": "P-RU-06",
+      "lang": "ru",
+      "class": "positive",
+      "source": "sos-dd.ru",
+      "text": "Более 96 000 частных благотворителей поддержали нас в рамках акции «Прямой диалог».",
+      "in_scope_narrow_detector": false,
+      "notes": "first-person object (нас), not subject; subject is donors not org"
+    },
+    {
+      "id": "P-RU-07",
+      "lang": "ru",
+      "class": "positive",
+      "source": "pszh.ru",
+      "text": "Благотворительный фонд «Помоги спасти жизнь»: 107 детей получили нашу помощь.",
+      "in_scope_narrow_detector": false,
+      "notes": "passive — no мы+verb structure"
+    },
+    {
+      "id": "P-RU-08",
+      "lang": "ru",
+      "class": "positive",
+      "source": "savethelife.ru",
+      "text": "Мы помогаем детям с онкологическими, гематологическими и другими тяжелыми заболеваниями.",
+      "in_scope_narrow_detector": false,
+      "notes": "first-person + verb помогаем, but no specific number"
+    },
+    {
+      "id": "P-RU-09",
+      "lang": "ru",
+      "class": "positive",
+      "source": "veravdetstvo.com",
+      "text": "Собрали 2 000 000 рублей для лечения острого лимфобластного лейкоза.",
+      "in_scope_narrow_detector": false,
+      "notes": "no мы pronoun (implied); verb собрали NOT in detector list"
+    },
+    {
+      "id": "P-RU-10",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis-canonical-ru",
+      "text": "Наша компания инвестировала более 50 млн рублей в благотворительные программы для детей.",
+      "in_scope_narrow_detector": true,
+      "notes": "synthesis: canonical-form sample matching pre-reg POS — meant to anchor detection floor; flagged in report as test-author-written, NOT live corpus"
+    },
+    {
+      "id": "P-RU-11",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis-canonical-ru",
+      "text": "Как ответственная компания, мы поддерживаем региональные образовательные инициативы.",
+      "in_scope_narrow_detector": true,
+      "notes": "dharma-flag detector target; test-author synthesis"
+    },
+    {
+      "id": "P-EN-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "sustainability.google",
+      "text": "From 2010 to 2024, we signed more than 170 agreements to purchase over 22 GW of clean energy generation.",
+      "in_scope_narrow_detector": false,
+      "notes": "verb signed NOT in detector list (donated|invested|contributed|pledged|provided)"
+    },
+    {
+      "id": "P-EN-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "sustainability.google",
+      "text": "We harvested approximately 8.8 million components from our decommissioned hardware for reuse or resale.",
+      "in_scope_narrow_detector": false,
+      "notes": "verb harvested NOT in detector list"
+    },
+    {
+      "id": "P-EN-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "sustainability.google",
+      "text": "We added 38 new water stewardship projects, increasing our total portfolio to 112 projects spanning 68 watersheds.",
+      "in_scope_narrow_detector": false,
+      "notes": "verb added NOT in detector list"
+    },
+    {
+      "id": "P-EN-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "sustainability.google",
+      "text": "As of the end of 2024, we created or rehabilitated approximately 74 acres of habitat and planted roughly 5,200 native trees.",
+      "in_scope_narrow_detector": false,
+      "notes": "verbs created/rehabilitated/planted NOT in detector list"
+    },
+    {
+      "id": "P-EN-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "gatesfoundation.org",
+      "text": "We've funded thousands of projects, large and small.",
+      "in_scope_narrow_detector": false,
+      "notes": "verb funded NOT in detector list; 'thousands' not specific digit"
+    },
+    {
+      "id": "P-EN-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis-canonical-en",
+      "text": "We have donated over $5 million to community projects this year.",
+      "in_scope_narrow_detector": true,
+      "notes": "synthesis: canonical pre-reg POS — test-author-written"
+    },
+    {
+      "id": "P-EN-07",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis-canonical-en",
+      "text": "Our firm invested $200 million in green initiatives.",
+      "in_scope_narrow_detector": true,
+      "notes": "synthesis: canonical pre-reg POS — test-author-written"
+    },
+    {
+      "id": "N-EN-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "fortune.com",
+      "text": "Most medical students at Johns Hopkins University will no longer pay tuition thanks to a $1 billion gift from Bloomberg Philanthropies announced Monday."
+    },
+    {
+      "id": "N-EN-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "fortune.com",
+      "text": "Starting in the fall, the gift will cover full tuition for medical students from families earning less than $300,000."
+    },
+    {
+      "id": "N-EN-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "fortune.com",
+      "text": "The gift will also increase financial aid for students at the university's schools of nursing, public health, and other graduate schools."
+    },
+    {
+      "id": "N-EN-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "fortune.com",
+      "text": "Bloomberg Philanthropies previously gifted $1.8 billion to Johns Hopkins in 2018 to ensure that undergraduate students are accepted regardless of their family's income."
+    },
+    {
+      "id": "N-EN-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "theconversation.com",
+      "text": "Media entrepreneur Mike Bloomberg led the philanthropy rankings with contributions exceeding $4 billion in 2025, surpassing the second-place donor by more than $500 million."
+    },
+    {
+      "id": "N-EN-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "theconversation.com",
+      "text": "Microsoft co-founder Bill Gates and the estate of Paul Allen followed Bloomberg on the charitable giving list, with Allen's assets still undergoing settlement proceedings."
+    },
+    {
+      "id": "N-EN-07",
+      "lang": "en",
+      "class": "negative",
+      "source": "theconversation.com",
+      "text": "The top 10 donors collectively accounted for nearly three-quarters of the $22.4 billion total contributed by all 50 philanthropists during the year."
+    },
+    {
+      "id": "N-EN-08",
+      "lang": "en",
+      "class": "negative",
+      "source": "theconversation.com",
+      "text": "Businessman Denny Sanford ranked 14th among major donors despite facing investigations and subsequent removal from the Giving Pledge in 2023."
+    },
+    {
+      "id": "N-EN-09",
+      "lang": "en",
+      "class": "negative",
+      "source": "theconversation.com",
+      "text": "No women appeared on the list as independent donors, contrasting with the previous year when multiple women ranked among the top givers."
+    },
+    {
+      "id": "N-RU-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "meduza.io",
+      "text": "Благотворительный фонд «Время детства» весной 2025 года получил пожертвование на миллион рублей от 85-летней жительницы пансионата Тамары Волковой."
+    },
+    {
+      "id": "N-RU-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "meduza.io",
+      "text": "Волкова жила в крайней нищете, даже просила милостыню на вокзале, несмотря на наличие крупной суммы на счете."
+    },
+    {
+      "id": "N-RU-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "meduza.io",
+      "text": "По поручению Волковой администратор перевела средства благотворительному фонду, помогающему детям с онкозаболеваниями в подмосковном медицинском центре."
+    },
+    {
+      "id": "N-RU-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "meduza.io",
+      "text": "Фонд отправил благодарственное письмо благотворительнице, однако оно вернулось отправителю, так как она уже скончалась."
+    },
+    {
+      "id": "N-RU-05",
+      "lang": "ru",
+      "class": "negative",
+      "source": "trends.rbc.ru",
+      "text": "Благотворительные платформы столкнулись с вызовом охвата более широкой аудитории, поскольку около 600 организаций составляют незначительную долю некоммерческого сектора России."
+    },
+    {
+      "id": "N-RU-06",
+      "lang": "ru",
+      "class": "negative",
+      "source": "trends.rbc.ru",
+      "text": "Некоммерческие организации испытывают трудности с планированием поступлений от подписок, так как только 22% опрошенных НКО определяют конкретный размер ежемесячных платежей."
+    },
+    {
+      "id": "N-RU-07",
+      "lang": "ru",
+      "class": "negative",
+      "source": "trends.rbc.ru",
+      "text": "Платформы сталкиваются с необходимостью постоянного совершенствования продуктов для балансирования сборов между различными благотворительными фондами-партнёрами."
+    },
+    {
+      "id": "N-RU-08",
+      "lang": "ru",
+      "class": "negative",
+      "source": "trends.rbc.ru",
+      "text": "Механизмы привлечения доноров требуют значительных усилий от организаций в плане коммуникационной поддержки и активного участия в городских мероприятиях."
+    }
+  ]
+}
