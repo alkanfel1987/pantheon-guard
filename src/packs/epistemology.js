@@ -184,6 +184,13 @@ const NATURALIZATION_PATTERNS = [
   re('throughout\\s+history'),
   re('timeless\\s+truth'),
   re('inherent\\s+(?:to|in)\\s+(?:human|man|people)'),
+  // iter-2 additions per test-corpus/naturalization-2026-05-09/REPORT.md fixes:
+  //   #2 «inherently» adverb (P-EN-03 was a miss in iter-1 probe)
+  //   #3 «genetically inborn» (P-EN-06 out-of-scope by design)
+  //   #4 «laws of nature that cannot be changed» (long-phrase form)
+  re('inherently\\s+(?:selfish|prone|disposed|aggressive|violent|greedy|tribal|hierarchical|competitive|self[\\s-]?interested)'),
+  re('genetically\\s+(?:inborn|programmed|wired|determined|hard[\\s-]?wired)'),
+  re('laws?\\s+of\\s+(?:human\\s+)?nature\\s+(?:that\\s+)?(?:cannot|can\'?t)\\s+be\\s+(?:changed|altered|reversed)'),
 ];
 
 // catalogue (pattern-array cluster): ns-avisesa-sama-5-1-23
@@ -595,7 +602,7 @@ export const epistemologyPack = Object.freeze({
         fp_ru_live: '0.0% [0.0%, 43.4%] (N=5)',
         catch_ru_synthesis: '100% [51.0%, 100%] (N=4 SYNTHESIS-CANONICAL — not external validation)',
         status: 'PROMOTE_PARTIAL — EN release-candidate; RU pending',
-        iter2: 'Source 8-10 RU live-corpus op-ed positives; add «inherently» adverb pattern; add long-phrase patterns («laws of nature», «genetically inborn»). Fresh corpus required (cycle-2 trap protection).',
+        iter2: 'PARTIAL APPLIED 2026-05-09 — added «inherently» adverb + «genetically inborn» + «laws of nature cannot be changed» patterns. Still pending: 8-10 RU live-corpus op-ed positives + fresh held-out probe (cycle-2 trap protection — no tuning on existing corpus).',
       },
     },
   }),
