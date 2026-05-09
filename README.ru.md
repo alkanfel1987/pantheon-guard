@@ -3,7 +3,7 @@
 > **The conscience layer for AI-generated marketing.**
 > Ловит то, чего не ловят guardrails: fear-based копирайтинг, false urgency, dark patterns в AI-сгенерированных воронках продаж.
 
-[![npm](https://img.shields.io/badge/npm-v0.1.0-blue)](https://www.npmjs.com/package/pantheon-guard)
+[![npm](https://img.shields.io/badge/npm-v0.4.1-blue)](https://www.npmjs.com/package/pantheon-guard)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
 
