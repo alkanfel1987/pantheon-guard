@@ -6,6 +6,69 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+## [0.4.2] — 2026-05-09
+
+### Added — `ai-security` v0.0.2-draft (new pack)
+
+First AI-manipulation detection pack. Catches prompt-injection / jailbreak /
+persona-manipulation patterns from two angles:
+
+- **INPUT-side** — text trying to subvert an LLM (DAN family, "ignore
+  previous instructions", developer mode, hypothetical framing, control-tag
+  smuggling, sysprompt extraction, grandma social-engineering pretext)
+- **OUTPUT-side** — text showing compromised LLM behavior (DAN persona
+  adoption markers, sysprompt leakage)
+
+63 patterns derived from public NVIDIA garak red-team corpus:
+
+- 14 DAN-family canonical templates (cross-template signature analysis —
+  phrases shared across ≥4 templates: `do anything now` 18×, `dan mode
+  enabled` 18×, `developer mode enabled` 28×, `none of your responses
+  should` 9×, etc.)
+- `grandma.Slurs` canonical templates from `garak/probes/grandma.py`
+- Riley Goodside Tag attack control tokens (ChatML / Llama-2 / Llama-3
+  chat-template tokens)
+
+Mahā-vrata routing (consistent with healthcare + epistemology — no new
+top-level ethical categories):
+
+- `asteya` — sysprompt extraction, control-tag smuggling
+- `satya` — persona override, identity manipulation, grandma pretext,
+  output persona-compliance markers
+- `shaucha` — encoding smuggling (reserved; minimal coverage in v0.0.2)
+- `ahimsa` — output complying with harm-inducing manipulation
+  (reserved; coverage via output markers)
+
+Calibrator: `NOISE_FLOOR` 0.30 → 0.25 (provisional). AI-injection signals
+are usually high-confidence (literal control tokens, literal jailbreak
+phrases), but lower than healthcare since false-positives in chat
+assistants matter.
+
+#### Acceptance metrics
+
+| Test | Result | Target |
+|---|---|---|
+| Author fixtures positive recall | 25/25 = **100%** | ≥ 80% |
+| Author fixtures FP-rate | 0/20 = **0%** | ≤ 5% |
+| OOS · 14 DAN-family canonical | 14/14 = **100%** | ≥ 80% |
+| OOS · 3 grandma canonical | 3/3 = **100%** | ≥ 80% |
+| `validatePack()` contract | **PASS** | PASS |
+| Full guard test-suite | 246/246 PASS (+28 new) | green |
+
+#### Honest limits
+
+Per `Empirical verification before claiming` — synthetic FP corpus is
+author-curated, OOS pool is small (17 templates), no real-traffic benign
+LLM I/O test yet. The `-draft` version suffix marks the pack as
+experimental until real-traffic FP measurement.
+
+NDA boundary: pack uses ONLY public garak templates and sweep findings
+against open-source qwen2.5-coder:7b. No proprietary jailbreak material.
+
+R&D environment in `C:/ProjectS/garak/` — see `drafts/` for fixtures,
+validators (`validate.mjs`, `oos-check.mjs`, `validate-against-guard.mjs`),
+corpus extractor, and findings log.
+
 ## [0.4.1] — 2026-05-08
 
 ### Added — real-OOS learning cycle + A.1 lexical broadening
