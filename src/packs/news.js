@@ -873,8 +873,13 @@ const PATTERNS = Object.freeze([
     // catalogue: manu-apavada-parikirtana-4-236
     regex: re(
       '(?:мы|наша\\s+(?:компания|организация|команда|группа))\\s+' +
-      '(?:помогл' + W_STAR + '|поддержал' + W_STAR + '|инвестировал' + W_STAR + '|пожертвовал' + W_STAR + '|вложил' + W_STAR + '|выделил' + W_STAR + ')\\s+' +
-      '(?:уже\\s+)?(?:более\\s+)?\\d+\\s+' +
+      // iter-2 verb-list broadening per REPORT.md fix #2:
+      // imperfective stems (помог -> помогаем/помогли) + new charitable verbs
+      // (спонсир/финансир/оплатил/направил/перевели/перечислил)
+      '(?:помог' + W_STAR + '|поддерж' + W_STAR + '|инвестир' + W_STAR + '|пожертв' + W_STAR + '|вложил' + W_STAR + '|выделил' + W_STAR + '|спонсир' + W_STAR + '|финансир' + W_STAR + '|оплатил' + W_STAR + '|направил' + W_STAR + '|перевели|перечислил' + W_STAR + ')\\s+' +
+      // iter-2 quantifier broadening per REPORT.md fix #1:
+      // accept "более чем X" + свыше / порядка variants
+      '(?:уже\\s+)?(?:(?:более|свыше|порядка)\\s+(?:чем\\s+)?)?\\d+\\s+' +
       '(?:рубл' + W_STAR + '|доллар' + W_STAR + '|евро|млн|миллион' + W_STAR + '|тысяч' + W_STAR + '|семей|семь' + W_STAR + '|дет' + W_STAR + '|проект' + W_STAR + '|организаци' + W_STAR + '|человек)'
     ),
     description: 'first-person quantified self-praise after charitable act (parikīrtana)',
@@ -883,7 +888,10 @@ const PATTERNS = Object.freeze([
     rule: 'satya',
     name: 'parikirtana_first_person_quantified_giving_en',
     // catalogue: manu-apavada-parikirtana-4-236
-    regex: /\b(?:we|our\s+(?:company|firm|team|organi[sz]ation))\s+(?:have\s+)?(?:already\s+)?(?:donated|invested|contributed|pledged|provided)\s+(?:over\s+)?\$?\d[\d,\.]*\s*(?:million|billion|thousand|families|children|projects|people)\b/i,
+    // iter-2 broadening per REPORT.md fix #1+#3:
+    //   verbs: + gave/granted/gifted/funded/sponsored/financed/supported/backed
+    //   quantifier: + more than / approximately
+    regex: /\b(?:we|our\s+(?:company|firm|team|organi[sz]ation))\s+(?:have\s+)?(?:already\s+)?(?:donated|invested|contributed|pledged|provided|gave|granted|gifted|funded|sponsored|financed|supported|backed)\s+(?:(?:over|more\s+than|approximately)\s+)?\$?\d[\d,\.]*\s*(?:million|billion|thousand|families|children|projects|people)\b/i,
     description: 'first-person quantified self-praise after charitable act (parikīrtana, EN)',
   },
   {
@@ -961,6 +969,10 @@ export const newsPack = Object.freeze({
       status:
         'SCAFFOLD — real-corpus probe 2026-05-09 ran (test-corpus/parikirtana-2026-05-09/). ' +
         'Result: catch 22.2% [9.0%, 45.2%] / FP 0.0% [0.0%, 18.4%] on N=35 (18 pos + 17 neg). ' +
+        'Iter-2 trivial fixes APPLIED 2026-05-09 (verb-stem expansion, ' +
+        '"более чем X" + "свыше" + "порядка" + EN "more than"/"approximately"; ' +
+        'EN verbs: +gave/granted/gifted/funded/sponsored/financed/supported/backed). ' +
+        'FRESH HELD-OUT CORPUS PROBE PENDING — no tuning on existing corpus per cycle-2 trap protection. ' +
         'In-scope catch 80% (4/5), out-of-scope 0% (0/13) — detector is precise but ' +
         'narrowly scoped to {помогли|поддержали|инвестировали|пожертвовали|вложили|выделили} ' +
         '+ {donated|invested|contributed|pledged|provided}. NOT promoted to stable.',
