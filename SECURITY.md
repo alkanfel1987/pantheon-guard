@@ -1,9 +1,11 @@
 # Security & Supply-Chain Integrity
 
 > **TL;DR:** Every published version of `pantheon-guard` is cryptographically
-> signed via npm provenance (Sigstore / OIDC). You can verify any installed
-> version with a single command. Removal or bypass of this signature in
-> derivative works is a commercial-license violation.
+> attested via npm provenance (Sigstore / OIDC). You can verify any installed
+> version with a single command. Verification is offered as **transparency,
+> not enforcement** — you are free under MIT to use, ignore, or remove the
+> helper. We don't believe in coercing trust through legal force; we offer
+> truth, you decide.
 
 ---
 
@@ -91,18 +93,31 @@ npm provenance because:
 - Native to the npm ecosystem — `npm audit signatures` Just Works
 - Industry-standard, used by major OSS projects
 
-## Tamper-resistance for derivative works
+## Forks and modification — our stance
 
-Per [LICENSE-COMMERCIAL.md](./LICENSE-COMMERCIAL.md), **removing,
-bypassing, or stubbing out signature verification in a derivative
-work is a license violation** (see commercial addendum, section
-"Signature integrity"). This is the legal floor; the cryptographic
-floor is the provenance attestation itself.
+We support freedom of Will. Under MIT, you can fork, modify, strip
+verification, or completely re-architect this package. We don't try
+to prevent that through legal force or technical lock-in.
 
-Practically: anyone can fork this repo and strip the verifier. But
-doing so in a commercial product breaks the commercial license, and
-in a public OSS fork it is a clear signal to downstream users that
-the fork has weakened safety guarantees relative to upstream.
+What we ask (via brand/trademark, see [LICENSE-COMMERCIAL.md](./LICENSE-COMMERCIAL.md)):
+
+- Materially modified forks should **rename**, so downstream users
+  don't confuse a weakened fork with upstream `pantheon-guard`.
+
+What naturally follows (not enforced by us, just how reality works):
+
+- Forks that strip verification can't claim "provenance-attested" —
+  the attestation is on the upstream tarball, not the fork.
+- Forks that drift from the upstream ethical core may lose access
+  to dynamic updates if/when we ship them, because the update
+  channel uses the attestation chain to decide what to push.
+- Downstream users running `npm audit signatures` will see whether
+  they have the attested upstream or something else, and make their
+  own informed choice.
+
+This is brahmacarya-aligned: the student is free to leave the
+gurukula; the teacher doesn't sue them. The teacher just stops
+teaching one who walks away.
 
 ## Reporting a vulnerability
 
