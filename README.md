@@ -3,7 +3,8 @@
 > **The conscience layer for AI-generated marketing.**
 > Catches what guardrails miss: fear-based copywriting, false urgency, dark patterns in AI-generated sales funnels.
 
-[![npm](https://img.shields.io/badge/npm-v0.4.1-blue)](https://www.npmjs.com/package/pantheon-guard)
+[![npm](https://img.shields.io/badge/npm-v0.4.2-blue)](https://www.npmjs.com/package/pantheon-guard)
+[![provenance](https://img.shields.io/badge/npm-signed%20%E2%9C%93-success)](./SECURITY.md)
 [![license](https://img.shields.io/badge/license-MIT%20%2F%20Commercial-green)](./LICENSE.md)
 [![Built on](https://img.shields.io/badge/foundation-Yoga--s%C5%ABtra%20II.30--31-purple)]()
 [![Calibrated](https://img.shields.io/badge/v0.2-honest%20uncertainty-orange)]()
@@ -11,6 +12,8 @@
 [![Theorems](https://img.shields.io/badge/v0.2.2-7%20formal%20guarantees-darkgreen)]()
 [![Hardened](https://img.shields.io/badge/v0.3-adversarial%20%2B%20signed-black)]()
 [![Packs](https://img.shields.io/badge/v0.4-domain%20rule%20packs-blueviolet)]()
+
+> 🔐 **Releases are cryptographically attested via npm provenance.** Verify any installed version with `npm audit signatures`. See [SECURITY.md](./SECURITY.md) for the full supply-chain integrity story.
 
 ---
 
@@ -136,15 +139,15 @@ This is not moral rhetoric — it is an **architectural choice**. Rules without 
 ## Install
 
 ```bash
-# Once published to npm registry:
 npm install pantheon-guard
-
-# Until then (works today):
-npm install github:alkanfel1987/pantheon-guard#v0.1.0
+# or pin to a specific version:
+npm install pantheon-guard@0.4.1
+# or install directly from GitHub:
+npm install github:alkanfel1987/pantheon-guard#v0.4.1
 ```
 
-Zero runtime dependencies. ~43 KB minified (ESM + CJS bundled together).
-Pinned tag `v0.1.0` matches the version that will land on npm.
+Zero runtime dependencies. ~64 KB minified (ESM + CJS bundled together).
+Latest stable: `0.4.1` · Pre-release: `0.4.0-pre.3` (`npm install pantheon-guard@next`).
 
 ## Quick start — 3 before/after examples
 

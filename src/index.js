@@ -64,6 +64,10 @@ export {
   getBuildFingerprint,
 } from './integrity.js';
 export {
+  verifySignature,
+  quickCheckProvenanceMetadata,
+} from './verify-provenance.js';
+export {
   validatePack,
   runPack,
   applyPack,

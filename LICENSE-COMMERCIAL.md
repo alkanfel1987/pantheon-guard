@@ -45,6 +45,31 @@ Evaluation, pilots, and trials do not require a subscription.
 Numbers are placeholders for the launch period. Final pricing depends
 on volume, support requirements, and any custom-rule co-development.
 
+## Signature integrity
+
+Every published release of `pantheon-guard` is cryptographically
+attested via npm provenance (Sigstore / OIDC). See
+[SECURITY.md](./SECURITY.md) for verification details.
+
+Under both this commercial addendum and the MIT license, a derivative
+work or downstream product that **removes, stubs out, bypasses,
+neutralizes, or otherwise prevents signature verification** from
+functioning is treated as a derivative that breaks the integrity
+guarantee and **requires a commercial license regardless of the
+deployment context** (including non-commercial use).
+
+This clause applies to:
+
+- Stripping the `verifySignature()` helper from distributed builds
+- Modifying `SECURITY.md` to falsely claim signature was verified
+- Replacing the attested package with an unattested fork while
+  keeping the `pantheon-guard` name
+- Shipping a "seed" or wrapper that suppresses verification failures
+
+Honest forks that openly disclose modified verification (e.g. a fork
+named differently and documented as such) are not covered by this
+clause; they are governed by the MIT terms.
+
 ## What you get with a paid subscription
 
 - Permission to use `pantheon-guard` per the use cases above
