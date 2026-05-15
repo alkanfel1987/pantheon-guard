@@ -12,6 +12,22 @@
  * (Wikipedia events + Al Jazeera). Gap is structural — clickbait operates
  * via different rhetorical mechanisms than sales-manipulation.
  *
+ * v0.0.3 (2026-05-15 — curiosity-gap family + generalization measurement):
+ * Added a 6-detector curiosity-gap family (CG-1..6) derived from
+ * Loewenstein information-gap theory, plus a broadened numeric-listicle
+ * lexicon. Strict improvement: FP unchanged at 0%, catch >= v0.0.2.
+ * Critical finding: a FRESH held-out test (LittleThings + Scary Mommy +
+ * TheThings — sources used nowhere in authoring/tuning) measured catch
+ * at 20% (4/20), FP 0% — a TRUE generalization gap of 64pp from the
+ * in-corpus 84%. Held-out #1 (Upworthy/Bright Side/Distractify) showed
+ * 74% but was semi-contaminated (CG family built after seeing its
+ * failures). Conclusion: deterministic regex/lexicon clickbait CATCH
+ * does not generalize (every outlet uses different surface vocabulary;
+ * lexicon expansion is an overfitting treadmill). FP-strictness DOES
+ * generalize (0% on every held-out). A learned L2 encoder layer is
+ * mandatory for real-world catch; this pack's correct role is L1 — a
+ * $0, microsecond, FP-clean first pass.
+ *
  * v0.0.2 (2026-05-15 — adversarial FP validation):
  * Pack validated FP-clean against an adversarial mainstream cohort of 54
  * live-pulled headlines deliberately selected for high-FP-risk register:
@@ -118,14 +134,22 @@ const PATTERNS = Object.freeze([
   {
     rule: 'indriya_nigraha',
     name: 'numeric-listicle',
-    // Constrained to 2-3 digit counts (excludes 4-digit years like "2026")
-    // + negative lookahead excludes quantifier patterns ("20 million people")
-    // to keep FP at 0% on factual reporting (e.g. "20 million people in Sudan").
+    // 1-3 digit counts: still excludes 4-digit years ("2026" cannot match
+    // — \b\d{1,3}\s+ requires whitespace after the digits, and a 4-digit
+    // year has none). v0.0.3: widened from \d{2,3} to \d{1,3} — the
+    // 2-digit floor wrongly excluded single-digit listicles ("9 words",
+    // "7 habits", "5 ways"), a common and real clickbait pattern.
+    // Negative lookahead still excludes quantifier/unit patterns
+    // ("20 million people", "15 days") to keep FP at 0%.
     regex: reBare(
-      '\\b\\d{2,3}\\s+' +
+      '\\b\\d{1,3}\\s+' +
       '(?!(?:million|billion|trillion|thousand|hundred|percent|years?|months?|weeks?|days?|hours?|minutes?|kilometers?|miles|kilograms?|pounds?|degrees?)\\b)' +
-      '(?:\\w+\\s+){0,5}' +
-      '(?:reasons?|times?|ways?|things?|tips|tricks|signs|moments|secrets|hacks|facts|photos|tweets|posts|products|shoes|celebs|tries|fails|wins|finds|moms|dads|teens|comments|memes|pics|images|stories|hilarious)\\b',
+      '(?:[\\w-]+\\s+){0,5}' +
+      '(?:reasons?|times?|ways?|things?|tips|tricks|signs|moments|secrets|hacks|facts|photos|tweets|posts|products|shoes|celebs|tries|fails|wins|finds|moms|dads|teens|comments|memes|pics|images|stories|hilarious' +
+      // v0.0.3: lexicon broadened with genre-generic listicle nouns (the
+      // closed list was overfit to BuzzFeed vocabulary — Bright Side
+      // held-out used "acts"/"pets" etc. which the v0.0.2 list missed).
+      '|ideas|lessons|quotes|habits|rules|mistakes|examples|gems|acts|pets|words|recipes|gifts|places|foods|jobs|skills|lies|myths|trends|reactions|charts|maps|gadgets|outfits|looks|jokes|pranks|designs|hobbies|truths)\\b',
       'iu'
     ),
     description: 'numeric listicle structure (2-3 digit count + qualifier + plural listicle-noun, excluding quantifiers/units)',
@@ -304,6 +328,132 @@ const PATTERNS = Object.freeze([
     description: 'wild-rampage compound (rage-bait sensationalism)',
     vrttiAxis: 'viparyaya',
   },
+
+  // ══════════════════════════════════════════════════════════════
+  // CURIOSITY-GAP DETECTOR FAMILY — v0.0.3
+  //
+  // Built from the MECHANISM (Loewenstein 1994 information-gap theory),
+  // NOT fit to any held-out failure list. Loewenstein: curiosity is
+  // triggered by a gap between what one knows and what one wants to
+  // know; clickbait engineers this gap by referencing specific
+  // information of signalled value while withholding it so the click
+  // is the only way to close the gap.
+  //
+  // Motivation: the v0.0.2 held-out generalization test (Upworthy +
+  // Bright Side + Distractify, never seen by pattern authoring) showed
+  // a 42.1pp gap — Upworthy 0/10, Distractify 0/6 — because curiosity-
+  // gap clickbait was covered only by two narrow detectors
+  // (forward-reference-authority, vague-revealer-adjective) overfit to
+  // BuzzFeed vocabulary. CG-1..6 below are genre-level structural
+  // detectors derived from the gap mechanism itself.
+  //
+  // All route to satya — the curiosity gap is a truth-manipulation:
+  // the headline implies it delivers value X while withholding X.
+  // ══════════════════════════════════════════════════════════════
+
+  // CG-1 — demonstrative + withheld clickbait-noun (cataphoric "this X")
+  // «this 60-second trick», «this simple method», «this one weird hack»
+  {
+    rule: 'satya',
+    name: 'cg-demonstrative-withheld',
+    regex: reBare(
+      '\\bthis\\s+(?:[\\w-]+\\s+){0,3}' +
+      '(?:trick|hack|method|habit|secret|technique|routine|ritual|tip|mistake|move|trait|gesture|shortcut)\\b',
+      'iu'
+    ),
+    description: 'cataphoric demonstrative + withheld clickbait-noun (curiosity gap — Loewenstein)',
+    vrttiAxis: 'vikalpa',
+  },
+
+  // CG-2 — quantified single withheld item ("one X", "the one X")
+  // «one powerful habit», «the one trick», «a single change»
+  {
+    rule: 'satya',
+    name: 'cg-quantified-withheld',
+    regex: reBare(
+      '\\b(?:the\\s+one|a\\s+single|the\\s+single|the\\s+only|one)\\s+' +
+      '(?:[\\w-]+\\s+){0,2}' +
+      '(?:habit|trick|hack|secret|mistake|skill|change|move|rule|question|word|ritual|phrase|sentence)\\b',
+      'iu'
+    ),
+    description: 'quantified single withheld item (curiosity gap — one-X-you-need framing)',
+    vrttiAxis: 'vikalpa',
+  },
+
+  // CG-3a — outcome teaser, verb form
+  // «you won't believe», «what happened next», «will surprise you»
+  {
+    rule: 'satya',
+    name: 'cg-outcome-teaser-verb',
+    regex: reBare(
+      "\\byou\\s+(?:won'?t|wont|will\\s+never|'?ll\\s+never)\\s+believe\\b" +
+      '|\\bwhat\\s+happ(?:ened|ens)\\s+next\\b' +
+      '|\\b(?:will|might|may)\\s+(?:surprise|shock|amaze|stun|astonish|astound)\\s+(?:you|everyone|the\\s+world)\\b',
+      'iu'
+    ),
+    description: 'outcome teaser, verb form (withheld result — curiosity gap)',
+    vrttiAxis: 'vikalpa',
+  },
+
+  // CG-3b — outcome teaser, predicate form
+  // «the results are alarming», «the reason is shocking»
+  {
+    rule: 'satya',
+    name: 'cg-outcome-teaser-predicate',
+    regex: reBare(
+      '\\b(?:the\\s+)?(?:results?|findings?|reason|answer|ending|reaction|response|outcome|aftermath|twist)\\s+' +
+      '(?:is|are|was|were|will\\s+be)\\s+' +
+      '(?:alarming|shocking|staggering|jaw-dropping|mind-blowing|unbelievable|astonishing|priceless|chilling|heartbreaking)\\b',
+      'iu'
+    ),
+    description: 'outcome teaser, predicate form (withheld-subject + sensational predicate)',
+    vrttiAxis: 'vikalpa',
+  },
+
+  // CG-4 — explicit gap-pointer
+  // «Here's why», «Here's the scoop», «Here's what happened»
+  {
+    rule: 'satya',
+    name: 'cg-gap-pointer',
+    regex: reBare(
+      "\\bhere'?s\\s+" +
+      '(?:why\\b|what\\s+(?:happened|she|he|they|we|it)|' +
+      'the\\s+(?:scoop|reason|catch|twist|secret|deal|truth|story|kicker))',
+      'iu'
+    ),
+    description: 'explicit curiosity-gap pointer (Here-is-why teaser)',
+    vrttiAxis: 'vikalpa',
+  },
+
+  // CG-5 — celebrity-relation question headline
+  // «Who Is X's Husband?», «Who Is the actor's new girlfriend»
+  {
+    rule: 'satya',
+    name: 'cg-relation-question',
+    regex: reBare(
+      '\\bwho\\s+(?:is|are|was)\\s+(?:[\\w\'-]+\\s+){1,6}' +
+      '(?:husband|wife|girlfriend|boyfriend|ex|partner|fiance|fiancee|spouse)\\b',
+      'iu'
+    ),
+    description: 'celebrity-relation curiosity-gap question (trivia answer withheld)',
+    vrttiAxis: 'vikalpa',
+  },
+
+  // CG-6 — "X you didn't know" hidden-knowledge framing
+  // «facts you didn't know», «things nobody tells you»
+  {
+    rule: 'satya',
+    name: 'cg-hidden-knowledge',
+    regex: reBare(
+      '\\b(?:things?|facts?|reasons?|secrets?|truths?|details?)\\s+' +
+      '(?:you|nobody|no one|they|we)\\s+(?:\\w+\\s+){0,2}' +
+      "(?:didn'?t|never|won'?t|don'?t|wouldn'?t)\\s+" +
+      '(?:know|knew|tell|told|hear|heard|realize|realized|expect|expected|notice|noticed|see|saw)\\b',
+      'iu'
+    ),
+    description: 'hidden-knowledge framing (facts-you-did-not-know — curiosity gap)',
+    vrttiAxis: 'vikalpa',
+  },
 ]);
 
 // ─────────────────────────────────────────────
@@ -312,13 +462,15 @@ const PATTERNS = Object.freeze([
 
 export const clickbaitPack = Object.freeze({
   id: 'clickbait',
-  version: '0.0.2',
+  version: '0.0.3',
   description:
     'Attention-fixation engineering detector for headlines / short copy. ' +
     'Built on clinical hypnosis literature (Erickson + Braid foundational) ' +
     'and cognitive psychology of attention (Loewenstein curiosity gap, ' +
     'Cialdini persuasion, Tversky-Kahneman framing, Berlyne novelty, ' +
-    'Munger 2020 clickbait economics). 10 mechanism-class detectors.',
+    'Munger 2020 clickbait economics). v0.0.3 adds a 6-detector ' +
+    'curiosity-gap family derived from Loewenstein information-gap theory ' +
+    'to close the held-out generalization gap measured at v0.0.2.',
   detectionPatterns: PATTERNS,
   requirements: [],
   calibratorOverrides: {

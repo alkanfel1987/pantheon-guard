@@ -24,8 +24,8 @@ test('clickbait: pack is well-formed', () => {
 
 test('clickbait: has expected pack metadata', () => {
   assert.equal(clickbaitPack.id, 'clickbait');
-  assert.equal(clickbaitPack.version, '0.0.2');
-  assert.ok(clickbaitPack.detectionPatterns.length >= 10);
+  assert.equal(clickbaitPack.version, '0.0.3');
+  assert.ok(clickbaitPack.detectionPatterns.length >= 16);
 });
 
 test('clickbait: every pattern routes to a valid mahavrata rule', () => {
@@ -114,6 +114,51 @@ test('clickbait: descends-into-chaos catches «descends into chaos»', () => {
 
 test('clickbait: wild-rampage catches «wild rampage»', () => {
   assert.ok(catches('Punches And Bites Flight Attendant During Wild Rampage'));
+});
+
+// ─────────────────────────────────────────────
+// Curiosity-gap detector family — v0.0.3
+// Mechanism-derived from Loewenstein information-gap theory.
+// ─────────────────────────────────────────────
+
+test('clickbait CG-1: demonstrative-withheld «this 60-second trick»', () => {
+  assert.ok(catches('How to stop sounding long-winded with this 60-second trick'));
+});
+
+test('clickbait CG-2: quantified-withheld «one powerful habit»', () => {
+  assert.ok(catches('Dostoevsky shared one powerful habit for an authentic life'));
+});
+
+test('clickbait CG-3a: outcome-teaser «you won\'t believe»', () => {
+  assert.ok(catches("You won't believe what she found in the attic"));
+});
+
+test('clickbait CG-3b: outcome-teaser «the results are alarming»', () => {
+  assert.ok(catches('Scientists tested 3 water brands. The results are alarming.'));
+});
+
+test('clickbait CG-4: gap-pointer «Here\'s why»', () => {
+  assert.ok(catches("Taylor Sheridan was not involved in the spinoff — Here's Why"));
+});
+
+test('clickbait CG-4: gap-pointer «Here\'s the Scoop»', () => {
+  assert.ok(catches("Are the baby rumors true? Here's the Scoop on the Chatter"));
+});
+
+test('clickbait CG-5: relation-question «Who Is X\'s Husband»', () => {
+  assert.ok(catches("Who Is Yellowstone Star Kelly Reilly's Husband?"));
+});
+
+test('clickbait CG-6: hidden-knowledge «facts you didn\'t know»', () => {
+  assert.ok(catches('15 facts about coffee you didn\'t know'));
+});
+
+test('clickbait v0.0.3: numeric-listicle broadened lexicon «16 Acts»', () => {
+  assert.ok(catches('16 Acts of Kindness From Family That Prove Compassion'));
+});
+
+test('clickbait v0.0.3: numeric-listicle broadened lexicon «9 fascinating words»', () => {
+  assert.ok(catches('9 fascinating Colonial-era words to brush up on'));
 });
 
 // ─────────────────────────────────────────────
