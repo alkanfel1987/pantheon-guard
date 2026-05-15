@@ -252,25 +252,41 @@ Pre-registered cross-language benchmark with Wilson 95% CI and SHA-256 corpus ha
 | Region | N | Accuracy (95% Wilson CI) | FP-rate | Catch-rate |
 |---|---|---|---|---|
 | Russian | 280 | **95.7%** [92.7%, 97.5%] | 0.8% (2/256) | 58% (14/24) |
-| English (UK + US + INTL) | 186 | 86.6% [80.9%, 90.8%] | 0.0% (0/122) | 61% (39/64) |
+| English (UK + US + INTL) | 240 | 88.8% [84.1%, 92.2%] | 1.1% (2/176) | 61% (39/64) |
 | German | 100 | **96.0%** [89.5%, 98.5%] | 0.0% (0/87) | 69% (9/13) |
-| **Cross-language total** | **566** | **92.8%** [90.3%, 94.6%] | **0.4%** (2/465) | **61%** (62/101) |
+| **Cross-language total** | **620** | **93.1%** [90.8%, 94.8%] | **0.8%** (4/519) | **61%** (62/101) |
 
-Stack: core + news + news-de + epistemology + healthcare + **clickbait** (v0.0.1). Pre-registered hypotheses verified before release; SHA-256 corpus hashes printed by each runner as pre-registration of test snapshot.
+Stack: core + news + news-de + epistemology + healthcare + **clickbait** (v0.0.2). SHA-256 corpus hashes printed by each runner as pre-registration of test snapshot.
 
-### What changed in v0.0.1 of `clickbait` pack (2026-05-15)
+### Accuracy is not catch-rate — read both columns
 
-Corpus expanded by 57 EN entries (Wikipedia current events 15, Al Jazeera 15, BuzzFeed 12, Bored Panda 15) to probe a gap discovered during calibration: existing packs target sales/marketing manipulation but didn't cover **attention-fixation engineering** — the rhetorical regime used by social-aggregator clickbait.
+These are different measurements and must not be conflated:
 
-New `clickbait` pack adds 10 mechanism-class detectors (forward-reference, vague-revealer-adjective, numeric-listicle, caps-emotional-disruption, extreme-intensifier-adverb, universal-quantifier-claim, nominalization-of-emotion, presupposition-loaded, judgment-adjective-prefix, drama-verb-cluster) routed across all five mahā-vrata rules.
+- **Accuracy 93.1%** — of all 620 items, the share where the verdict (pass *or* catch) was correct. Dominated by the pass-expected majority, which the FP-strict design handles well.
+- **Catch-rate 61.4%** — of the 101 items that *are* manipulative, the share actually caught. **This is the honest recall figure: ~39% of manipulative content still passes.** If you need a single number for "how good is this at catching manipulation," it is 61%, not 93%.
+- **FP-rate 0.8%** — of the 519 benign items, the share wrongly flagged.
 
-Foundation: Loewenstein 1994 (curiosity gap), Cialdini 1984 (persuasion), Tversky & Kahneman 1981 (framing), Berlyne 1960 (collative variables), Munger 2020 (clickbait economics), and the clinical hypnosis literature of Milton H. Erickson (American Society for Clinical Hypnosis founder, American Journal of Clinical Hypnosis founding editor, APA Fellow) — Erickson's documented techniques (indirect suggestion, confusion technique, pacing-and-leading, double bind, utilization, interspersal) map directly onto the surface patterns of consumer clickbait. The mapping is structural, not metaphorical: same linguistic mechanisms, different intensity and consent context.
+### False positives — full disclosure
 
-Result: catch-rate on the new clickbait subset rose from 12% (3/25) to **92% (23/25)**, while mainstream FP-rate stayed at 0% (0/30 on Wikipedia + Al Jazeera). Combined accuracy moved 89.2% → **92.8%**, catch 41.6% → **61.4%**, FP unchanged at 0.4%.
+4 FP across 519 benign items. All 4 are pre-existing pack behavior, none from the `clickbait` pack:
+- 2 RU FPs — `news` pack on borderline RU headlines.
+- 2 EN FPs — `healthcare` pack `provider_escalation` requirement firing on healthcare-*news* (ProPublica "Look Up Where Your Generic Prescription Drugs Were Made"; Smithsonian "...AI Tool to Diagnose Autism..."). These are journalism *about* medicine, not medical advice. Tracked as a separate healthcare-pack calibration fix.
+
+The `clickbait` pack itself: **0 FP across all 263 EN+DE+INTL pass-expected items**, including a 54-entry adversarial cohort (see below).
+
+### `clickbait` pack — v0.0.1 → v0.0.2 (2026-05-15)
+
+A calibration run surfaced a gap: existing packs target sales/marketing manipulation but missed **attention-fixation engineering** — the rhetorical regime of social-aggregator clickbait. Corpus was expanded with 57 EN entries (Wikipedia events, Al Jazeera, BuzzFeed, Bored Panda); existing-pack catch-rate on the clickbait subset was 12% (3/25).
+
+The `clickbait` pack adds 10 mechanism-class detectors (forward-reference, vague-revealer-adjective, numeric-listicle, caps-emotional-disruption, extreme-intensifier-adverb, universal-quantifier-claim, nominalization-of-emotion, presupposition-loaded, judgment-adjective-prefix, drama-verb-cluster) routed across all five mahā-vrata rules.
+
+Foundation: Loewenstein 1994 (curiosity gap), Cialdini 1984 (persuasion), Tversky & Kahneman 1981 (framing), Berlyne 1960 (collative variables), Munger 2020 (clickbait economics), and the clinical hypnosis literature of Milton H. Erickson (American Society for Clinical Hypnosis founder, *American Journal of Clinical Hypnosis* founding editor, APA Fellow) — Erickson's documented techniques (indirect suggestion, confusion technique, pacing-and-leading, double bind, utilization, interspersal) map structurally onto the surface patterns of consumer clickbait.
+
+**v0.0.2 — adversarial FP validation.** The earlier "mainstream FP 0/30" figure had a wide Wilson CI [0%, 11.6%]. v0.0.2 expands the mainstream test ~8x with a 54-entry adversarial cohort deliberately picked for high-FP-risk register: ProPublica investigative journalism (legitimate curiosity-gap headlines), The Conversation academic explainer ("Why X" framing), Smithsonian popular science, Axios political news. The `clickbait` pack held **0 FP across the full N=263 EN+DE+INTL pass-expected subset** (Wilson 95% CI [0%, 1.4%]) — no detector logic changed; the patterns proved precise enough. Clickbait-subset catch-rate: 12% → **92% (23/25)**.
 
 ### FP-strict by design
 
-The architecture sacrifices catch-rate for predictable production behavior. A 0.4% FP-rate means roughly 1 false positive in every ~250 benign messages — usable. A 5% FP-rate (typical for generic LLM moderators on this corpus shape) is unusable for any customer-facing channel. The combined-region catch-rate of 61% is the honest tradeoff; for higher recall, layer Pantheon under a learned model that picks up novel attacks our patterns miss.
+The architecture sacrifices catch-rate for predictable production behavior. A 0.8% FP-rate means roughly 1 false positive in every ~130 benign messages. A 5% FP-rate (typical for generic LLM moderators on this corpus shape) is unusable for any customer-facing channel. The 61% catch-rate is the honest cost of that trade — for higher recall, layer Pantheon under a learned model that picks up the ~39% our deterministic patterns miss.
 
 **Reproduce:**
 
@@ -278,16 +294,18 @@ The architecture sacrifices catch-rate for predictable production behavior. A 0.
 git clone https://github.com/alkanfel1987/pantheon-guard && cd pantheon-guard
 npm install
 node examples/benchmark-phase1-runner.js       # RU N=280, prints corpus SHA-256
-node examples/benchmark-multiregion-runner.js  # EN+DE+INTL N=286, prints corpus SHA-256
+node examples/benchmark-multiregion-runner.js  # EN+DE+INTL N=340, prints corpus SHA-256
 ```
 
 Both runners print the SHA-256 of their corpus file as pre-registration of the test snapshot. The corpus is committed to the repo (`examples/benchmark-phase1-corpus.js`, `examples/benchmark-multiregion-corpus.js`), so any subsequent edit changes the hash — making post-hoc tuning impossible without an audit trail.
 
 **What we don't claim:**
+- That 93.1% accuracy means 93% of manipulation is caught — it does not; catch-rate is 61%.
 - Higher recall than learned models on novel attacks (we lose this race by design)
 - Coverage of prompt-injection (out of scope — that's NeMo/Lakera territory)
 - Out-of-the-box adaptation to new domains (each pack is authored, not learned)
 - That hypnosis itself is empirically settled — clinical effectiveness remains contested in some medical-context reviews; we use Erickson's *linguistic patterns* as descriptive ontology, not his effectiveness claims as warrant
+- Production-grade mainstream FP certainty — 0/263 is strong but not infinite; broader live-distribution sampling continues
 
 ## API
 

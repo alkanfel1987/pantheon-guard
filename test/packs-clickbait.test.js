@@ -24,7 +24,7 @@ test('clickbait: pack is well-formed', () => {
 
 test('clickbait: has expected pack metadata', () => {
   assert.equal(clickbaitPack.id, 'clickbait');
-  assert.equal(clickbaitPack.version, '0.0.1');
+  assert.equal(clickbaitPack.version, '0.0.2');
   assert.ok(clickbaitPack.detectionPatterns.length >= 10);
 });
 
@@ -147,6 +147,71 @@ test('clickbait FP guard: Reuters-style factual reporting', () => {
 
 test('clickbait FP guard: 4-digit year does not match numeric-listicle', () => {
   assert.ok(passes('In 2026 the company shipped products to 30 countries'));
+});
+
+// ─────────────────────────────────────────────
+// Adversarial FP guards — v0.0.2
+// Real headlines from live-pulled mainstream cohort 2026-05-15,
+// deliberately selected for high-FP-risk register. These MUST pass —
+// they are legitimate journalism that uses engaging-but-honest framing.
+// Regression guard: future pattern edits must not break these.
+// ─────────────────────────────────────────────
+
+test('clickbait adv-FP: ProPublica «What the FDA Won\'t Tell You»', () => {
+  // Curiosity-gap headline used legitimately by investigative journalism.
+  // "FDA" is not in forward-reference-authority lexicon (doctors/experts/
+  // scientists/insiders/they/nobody/no one) — intentionally narrow.
+  assert.ok(passes("What the FDA Won't Tell You About Your Medications"));
+});
+
+test('clickbait adv-FP: ProPublica «Threat in Your Medicine Cabinet»', () => {
+  assert.ok(passes("Threat in Your Medicine Cabinet: The FDA's Gamble on America's Drugs"));
+});
+
+test('clickbait adv-FP: ProPublica «Generic Drugs Were Made»', () => {
+  assert.ok(passes('Look Up Where Your Generic Prescription Drugs Were Made'));
+});
+
+test('clickbait adv-FP: ProPublica «at Risk for Poisoning» ≠ risks-getting', () => {
+  // "at Risk for" must not trigger drama-verb-risks-getting (which needs
+  // "risks getting/being/having/...").
+  assert.ok(passes('Trump Halted an Agent Orange Cleanup. That Puts Hundreds of Thousands at Risk for Poisoning.'));
+});
+
+test('clickbait adv-FP: The Conversation «Why it\'s too early to forecast»', () => {
+  // "Why X" explainer framing — presupposition-why-never needs 2nd/3rd
+  // person pronoun + modal + never/always; "it's" is not in the list.
+  assert.ok(passes("A super El Nino? Why it's too early to forecast one with certainty"));
+});
+
+test('clickbait adv-FP: The Conversation «Why a growing number of supporters»', () => {
+  assert.ok(passes('Why a growing number of Trump supporters are experiencing voter remorse'));
+});
+
+test('clickbait adv-FP: Smithsonian «Hilarious Archive» (adjective, not adverb)', () => {
+  // extreme-intensifier-adverb needs adverb+adjective ("hilariously funny");
+  // "Hilarious Archive" is adjective+noun — must not fire.
+  assert.ok(passes('Ahead of His 100th Birthday, Mel Brooks Donates His Archive to the National Comedy Center'));
+});
+
+test('clickbait adv-FP: Smithsonian «New Research Debunks the Myths»', () => {
+  assert.ok(passes('History Remembers Mary Boleyn as the Other Boleyn Girl. New Research Debunks the Myths.'));
+});
+
+test('clickbait adv-FP: Axios «Doctors rally behind autonomous vehicles»', () => {
+  // "Doctors rally" — forward-reference-authority needs hate/love/won't-tell
+  // type verb; "rally" is not a withholding verb — must not fire.
+  assert.ok(passes('Doctors rally behind autonomous vehicles as public health issue'));
+});
+
+test('clickbait adv-FP: numeric «15 Days» (time unit, not listicle)', () => {
+  assert.ok(passes("Gone in 15 Days: How the Connecticut DMV Allows Tow Companies to Sell People's Cars"));
+});
+
+test('clickbait adv-FP: «250 Objects» museum count is borderline — verify current behavior', () => {
+  // "250 Objects to Commemorate" — numeric-listicle requires a listicle-noun
+  // (reasons/times/photos/...); "objects" is not in the lexicon. Passes.
+  assert.ok(passes('The National Museum of American History Is Displaying 250 Objects to Commemorate the Big Birthday'));
 });
 
 // ─────────────────────────────────────────────

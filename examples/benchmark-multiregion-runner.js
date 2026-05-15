@@ -41,7 +41,7 @@ console.log('  pantheon-guard · MULTI-REGION BENCHMARK · 2026-05-05');
 console.log('═'.repeat(78));
 console.log(`  Corpus SHA-256: ${corpusHash}`);
 console.log(`  N = ${CORPUS.length}  (EN + DE only — RU is in benchmark-phase1)`);
-console.log('  Stack: core + news v0.1.2 + epistemology v0.0.1 + healthcare v0.1.0 + clickbait v0.0.1');
+console.log('  Stack: core + news v0.1.2 + epistemology v0.0.1 + healthcare v0.1.0 + clickbait v0.0.2');
 
 const counts = { pass: 0, catch: 0 };
 const bySrc = {};
