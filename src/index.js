@@ -78,6 +78,7 @@ export { epistemologyPack } from './packs/epistemology.js';
 export { newsPack } from './packs/news.js';
 export { newsDePack } from './packs/news-de.js';
 export { newsHiPack } from './packs/news-hi.js';
+export { clickbaitPack } from './packs/clickbait.js';
 
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)

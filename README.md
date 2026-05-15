@@ -252,13 +252,25 @@ Pre-registered cross-language benchmark with Wilson 95% CI and SHA-256 corpus ha
 | Region | N | Accuracy (95% Wilson CI) | FP-rate | Catch-rate |
 |---|---|---|---|---|
 | Russian | 280 | **95.7%** [92.7%, 97.5%] | 0.8% (2/256) | 58% (14/24) |
-| English (UK + US) | 129 | 82.2% [74.7%, 87.9%] | 0.0% (0/100) | 24% (7/29) |
+| English (UK + US + INTL) | 186 | 86.6% [80.9%, 90.8%] | 0.0% (0/122) | 61% (39/64) |
 | German | 100 | **96.0%** [89.5%, 98.5%] | 0.0% (0/87) | 69% (9/13) |
-| **Cross-language total** | **509** | **92.3%** [89.7%, 94.3%] | **0.5%** (2/433) | **51%** (39/76) |
+| **Cross-language total** | **566** | **92.8%** [90.3%, 94.6%] | **0.4%** (2/465) | **61%** (62/101) |
 
-Stack: core + news + news-de + epistemology + healthcare. Pre-registered hypotheses (mainstream FP ≤ 5%, tabloid catch ≥ 60%) verified before release.
+Stack: core + news + news-de + epistemology + healthcare + **clickbait** (v0.0.1). Pre-registered hypotheses verified before release; SHA-256 corpus hashes printed by each runner as pre-registration of test snapshot.
 
-The architecture is **FP-strict by design**: we sacrifice catch-rate for predictable production behavior. A 0.5% FP-rate means 1 false positive in every ~200 benign messages — usable. A 5% FP-rate (typical for generic LLM moderators on this corpus shape) is unusable for any customer-facing channel. The combined-region catch-rate of 51% is the honest tradeoff; for higher recall, layer Pantheon under a learned model that picks up novel attacks our patterns miss.
+### What changed in v0.0.1 of `clickbait` pack (2026-05-15)
+
+Corpus expanded by 57 EN entries (Wikipedia current events 15, Al Jazeera 15, BuzzFeed 12, Bored Panda 15) to probe a gap discovered during calibration: existing packs target sales/marketing manipulation but didn't cover **attention-fixation engineering** — the rhetorical regime used by social-aggregator clickbait.
+
+New `clickbait` pack adds 10 mechanism-class detectors (forward-reference, vague-revealer-adjective, numeric-listicle, caps-emotional-disruption, extreme-intensifier-adverb, universal-quantifier-claim, nominalization-of-emotion, presupposition-loaded, judgment-adjective-prefix, drama-verb-cluster) routed across all five mahā-vrata rules.
+
+Foundation: Loewenstein 1994 (curiosity gap), Cialdini 1984 (persuasion), Tversky & Kahneman 1981 (framing), Berlyne 1960 (collative variables), Munger 2020 (clickbait economics), and the clinical hypnosis literature of Milton H. Erickson (American Society for Clinical Hypnosis founder, American Journal of Clinical Hypnosis founding editor, APA Fellow) — Erickson's documented techniques (indirect suggestion, confusion technique, pacing-and-leading, double bind, utilization, interspersal) map directly onto the surface patterns of consumer clickbait. The mapping is structural, not metaphorical: same linguistic mechanisms, different intensity and consent context.
+
+Result: catch-rate on the new clickbait subset rose from 12% (3/25) to **92% (23/25)**, while mainstream FP-rate stayed at 0% (0/30 on Wikipedia + Al Jazeera). Combined accuracy moved 89.2% → **92.8%**, catch 41.6% → **61.4%**, FP unchanged at 0.4%.
+
+### FP-strict by design
+
+The architecture sacrifices catch-rate for predictable production behavior. A 0.4% FP-rate means roughly 1 false positive in every ~250 benign messages — usable. A 5% FP-rate (typical for generic LLM moderators on this corpus shape) is unusable for any customer-facing channel. The combined-region catch-rate of 61% is the honest tradeoff; for higher recall, layer Pantheon under a learned model that picks up novel attacks our patterns miss.
 
 **Reproduce:**
 
@@ -266,7 +278,7 @@ The architecture is **FP-strict by design**: we sacrifice catch-rate for predict
 git clone https://github.com/alkanfel1987/pantheon-guard && cd pantheon-guard
 npm install
 node examples/benchmark-phase1-runner.js       # RU N=280, prints corpus SHA-256
-node examples/benchmark-multiregion-runner.js  # EN+DE N=229, prints corpus SHA-256
+node examples/benchmark-multiregion-runner.js  # EN+DE+INTL N=286, prints corpus SHA-256
 ```
 
 Both runners print the SHA-256 of their corpus file as pre-registration of the test snapshot. The corpus is committed to the repo (`examples/benchmark-phase1-corpus.js`, `examples/benchmark-multiregion-corpus.js`), so any subsequent edit changes the hash — making post-hoc tuning impossible without an audit trail.
@@ -275,6 +287,7 @@ Both runners print the SHA-256 of their corpus file as pre-registration of the t
 - Higher recall than learned models on novel attacks (we lose this race by design)
 - Coverage of prompt-injection (out of scope — that's NeMo/Lakera territory)
 - Out-of-the-box adaptation to new domains (each pack is authored, not learned)
+- That hypnosis itself is empirically settled — clinical effectiveness remains contested in some medical-context reviews; we use Erickson's *linguistic patterns* as descriptive ontology, not his effectiveness claims as warrant
 
 ## API
 

@@ -16,6 +16,7 @@ import {
   newsDePack,
   epistemologyPack,
   healthcarePack,
+  clickbaitPack,
 } from '../src/index.js';
 import { CORPUS } from './benchmark-multiregion-corpus.js';
 
@@ -33,14 +34,14 @@ function wilson95(k, n) {
   return [Math.max(0, center - halfwidth), Math.min(1, center + halfwidth)];
 }
 
-const runner = stackPacks([newsPack, newsDePack, epistemologyPack, healthcarePack]);
+const runner = stackPacks([newsPack, newsDePack, epistemologyPack, healthcarePack, clickbaitPack]);
 
 console.log('\n' + '═'.repeat(78));
 console.log('  pantheon-guard · MULTI-REGION BENCHMARK · 2026-05-05');
 console.log('═'.repeat(78));
 console.log(`  Corpus SHA-256: ${corpusHash}`);
 console.log(`  N = ${CORPUS.length}  (EN + DE only — RU is in benchmark-phase1)`);
-console.log('  Stack: core + news v0.1.2 + epistemology v0.0.1 + healthcare v0.1.0');
+console.log('  Stack: core + news v0.1.2 + epistemology v0.0.1 + healthcare v0.1.0 + clickbait v0.0.1');
 
 const counts = { pass: 0, catch: 0 };
 const bySrc = {};
