@@ -282,11 +282,29 @@ The `clickbait` pack adds 10 mechanism-class detectors (forward-reference, vague
 
 Foundation: Loewenstein 1994 (curiosity gap), Cialdini 1984 (persuasion), Tversky & Kahneman 1981 (framing), Berlyne 1960 (collative variables), Munger 2020 (clickbait economics), and the clinical hypnosis literature of Milton H. Erickson (American Society for Clinical Hypnosis founder, *American Journal of Clinical Hypnosis* founding editor, APA Fellow) — Erickson's documented techniques (indirect suggestion, confusion technique, pacing-and-leading, double bind, utilization, interspersal) map structurally onto the surface patterns of consumer clickbait.
 
-**v0.0.2 — adversarial FP validation.** The earlier "mainstream FP 0/30" figure had a wide Wilson CI [0%, 11.6%]. v0.0.2 expands the mainstream test ~8x with a 54-entry adversarial cohort deliberately picked for high-FP-risk register: ProPublica investigative journalism (legitimate curiosity-gap headlines), The Conversation academic explainer ("Why X" framing), Smithsonian popular science, Axios political news. The `clickbait` pack held **0 FP across the full N=263 EN+DE+INTL pass-expected subset** (Wilson 95% CI [0%, 1.4%]) — no detector logic changed; the patterns proved precise enough. Clickbait-subset catch-rate: 12% → **92% (23/25)**.
+**v0.0.2 — adversarial FP validation.** The earlier "mainstream FP 0/30" figure had a wide Wilson CI [0%, 11.6%]. v0.0.2 expands the mainstream test ~8x with a 54-entry adversarial cohort deliberately picked for high-FP-risk register: ProPublica investigative journalism (legitimate curiosity-gap headlines), The Conversation academic explainer ("Why X" framing), Smithsonian popular science, Axios political news. The `clickbait` pack held **0 FP across the full N=263 EN+DE+INTL pass-expected subset** (Wilson 95% CI [0%, 1.4%]) — no detector logic changed; the patterns proved precise enough. In-corpus clickbait-subset catch-rate: 12% → **84% (21/25)**.
+
+### Generalization gap — the honest catch number
+
+Every catch-rate above is **in-corpus**: the `clickbait` pack was authored against BuzzFeed + Bored Panda entries, then scored on them. To measure overfitting, the pack was run **once** against a held-out corpus of 45 headlines from three sources it was never authored against — Upworthy, Bright Side, Distractify (`examples/benchmark-heldout-clickbait-corpus.js`).
+
+| Measurement | catch-rate | FP-rate |
+|---|---|---|
+| In-corpus (BuzzFeed + Bored Panda) | 84% (21/25) | 0% |
+| **Held-out (Upworthy + Bright Side + Distractify)** | **41.9% (13/31)** | **0% (0/14)** |
+| **Generalization gap** | **42.1 pp** | — |
+
+What the gap reveals, per source:
+- **Bright Side 87% (13/15)** — the `numeric-listicle` detector captures a *real* structural pattern; it transfers.
+- **Upworthy 0/10, Distractify 0/6** — curiosity-gap clickbait ("one powerful habit", "foolproof method", "Here's the Scoop", "Who Is X's husband") is **not caught at all**. The v0.0.2 curiosity-gap detectors (`forward-reference-authority`, `vague-revealer-adjective`) are overfit to BuzzFeed's specific vocabulary.
+
+**Honest status:** the headline catch number for the `clickbait` pack is the held-out **42%**, not the in-corpus 84%. FP-strictness *does* generalize (0 held-out FP). Catch does not yet. v0.0.3 targets a mechanism-level curiosity-gap detector family (built from Loewenstein's information-gap theory, not fit to the held-out failure list — which would burn the held-out set).
+
+The Generalization Gap is tracked as a release gate: no pack version ships claiming a catch-rate without a held-out figure beside it.
 
 ### FP-strict by design
 
-The architecture sacrifices catch-rate for predictable production behavior. A 0.8% FP-rate means roughly 1 false positive in every ~130 benign messages. A 5% FP-rate (typical for generic LLM moderators on this corpus shape) is unusable for any customer-facing channel. The 61% catch-rate is the honest cost of that trade — for higher recall, layer Pantheon under a learned model that picks up the ~39% our deterministic patterns miss.
+The architecture sacrifices catch-rate for predictable production behavior. A 0.8% FP-rate means roughly 1 false positive in every ~130 benign messages. A 5% FP-rate (typical for generic LLM moderators on this corpus shape) is unusable for any customer-facing channel. The honest in-the-wild catch-rate is the held-out 42% — for higher recall, layer Pantheon under a learned model that picks up what the deterministic patterns miss.
 
 **Reproduce:**
 
@@ -300,7 +318,8 @@ node examples/benchmark-multiregion-runner.js  # EN+DE+INTL N=340, prints corpus
 Both runners print the SHA-256 of their corpus file as pre-registration of the test snapshot. The corpus is committed to the repo (`examples/benchmark-phase1-corpus.js`, `examples/benchmark-multiregion-corpus.js`), so any subsequent edit changes the hash — making post-hoc tuning impossible without an audit trail.
 
 **What we don't claim:**
-- That 93.1% accuracy means 93% of manipulation is caught — it does not; catch-rate is 61%.
+- That 93.1% accuracy means 93% of manipulation is caught — it does not; in-corpus catch-rate is 61% and held-out clickbait catch-rate is 42%.
+- That the in-corpus catch numbers transfer — they don't yet; the generalization gap is a measured 42pp and v0.0.3 is calibrating against it.
 - Higher recall than learned models on novel attacks (we lose this race by design)
 - Coverage of prompt-injection (out of scope — that's NeMo/Lakera territory)
 - Out-of-the-box adaptation to new domains (each pack is authored, not learned)
