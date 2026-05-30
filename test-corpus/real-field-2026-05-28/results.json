@@ -1,0 +1,76 @@
+{
+  "corpus_hash": "315b73528b238183404e7ea26a48d09652c01a07530e23561b1f25596b1ab03d",
+  "n": 250,
+  "flagged": 3,
+  "fire_rate": 0.012,
+  "wilson95": [
+    0.004089245839774544,
+    0.034681389075857876
+  ],
+  "by_domain": {
+    "general": {
+      "n": 90,
+      "k": 2
+    },
+    "financial": {
+      "n": 100,
+      "k": 1
+    },
+    "crypto": {
+      "n": 60,
+      "k": 0
+    }
+  },
+  "by_region": {
+    "RU": {
+      "n": 90,
+      "k": 2
+    },
+    "EN": {
+      "n": 160,
+      "k": 1
+    }
+  },
+  "by_source": {
+    "lenta": {
+      "n": 30,
+      "k": 2
+    },
+    "ria": {
+      "n": 30,
+      "k": 0
+    },
+    "finam": {
+      "n": 30,
+      "k": 0
+    },
+    "bbc": {
+      "n": 30,
+      "k": 0
+    },
+    "bbc-biz": {
+      "n": 30,
+      "k": 1
+    },
+    "cnbc": {
+      "n": 30,
+      "k": 0
+    },
+    "marketwatch": {
+      "n": 10,
+      "k": 0
+    },
+    "cointelegraph": {
+      "n": 30,
+      "k": 0
+    },
+    "decrypt": {
+      "n": 30,
+      "k": 0
+    }
+  },
+  "detector_histogram": {
+    "news/vague_reveal_open_ru": 1,
+    "healthcare/provider_escalation": 2
+  }
+}

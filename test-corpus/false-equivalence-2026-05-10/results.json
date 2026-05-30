@@ -1,0 +1,45 @@
+{
+  "date": "2026-05-10T07:54:46.443Z",
+  "detector": "false_equivalence_levelling",
+  "pack_version": "0.3.0-pre.1",
+  "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical op-ed framings I (test author) have encountered. Negatives draw on public-domain / analytical text. Per CLAUDE.md selection-bias discipline this constitutes structured sanity, NOT external validation. A live-corpus probe is required before any 'production-validated' claim.",
+  "corpus_size": {
+    "positive": 14,
+    "negative": 12
+  },
+  "metrics": {
+    "catch_point": {
+      "mean": 1,
+      "lo": 0.7846829880728186,
+      "hi": 1
+    },
+    "fp_point": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.2425007574992425
+    },
+    "catch_en": {
+      "mean": 1,
+      "lo": 0.6456611570247934,
+      "hi": 1
+    },
+    "catch_ru": {
+      "mean": 1,
+      "lo": 0.6456611570247934,
+      "hi": 1
+    },
+    "fp_en": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3903430336530645
+    },
+    "fp_ru": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3903430336530645
+    }
+  },
+  "fn_ids": [],
+  "fp_ids": [],
+  "decision": "PROMOTE_PARTIAL → false_equivalence_levelling SYNTHESIS-VALIDATED (release-candidate); LIVE-CORPUS PROBE STILL REQUIRED before stable claim"
+}

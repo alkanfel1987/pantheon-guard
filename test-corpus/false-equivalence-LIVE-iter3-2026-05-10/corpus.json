@@ -1,0 +1,264 @@
+{
+  "_meta": {
+    "date": "2026-05-10",
+    "purpose": "iter-3 LIVE probe — combined Round-1 (training-set) + Round-2 (FP-stress NEW negatives) for false_equivalence_levelling after Option B broadening.",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "ROUND_1_FLAG": "Round-1 entries (P-EN-LIVE-01..06 + N-EN-LIVE-01..08 + N-RU-LIVE-01..04) are TRAINING-SET — iter-3 patterns were designed from Round-1's FN classes. Catch number on Round-1 is implementation verification, NOT generalization claim.",
+    "ROUND_2_FLAG": "Round-2 entries (P-EN-R2-* and N-*-R2-*) were collected with iter-3 patterns IN PLACE for held-out validation. Round-2 yielded 0 positives (FE-rhetoric absent from non-paywalled fetchable open-web sources tried) and 8 NEW negatives for FP-stress.",
+    "honest_scope": "No held-out positive validation possible. Tier 1 promotion blocked. iter-3 may ship as v0.3.0-pre.2 patch IF Round-1 catch ≥ 4/6 AND combined FP ≤ 5%."
+  },
+  "entries": [
+    {
+      "id": "P-EN-R1-01",
+      "round": 1,
+      "lang": "en",
+      "class": "positive",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "Both the Democrats and the Republicans are vested in this machine and are funded by billionaires.",
+      "notes": "iter-3 Class 1 target — both [Named X] and [Named Y] + leveling predicate."
+    },
+    {
+      "id": "P-EN-R1-02",
+      "round": 1,
+      "lang": "en",
+      "class": "positive",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "The odd that the political establishment will initiate the move to replace neo-liberalism or even overhaul it are virtually non-existent.",
+      "notes": "iter-3 Class 2 边缘. «Political establishment will initiate» — verb-list narrow (will-never/always); FE-spirit but ambiguous-with-analytical. Acceptable miss."
+    },
+    {
+      "id": "P-EN-R1-03",
+      "round": 1,
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/the-opposition-party-has-done-nothing (reader comment)",
+      "synthesis": false,
+      "text": "Apparently, both parties are dominated by war pigs.",
+      "notes": "iter-3 Class 3 target — both (sides|parties|teams|camps) + non-canonical leveling predicate."
+    },
+    {
+      "id": "P-EN-R1-04",
+      "round": 1,
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/mike-johnsons-crusade-to-renew-warrantless",
+      "synthesis": false,
+      "text": "elected officials who purport to oppose domestic warrantless spying when the other party is in the White House typically change their minds once their party is in power.",
+      "notes": "iter-3 Class 4 target — purport to oppose ... change their minds. Window 80→120 chars after audit."
+    },
+    {
+      "id": "P-EN-R1-05",
+      "round": 1,
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/mike-johnsons-crusade-to-renew-warrantless",
+      "synthesis": false,
+      "text": "as Trump, Mike Johnson, Nancy Pelosi, and so many others have proven, their steadfast opposition magically transforms into vehement support once they ascend to power.",
+      "notes": "iter-3 Class 5 target — opposition transforms into support."
+    },
+    {
+      "id": "P-EN-R1-06",
+      "round": 1,
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/trump-reverses-himself-joins-obama",
+      "synthesis": false,
+      "text": "Trump on Monday demanded that FISA be fully renewed: yet again, with no reforms, safeguards, or limits of any kind.",
+      "notes": "Out-of-scope — sentence-level extraction loses article-level FE framing. Acceptable miss by design."
+    },
+
+    {
+      "id": "N-EN-R1-01",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/09/right-wing-influencers-dont-understand-what-makes-america-great/",
+      "synthesis": false,
+      "text": "The Dissident Right rejects mutual forbearance in favor of a 'will-to-power' political approach and cannot save America's culture by sacrificing its creed."
+    },
+    {
+      "id": "N-EN-R1-02",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/08/contra-aoc-you-dont-have-to-be-a-billionaire-to-be-a-leech/",
+      "synthesis": false,
+      "text": "Contra AOC, there are makers and moochers on every rung of the income ladder."
+    },
+    {
+      "id": "N-EN-R1-03",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/07/trumps-government-funded-retirement-plan-misses-the-point/",
+      "synthesis": false,
+      "text": "Wall Street firms see new customers. Progressives see expanded government involvement in retirement. Some conservatives see a backdoor route to Social Security privatization.",
+      "notes": "FP stress-test — multi-perspective enumeration (3 stakeholders, distinct views)."
+    },
+    {
+      "id": "N-EN-R1-04",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/what-will-happen-when-trump-meets-xi/",
+      "synthesis": false,
+      "text": "The relationship has stabilized since the two leaders met last November, but it remains fragile—defined more by an absence of friction than any affirmative agenda."
+    },
+    {
+      "id": "N-EN-R1-05",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/what-will-happen-when-trump-meets-xi/",
+      "synthesis": false,
+      "text": "Both leaders will likely announce Chinese purchases of American products, such as Boeing airplanes and agricultural goods.",
+      "notes": "FP stress-test — «Both leaders» without container-pattern (sides|parties|teams|camps)."
+    },
+    {
+      "id": "N-EN-R1-06",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "A weak Democratic Party opened the gates for the Republican Party in 2024, and they haven't made inroads since."
+    },
+    {
+      "id": "N-EN-R1-07",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed51.asp",
+      "synthesis": false,
+      "text": "Ambition must be made to counteract ambition."
+    },
+    {
+      "id": "N-EN-R1-08",
+      "round": 1,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed51.asp",
+      "synthesis": false,
+      "text": "The remedy for this inconveniency is to divide the legislature into different branches."
+    },
+    {
+      "id": "N-RU-R1-01",
+      "round": 1,
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://aif.ru/politics/opinion/volodin-nazval-zhulikami-teh-kto-hochet-zavladet-rossiyskimi-aktivami",
+      "synthesis": false,
+      "text": "Лица, пытающиеся захватить российские активы, являются ворами и жуликами."
+    },
+    {
+      "id": "N-RU-R1-02",
+      "round": 1,
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://aif.ru/politics/opinion/volodin-nazval-zhulikami-teh-kto-hochet-zavladet-rossiyskimi-aktivami",
+      "synthesis": false,
+      "text": "Страны ЕС не хотят становиться соучастниками этого воровства."
+    },
+    {
+      "id": "N-RU-R1-03",
+      "round": 1,
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://www.vedomosti.ru/opinion/columns/2026/05/09/1196047-yug-druzhit",
+      "synthesis": false,
+      "text": "Уровень отношений между странами БРИКС системно растет."
+    },
+    {
+      "id": "N-RU-R1-04",
+      "round": 1,
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://www.vedomosti.ru/opinion/columns/2026/05/09/1196047-yug-druzhit",
+      "synthesis": false,
+      "text": "Фактическое поражение в самими же начатой войне продемонстрировало глубину раскола между различными частями некогда единого западного мира.",
+      "notes": "FP stress — contains «расхождения / различных частях» which inhibitor-pattern-adjacent. Should NOT fire."
+    },
+
+    {
+      "id": "N-EN-R2-01",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/supreme-court-decision-alters-2026-midterm-election-outlook/",
+      "synthesis": false,
+      "text": "This Supreme Court decision may still end up being a political victory for Republicans, but it isn't as straightforward as it looks.",
+      "notes": "FP-stress NEW source. Substantive analytical comparison."
+    },
+    {
+      "id": "N-EN-R2-02",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/supreme-court-decision-alters-2026-midterm-election-outlook/",
+      "synthesis": false,
+      "text": "GOP efforts to gerrymander congressional districts by redistributing Democratic voters could backfire if large numbers of voters reject Trump's policies.",
+      "notes": "FP-stress NEW source — mentions both parties without leveling."
+    },
+    {
+      "id": "N-EN-R2-03",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed10.asp",
+      "synthesis": false,
+      "text": "A landed interest, a manufacturing interest, a mercantile interest, a moneyed interest, with many lesser interests, grow up of necessity in civilized nations.",
+      "notes": "FP-stress NEW source — Federalist 10 on factions (public domain)."
+    },
+    {
+      "id": "N-EN-R2-04",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed10.asp",
+      "synthesis": false,
+      "text": "The regulation of these various and interfering interests forms the principal task of modern legislation.",
+      "notes": "FP-stress NEW source — Federalist 10."
+    },
+    {
+      "id": "N-EN-R2-05",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed78.asp",
+      "synthesis": false,
+      "text": "The judiciary, on the contrary, has no influence over either the sword or the purse; no direction either of the strength or of the wealth of the society.",
+      "notes": "FP-stress NEW source — Federalist 78."
+    },
+    {
+      "id": "N-EN-R2-06",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed78.asp",
+      "synthesis": false,
+      "text": "The interpretation of the laws is the proper and peculiar province of the courts."
+    },
+    {
+      "id": "N-EN-R2-07",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/roaming-charges-pity-the-poor-billionaire/",
+      "synthesis": false,
+      "text": "The rich whom the politicians are targeting started with nothing, and are the epitome of the American dream.",
+      "notes": "FP-stress NEW source — substantive billionaire-critique without FE-leveling."
+    },
+    {
+      "id": "N-EN-R2-08",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/roaming-charges-pity-the-poor-billionaire/",
+      "synthesis": false,
+      "text": "Under capitalism, the underclass has always been permanent, but under AI Capitalism, the permanent underclass will eventually encompass almost all of us.",
+      "notes": "FP-stress NEW source — has «under X / under Y» comparative + «always been» (potential N-fp risk if naturalization detector fires; not relevant for FE)."
+    }
+  ]
+}

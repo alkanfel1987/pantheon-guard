@@ -1,0 +1,43 @@
+{
+  "date": "2026-05-10T08:18:50.267Z",
+  "detector": "false_equivalence_levelling",
+  "pack_version": "0.3.0-pre.1",
+  "probe_iteration": 3,
+  "notes": "Round-1 = training-set (FN-driven pattern design), Round-2 = held-out FP-stress only (0 positives surfaced)",
+  "corpus_size": {
+    "r1_positive": 6,
+    "r1_negative": 12,
+    "r2_negative": 8,
+    "held_out_positives": 0
+  },
+  "metrics": {
+    "catch_r1_training": {
+      "mean": 0.6666666666666666,
+      "lo": 0.2999883213415286,
+      "hi": 0.903230667440783
+    },
+    "fp_r1": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.2425007574992425
+    },
+    "fp_r2_held_out": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3244156195108769
+    },
+    "fp_combined": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.1611301254949332
+    }
+  },
+  "fn_ids": [
+    "P-EN-R1-02",
+    "P-EN-R1-06"
+  ],
+  "fp_ids": [],
+  "decision": "iter-3 patterns SHIP to v0.3.0-pre.2 — Round-1 catch ≥ 4/6 (target hit), combined FP ≤ 5%. Tier remains 2 — Tier 1 promotion blocked by absent held-out positives.",
+  "tier_after_iter3": 2,
+  "tier1_blocker": "held-out positive corpus required"
+}

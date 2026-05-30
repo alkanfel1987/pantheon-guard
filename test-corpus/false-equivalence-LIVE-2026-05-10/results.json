@@ -1,0 +1,50 @@
+{
+  "date": "2026-05-13T09:31:07.601Z",
+  "detector": "false_equivalence_levelling",
+  "pack_version": "0.3.0-pre.4",
+  "probe_type": "LIVE",
+  "companion_synthesis_probe": "test-corpus/false-equivalence-2026-05-10/",
+  "corpus_size": {
+    "positive": 6,
+    "negative": 12
+  },
+  "metrics": {
+    "catch_point": {
+      "mean": 0.6666666666666666,
+      "lo": 0.2999883213415286,
+      "hi": 0.903230667440783
+    },
+    "fp_point": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.2425007574992425
+    },
+    "catch_en": {
+      "mean": 0.6666666666666666,
+      "lo": 0.2999883213415286,
+      "hi": 0.903230667440783
+    },
+    "catch_ru": {
+      "lo": 0,
+      "hi": 0,
+      "mean": 0
+    },
+    "fp_en": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3244156195108769
+    },
+    "fp_ru": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.48990002040399916
+    },
+    "generalization_gap_synthesis_minus_live": 0.33333333333333337
+  },
+  "fn_ids": [
+    "P-EN-LIVE-02",
+    "P-EN-LIVE-06"
+  ],
+  "fp_ids": [],
+  "decision": "PROMOTE → Tier 1 (live-validated EN); update EVIDENCE-TIER"
+}
