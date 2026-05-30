@@ -32,12 +32,39 @@ import { MAHAVRATA } from '../mahavrata.js';
 const VALID_RULES = Object.freeze(Object.keys(MAHAVRATA.rules));
 const VALID_SEVERITIES = Object.freeze(['low', 'medium', 'high']);
 
+// Pañca-vṛtti taxonomy (Yoga-sūtra I.6) — pattern's cognitive-axis coordinate.
+// Source: 00-Foundation/04D-Pramana-Architecture.md §2 in Pantheon vault.
+// Optional on patterns; when present enables future cross-pack 5×5 coverage matrix
+// (vṛtti × pack-domain) for empirical hypothesis verification per 04D §5.2.
+export const VALID_VRTTIS = Object.freeze([
+  'pramana',     // valid cognition substituted (e.g. agama disguised as pratyaksa)
+  'viparyaya',   // cognitive inversion (impermanent for permanent, etc.)
+  'vikalpa',     // conceptual construct without referent (puṣpita-vāc)
+  'nidra',       // cognitive absence / decision-fatigue exploitation
+  'smriti',      // memory tampering (gaslighting, selective recall)
+]);
+
+// Frame taxonomy (Mahābhārata + Manu-smṛti) — pack's applicability context.
+// Source: 00-Foundation/06A-Legitimate-Ambiguity-Zones.md §5.1 in Pantheon vault.
+// Same text has different manipulation-status in different frames; pack declares
+// which frames it applies to. Optional; absent ≡ universal (all frames).
+export const VALID_FRAMES = Object.freeze([
+  'diplomatic',         // strategic/political — dvaidhībhāva legitimate
+  'judicial',           // witness/expert — strict satya regime
+  'medical',            // clinician — strict satya, ubhaya allowed for prognosis
+  'personal',           // 1-to-1 / spiritual — strict satya everywhere
+  'educational',        // teacher — strict satya, ubhaya allowed for pedagogy
+  'public_information', // news / marketing — strictest; no ambiguity zone
+]);
+
 /**
  * @typedef {Object} DetectionPattern
  * @property {'ahimsa'|'satya'|'asteya'|'shaucha'|'indriya_nigraha'} rule
  * @property {string} name
  * @property {RegExp} regex
  * @property {string} [description]
+ * @property {string} [counter]  optional positive marker — what right speech in this slot looks like (Я-4: shadow-integration requires positive replacement, not just blocking). Free-form string; consumed by future shadow-integration UI.
+ * @property {'pramana'|'viparyaya'|'vikalpa'|'nidra'|'smriti'} [vrttiAxis]  optional pañca-vṛtti coordinate (Yoga-sūtra I.6); enables future cross-pack vṛtti coverage matrix per 04D §5.1.
  */
 
 /**
@@ -47,6 +74,8 @@ const VALID_SEVERITIES = Object.freeze(['low', 'medium', 'high']);
  * @property {(text: string) => boolean} check
  * @property {'low'|'medium'|'high'} severity
  * @property {string} message
+ * @property {(text: string) => string[]} [evidence]  optional — returns matched tokens / phrases for shadow-integration (Я-4): caller can show the author what triggered the rule rather than just blocking
+ * @property {string} [counter]  optional positive marker — what fulfilling this requirement looks like (Я-4 parity with DetectionPattern).
  */
 
 /**
@@ -57,6 +86,7 @@ const VALID_SEVERITIES = Object.freeze(['low', 'medium', 'high']);
  * @property {DetectionPattern[]} detectionPatterns
  * @property {Requirement[]} requirements
  * @property {Partial<typeof CALIBRATOR_PARAMS>} [calibratorOverrides]
+ * @property {Array<'diplomatic'|'judicial'|'medical'|'personal'|'educational'|'public_information'>} [applicableFrames]  optional frames where this pack applies (06A §5.1); absent ≡ universal.
  */
 
 // ─────────────────────────────────────────────
@@ -80,6 +110,16 @@ export function validatePack(pack) {
     if (!(p.regex instanceof RegExp)) {
       throw new TypeError(`pack ${pack.id}: pattern "${p.name}" missing regex`);
     }
+    if (p.counter !== undefined && (typeof p.counter !== 'string' || !p.counter)) {
+      throw new TypeError(
+        `pack ${pack.id}: pattern "${p.name}" counter must be a non-empty string when present`
+      );
+    }
+    if (p.vrttiAxis !== undefined && !VALID_VRTTIS.includes(p.vrttiAxis)) {
+      throw new TypeError(
+        `pack ${pack.id}: pattern "${p.name}" vrttiAxis "${p.vrttiAxis}" must be one of ${VALID_VRTTIS.join(', ')}`
+      );
+    }
   }
   if (!Array.isArray(pack.requirements)) {
     throw new TypeError('pack.requirements must be an array (empty array is fine)');
@@ -95,6 +135,26 @@ export function validatePack(pack) {
       throw new TypeError(
         `pack ${pack.id}: requirement "${r.id}" severity must be ${VALID_SEVERITIES.join('|')}`
       );
+    }
+    if (r.counter !== undefined && (typeof r.counter !== 'string' || !r.counter)) {
+      throw new TypeError(
+        `pack ${pack.id}: requirement "${r.id}" counter must be a non-empty string when present`
+      );
+    }
+  }
+  if (pack.applicableFrames !== undefined) {
+    if (!Array.isArray(pack.applicableFrames) || pack.applicableFrames.length === 0) {
+      throw new TypeError(
+        `pack ${pack.id}: applicableFrames must be a non-empty array when present`
+      );
+    }
+    for (const f of pack.applicableFrames) {
+      if (!VALID_FRAMES.includes(f)) {
+        throw new TypeError(
+          `pack ${pack.id}: applicableFrames includes unknown frame "${f}"; ` +
+          `must be one of ${VALID_FRAMES.join(', ')}`
+        );
+      }
     }
   }
   return true;
@@ -114,7 +174,7 @@ export function validatePack(pack) {
  * @returns {{
  *   packViolations: Array<{rule: string, source: string, reason: string, severity: string}>,
  *   packEvidence: Object<string, string[]>,
- *   unmetRequirements: Array<{id: string, severity: string, message: string}>,
+ *   unmetRequirements: Array<{id: string, severity: string, message: string, evidence?: string[]}>,
  * }}
  */
 export function runPack(pack, text, options = {}) {
@@ -140,11 +200,16 @@ export function runPack(pack, text, options = {}) {
   const unmetRequirements = [];
   for (const r of pack.requirements) {
     if (r.condition(text) && !r.check(text)) {
-      unmetRequirements.push({
+      const item = {
         id: `${pack.id}/${r.id}`,
         severity: r.severity,
         message: r.message,
-      });
+      };
+      if (typeof r.evidence === 'function') {
+        const ev = r.evidence(text);
+        if (Array.isArray(ev) && ev.length > 0) item.evidence = ev;
+      }
+      unmetRequirements.push(item);
     }
   }
 
