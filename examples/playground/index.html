@@ -1,0 +1,487 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pantheon Guard · interactive demo</title>
+<meta name="description" content="Deterministic conscience layer for AI-generated content. Catches manipulation, false urgency, and dark patterns that NeMo Guardrails / Llama Guard / Lakera miss." />
+<style>
+  :root {
+    --bg: #0d1117;
+    --bg-2: #161b22;
+    --bg-3: #1f2630;
+    --border: #2d343d;
+    --text: #e6edf3;
+    --text-dim: #8b949e;
+    --accent: #ff8c42;
+    --pass: #3fb950;
+    --fail: #f85149;
+    --abstain: #d29922;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0; padding: 0;
+    background: var(--bg); color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  code, pre, .mono { font-family: var(--mono); }
+  header {
+    border-bottom: 1px solid var(--border);
+    padding: 14px 24px;
+    display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 12px;
+  }
+  header .brand {
+    font-weight: 700; font-size: 18px; letter-spacing: -0.01em;
+  }
+  header .brand .skt { color: var(--accent); font-family: var(--mono); }
+  header nav { display: flex; gap: 18px; font-size: 14px; }
+  header nav a { color: var(--text-dim); }
+  main { max-width: 1180px; margin: 0 auto; padding: 32px 24px 80px; }
+  .hero { margin-bottom: 28px; }
+  .hero h1 { margin: 0 0 8px; font-size: 30px; letter-spacing: -0.02em; }
+  .hero p { margin: 0; color: var(--text-dim); max-width: 760px; }
+  .hero .lead { color: var(--text); font-size: 16px; margin-bottom: 6px; }
+  .install {
+    margin-top: 14px;
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--bg-2); border: 1px solid var(--border);
+    padding: 6px 12px; border-radius: 6px;
+    font-family: var(--mono); font-size: 13px;
+  }
+  .install button {
+    background: transparent; color: var(--text-dim); border: 0;
+    cursor: pointer; font-size: 12px; padding: 2px 6px;
+  }
+  .install button:hover { color: var(--accent); }
+  .grid {
+    display: grid; gap: 22px;
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 980px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  .card {
+    background: var(--bg-2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .card h2 {
+    margin: 0 0 14px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-dim); font-weight: 600;
+  }
+  .presets {
+    display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px;
+  }
+  .presets button {
+    background: var(--bg-3); color: var(--text); border: 1px solid var(--border);
+    padding: 6px 10px; border-radius: 999px; font-size: 12px;
+    cursor: pointer; font-family: inherit;
+  }
+  .presets button:hover { border-color: var(--accent); color: var(--accent); }
+  .presets button.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  textarea {
+    width: 100%; min-height: 180px;
+    background: var(--bg-3); color: var(--text);
+    border: 1px solid var(--border); border-radius: 8px;
+    padding: 12px 14px; font-family: var(--mono); font-size: 13px;
+    line-height: 1.55; resize: vertical;
+  }
+  textarea:focus { outline: 0; border-color: var(--accent); }
+  .controls {
+    display: flex; gap: 10px; align-items: center; margin-top: 12px;
+    flex-wrap: wrap;
+  }
+  .controls label {
+    font-size: 12px; color: var(--text-dim); display: inline-flex;
+    align-items: center; gap: 6px;
+  }
+  .controls select {
+    background: var(--bg-3); color: var(--text); border: 1px solid var(--border);
+    padding: 4px 8px; border-radius: 4px; font-size: 12px;
+  }
+  .run {
+    background: var(--accent); color: var(--bg);
+    border: 0; padding: 10px 22px; border-radius: 6px;
+    font-weight: 700; font-size: 14px; cursor: pointer;
+    margin-left: auto;
+  }
+  .run:hover { filter: brightness(1.1); }
+  .verdict {
+    display: flex; align-items: center; gap: 10px;
+    padding: 14px 16px; border-radius: 8px;
+    border: 1px solid var(--border); background: var(--bg-3);
+    margin-bottom: 14px; font-weight: 600;
+  }
+  .verdict .badge {
+    padding: 3px 10px; border-radius: 4px; font-size: 12px;
+    font-family: var(--mono); text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .verdict.pass { border-color: var(--pass); }
+  .verdict.pass .badge { background: var(--pass); color: var(--bg); }
+  .verdict.fail { border-color: var(--fail); }
+  .verdict.fail .badge { background: var(--fail); color: var(--bg); }
+  .verdict.abstain { border-color: var(--abstain); }
+  .verdict.abstain .badge { background: var(--abstain); color: var(--bg); }
+  .verdict .latency { margin-left: auto; font-size: 12px; color: var(--text-dim); font-family: var(--mono); }
+  .rules { display: grid; gap: 8px; margin-bottom: 16px; }
+  .rule {
+    display: grid; grid-template-columns: auto 1fr auto; gap: 12px;
+    padding: 10px 12px; background: var(--bg-3);
+    border: 1px solid var(--border); border-radius: 6px;
+    align-items: center;
+  }
+  .rule .skt { font-family: var(--mono); font-weight: 600; color: var(--accent); min-width: 110px; }
+  .rule .desc { color: var(--text-dim); font-size: 13px; }
+  .rule .icon { font-family: var(--mono); font-size: 14px; }
+  .rule.hit { border-color: var(--fail); }
+  .rule.hit .icon { color: var(--fail); }
+  .rule.clean .icon { color: var(--pass); }
+  .confs { display: grid; gap: 6px; margin-bottom: 16px; }
+  .conf-row {
+    display: grid; grid-template-columns: 130px 1fr 50px;
+    gap: 10px; align-items: center; font-size: 12px;
+  }
+  .conf-row .label { color: var(--text-dim); font-family: var(--mono); }
+  .conf-bar {
+    height: 6px; background: var(--bg-3); border-radius: 3px;
+    overflow: hidden; position: relative;
+  }
+  .conf-bar > span {
+    display: block; height: 100%;
+    background: linear-gradient(90deg, var(--accent), var(--fail));
+  }
+  .conf-row .num { font-family: var(--mono); text-align: right; }
+  .evidence { font-size: 12px; color: var(--text-dim); }
+  .evidence ul { margin: 6px 0; padding-left: 18px; }
+  .evidence code { background: var(--bg-3); padding: 1px 5px; border-radius: 3px; }
+  .compare {
+    margin-top: 28px; padding: 18px 20px;
+    background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px;
+  }
+  .compare h2 {
+    margin: 0 0 12px; font-size: 14px; text-transform: uppercase;
+    letter-spacing: 0.08em; color: var(--text-dim); font-weight: 600;
+  }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  th, td {
+    text-align: left; padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+  }
+  th { color: var(--text-dim); font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.05em; }
+  td.yes { color: var(--pass); font-weight: 600; }
+  td.no { color: var(--text-dim); }
+  td.partial { color: var(--abstain); }
+  footer {
+    text-align: center; color: var(--text-dim); font-size: 12px;
+    margin-top: 60px; padding: 20px; border-top: 1px solid var(--border);
+  }
+  footer .meta { margin-top: 8px; font-family: var(--mono); }
+  .empty { color: var(--text-dim); font-size: 13px; padding: 20px; text-align: center; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="brand">pantheon<span class="skt">·</span>guard</div>
+  <nav>
+    <a href="https://github.com/alkanfel1987/pantheon-guard" target="_blank">GitHub</a>
+    <a href="https://github.com/alkanfel1987/pantheon-guard/blob/main/README.md" target="_blank">Docs</a>
+    <a href="https://github.com/alkanfel1987/pantheon-guard/blob/main/PITCH.md" target="_blank">Theory</a>
+    <a href="https://github.com/alkanfel1987/pantheon-guard/tree/main/examples/nemo-output-rail" target="_blank">vs NeMo</a>
+  </nav>
+</header>
+
+<main>
+  <section class="hero">
+    <h1>The conscience layer for AI-generated content</h1>
+    <p class="lead">Catches manipulation, false urgency, and dark patterns that NeMo Guardrails, Llama Guard, and Lakera don't cover.</p>
+    <p>Deterministic. ~0.3&nbsp;ms latency. Zero LLM calls inside the validator. Built on Yoga-sūtra II.30–31 — five rules without exceptions, derived from a 2,500-year-old taxonomy of manipulation.</p>
+    <div class="install">
+      <code id="install-cmd">npm install pantheon-guard</code>
+      <button id="copy-cmd" title="Copy">copy</button>
+    </div>
+  </section>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Input</h2>
+      <div class="presets" id="presets"></div>
+      <textarea id="input" spellcheck="false"></textarea>
+      <div class="controls">
+        <label>Urgency
+          <select id="urgency">
+            <option value="0.1">0.1 (calm)</option>
+            <option value="0.5">0.5 (neutral)</option>
+            <option value="0.95" selected>0.95 (high)</option>
+          </select>
+        </label>
+        <label>Paused
+          <select id="paused">
+            <option value="true">true</option>
+            <option value="false" selected>false</option>
+          </select>
+        </label>
+        <label>Policy
+          <select id="policy">
+            <option value="calibrated" selected>calibrated</option>
+            <option value="strict">strict</option>
+          </select>
+        </label>
+        <button class="run" id="run">Inspect →</button>
+      </div>
+    </section>
+
+    <section class="card">
+      <h2>Verdict</h2>
+      <div id="results">
+        <div class="empty">Pick a preset or paste text, then click Inspect.</div>
+      </div>
+    </section>
+  </div>
+
+  <section class="compare">
+    <h2>What each tool catches</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Failure mode</th>
+          <th>Pantheon</th>
+          <th>NeMo Guardrails</th>
+          <th>Llama Guard</th>
+          <th>Lakera Guard</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Prompt injection</td>            <td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>PII leakage</td>                 <td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Toxic language</td>              <td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="yes">✓</td></tr>
+        <tr><td>Hallucinations</td>              <td class="no">—</td><td class="yes">✓</td><td class="yes">✓</td><td class="partial">partial</td></tr>
+        <tr><td>Fear-based copywriting</td>      <td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+        <tr><td>False urgency / scarcity</td>    <td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+        <tr><td>Manipulative CTAs / dark patterns</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+        <tr><td>Clickbait without sources</td>   <td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+        <tr><td>Off-hours / impulse pressure</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+        <tr><td>Calibrated abstain on OOD input</td><td class="yes">✓</td><td class="no">—</td><td class="no">—</td><td class="no">—</td></tr>
+      </tbody>
+    </table>
+  </section>
+</main>
+
+<footer>
+  pantheon-guard · MIT (OSS) / Commercial · Built on Yoga-sūtra II.30–31
+  <div class="meta">
+    <span id="version">loading version…</span> ·
+    <span id="ruleset-hash">loading ruleset hash…</span>
+  </div>
+</footer>
+
+<script type="module">
+  // Import individual modules directly — bypass src/index.js, which transitively
+  // pulls in sign.js / integrity.js (node:crypto, browser-incompatible).
+  import { inspect } from '../../src/inspect.js';
+  import { MAHAVRATA } from '../../src/mahavrata.js';
+  import { CORE_VERSION } from '../../src/constants.js';
+
+  // ───────────────────────────────────────────────
+  // Presets
+  // ───────────────────────────────────────────────
+  const PRESETS = [
+    {
+      label: 'Sales email — bad',
+      text: 'Hurry, only 3 spots left until midnight! If you don\'t start now, in a year you\'ll regret it. The secret big companies don\'t want you to know — only for the chosen few.',
+      urgency: 0.95,
+      paused: false,
+    },
+    {
+      label: 'Sales email — clean',
+      text: 'We\'re running a Python course starting Monday. We have 30 spots, with 12 still open. Here\'s the syllabus and the instructor\'s background. If you have questions before deciding, reply and we\'ll answer within a day.',
+      urgency: 0.3,
+      paused: true,
+    },
+    {
+      label: 'Headline — clickbait',
+      text: 'The secret millionaires hide from you — what 9 out of 10 people miss',
+      urgency: 0.7,
+      paused: false,
+    },
+    {
+      label: 'Push notification — 3am',
+      text: 'REPLY NOW! Don\'t miss out — your account expires in 60 minutes!!',
+      urgency: 0.99,
+      paused: false,
+    },
+    {
+      label: 'Healthcare — risky',
+      text: 'I think you have early-stage diabetes based on what you described. You should start taking metformin right away.',
+      urgency: 0.6,
+      paused: false,
+    },
+    {
+      label: 'Russian sales',
+      text: 'Спешите! Только 3 места осталось до полуночи. Если не начнёте сейчас — через год пожалеете. Секрет, который от вас скрывают.',
+      urgency: 0.95,
+      paused: false,
+    },
+  ];
+
+  const $ = (sel) => document.querySelector(sel);
+  const presetsEl = $('#presets');
+  const inputEl = $('#input');
+  const urgencyEl = $('#urgency');
+  const pausedEl = $('#paused');
+  const policyEl = $('#policy');
+  const runEl = $('#run');
+  const resultsEl = $('#results');
+  const versionEl = $('#version');
+  const hashEl = $('#ruleset-hash');
+  const copyEl = $('#copy-cmd');
+
+  // ───────────────────────────────────────────────
+  // Init footer with real version + integrity hash
+  // ───────────────────────────────────────────────
+  versionEl.textContent = `core v${CORE_VERSION}`;
+  try {
+    const integrity = getIntegrity?.();
+    const hash = integrity?.ruleSetHash || integrity?.hash;
+    if (hash) hashEl.textContent = `ruleset SHA-256 ${hash.slice(0, 12)}…`;
+    else hashEl.textContent = 'frozen ruleset';
+  } catch (e) {
+    hashEl.textContent = 'frozen ruleset';
+  }
+
+  // ───────────────────────────────────────────────
+  // Render presets
+  // ───────────────────────────────────────────────
+  PRESETS.forEach((p, i) => {
+    const b = document.createElement('button');
+    b.textContent = p.label;
+    b.dataset.idx = String(i);
+    b.addEventListener('click', () => loadPreset(i));
+    presetsEl.appendChild(b);
+  });
+
+  function loadPreset(i) {
+    const p = PRESETS[i];
+    inputEl.value = p.text;
+    urgencyEl.value = String(p.urgency);
+    pausedEl.value = String(p.paused);
+    [...presetsEl.children].forEach((c, idx) => c.classList.toggle('active', idx === i));
+    run();
+  }
+
+  // ───────────────────────────────────────────────
+  // Run inspection
+  // ───────────────────────────────────────────────
+  function run() {
+    const text = inputEl.value.trim();
+    if (!text) {
+      resultsEl.innerHTML = '<div class="empty">Type or paste text first.</div>';
+      return;
+    }
+    const opts = {
+      urgency: parseFloat(urgencyEl.value),
+      paused: pausedEl.value === 'true',
+      policy: policyEl.value,
+    };
+
+    const t0 = performance.now();
+    let r;
+    try {
+      r = inspect(text, opts);
+    } catch (err) {
+      resultsEl.innerHTML = `<div class="empty">Inspection error: ${err.message}</div>`;
+      return;
+    }
+    const elapsed = (performance.now() - t0).toFixed(2);
+
+    renderVerdict(r, elapsed);
+  }
+
+  // ───────────────────────────────────────────────
+  // Render
+  // ───────────────────────────────────────────────
+  function renderVerdict(r, elapsed) {
+    const status = r.abstain
+      ? { cls: 'abstain', label: 'abstain', text: 'too thin for honest verdict' }
+      : r.passes
+        ? { cls: 'pass', label: 'passes', text: 'no rules violated' }
+        : { cls: 'fail', label: 'blocked', text: `${r.violations?.length || 0} mahā-vrata violation(s)` };
+
+    const hits = new Set((r.violations || []).map(v => v.rule));
+
+    const ruleRows = Object.entries(MAHAVRATA.rules).map(([key, def]) => {
+      const hit = hits.has(key);
+      return `
+        <div class="rule ${hit ? 'hit' : 'clean'}">
+          <span class="skt">${def.iast || def.sanskrit || key}</span>
+          <span class="desc">${def.meaning || ''}</span>
+          <span class="icon">${hit ? '✗' : '✓'}</span>
+        </div>
+      `;
+    }).join('');
+
+    const conf = r.confidence || {};
+    const confRows = Object.keys(conf).length === 0
+      ? '<div class="empty" style="padding:8px;">no flag confidence available</div>'
+      : Object.entries(conf).map(([k, v]) => {
+          const pct = Math.round((v || 0) * 100);
+          return `
+            <div class="conf-row">
+              <span class="label">${k}</span>
+              <span class="conf-bar"><span style="width: ${pct}%"></span></span>
+              <span class="num">${pct}%</span>
+            </div>
+          `;
+        }).join('');
+
+    const evidence = r.evidence || {};
+    const evidenceRows = Object.entries(evidence)
+      .filter(([, list]) => list && list.length)
+      .map(([k, list]) => `<li><strong>${k}</strong>: ${list.map(e => `<code>${escapeHtml(e)}</code>`).join(' ')}</li>`)
+      .join('');
+
+    resultsEl.innerHTML = `
+      <div class="verdict ${status.cls}">
+        <span class="badge">${status.label}</span>
+        <span>${status.text}</span>
+        <span class="latency">${elapsed} ms</span>
+      </div>
+      <div class="rules">${ruleRows}</div>
+      <div class="confs">${confRows}</div>
+      ${evidenceRows ? `<div class="evidence"><strong>Pattern evidence:</strong><ul>${evidenceRows}</ul></div>` : ''}
+    `;
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+  }
+
+  // ───────────────────────────────────────────────
+  // Wire controls
+  // ───────────────────────────────────────────────
+  runEl.addEventListener('click', run);
+  inputEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)) run();
+  });
+
+  copyEl.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText('npm install pantheon-guard');
+      copyEl.textContent = 'copied';
+      setTimeout(() => (copyEl.textContent = 'copy'), 1500);
+    } catch {}
+  });
+
+  // Auto-load first preset
+  loadPreset(0);
+</script>
+</body>
+</html>
