@@ -1,0 +1,53 @@
+{
+  "name": "@pantheon-guard/model-mdeberta-xnli",
+  "version": "0.0.1",
+  "description": "Multilingual zero-shot NLI Embedder for pantheon-guard semantic packs. Wraps mDeBERTa-v3-base-mnli-xnli (quantized ONNX) via @huggingface/transformers. Peer-dep model package — installed only when consumer needs semantic detection.",
+  "main": "./src/index.js",
+  "type": "module",
+  "files": [
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "smoke": "node test/smoke.js",
+    "bench": "node test/bench.js"
+  },
+  "keywords": [
+    "pantheon-guard",
+    "mdeberta",
+    "xnli",
+    "zero-shot-nli",
+    "multilingual",
+    "embedder"
+  ],
+  "author": {
+    "name": "Aleksandr Shevchenko",
+    "email": "alkanfel1987@gmail.com",
+    "url": "https://github.com/alkanfel1987"
+  },
+  "license": "SEE LICENSE IN LICENSE-MIT.md AND LICENSE-COMMERCIAL.md",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alkanfel1987/pantheon-guard.git",
+    "directory": "packages/model-mdeberta-xnli"
+  },
+  "homepage": "https://github.com/alkanfel1987/pantheon-guard/tree/main/packages/model-mdeberta-xnli#readme",
+  "bugs": {
+    "url": "https://github.com/alkanfel1987/pantheon-guard/issues"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "pantheon-guard": "^0.4.0"
+  },
+  "peerDependenciesMeta": {
+    "pantheon-guard": {
+      "optional": false
+    }
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^3.0.0"
+  }
+}

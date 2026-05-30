@@ -1,0 +1,231 @@
+{
+  "date": "2026-05-15T14:06:57.671Z",
+  "corpusHash": "8d038649735c9d6552fc24bd986e6878ff1312131778619e759c2bc722635ee1",
+  "n": 45,
+  "catchExpected": 20,
+  "passExpected": 25,
+  "hypotheses": [
+    {
+      "id": "H1-direct",
+      "text": "This is a clickbait headline."
+    },
+    {
+      "id": "H2-curiosity-gap",
+      "text": "This headline deliberately withholds information to make the reader click."
+    },
+    {
+      "id": "H3-intent",
+      "text": "This headline is written to attract clicks rather than to inform."
+    }
+  ],
+  "perHypothesis": [
+    {
+      "id": "H1-direct",
+      "hypothesis": "This is a clickbait headline.",
+      "sweep": [
+        {
+          "threshold": 0.4,
+          "catch": 15,
+          "catchRate": 0.75,
+          "fp": 19,
+          "fpRate": 0.76
+        },
+        {
+          "threshold": 0.45,
+          "catch": 11,
+          "catchRate": 0.55,
+          "fp": 9,
+          "fpRate": 0.36
+        },
+        {
+          "threshold": 0.5,
+          "catch": 3,
+          "catchRate": 0.15,
+          "fp": 4,
+          "fpRate": 0.16
+        },
+        {
+          "threshold": 0.55,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 1,
+          "fpRate": 0.04
+        },
+        {
+          "threshold": 0.6,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.65,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.7,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.75,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.8,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        }
+      ]
+    },
+    {
+      "id": "H2-curiosity-gap",
+      "hypothesis": "This headline deliberately withholds information to make the reader click.",
+      "sweep": [
+        {
+          "threshold": 0.4,
+          "catch": 2,
+          "catchRate": 0.1,
+          "fp": 6,
+          "fpRate": 0.24
+        },
+        {
+          "threshold": 0.45,
+          "catch": 1,
+          "catchRate": 0.05,
+          "fp": 3,
+          "fpRate": 0.12
+        },
+        {
+          "threshold": 0.5,
+          "catch": 1,
+          "catchRate": 0.05,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.55,
+          "catch": 1,
+          "catchRate": 0.05,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.6,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.65,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.7,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.75,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.8,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        }
+      ]
+    },
+    {
+      "id": "H3-intent",
+      "hypothesis": "This headline is written to attract clicks rather than to inform.",
+      "sweep": [
+        {
+          "threshold": 0.4,
+          "catch": 1,
+          "catchRate": 0.05,
+          "fp": 1,
+          "fpRate": 0.04
+        },
+        {
+          "threshold": 0.45,
+          "catch": 1,
+          "catchRate": 0.05,
+          "fp": 1,
+          "fpRate": 0.04
+        },
+        {
+          "threshold": 0.5,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.55,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.6,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.65,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.7,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.75,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        },
+        {
+          "threshold": 0.8,
+          "catch": 0,
+          "catchRate": 0,
+          "fp": 0,
+          "fpRate": 0
+        }
+      ]
+    }
+  ],
+  "verdict": "advisory-only"
+}
