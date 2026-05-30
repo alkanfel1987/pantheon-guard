@@ -32,6 +32,9 @@ const re = (body) => new RegExp(PRE + '(?:' + body + ')' + POST, 'iu');
 const W_ANY = '[\\p{L}\\p{N}_]';
 const W_PLUS = W_ANY + '+';
 const W_STAR = W_ANY + '*';
+// Hyphen-permitting word — handles German compound nouns like
+// "Wetter-Modelle", "Russland-Sanktionen", "Iran-Krieg".
+const HW_PLUS = '[\\p{L}\\p{N}_-]+';
 
 // ─────────────────────────────────────────────
 // DE detection patterns
@@ -140,6 +143,88 @@ const PATTERNS = Object.freeze([
     ),
     description: 'sensational political "secret hero/leader" framing (DE)',
   },
+
+  // ─────────────────────────────────────────────
+  // v0.2.0-pre.1 — field-test 2026-05-21 patterns
+  // Source: docs/LINGUISTIC-PATTERNS-2026-05-21.md (P4 cluster)
+  // Status: SCAFFOLD — fresh real-corpus probe pending iter-2.
+  // ─────────────────────────────────────────────
+
+  // ── P4a · DE sensational collapse "gekippt" with collective subject → satya
+  // Examples (2026-05-21): "Alle Wetter-Modelle gekippt – jetzt..."
+  // Trigger: collective quantifier + arbitrary noun + gekippt. Avoids
+  // physical / boating usage ("Boot gekippt"), which lacks the collective
+  // quantifier.
+  // NB: HW_PLUS used for German compound nouns ("Wetter-Modelle",
+  // "Russland-Sanktionen") — W_PLUS would split at the hyphen.
+  {
+    rule: 'satya',
+    name: 'gekippt_collective_de',
+    // catalogue: ns-vitanda-definition-1-2-3
+    regex: re(
+      '(?:alle|sämtliche|jede[srn]?)\\s+' + HW_PLUS + '(?:\\s+' + HW_PLUS + ')?\\s+gekippt'
+    ),
+    description: 'collective-subject + collapse-verb gekippt (DE sensational)',
+  },
+
+  // ── P4b · DE political capitulation "knickt ein" → satya
+  // Examples (2026-05-21): "London knickt bei Russland-Sanktionen ein"
+  // State-actor surrender framing. Strong tell — minimal-FP risk because
+  // legitimate political reporting uses "lenkt ein" / "gibt nach" instead.
+  {
+    rule: 'satya',
+    name: 'knickt_ein_de',
+    // catalogue: bg-asuri-self-narration-16-13-15
+    regex: re(
+      'knickt\\s+(?:bei|in|nach|vor|gegenüber)\\s+' + HW_PLUS + '\\s+ein'
+    ),
+    description: 'state-actor capitulation framing knickt-ein (DE sensational)',
+  },
+
+  // ── P4c · DE "lässt ... Traum/Hoffnung/Plan platzen" → satya
+  // Examples (2026-05-21): "Aston Villas lässt den großen Traum des SC Freiburg platzen"
+  // Sport/political sensational dream-break framing.
+  // {1,5} word range covers genitive prepositional phrases between Traum and platzen.
+  {
+    rule: 'satya',
+    name: 'laesst_traum_platzen_de',
+    // catalogue: ns-jalpa-definition-1-2-2
+    regex: re(
+      'lässt\\s+(?:den|die|das)\\s+' +
+      '(?:großen?\\s+|alten?\\s+|letzten?\\s+|kleinen?\\s+)?' +
+      '(?:Traum|Hoffnung|Plan|Geschäft|Deal|Vorhaben|Bock)' +
+      '(?:\\s+' + HW_PLUS + '){1,5}\\s+platzen'
+    ),
+    description: 'sensational "dream-break" framing lässt-X-platzen (DE)',
+  },
+
+  // ── P4d · DE "enthüllen Irrtum/Skandal/Wahrheit" → satya
+  // Examples (2026-05-21): "Forscher enthüllen Irrtum – es ist ein Weibchen"
+  // Sensational-revelation framing on routine findings.
+  {
+    rule: 'satya',
+    name: 'enthuellen_revelation_de',
+    // catalogue: ns-vitanda-definition-1-2-3
+    regex: re(
+      '\\benthüll(?:t|en|te|ten)\\s+(?:einen?\\s+|den?\\s+|die\\s+|das\\s+)?' +
+      '(?:Irrtum|Skandal|Wahrheit|Geheimnis|Schock|Lüge|Affäre)'
+    ),
+    description: 'sensational-revelation framing enthüllen + reveal-noun (DE)',
+  },
+
+  // ── P4e · DE crisis-genre marker "Krieg/Krise im Liveticker" → ahimsa
+  // Examples (2026-05-21): "Iran-Krieg im Liveticker: +++ Iran: Tauschen..."
+  // Genre-label commodifies ongoing conflict / catastrophe as entertainment
+  // segment — distinct from neutral "Liveticker zur Pressekonferenz".
+  {
+    rule: 'ahimsa',
+    name: 'krieg_im_liveticker_de',
+    // catalogue: mbh-mayacara-12-110-26
+    regex: re(
+      '(?:Krieg|Krise|Skandal|Eskalation|Katastrophe)' + W_STAR + '\\s+im\\s+Liveticker'
+    ),
+    description: 'crisis-genre commodification marker (DE ahimsa)',
+  },
 ]);
 
 // ─────────────────────────────────────────────
@@ -148,7 +233,7 @@ const PATTERNS = Object.freeze([
 
 export const newsDePack = Object.freeze({
   id: 'news-de',
-  version: '0.1.0',
+  version: '0.2.0-pre.1',
   description:
     'German news / media manipulation detection. Closes the DE coverage ' +
     'gap surfaced in multi-region benchmark (N=100 DE corpus, 13 FN). ' +

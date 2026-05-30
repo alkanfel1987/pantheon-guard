@@ -201,6 +201,30 @@ function anyOpacityViolation(text) {
 // when condition fires (which is when opacity is detected).
 function noInhibitor() { return false; }
 
+// Я-4 (shadow-integration): instead of blanket-block, return the matched
+// tokens so the author / upstream agent can see WHAT triggered and rephrase
+// or annotate, rather than re-write blind. Aggregates matches across all
+// languages and de-duplicates, capped at 30 to avoid noise.
+function opacityEvidence(text) {
+  if (typeof text !== 'string' || text.length === 0) return [];
+  const seen = new Set();
+  const out = [];
+  for (const lang of Object.keys(LEXICONS)) {
+    const r = detectOpacity(text, lang);
+    if (r.verdict === 'opacity_violation_high' || r.verdict === 'opacity_violation_medium') {
+      for (const w of r.matchedWords) {
+        const key = `${lang}:${w}`;
+        if (!seen.has(key)) {
+          seen.add(key);
+          out.push(key);
+          if (out.length >= 30) return out;
+        }
+      }
+    }
+  }
+  return out;
+}
+
 export const opacityPack = Object.freeze({
   id: 'opacity',
   version: '0.3.1-experimental',
@@ -221,12 +245,19 @@ export const opacityPack = Object.freeze({
       condition: anyOpacityViolation,
       check: noInhibitor,
       severity: 'medium',
+      // Я-3 (Эго ≠ Самость): message describes the TEXT surface, not the author.
+      // Я-4 (shadow-integration): evidence() surfaces matched tokens so the author
+      // sees WHAT triggered — material for rephrase, not blanket block.
       message:
-        'Lexicon-based opacity detection: jargon-density (≥4 unique tokens ' +
-        'OR ≥0.04 density) suggests deliberate-opacity / buzzword-stacking. ' +
-        'Anchored to avijñātārtha (NS 5.2.9) + nirarthaka (NS 5.2.8). ' +
-        'Routes to satya (truthfulness). NOTE: experimental v0.3.1 — ' +
-        'monitor FP-rate on first 1000 production samples.',
+        'Text matches the avijñātārtha pattern (NS 5.2.9): high jargon-density ' +
+        '(≥4 unique tokens or ≥0.04 density). This describes the text surface, ' +
+        'not authorial intent — domain-experts and marketers produce identical ' +
+        'token-distributions. The `evidence` field lists triggering tokens; ' +
+        'recommended action is annotate / contextualise / rephrase the flagged ' +
+        'cluster, not strip technical vocabulary. Anchored to avijñātārtha + ' +
+        'nirarthaka (NS 5.2.8). Routes to satya (clarity). EXPERIMENTAL v0.3.1 ' +
+        '— monitor FP-rate on first 1000 production samples.',
+      evidence: opacityEvidence,
     },
   ]),
 

@@ -53,6 +53,11 @@ const PATTERNS = Object.freeze([
     // catalogue: manu-tathya-parusya-8-274
     regex: /\byou\s+(?:definitely|certainly|absolutely|clearly)\s+have\b/i,
     description: 'self-diagnosis overclaim — AI is asserting a diagnosis with unwarranted certainty',
+    counter:
+      'These symptoms can have many causes; a clinician can assess whether further evaluation ' +
+      'is needed. I can describe what conditions are commonly associated with these symptoms, ' +
+      'but a diagnosis requires a clinical examination.',
+    vrttiAxis: 'pramana',  // pseudo-pratyakṣa: AI claims direct knowledge of patient's body
   },
   {
     rule: 'satya',
@@ -76,6 +81,11 @@ const PATTERNS = Object.freeze([
     // catalogue: bg-asuri-self-narration-16-13-15
     regex: /\b(?:will\s+cure|guaranteed\s+to\s+(?:cure|heal|fix)|100%\s+effective|miracle\s+cure)\b/i,
     description: 'unsupported cure / guarantee claim',
+    counter:
+      'This treatment has shown benefit in clinical studies for some patients; individual ' +
+      'response varies and outcomes cannot be guaranteed. A clinician familiar with your ' +
+      'history can discuss likely benefit in your specific case.',
+    vrttiAxis: 'vikalpa',  // conceptual construct without referent — "miracle cure" is puṣpita-vāc
   },
   {
     rule: 'satya',
@@ -92,6 +102,11 @@ const PATTERNS = Object.freeze([
     // catalogue: manu-satya-priya-4-138
     regex: /\b(?:nothing\s+to\s+worry\s+about|completely\s+safe|no\s+reason\s+to\s+see\s+a\s+doctor)\b/i,
     description: 'false reassurance — dismisses concern without evidence',
+    counter:
+      'This concern deserves clinical assessment. Without examining you directly, I cannot ' +
+      'confirm that there is nothing to worry about. A clinician can evaluate whether ' +
+      'further investigation is warranted.',
+    vrttiAxis: 'viparyaya',  // cognitive inversion — danger labeled as safety
   },
   {
     rule: 'satya',
@@ -300,12 +315,19 @@ function escalationRequirementCondition(text) {
 
 export const healthcarePack = Object.freeze({
   id: 'healthcare',
-  version: '0.1.3',
+  version: '0.1.4',
   description:
     'Healthcare-specific manipulation detection for medical / health AI agents. ' +
     'Catches self-diagnosis overclaim, cure / guarantee claims, false reassurance, ' +
     'unauthorized medication advice, serious-symptom dismissal, and missing provider ' +
     'escalation. Tightens calibrator thresholds to reflect higher-stakes domain.',
+
+  // Frames where this pack applies (Pantheon 06A-Legitimate-Ambiguity-Zones §5.1):
+  //   - 'medical'             — clinical advice context (strict satya regime)
+  //   - 'public_information'  — health marketing, AI-generated patient education
+  // Not applicable in 'diplomatic' / 'judicial' / 'personal' / 'educational' frames
+  // (those have different ambiguity tolerance — separate packs handle them).
+  applicableFrames: Object.freeze(['medical', 'public_information']),
 
   detectionPatterns: PATTERNS,
 

@@ -46,6 +46,108 @@ test('validatePack: rejects pack with bad severity', () => {
 });
 
 // ─────────────────────────────────────────────
+// Schema v0.2 — Foundation 2026-05-11 additive fields:
+//   pattern.counter (Я-4 shadow-integration positive marker)
+//   pattern.vrttiAxis (04D pañca-vṛtti coordinate)
+//   pack.applicableFrames (06A frame-aware applicability)
+// ─────────────────────────────────────────────
+
+test('validatePack: accepts pattern with counter + vrttiAxis', () => {
+  const ok = {
+    id: 'ok',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [{
+      rule: 'satya',
+      name: 'x',
+      regex: /test/,
+      counter: 'a positive replacement marker',
+      vrttiAxis: 'pramana',
+    }],
+    requirements: [],
+  };
+  assert.equal(validatePack(ok), true);
+});
+
+test('validatePack: rejects pattern with empty counter', () => {
+  const bad = {
+    id: 'bad',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [{ rule: 'satya', name: 'x', regex: /test/, counter: '' }],
+    requirements: [],
+  };
+  assert.throws(() => validatePack(bad), /counter must be a non-empty string/);
+});
+
+test('validatePack: rejects pattern with unknown vrttiAxis', () => {
+  const bad = {
+    id: 'bad',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [{ rule: 'satya', name: 'x', regex: /test/, vrttiAxis: 'wrong_vrtti' }],
+    requirements: [],
+  };
+  assert.throws(() => validatePack(bad), /vrttiAxis "wrong_vrtti" must be one of/);
+});
+
+test('validatePack: accepts pack with applicableFrames', () => {
+  const ok = {
+    id: 'ok',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [],
+    requirements: [],
+    applicableFrames: ['medical', 'public_information'],
+  };
+  assert.equal(validatePack(ok), true);
+});
+
+test('validatePack: rejects pack with unknown frame in applicableFrames', () => {
+  const bad = {
+    id: 'bad',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [],
+    requirements: [],
+    applicableFrames: ['medical', 'unknown_frame'],
+  };
+  assert.throws(() => validatePack(bad), /unknown frame "unknown_frame"/);
+});
+
+test('validatePack: rejects pack with empty applicableFrames array', () => {
+  const bad = {
+    id: 'bad',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [],
+    requirements: [],
+    applicableFrames: [],
+  };
+  assert.throws(() => validatePack(bad), /applicableFrames must be a non-empty array/);
+});
+
+test('validatePack: omitting new optional fields still passes (backward compat)', () => {
+  const legacy = {
+    id: 'legacy',
+    version: '0.1.0',
+    description: '',
+    detectionPatterns: [{ rule: 'satya', name: 'x', regex: /test/ }],
+    requirements: [],
+  };
+  assert.equal(validatePack(legacy), true);
+});
+
+test('validatePack: migrated healthcarePack has applicableFrames + 3 patterns with counter+vrttiAxis', () => {
+  // POC migration sanity check — keeps the migration visible in test output.
+  assert.deepEqual([...healthcarePack.applicableFrames], ['medical', 'public_information']);
+  const migrated = healthcarePack.detectionPatterns.filter(p => p.counter && p.vrttiAxis);
+  assert.equal(migrated.length, 3, 'expected 3 POC-migrated patterns');
+  const names = migrated.map(p => p.name).sort();
+  assert.deepEqual(names, ['cure_claim_en', 'false_reassurance_en', 'self_dx_en']);
+});
+
+// ─────────────────────────────────────────────
 // runPack — direct pattern + requirement checks
 // ─────────────────────────────────────────────
 

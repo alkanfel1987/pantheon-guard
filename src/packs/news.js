@@ -908,6 +908,52 @@ const PATTERNS = Object.freeze([
     ),
     description: 'responsible-self-label + first-person follow (parikīrtana via dharma-flag)',
   },
+
+  // ─────────────────────────────────────────────
+  // v0.5.0-pre.2 — field-test 2026-05-21 patterns
+  // Source: docs/LINGUISTIC-PATTERNS-2026-05-21.md
+  // Status: SCAFFOLD — fresh real-corpus probe pending iter-2.
+  // ─────────────────────────────────────────────
+
+  // ── P1 · RU curiosity-gap passive at headline start → satya
+  // Russian state-media style: passive participle that withholds the noun.
+  // Examples (2026-05-21): "Названа роль...", "Раскрыли приказ Зеленского",
+  // "Раскрыл смысл Вознесения", "Исследование показало, где...".
+  // Inhibitor: legitimate investigative reporting uses these verbs with a
+  // legal-actor context — suppress if forensic-context noun appears nearby.
+  // NB: no \b after Cyrillic — JS `\b` is ASCII-only even under /u flag.
+  // The POST lookahead in re() already handles Unicode-aware boundary.
+  {
+    rule: 'satya',
+    name: 'curiosity_gap_passive_ru_inhibited',
+    // catalogue: ns-vitanda-definition-1-2-3
+    // Headline-start passive that withholds the noun. Legal-investigative
+    // context (следствие/прокуратура/МВД/etc.) suppresses, since wire-style
+    // legitimately uses these verbs.
+    regex: re(
+      '^(?:Названа|Названы|Названо|Раскрыл[аои]|Раскрыли|Обнаружен[ао]|Обнаружены|Стало известно)' +
+      '(?![\\s\\S]{0,100}(?:следстви' + W_STAR + '|прокуратур' + W_STAR + '|приговор' + W_STAR +
+      '|обвиняем' + W_PLUS + '|подозреваем' + W_PLUS + '|МВД|ФСБ|СК\\s|полици' + W_STAR + '))'
+    ),
+    description: 'curiosity-gap passive RU with legal-context inhibitor (lesson E: no \\b after Cyrillic)',
+  },
+
+  // ── P3 · RU anonymous "Источник:" lead → asteya
+  // Symmetric to existing sources_say_en. The pack has sources_say_ru but
+  // it requires a verb form ("источники сообщают"); bare "Источник:" lead
+  // pattern (today's ru-ria-06) is uncovered.
+  // Inhibitor: named outlet or named individual within 200 chars suppresses.
+  {
+    rule: 'asteya',
+    name: 'anonymous_source_lead_ru',
+    // catalogue: manu-anrta-mahapataka-11-55
+    regex: re(
+      '^(?:Источник|Источники|Инсайдер[аы]?|Осведомлённ[ыо][йх])\\s*[:—]\\s*' +
+      '(?![\\s\\S]{0,200}\\b(?:Reuters|Bloomberg|AFP|РИА|ТАСС|РБК|Интерфакс|Коммерсант' + W_STAR +
+      '|Ведомост' + W_STAR + '|по\\s+словам\\s+\\p{Lu}|named\\s+source)\\b)'
+    ),
+    description: 'anonymous "Источник:" headline lead without named outlet (RU asteya, symmetric to sources_say_en)',
+  },
 ]);
 
 // ─────────────────────────────────────────────
@@ -916,7 +962,7 @@ const PATTERNS = Object.freeze([
 
 export const newsPack = Object.freeze({
   id: 'news',
-  version: '0.5.0-pre.1',
+  version: '0.5.0-pre.2',
   description:
     'News / media manipulation detection. Closes the solo-clickbait gap ' +
     'documented in REAL-WORLD-DOMAIN-TESTS by routing news-specific ' +
