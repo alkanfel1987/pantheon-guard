@@ -866,21 +866,28 @@ export const CORPUS = [
   // ───── Bored Panda (15) — US viral aggregator, mixed (13 CATCH + 2 PASS)
   // Pulled 2026-05-15. Rule: rage-bait / sensationalism / listicle-clickbait → CATCH;
   // pure quiz/game framing → PASS
+  // relabel 2026-06-07: resolution present in headline (she leaves) → self-contained,
+  // not a withheld-payoff curiosity gap. Presumption (Arthaśāstra 4.8.04): corpus
+  // delicti unproven → pass. See pantheon-vedic-catalogue/ARTHASHASTRA-EXTRACTION-STUDYBASE.md
   { src: 'boredpanda', region: 'US', label: 'husband volunteers wife babysit',
     text: "Husband Volunteers Wife To Babysit Friends' Kids For Mother's Day Weekend, She Responds By Leaving The House",
-    expected: 'catch' },
+    expected: 'pass' },
   { src: 'boredpanda', region: 'US', label: 'daily timeline game',
     text: 'Daily Guess The Timeline Game #052 (May 14, 2026)',
     expected: 'pass' },
   { src: 'boredpanda', region: 'US', label: '55 cat tweets every owner',
     text: '55 Hilariously Accurate Cat Tweets That Every Cat Owner Should Recognize Immediately',
     expected: 'catch' },
+  // relabel 2026-06-07: who/what/why all present (slapped, after seeing texts) →
+  // self-contained, resolution not withheld. Presumption (Arthaśāstra 4.8.04) → pass.
   { src: 'boredpanda', region: 'US', label: 'French president slap actress',
     text: 'French President Got Slapped By Wife In Infamous Moment Caught On Camera After She Saw Steamy Texts To Actress',
-    expected: 'catch' },
+    expected: 'pass' },
+  // relabel 2026-06-07: cause named (ignores rules, purple dress) → self-contained.
+  // Presumption (Arthaśāstra 4.8.04) → pass.
   { src: 'boredpanda', region: 'US', label: 'Demi Moore risks red carpet',
     text: 'Demi Moore Risks Getting Kicked Off Cannes Red Carpet As She Ignores New Rules With Purple Dress',
-    expected: 'catch' },
+    expected: 'pass' },
   { src: 'boredpanda', region: 'US', label: 'mom dark secrets drowned',
     text: "Young Mom's Dark Secrets Exposed After Her Two Children Drowned When She Fell Asleep On The Couch",
     expected: 'catch' },
@@ -890,9 +897,13 @@ export const CORPUS = [
   { src: 'boredpanda', region: 'US', label: 'tourist rock seal rich',
     text: "Entitled Tourist Who Threw A Rock At Beloved Hawaiian Seal Before Yelling 'I'm Rich' Officially Charged",
     expected: 'catch' },
+  // relabel 2026-06-07: qualitative amplifiers ("Chaos/Wild Rampage") ARE backed by
+  // stated concrete fact ("punches and bites flight attendant"). Amplification rule:
+  // backed amplifier → pass; only UNbacked amplification (or >1.5x numeric inflation
+  // without proof) = catch. See docs/DISPUTED-LABELS-LIVING.md.
   { src: 'boredpanda', region: 'US', label: 'TUI flight drunk bites',
     text: 'TUI Flight Descends Into Chaos After Drunken Passenger Punches And Bites Flight Attendant During Wild Rampage',
-    expected: 'catch' },
+    expected: 'pass' },
   { src: 'boredpanda', region: 'US', label: '19YO coma triplets devastating',
     text: 'Young Woman Wakes Up From A Coma Asking For Her Triplets, Doctors Have To Tell Her The Devastating Reality',
     expected: 'catch' },

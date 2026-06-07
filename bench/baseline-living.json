@@ -9,10 +9,10 @@
   ],
   "corpus_size": 111,
   "summary": {
-    "accuracy": 0.7837837837837838,
-    "ok": 87,
+    "accuracy": 0.8198198198198198,
+    "ok": 91,
     "fp": 2,
-    "fn": 22
+    "fn": 18
   },
   "results": [
     {
@@ -398,9 +398,9 @@
       "src": "boredpanda",
       "region": "US",
       "label": "husband volunteers wife babysit",
-      "expected": "catch",
+      "expected": "pass",
       "caught": false,
-      "correct": false
+      "correct": true
     },
     {
       "id": "multiregion:272",
@@ -425,18 +425,18 @@
       "src": "boredpanda",
       "region": "US",
       "label": "French president slap actress",
-      "expected": "catch",
+      "expected": "pass",
       "caught": false,
-      "correct": false
+      "correct": true
     },
     {
       "id": "multiregion:275",
       "src": "boredpanda",
       "region": "US",
       "label": "Demi Moore risks red carpet",
-      "expected": "catch",
+      "expected": "pass",
       "caught": false,
-      "correct": false
+      "correct": true
     },
     {
       "id": "multiregion:276",
@@ -470,9 +470,9 @@
       "src": "boredpanda",
       "region": "US",
       "label": "TUI flight drunk bites",
-      "expected": "catch",
+      "expected": "pass",
       "caught": false,
-      "correct": false
+      "correct": true
     },
     {
       "id": "multiregion:280",
@@ -1015,6 +1015,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-05T20:46:02.619Z",
+  "frozen_at": "2026-06-07T08:46:30.616Z",
   "guard_version": "0.4.2"
 }
