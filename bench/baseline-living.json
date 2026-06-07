@@ -10,9 +10,9 @@
   ],
   "corpus_size": 111,
   "summary": {
-    "accuracy": 0.9279279279279279,
-    "ok": 103,
-    "fp": 2,
+    "accuracy": 0.9459459459459459,
+    "ok": 105,
+    "fp": 0,
     "fn": 6
   },
   "results": [
@@ -724,8 +724,8 @@
       "region": "US",
       "label": "Generic drugs where made",
       "expected": "pass",
-      "caught": true,
-      "correct": false
+      "caught": false,
+      "correct": true
     },
     {
       "id": "multiregion:308",
@@ -994,8 +994,8 @@
       "region": "US",
       "label": "High schooler AI retina",
       "expected": "pass",
-      "caught": true,
-      "correct": false
+      "caught": false,
+      "correct": true
     },
     {
       "id": "multiregion:338",
@@ -1016,6 +1016,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-07T21:48:09.117Z",
+  "frozen_at": "2026-06-07T21:52:22.580Z",
   "guard_version": "0.4.2"
 }
