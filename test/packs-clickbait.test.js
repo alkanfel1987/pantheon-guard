@@ -102,6 +102,22 @@ test('clickbait numeric-listicle: ScaryMommy «11 French Skincare Products»', (
   assert.ok(fires(headline('SM 11 french skincare')));
 });
 
+// numeric-listicle noun-set extension (verbatim from multiregion benchmark corpus,
+// catch-labelled): "pictures" + "N [adj] people who [verb]" (relative clause = the
+// listicle tell; bare "50 people died" stays excluded).
+test('clickbait numeric-listicle: "35 ... Wholesome Pictures" (multiregion:260)', () => {
+  assert.ok(fires('35 OUTRAGEOUSLY Wholesome Pictures That Make Me Smile Like A Complete Fool Every Single Time I See Them'));
+});
+test('clickbait numeric-listicle: "50 People Who ..." (multiregion:269)', () => {
+  assert.ok(fires("50 People Who Logged On And Posted Something Funnier Than They'll Ever Post Again"));
+});
+test('clickbait numeric-listicle: "54 Cringe People Who ..." (multiregion:285)', () => {
+  assert.ok(fires('54 Cringe People Who Thought They Were Cool And Intimidating But Became The Internet\'s Laughingstock'));
+});
+test('clickbait numeric-listicle: bare "50 people died" stays EXCLUDED (no FP)', () => {
+  assert.ok(!fires('At least 50 people died in the earthquake that struck the region overnight'));
+});
+
 test('clickbait numeric-listicle-plus: AdMe «20+ историй»', () => {
   assert.ok(fires(headline('AdMe necнеобычные фамилии')));
 });

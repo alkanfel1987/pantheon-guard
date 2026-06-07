@@ -5,14 +5,15 @@
     "news",
     "news-de",
     "epistemology",
-    "healthcare"
+    "healthcare",
+    "clickbait"
   ],
   "corpus_size": 111,
   "summary": {
-    "accuracy": 0.8648648648648649,
-    "ok": 96,
+    "accuracy": 0.9819819819819819,
+    "ok": 109,
     "fp": 2,
-    "fn": 13
+    "fn": 0
   },
   "results": [
     {
@@ -300,8 +301,8 @@
       "region": "US",
       "label": "35 OUTRAGEOUSLY wholesome",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:261",
@@ -309,8 +310,8 @@
       "region": "US",
       "label": "OUCH OWIE 29 posts abs",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:262",
@@ -345,8 +346,8 @@
       "region": "US",
       "label": "body problems 36 products",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:266",
@@ -354,8 +355,8 @@
       "region": "US",
       "label": "35 shoes Amazon walking",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:267",
@@ -372,8 +373,8 @@
       "region": "US",
       "label": "23 wild random comments",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:269",
@@ -381,8 +382,8 @@
       "region": "US",
       "label": "50 funnier than ever",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:270",
@@ -390,8 +391,8 @@
       "region": "US",
       "label": "21 wrong wrong wrong",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:271",
@@ -417,8 +418,8 @@
       "region": "US",
       "label": "55 cat tweets every owner",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:274",
@@ -453,8 +454,8 @@
       "region": "US",
       "label": "Blake Lively chilling blacklisted",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:278",
@@ -480,8 +481,8 @@
       "region": "US",
       "label": "19YO coma triplets devastating",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:281",
@@ -489,8 +490,8 @@
       "region": "US",
       "label": "65 street photos magic",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:282",
@@ -507,8 +508,8 @@
       "region": "US",
       "label": "54 beauty fails hide",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:284",
@@ -525,8 +526,8 @@
       "region": "US",
       "label": "54 cringe people laughingstock",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:286",
@@ -1015,6 +1016,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-07T21:08:20.601Z",
+  "frozen_at": "2026-06-07T21:13:52.257Z",
   "guard_version": "0.4.2"
 }

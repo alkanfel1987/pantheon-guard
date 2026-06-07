@@ -6,6 +6,32 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added — `news` curiosity-gap + proof-layer detectors; `clickbait` into the stack (2026-06-07)
+
+Closes the living-set false negatives surfaced by the disputed-register
+classification (docs/DISPUTED-LABELS-LIVING.md), each grounded in the Arthaśāstra
+investigative protocol (a claim must carry its evidence). TDD throughout.
+
+- **news/reaction_effect_withheld_en, news/curiosity_reveal_en** + extended
+  **drama_reaction_en**: withheld-resolution / curiosity-gap family (effect stated,
+  trigger withheld; sensational placeholder + reveal verb; "people/internet cannot
+  stop talking about"). Factual named-source reveals ("NTSB reveals cause") do NOT
+  fire. Targets #259/#262/#264/#282.
+- **news/verdict_before_proof_en**: pejorative character verdict on an only-accused
+  (not proven-guilty) subject → manipulation (Arthaśāstra 4.8.06). Target #278.
+- **clickbait pack added to the benchmarked stack** (PACK_STACK_NAMES now 5).
+  Frozen N=509: FN 36→34, accuracy 92.73%→93.12%, **0 new FP** (strict gate held).
+- **clickbait/numeric-listicle** noun-set extended: `pictures` + `N [adj] people who`
+  (relative clause = listicle tell; bare "50 people died" stays excluded). Recovers
+  #260/#269/#270/#285. clickbait 142-pass FP guard still 0.
+
+Living set across the session: FN 22→0, accuracy 78.4%→98.2% (2 healthcare FP remain).
+Frozen pre-registered corpus texts/labels unchanged.
+
+NOTE (pending): PITCH.md still says "4 production packs (... ) RU 95.7%, FP 0.4%".
+clickbait is v0.0.5 (early) — positioning of it as production-grade and a refresh of
+the headline metrics are deferred to a deliberate decision, not auto-edited here.
+
 ### Fixed — `news` pack: NTSB/FAA/EASA/МАК recognised as named sources (2026-06-06)
 
 `vague_reveal_open_ru` ("раскрыл/выдал … without named source") fired on a
