@@ -9,10 +9,10 @@
   ],
   "corpus_size": 111,
   "summary": {
-    "accuracy": 0.8198198198198198,
-    "ok": 91,
+    "accuracy": 0.8558558558558559,
+    "ok": 95,
     "fp": 2,
-    "fn": 18
+    "fn": 14
   },
   "results": [
     {
@@ -291,8 +291,8 @@
       "region": "US",
       "label": "Lupita Nyongo MAGA minds",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:260",
@@ -318,8 +318,8 @@
       "region": "US",
       "label": "15 events not reaching US",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:263",
@@ -336,8 +336,8 @@
       "region": "US",
       "label": "Internet cannot stop Trump restaurant",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:265",
@@ -498,8 +498,8 @@
       "region": "US",
       "label": "Epstein survivor chilling courtroom",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:283",
@@ -1015,6 +1015,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-07T08:46:30.616Z",
+  "frozen_at": "2026-06-07T09:04:20.588Z",
   "guard_version": "0.4.2"
 }
