@@ -503,8 +503,41 @@ const PATTERNS = Object.freeze([
     rule: 'satya',
     name: 'drama_reaction_en',
     // catalogue: bg-asuri-self-narration-16-13-15
-    regex: /\b(?:celebrities|celebs|fans|the\s+internet|social\s+media|users|viewers)\s+(?:are\s+(?:reacting|talking|outraged|shocked|loving|hating)|reacted|exploded|went\s+wild|are\s+saying)\b/i,
+    regex: /\b(?:celebrities|celebs|fans|the\s+internet|social\s+media|users|viewers|people)\s+(?:are\s+(?:reacting|talking|outraged|shocked|loving|hating)|reacted|exploded|went\s+wild|are\s+saying|can(?:no|')?t\s+stop\s+talking\s+about|are\s+talking\s+about)\b/i,
     description: 'drama-reaction-as-news clickbait (EN tabloid)',
+  },
+
+  // ── Reaction-effect withheld: "[subject] has/got/left [X] losing their minds"
+  // The EFFECT is stated (people losing their minds) but the TRIGGER is withheld
+  // → curiosity gap. Arthaśāstra 4.7.11 staged-appearance / yathādṛṣṭam: the claim
+  // must carry its content. catalogue: bg-asuri-self-narration-16-13-15
+  {
+    rule: 'satya',
+    name: 'reaction_effect_withheld_en',
+    regex: /\b(?:has|have|got|leaves?|left|sends?|sent|sending|leaving)\s+(?:[\w'’.-]+\s+){0,5}(?:losing\s+(?:their|his|her|its)\s+(?:mind|minds|cool|it)|in\s+(?:stitches|a\s+frenzy|a\s+meltdown|tears|shambles|disbelief)|fuming|seething|stunned|speechless|shook|reeling|divided|melting\s+down)\b/i,
+    description: 'reaction-effect stated, trigger withheld (curiosity gap, EN)',
+  },
+
+  // ── Sensational placeholder + reveal-verb: "[damning] [boast/take/reason]
+  // revealed/emerges" — an abstract placeholder noun stands in for content that
+  // is withheld (cataphora). Requires a sensational adjective so factual reveals
+  // ("NTSB reveals cause") do not fire. catalogue: ns-arthantara-5-2-7
+  {
+    rule: 'satya',
+    name: 'curiosity_reveal_en',
+    regex: /\b(?:damning|disturbing|shocking|chilling|stunning|jaw-dropping|mind-blowing|bombshell|explosive|scandalous|sinister|dark|secret|sordid|twisted|harrowing)\s+(?:[\w'’-]+\s+){0,2}(?:boast|reason|reasons|secret|secrets|truth|detail|details|take|revelation|confession|move|reaction|claim|admission|twist|past|message|messages|text|texts|footage|recording|backstory)\s+(?:revealed|reveals?|emerges?|emerged|exposed|exposes?|surfaces?|surfaced|uncovered|leaks?|leaked|laid\s+bare)\b/i,
+    description: 'sensational placeholder noun + reveal verb (withheld payoff, EN)',
+  },
+
+  // ── Verdict before proof (proof-layer): pejorative character label applied to
+  // a subject who is only ACCUSED (charged/accused/arrested), with no conviction
+  // marker — the headline delivers the moral verdict the court/reader hasn't
+  // reached. Arthaśāstra 4.8.06 (condemning the unproven). catalogue: manu-kuta-saksin-8-81-101
+  {
+    rule: 'satya',
+    name: 'verdict_before_proof_en',
+    regex: /\b(?:entitled|greedy|vile|evil|monstrous|brazen|shameless|depraved|arrogant|twisted|sleazy|creepy|cruel|heartless|selfish|spoiled|sick|deranged|vicious)\s+(?:[\w'’-]+\s+){0,2}(?:tourist|man|woman|teen|teenager|driver|mother|mom|father|dad|influencer|boss|landlord|neighbou?r|customer|passenger|student|worker|official|politician|celebrity|star|guy|girl|couple|parent|stranger|youth|suspect)\b(?=[\s\S]*\b(?:charged|accused|alleged|arrested|suspected|faces\s+charges|under\s+investigation)\b)(?![\s\S]*\b(?:convicted|guilty|sentenced|pleaded|admitted|confessed|jailed)\b)/i,
+    description: 'pejorative verdict on an only-accused subject (verdict before proof, EN)',
   },
 
   // ── Sensationalist editorial verb in factual context: "stunning",

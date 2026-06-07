@@ -5,15 +5,16 @@
     "news",
     "news-de",
     "epistemology",
-    "healthcare"
+    "healthcare",
+    "clickbait"
   ],
   "corpus_hash": "f6f29ac26b1a215ada0de0cacde6828feabefdee353f923855c405e5e1f92e32",
   "corpus_size": 509,
   "summary": {
-    "accuracy": 0.9273084479371316,
-    "ok": 472,
+    "accuracy": 0.931237721021611,
+    "ok": 474,
     "fp": 1,
-    "fn": 36
+    "fn": 34
   },
   "results": [
     {
@@ -454,8 +455,8 @@
       "region": "US",
       "label": "Nick Cannon raising eyebrows",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:49",
@@ -1336,8 +1337,8 @@
       "region": "US",
       "label": "9 Celebrity Moms after 50",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:147",
@@ -4598,6 +4599,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-05T20:46:02.619Z",
+  "frozen_at": "2026-06-07T21:13:52.257Z",
   "guard_version": "0.4.2"
 }

@@ -288,3 +288,66 @@ test('stackPacks: news + healthcare composition catches medical clickbait', asyn
   assert.ok(sources.some(s => s.startsWith('news/')),       'news pack should catch experts-hate clickbait');
   assert.ok(sources.some(s => s.startsWith('healthcare/')), 'healthcare pack should catch self-dx claim');
 });
+
+// ─────────────────────────────────────────────
+// Withheld-resolution / curiosity-gap (EN) — Arthaśāstra investigative protocol:
+// the payoff is referenced via a placeholder/reaction but withheld from the
+// headline (forces the click). Targets living FN #259/#262/#264/#282.
+// ─────────────────────────────────────────────
+
+test('curiosity-gap: reaction-effect withheld ("Has X losing their minds") → satya', () => {
+  const r = runPack(newsPack, "Lupita Nyong'o Has Elon Musk And MAGA Absolutely Losing Their Minds");
+  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('reaction_effect_withheld_en')));
+});
+
+test('curiosity-gap: "people are talking about these N" → satya', () => {
+  const r = runPack(newsPack, "People Are Talking About These 15 Current Events That Aren't Reaching US Headlines");
+  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('drama_reaction_en')));
+});
+
+test('curiosity-gap: "internet cannot stop talking about X take" → satya', () => {
+  const r = runPack(newsPack, "The Internet Cannot Stop Talking About Donald Trump's Chinese Restaurant Take");
+  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('drama_reaction_en')));
+});
+
+test('curiosity-gap: sensational placeholder + reveal verb ("Disturbing Boast Revealed") → satya', () => {
+  const r = runPack(newsPack, 'Epstein Survivor Breaks Down As Damning Courtroom Scrutiny Emerges Over Disturbing Boast Revealed In Testimony');
+  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('curiosity_reveal_en')));
+});
+
+// Negative controls — must NOT fire (self-contained / factual; relabeled pass).
+test('curiosity-gap: self-contained headline (resolution present) is NOT caught', () => {
+  const r = runPack(newsPack, 'French President Got Slapped By Wife In Infamous Moment Caught On Camera After She Saw Steamy Texts To Actress');
+  assert.ok(!r.packViolations.some(v => v.source.includes('reaction_effect_withheld_en') || v.source.includes('curiosity_reveal_en')));
+});
+
+test('curiosity-gap: backed amplifier (TUI flight, concrete act stated) is NOT caught by new rules', () => {
+  const r = runPack(newsPack, 'TUI Flight Descends Into Chaos After Drunken Passenger Punches And Bites Flight Attendant During Wild Rampage');
+  assert.ok(!r.packViolations.some(v => v.source.includes('reaction_effect_withheld_en') || v.source.includes('curiosity_reveal_en') || v.source.includes('drama_reaction_en')));
+});
+
+test('curiosity-gap: factual named-source reveal ("NTSB reveals cause") is NOT caught', () => {
+  const r = runPack(newsPack, 'NTSB reveals cause of 2022 Boeing 737 crash in final report');
+  assert.ok(!r.packViolations.some(v => v.source.includes('curiosity_reveal_en')));
+});
+
+// ─────────────────────────────────────────────
+// Proof-layer (verdict before proof) — Arthaśāstra 4.8.06: a verdict/character
+// label presented as fact on a subject who is only ACCUSED (not proven guilty)
+// = manipulation. Target living FN #278.
+// ─────────────────────────────────────────────
+
+test('proof-layer: pejorative label + only-charged subject → satya', () => {
+  const r = runPack(newsPack, "Entitled Tourist Who Threw A Rock At Beloved Hawaiian Seal Before Yelling 'I'm Rich' Officially Charged");
+  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('verdict_before_proof_en')));
+});
+
+test('proof-layer: PROVEN guilt (convicted/sentenced) is NOT caught', () => {
+  const r = runPack(newsPack, 'Greedy landlord convicted of fraud and sentenced to five years');
+  assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
+});
+
+test('proof-layer: neutral accusation (no pejorative label) is NOT caught', () => {
+  const r = runPack(newsPack, 'Driver charged after fatal crash on the M1 motorway');
+  assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
+});

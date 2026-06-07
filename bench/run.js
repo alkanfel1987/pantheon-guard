@@ -37,13 +37,14 @@ import {
   newsDePack,
   epistemologyPack,
   healthcarePack,
+  clickbaitPack,
 } from '../src/index.js';
 import { CORPUS as MULTIREGION } from '../examples/benchmark-multiregion-corpus.js';
 import { CORPUS as PHASE1 } from '../examples/benchmark-phase1-corpus.js';
 
-export const PACK_STACK_NAMES = ['news', 'news-de', 'epistemology', 'healthcare'];
+export const PACK_STACK_NAMES = ['news', 'news-de', 'epistemology', 'healthcare', 'clickbait'];
 
-const STACK = stackPacks([newsPack, newsDePack, epistemologyPack, healthcarePack]);
+const STACK = stackPacks([newsPack, newsDePack, epistemologyPack, healthcarePack, clickbaitPack]);
 
 const frozenUrl = new URL('./corpus-frozen.json', import.meta.url);
 const FROZEN = JSON.parse(readFileSync(frozenUrl, 'utf8'));

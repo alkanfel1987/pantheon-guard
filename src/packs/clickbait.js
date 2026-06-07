@@ -150,9 +150,10 @@ const PATTERNS = Object.freeze([
       '\\b\\d{1,3}\\s+' +
       '(?!(?:million|billion|trillion|thousand|hundred|percent|years?|months?|weeks?|' +
       'days?|hours?|minutes?|seconds?|kilometers?|miles|kilograms?|pounds?|degrees?|' +
-      'dollars?|euros?|people|per)\\b)' +
+      'dollars?|euros?|people(?!\\s+who)|per)\\b)' +
       '(?:[\\w\'.,-]+\\s+){0,5}' +
       '(?:reasons?|times?|ways?|things?|tips|tricks|signs|moments|secrets|hacks|facts|' +
+      'pictures|people\\s+who|' +
       'photos|tweets|posts|products|shoes|celebs|tries|fails|wins|finds|moms|dads|teens|' +
       'kids|comments|memes|pics|images|stories|ideas|lessons|quotes|habits|rules|mistakes|' +
       'examples|gems|acts|pets|words|recipes|gifts|places|foods|jobs|skills|lies|myths|' +
