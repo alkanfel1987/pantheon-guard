@@ -300,14 +300,23 @@ test('curiosity-gap: reaction-effect withheld ("Has X losing their minds") → s
   assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('reaction_effect_withheld_en')));
 });
 
-test('curiosity-gap: "people are talking about these N" → satya', () => {
-  const r = runPack(newsPack, "People Are Talking About These 15 Current Events That Aren't Reaching US Headlines");
-  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('drama_reaction_en')));
+// KNOWN MISS (reverted 2026-06-07): "people are talking about" / "cannot stop
+// talking about" broadenings of drama_reaction_en were FP-prone on legit topics
+// ("People are talking about the new climate policy"). #262/#264 left as FN to
+// keep 0-FP — see FP-regression guards below.
+test('curiosity-gap FP-guard: "people are talking about [topic]" is NOT caught', () => {
+  const r = runPack(newsPack, 'People are talking about the new climate policy ahead of the vote');
+  assert.ok(!r.packViolations.some(v => v.source.includes('drama_reaction_en')));
 });
 
-test('curiosity-gap: "internet cannot stop talking about X take" → satya', () => {
-  const r = runPack(newsPack, "The Internet Cannot Stop Talking About Donald Trump's Chinese Restaurant Take");
-  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('drama_reaction_en')));
+test('curiosity-gap FP-guard: "internet cannot stop talking about [topic]" is NOT caught', () => {
+  const r = runPack(newsPack, 'The internet cannot stop talking about the solar eclipse this weekend');
+  assert.ok(!r.packViolations.some(v => v.source.includes('drama_reaction_en')));
+});
+
+test('curiosity-gap FP-guard: "funeral leaves town in tears" is NOT caught (stated trigger)', () => {
+  const r = runPack(newsPack, 'Funeral service for the victims leaves the whole town in tears');
+  assert.ok(!r.packViolations.some(v => v.source.includes('reaction_effect_withheld_en')));
 });
 
 test('curiosity-gap: sensational placeholder + reveal verb ("Disturbing Boast Revealed") → satya', () => {
@@ -349,5 +358,15 @@ test('proof-layer: PROVEN guilt (convicted/sentenced) is NOT caught', () => {
 
 test('proof-layer: neutral accusation (no pejorative label) is NOT caught', () => {
   const r = runPack(newsPack, 'Driver charged after fatal crash on the M1 motorway');
+  assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
+});
+
+// FP-guard (2026-06-07): "charged" billing-sense polysemy must NOT trigger.
+test('proof-layer FP-guard: "charged a fee" (billing sense) is NOT caught', () => {
+  const r = runPack(newsPack, 'Greedy landlord charged tenants an extra fee for parking');
+  assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
+});
+test('proof-layer FP-guard: "charged double" (billing sense) is NOT caught', () => {
+  const r = runPack(newsPack, 'Entitled customer charged double at the checkout, store apologises');
   assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
 });

@@ -102,17 +102,17 @@ test('clickbait numeric-listicle: ScaryMommy «11 French Skincare Products»', (
   assert.ok(fires(headline('SM 11 french skincare')));
 });
 
-// numeric-listicle noun-set extension (verbatim from multiregion benchmark corpus,
-// catch-labelled): "pictures" + "N [adj] people who [verb]" (relative clause = the
-// listicle tell; bare "50 people died" stays excluded).
-test('clickbait numeric-listicle: "35 ... Wholesome Pictures" (multiregion:260)', () => {
-  assert.ok(fires('35 OUTRAGEOUSLY Wholesome Pictures That Make Me Smile Like A Complete Fool Every Single Time I See Them'));
+// KNOWN MISS (reverted 2026-06-07): "pictures" + "N people who" extensions were
+// FP-prone on legit news ("50 people who survived the crash", "3 pictures from
+// the summit"). #260/#269/#270/#285 left as FN to keep the pack's 0-FP guarantee.
+// FP-regression guards below lock that in.
+test('clickbait FP-guard: "N people who [real predicate]" (news) is NOT caught', () => {
+  assert.ok(!fires('50 people who survived the crash were taken to hospital'));
+  assert.ok(!fires('21 people who witnessed the robbery gave statements to police'));
 });
-test('clickbait numeric-listicle: "50 People Who ..." (multiregion:269)', () => {
-  assert.ok(fires("50 People Who Logged On And Posted Something Funnier Than They'll Ever Post Again"));
-});
-test('clickbait numeric-listicle: "54 Cringe People Who ..." (multiregion:285)', () => {
-  assert.ok(fires('54 Cringe People Who Thought They Were Cool And Intimidating But Became The Internet\'s Laughingstock'));
+test('clickbait FP-guard: "N pictures [from/of ...]" (news) is NOT caught', () => {
+  assert.ok(!fires('3 pictures from the summit were released by the press office'));
+  assert.ok(!fires('12 pictures show the scale of the flooding in the region'));
 });
 test('clickbait numeric-listicle: bare "50 people died" stays EXCLUDED (no FP)', () => {
   assert.ok(!fires('At least 50 people died in the earthquake that struck the region overnight'));

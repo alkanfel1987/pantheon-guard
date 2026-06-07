@@ -503,7 +503,7 @@ const PATTERNS = Object.freeze([
     rule: 'satya',
     name: 'drama_reaction_en',
     // catalogue: bg-asuri-self-narration-16-13-15
-    regex: /\b(?:celebrities|celebs|fans|the\s+internet|social\s+media|users|viewers|people)\s+(?:are\s+(?:reacting|talking|outraged|shocked|loving|hating)|reacted|exploded|went\s+wild|are\s+saying|can(?:no|')?t\s+stop\s+talking\s+about|are\s+talking\s+about)\b/i,
+    regex: /\b(?:celebrities|celebs|fans|the\s+internet|social\s+media|users|viewers)\s+(?:are\s+(?:reacting|talking|outraged|shocked|loving|hating)|reacted|exploded|went\s+wild|are\s+saying)\b/i,
     description: 'drama-reaction-as-news clickbait (EN tabloid)',
   },
 
@@ -514,7 +514,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'reaction_effect_withheld_en',
-    regex: /\b(?:has|have|got|leaves?|left|sends?|sent|sending|leaving)\s+(?:[\w'’.-]+\s+){0,5}(?:losing\s+(?:their|his|her|its)\s+(?:mind|minds|cool|it)|in\s+(?:stitches|a\s+frenzy|a\s+meltdown|tears|shambles|disbelief)|fuming|seething|stunned|speechless|shook|reeling|divided|melting\s+down)\b/i,
+    regex: /\b(?:has|have|got|leaves?|left|sends?|sent|sending|leaving)\s+(?:[\w'’.-]+\s+){0,5}(?:losing\s+(?:their|his|her|its)\s+(?:mind|minds|cool|it)|in\s+(?:stitches|a\s+frenzy|a\s+meltdown)|fuming|seething)\b/i,
     description: 'reaction-effect stated, trigger withheld (curiosity gap, EN)',
   },
 
@@ -525,7 +525,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'curiosity_reveal_en',
-    regex: /\b(?:damning|disturbing|shocking|chilling|stunning|jaw-dropping|mind-blowing|bombshell|explosive|scandalous|sinister|dark|secret|sordid|twisted|harrowing)\s+(?:[\w'’-]+\s+){0,2}(?:boast|reason|reasons|secret|secrets|truth|detail|details|take|revelation|confession|move|reaction|claim|admission|twist|past|message|messages|text|texts|footage|recording|backstory)\s+(?:revealed|reveals?|emerges?|emerged|exposed|exposes?|surfaces?|surfaced|uncovered|leaks?|leaked|laid\s+bare)\b/i,
+    regex: /\b(?:damning|disturbing|shocking|chilling|jaw-dropping|mind-blowing|bombshell|explosive|scandalous|sinister|sordid|twisted)\s+(?:[\w'’-]+\s+){0,2}(?:boast|reason|reasons|secret|secrets|truth|detail|details|revelation|confession|admission|twist|past|backstory)\s+(?:revealed|reveals?|emerges?|emerged|exposed|exposes?|surfaces?|surfaced|uncovered|leaks?|leaked|laid\s+bare)\b/i,
     description: 'sensational placeholder noun + reveal verb (withheld payoff, EN)',
   },
 
@@ -536,7 +536,7 @@ const PATTERNS = Object.freeze([
   {
     rule: 'satya',
     name: 'verdict_before_proof_en',
-    regex: /\b(?:entitled|greedy|vile|evil|monstrous|brazen|shameless|depraved|arrogant|twisted|sleazy|creepy|cruel|heartless|selfish|spoiled|sick|deranged|vicious)\s+(?:[\w'’-]+\s+){0,2}(?:tourist|man|woman|teen|teenager|driver|mother|mom|father|dad|influencer|boss|landlord|neighbou?r|customer|passenger|student|worker|official|politician|celebrity|star|guy|girl|couple|parent|stranger|youth|suspect)\b(?=[\s\S]*\b(?:charged|accused|alleged|arrested|suspected|faces\s+charges|under\s+investigation)\b)(?![\s\S]*\b(?:convicted|guilty|sentenced|pleaded|admitted|confessed|jailed)\b)/i,
+    regex: /\b(?:entitled|greedy|vile|evil|monstrous|brazen|shameless|depraved|arrogant|twisted|sleazy|creepy|cruel|heartless|selfish|spoiled|sick|deranged|vicious)\s+(?:[\w'’-]+\s+){0,2}(?:tourist|man|woman|teen|teenager|driver|mother|mom|father|dad|influencer|boss|landlord|neighbou?r|customer|passenger|student|worker|official|politician|celebrity|star|guy|girl|couple|parent|stranger|youth|suspect|predator|thug|fraudster|crook|yob)\b(?=[\s\S]*\b(?:charged\s+(?:with|over|after|in\s+connection)|officially\s+charged|formally\s+charged|accused\s+of|arrested|alleged(?:ly)?|indicted|faces?\s+(?:charges|trial|prosecution)|on\s+trial|under\s+investigation)\b)(?![\s\S]*\b(?:convicted|guilty|sentenced|pleaded|admitted|confessed|jailed)\b)/i,
     description: 'pejorative verdict on an only-accused subject (verdict before proof, EN)',
   },
 

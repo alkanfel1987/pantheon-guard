@@ -10,10 +10,10 @@
   ],
   "corpus_size": 111,
   "summary": {
-    "accuracy": 0.9819819819819819,
-    "ok": 109,
+    "accuracy": 0.9279279279279279,
+    "ok": 103,
     "fp": 2,
-    "fn": 0
+    "fn": 6
   },
   "results": [
     {
@@ -301,8 +301,8 @@
       "region": "US",
       "label": "35 OUTRAGEOUSLY wholesome",
       "expected": "catch",
-      "caught": true,
-      "correct": true
+      "caught": false,
+      "correct": false
     },
     {
       "id": "multiregion:261",
@@ -319,8 +319,8 @@
       "region": "US",
       "label": "15 events not reaching US",
       "expected": "catch",
-      "caught": true,
-      "correct": true
+      "caught": false,
+      "correct": false
     },
     {
       "id": "multiregion:263",
@@ -337,8 +337,8 @@
       "region": "US",
       "label": "Internet cannot stop Trump restaurant",
       "expected": "catch",
-      "caught": true,
-      "correct": true
+      "caught": false,
+      "correct": false
     },
     {
       "id": "multiregion:265",
@@ -382,8 +382,8 @@
       "region": "US",
       "label": "50 funnier than ever",
       "expected": "catch",
-      "caught": true,
-      "correct": true
+      "caught": false,
+      "correct": false
     },
     {
       "id": "multiregion:270",
@@ -391,8 +391,8 @@
       "region": "US",
       "label": "21 wrong wrong wrong",
       "expected": "catch",
-      "caught": true,
-      "correct": true
+      "caught": false,
+      "correct": false
     },
     {
       "id": "multiregion:271",
@@ -526,8 +526,8 @@
       "region": "US",
       "label": "54 cringe people laughingstock",
       "expected": "catch",
-      "caught": true,
-      "correct": true
+      "caught": false,
+      "correct": false
     },
     {
       "id": "multiregion:286",
@@ -1016,6 +1016,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-07T21:13:52.257Z",
+  "frozen_at": "2026-06-07T21:48:09.117Z",
   "guard_version": "0.4.2"
 }
