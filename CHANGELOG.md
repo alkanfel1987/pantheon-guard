@@ -6,6 +6,43 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Fixed — `news` pack: NTSB/FAA/EASA/МАК recognised as named sources (2026-06-06)
+
+`vague_reveal_open_ru` ("раскрыл/выдал … without named source") fired on a
+clean headline — «В США раскрыли причину крушения Boeing 737-800 … NTSB
+опубликовал данные чёрных ящиков» — because its named-source inhibitor list
+held РАН/МВД/Reuters/… but no aviation-accident bodies. Added
+`NTSB|FAA|EASA|МАК` to the inhibitor. Releases the false positive on
+`phase1:12` while the clickbait `phase1:61` ("Эндокринолог раскрыла секреты
+шашлыка") stays caught. Frozen N=509: FP 2→1, FN 37→36, accuracy 92.53% →
+92.73%.
+
+### Changed — bench: split pre-registered (frozen N=509) from living regression set (2026-06-06)
+
+A single corpus file was doing two contradictory jobs: serving as the
+*immutable pre-registered* benchmark **and** as the *freely-growing* test set.
+Every appended example changed the SHA-256 / size and red the CI until a manual
+re-freeze — so the regression guard could not tell a real regression from
+benign corpus growth, and both failed the build identically.
+
+- **`bench/corpus-frozen.json`** — self-contained immutable snapshot of the
+  pre-registered N=509 (multiregion[0..228] + phase1[0..279], labels fixed
+  2026-05-05). Its hash is the frozen contract; it is never edited.
+- **Living set** — everything in the source arrays beyond the frozen boundary
+  (`multiregion[229+]`, `phase1[280+]`). New examples are appended here as
+  before; growth is informational and never fails CI.
+- **`bench:check`** now gates the two sets differently: frozen = hard
+  (hash-immutability + any new FP + significant McNemar); living = soft
+  (fails only if a case already recorded in `baseline-living.json` regresses
+  correct → wrong).
+- **`bench:freeze`** writes both `baseline.json` (frozen) and
+  `baseline-living.json`.
+
+Pre-registration integrity is preserved (the 509 case texts/labels are
+unchanged); adding examples no longer reds the CI. Living set at introduction:
+N=111, accuracy 78.4% (FP=2, FN=22) — a harder fresh-field set, now tracked
+without blocking.
+
 ### Changed — `clickbaitPack` 0.0.3 → 0.0.4: closed-loop rebuild, 25 detectors → 5 (2026-05-16)
 
 Driven by `PROCESS-FINDING-2026-05-16-closed-loop-validation.md`. A

@@ -1,0 +1,4083 @@
+{
+  "_comment": "PRE-REGISTERED FROZEN CORPUS — N=509, labels fixed 2026-05-05 BEFORE detector. IMMUTABLE: never edit. New examples go to the source arrays (multiregion[229+], phase1[280+]) = living set, checked separately. See bench/run.js.",
+  "pre_registered": true,
+  "frozen_boundary": {
+    "multiregion": 229,
+    "phase1": 280
+  },
+  "size": 509,
+  "cases": [
+    {
+      "id": "multiregion:0",
+      "src": "bbc",
+      "region": "UK",
+      "label": "jet fuel shortages",
+      "text": "The threat to summer holidays looming from jet fuel shortages",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:1",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Iranians fear regime entrenched",
+      "text": "Some Iranians fear the regime is now more entrenched - and ready for revenge",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:2",
+      "src": "bbc",
+      "region": "UK",
+      "label": "cruise ship virus deaths",
+      "text": "Three dead in suspected virus outbreak on Atlantic cruise ship",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:3",
+      "src": "bbc",
+      "region": "UK",
+      "label": "cancer jab one-minute",
+      "text": "Thousands could benefit from cancer jab that cuts treatment time to minutes",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:4",
+      "src": "bbc",
+      "region": "UK",
+      "label": "empty car park UK debt",
+      "text": "What an empty car park tells us about the UK's debt problem",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:5",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Princess Eugenie pregnancy",
+      "text": "Princess Eugenie expecting third child this summer",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:6",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Peter Kay bomb hoax court",
+      "text": "Peter Kay bomb hoax accused removed from court",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:7",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Reform migrant detention",
+      "text": "Reform pledges to open migrant detention centres in Green-voting areas",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:8",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Israeli attacks Lebanon",
+      "text": "Israeli attacks kill dozens within days in Lebanon despite ceasefire",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:9",
+      "src": "bbc",
+      "region": "UK",
+      "label": "UK Ukraine loan scheme Starmer",
+      "text": "UK joining Ukraine loan scheme would be good for EU ties, Starmer says",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:10",
+      "src": "bbc",
+      "region": "UK",
+      "label": "BBC dog scammers",
+      "text": "BBC uncovers the scammers exploiting dogs to elicit donations from animal lovers",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:11",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Trump Project Freedom Hormuz",
+      "text": "What we know about Trump's 'Project Freedom' aimed to help stranded ships through Strait of Hormuz",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:12",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Met Gala 2026 watch guide",
+      "text": "Met Gala 2026: How to watch, the price of tickets and this year's theme",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:13",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Chris Mason elections analysis",
+      "text": "Chris Mason: Elections this week set to show how politics is changing",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:14",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Tenby mobile signal town",
+      "text": "What life is like in the town with the UK's worst mobile signal",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:15",
+      "src": "bbc",
+      "region": "UK",
+      "label": "F1 Antonelli",
+      "text": "F1's Antonelli steps up his level in dramatic fashion",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:16",
+      "src": "bbc",
+      "region": "UK",
+      "label": "European leaders Armenia",
+      "text": "European leaders converge on Armenia as Russia looks on",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:17",
+      "src": "bbc",
+      "region": "UK",
+      "label": "United flight strike vehicle",
+      "text": "Watch: Moment United Airlines flight strikes vehicle during landing",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:18",
+      "src": "bbc",
+      "region": "UK",
+      "label": "temperatures fall",
+      "text": "Temperatures to fall this week after the bank holiday",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:19",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Squishy toy traumatising burns",
+      "text": "Squishy toy trend caused 'traumatising' burns",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:20",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Giuliani critical condition",
+      "text": "Former New York City mayor Rudy Giuliani in critical condition in hospital",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:21",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Ukrainian drone Moscow high-rise",
+      "text": "Ukrainian drone hits upmarket Moscow high-rise ahead of Victory Day celebrations",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:22",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Bristol suspicious explosion",
+      "text": "Police continue search after 'suspicious explosion'",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:23",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Modi BJP Bengal",
+      "text": "Modi's BJP conquers Bengal, one of India's toughest political frontiers",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:24",
+      "src": "bbc",
+      "region": "UK",
+      "label": "Hurzeler Brighton deal",
+      "text": "Hurzeler agrees new long-term deal with Brighton",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:25",
+      "src": "fox",
+      "region": "US",
+      "label": "Cam Young Doral snooze",
+      "text": "The Year Of The Great American Cam Young Is Here, Trump Doral Is A Snooze, And Nelly Korda Asserts Dominance",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:26",
+      "src": "fox",
+      "region": "US",
+      "label": "GOP sheriff backing",
+      "text": "GOP sen secures historic sheriff backing, including one Dem flip and 'clean sweep' Independent support",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:27",
+      "src": "fox",
+      "region": "US",
+      "label": "Buy it for life products",
+      "text": "Buy it for life: Durable products worth every dollar (now on sale)",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:28",
+      "src": "fox",
+      "region": "US",
+      "label": "DOJ Illinois gender investigation",
+      "text": "DOJ investigates Illinois schools over secret gender transitions, ideology",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:29",
+      "src": "fox",
+      "region": "US",
+      "label": "George Strait stunning concert",
+      "text": "George Strait pulls off incredible career accomplishment with stunning concert",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:30",
+      "src": "fox",
+      "region": "US",
+      "label": "UFO expert mystery craft",
+      "text": "UFO expert warns mystery craft are outmaneuvering US military in restricted airspace",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:31",
+      "src": "fox",
+      "region": "US",
+      "label": "Sanders Michigan candidate",
+      "text": "Bernie Sanders campaigns with controversial Michigan Senate candidate",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:32",
+      "src": "fox",
+      "region": "US",
+      "label": "WWE Liv Morgan Roxanne",
+      "text": "WWE champ Liv Morgan has high praise for Roxanne Perez: 'So incredibly talented'",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:33",
+      "src": "fox",
+      "region": "US",
+      "label": "United harrowing footage",
+      "text": "WATCH: Harrowing footage captures moment United flight's landing gear strikes tractor trailer",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:34",
+      "src": "fox",
+      "region": "US",
+      "label": "Jessica Alba 45th yacht",
+      "text": "Jessica Alba's celebrates 45th birthday on a yacht living it up with her girlfriends",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:35",
+      "src": "fox",
+      "region": "US",
+      "label": "Pritzker ICE investigation",
+      "text": "Pritzker calls for criminal investigations into ICE agents over 'Midway Blitz' conduct",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:36",
+      "src": "fox",
+      "region": "US",
+      "label": "Anne Heche tape sewer",
+      "text": "Anne Heche had interview tape dumped in NYC sewer after clash to protect Ellen DeGeneres romance: book",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:37",
+      "src": "fox",
+      "region": "US",
+      "label": "Steve Forbes media merger",
+      "text": "STEVE FORBES: Regulators risk destroying local TV by blocking key media merger",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:38",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Cameron baby announcement",
+      "text": "\"Cameron and I are Happy, Excited, and feeling so BLESSED to announce the birth of our third Child.\"",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:39",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "BuzzFeed oral history",
+      "text": "\"We Were Always Playing An Entirely Different Game\": The Ultimate Oral History Of BuzzFeed News",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:40",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Final editor note",
+      "text": "A Final Editor's Note",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:41",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Livies France quiz",
+      "text": "Calling All Livies: Visit France (Beyond Just Paris) And I'll Guess Your Favorite Track",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:42",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Ahsoka changed me",
+      "text": "\"Ahsoka Has Absolutely Changed Me\": Ashley Eckstein Had No Idea How Far Ahsoka Tano's Journey Would Take Her",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:43",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "movie chains super tough",
+      "text": "I Highly Doubt You Can Solve These Super Tough Movie Chains, But May The 4th Be With You",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:44",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Taylor Swift dress quiz",
+      "text": "Whether Your Prom Is Next Week Or Was 10 Years Ago, Pick Taylor Swift Songs To Determine Your Perfect Dress Color",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:45",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Olivia Wilde unrecognizable",
+      "text": "Olivia Wilde Responded After Comments Saying She Looked \"Unrecognizable\" On A Recent Red Carpet",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:46",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Devil Wears Prada 2 character",
+      "text": "\"The Devil Wears Prada 2\" Director Explained Why They Killed Off A Character In The Film",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:47",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Meryl Streep Met Gala skip",
+      "text": "Meryl Streep Is Skipping The Met Gala, And Her Reps Have Confirmed The Reason Why",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:48",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Nick Cannon raising eyebrows",
+      "text": "Here's Why Nick Cannon's Comments About His Teenage Daughter's Dating Life Are Raising Eyebrows",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:49",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Aziz Ansari SNL return",
+      "text": "Here's What Happened During Aziz Ansari's Return To TV On \"Saturday Night Live\"",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:50",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "90s rap trivia 22/24",
+      "text": "I'm Sorry, But No One Born After 1992 Will Be Able To Score 22/24 On This '90s Rap Trivia Quiz",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:51",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Keke Palmer quote",
+      "text": "Everyone Is A Different Keke Palmer Quote – Which One Are You?",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:52",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Met Gala slay or nay",
+      "text": "It's Time To Vote \"Slay\" Or \"Nay\" On These Iconic Met Gala Looks",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:53",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Politician Met Gala banned 16 more",
+      "text": "This Politician Is The Only Person Officially Banned From The Met Gala, And 16 More Famous People Who Allegedly Will Never Attend The Event Again",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:54",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Met Gala vibe celeb quiz",
+      "text": "Which Celeb Totally Has Your Met Gala Vibe?",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:55",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "19 actors costars love",
+      "text": "\"We're Incredibly Lucky\": 19 Actors Who Fell Head Over Heels With Their Costars While The Cameras Were Still Rolling",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:56",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Heritage outfits 26 famous",
+      "text": "Jason Momoa, Kelly Marie Tran, And 26 Other Famous People Who've Worn Outfits Honoring Their Heritage On The Red Carpet",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:57",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "AOC gay president priceless",
+      "text": "Alexandria Ocasio-Cortez Was Asked If There Would Ever Be A Gay US President, And Her Response Was Priceless",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:58",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Tommy Dorfman plane",
+      "text": "\"What A Sad Deranged Troubled Person\": Celebrities Are Reacting After Tommy Dorfman Revealed What A Plane Passenger Texted About Her",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:59",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Ashley Graham GLP-1 smack",
+      "text": "Ashley Graham Got Real About GLP-1s And Why They Feel Like \"A Smack In The Face\" For The Body Positivity Movement",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:60",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Megyn Kelly SLAMMED Trump",
+      "text": "Megyn Kelly SLAMMED Donald Trump For His Jimmy Kimmel Feud, And Everyone's Saying The Same Thing",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:61",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "Met Gala 15 celebs invite",
+      "text": "If You Can Name The 15 Celebrities Behind These Iconic Met Gala Looks, You Deserve An Invite Next Year",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:62",
+      "src": "buzzfeed",
+      "region": "US",
+      "label": "11 celebs grocery store 12",
+      "text": "11 Celebrities Who Still Shop At Their Local Grocery Store And 12 Who Wouldn't Be Caught Dead In Their Hometown",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:63",
+      "src": "sky",
+      "region": "UK",
+      "label": "King delighted Eugenie",
+      "text": "King 'delighted' as Princess Eugenie announces she is expecting her third child",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:64",
+      "src": "sky",
+      "region": "UK",
+      "label": "Oklahoma shooting 12 hospital",
+      "text": "12 in hospital after shooting at party in US state of Oklahoma",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:65",
+      "src": "sky",
+      "region": "UK",
+      "label": "Giuliani Sky",
+      "text": "Rudy Giuliani in 'critical but stable condition' in hospital",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:66",
+      "src": "sky",
+      "region": "UK",
+      "label": "NHS one-minute jab",
+      "text": "Tens of thousands of cancer patients to benefit from one-minute NHS jab",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:67",
+      "src": "sky",
+      "region": "UK",
+      "label": "Tuesday holiday booking",
+      "text": "Why you should never book a holiday on a Tuesday | Money newsletter",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:68",
+      "src": "sky",
+      "region": "UK",
+      "label": "Spanish cocaine record",
+      "text": "Record cocaine seizure made by Spanish police",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:69",
+      "src": "sky",
+      "region": "UK",
+      "label": "Peter Kay Sky",
+      "text": "Peter Kay show bomb hoax suspect removed from court after outbursts during hearing",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:70",
+      "src": "sky",
+      "region": "UK",
+      "label": "Meteor shower Britain",
+      "text": "'Beautiful' meteor shower to light up skies over Britain",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:71",
+      "src": "sky",
+      "region": "UK",
+      "label": "UK food inflation 50%",
+      "text": "Food price inflation still rising, as lower income households feel the squeeze, study says",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:72",
+      "src": "sky",
+      "region": "UK",
+      "label": "SAG-AFTRA tentative",
+      "text": "US actors' union reaches tentative deal in bid to avoid strikes",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:73",
+      "src": "npr",
+      "region": "US",
+      "label": "Trump DC changes",
+      "text": "The many ways Trump wants to change D.C., from buildings to statues to parks",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:74",
+      "src": "npr",
+      "region": "US",
+      "label": "Trump Strait Hormuz Senate",
+      "text": "Trump says U.S. will 'guide' stranded ships through the Strait. And, key Senate races to watch",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:75",
+      "src": "npr",
+      "region": "US",
+      "label": "Mom Mothers Day NPR",
+      "text": "Not sure what to get Mom for Mother's Day? Get ideas from our listeners",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:76",
+      "src": "npr",
+      "region": "US",
+      "label": "Medication abortion one drug",
+      "text": "Here's how medication abortion works with just one drug that's still fully available",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:77",
+      "src": "npr",
+      "region": "US",
+      "label": "2026 Met Gala Fashion Art",
+      "text": "At the 2026 Met Gala, 'Fashion is Art.' Here's what to expect",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:78",
+      "src": "npr",
+      "region": "US",
+      "label": "Wildfire prevention Trump",
+      "text": "Trump administration falls behind on wildfire prevention with risky fire season ahead",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:79",
+      "src": "npr",
+      "region": "US",
+      "label": "Election deniers control voting",
+      "text": "In many states, election-denying candidates are running to control voting",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:80",
+      "src": "npr",
+      "region": "US",
+      "label": "Claim sharks vets bill",
+      "text": "Bill aims to stop 'claim sharks' from targeting disabled vets after NPR investigation",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:81",
+      "src": "npr",
+      "region": "US",
+      "label": "Millennials 45 longevity tool",
+      "text": "The oldest millennials are 45! This tool helps plan for longevity",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:82",
+      "src": "npr",
+      "region": "US",
+      "label": "Indiana primary Trump retribution",
+      "text": "Trump's power of political retribution will be tested this week in Indiana primary",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:83",
+      "src": "heise",
+      "region": "DE",
+      "label": "Ottocast Mini Tube test",
+      "text": "Ottocast Mini Tube im Test: Android Auto und Carplay ab 40 Euro kabellos nutzen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:84",
+      "src": "heise",
+      "region": "DE",
+      "label": "SAP npm packages compromised",
+      "text": "Bösartige npm-Pakete: SAP-Software kompromittiert",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:85",
+      "src": "heise",
+      "region": "DE",
+      "label": "Verbraucherzentrale dangerous products",
+      "text": "Verbraucherzentrale: Gefährliche Produkte weiterhin auf Online-Marktplätzen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:86",
+      "src": "heise",
+      "region": "DE",
+      "label": "tirreno fraud detection",
+      "text": "tirreno im Test: Betrugserkennung nach dem Login",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:87",
+      "src": "heise",
+      "region": "DE",
+      "label": "KI-Update Anthropic",
+      "text": "KI-Update kompakt: Anthropic, Gehirnforschung, KI-Vorsprung, Erdős-Problem",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:88",
+      "src": "heise",
+      "region": "DE",
+      "label": "iPhone 17 charging issues",
+      "text": "USB-C-Laden mit leerem Akku: Nutzer melden Probleme bei iPhone 17 Pro und Air",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:89",
+      "src": "heise",
+      "region": "DE",
+      "label": "Cowboy E-Bike recall",
+      "text": "Cowboy-Rückruf: Kunden müssen E-Bikes für Rahmentausch selbst zum Hub bringen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:90",
+      "src": "heise",
+      "region": "DE",
+      "label": "DigiCert malware certificates",
+      "text": "Vorfall bei DigiCert: Malware-Autoren klauten Zertifikate",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:91",
+      "src": "heise",
+      "region": "DE",
+      "label": "iX-Workshop AD security",
+      "text": "iX-Workshop: Lokales Active Directory gegen Angriffe absichern",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:92",
+      "src": "heise",
+      "region": "DE",
+      "label": "Trellix source code",
+      "text": "Trellix: Angreifer erlangten Zugriff auf Quellcode",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:93",
+      "src": "heise",
+      "region": "DE",
+      "label": "Objective-See Berlin",
+      "text": "Mac- und iPhone-Sicherheit: Objective-See-Konferenz kommt nach Berlin",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:94",
+      "src": "heise",
+      "region": "DE",
+      "label": "Intelligente Wartungskonzepte",
+      "text": "Das sind Intelligente Wartungskonzepte in der IT",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:95",
+      "src": "heise",
+      "region": "DE",
+      "label": "Bosch E-Bike 120 Nm",
+      "text": "Bosch-E-Bikes: Upgrade auf 120 Nm für Performance Line CX und Cargo Line",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:96",
+      "src": "heise",
+      "region": "DE",
+      "label": "Tails 7.7.2 update",
+      "text": "Anonymisierendes Linux Tails: Notfallupdate auf Version 7.7.2",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:97",
+      "src": "heise",
+      "region": "DE",
+      "label": "Radiant Mobile Jesus",
+      "text": "Radiant Mobile baut auf Jesus ausgerichtetes Mobilfunknetz mit Pornofilter auf",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:98",
+      "src": "heise",
+      "region": "DE",
+      "label": "Windows Update preview",
+      "text": "Windows-Update-Vorschau: Haptisches Feedback und Xbox-Spielemodus",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:99",
+      "src": "heise",
+      "region": "DE",
+      "label": "Apple EU regulator",
+      "text": "Datenschutz und Innovation gefährdet: Apples Regulierungschef von EU genervt",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:100",
+      "src": "heise",
+      "region": "DE",
+      "label": "Italo Bahn",
+      "text": "Konkurrenz für Deutsche Bahn: Italienischer Anbieter Italo plant Markteintritt",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:101",
+      "src": "heise",
+      "region": "DE",
+      "label": "MQ-9A Reaper drone",
+      "text": "US-Militär will MQ-9A-Reaper-Drohne zu Drohnenmutterschiff ausbauen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:102",
+      "src": "heise",
+      "region": "DE",
+      "label": "EUDI-Wallet PID",
+      "text": "EUDI-Wallet: Welche Rolle PID und PID-Provider spielen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:103",
+      "src": "heise",
+      "region": "DE",
+      "label": "Scrum Master Day 2026",
+      "text": "Scrum Master Day 2026: Programm bietet neue Impulse für Teams",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:104",
+      "src": "heise",
+      "region": "DE",
+      "label": "Apple Self-Service Repair",
+      "text": "Apples Selbstreparatur: Lohnt sich nur, wenn man unbedingt will",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:105",
+      "src": "heise",
+      "region": "DE",
+      "label": "Vibe-Coder Informatiker",
+      "text": "Informatiker sind die besseren Vibe-Coder",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:106",
+      "src": "heise",
+      "region": "DE",
+      "label": "Billig-iPad late summer",
+      "text": "Billig-iPad mit Apple Intelligence wohl nicht vor Spätsommer",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:107",
+      "src": "heise",
+      "region": "DE",
+      "label": "Microsoft Souveränität interview",
+      "text": "Microsoft: Viele schauen beim Thema Souveränität nur in eine Richtung",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:108",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "US strikes Iranian boats",
+      "text": "US strikes seven Iranian boats, Trump says, as tensions spike in Strait of Hormuz",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:109",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Golders Green arson arrest",
+      "text": "Anti-terror police arrest two over arson attack on Golders Green memorial wall",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:110",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Leipzig car crowds 2 killed",
+      "text": "Two killed and several hurt after car ploughs into crowds in German city of Leipzig",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:111",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Madeleine McCann UK trial",
+      "text": "Met seeks UK trial for Madeleine McCann suspect",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:112",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "UAE Iran drone attacks",
+      "text": "UAE accuses Iran of renewed drone and missile attacks",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:113",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Tributes teenager falling tree",
+      "text": "Tributes paid to teenager killed by falling tree as he played with friends",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:114",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Bank of Dave Warburtons fire",
+      "text": "Bank of Dave star spots Warburtons fire from helicopter",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:115",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "EU cold water Starmer Brexit",
+      "text": "EU pours cold water on Starmer's hopes for post-Brexit concessions",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:116",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Man fell rooftop bar dies",
+      "text": "Man who fell number of floors in rooftop bar dies",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:117",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "What is hantavirus explainer",
+      "text": "What is hantavirus, the infection thought to have killed three on cruise ship?",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:118",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Hotel owner dead inside crocodile",
+      "text": "Missing hotel owner found dead inside crocodile",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:119",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "China plane fuel switches deliberately",
+      "text": "Fuel switches 'deliberately shut off' in China plane crash",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:120",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "US military Europe Trump withdraw",
+      "text": "A look at the US military presence in Europe as Trump seeks to withdraw troops from Germany",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:121",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Rental homes London plunge fifth",
+      "text": "Rental homes in London plunge by a fifth as landlords sell up",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:122",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Anthropic Blackstone enterprise AI",
+      "text": "Anthropic Partners with Blackstone, Hellman & Friedman, and Goldman Sachs to Launch Enterprise AI Services Firm",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:123",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "GameStop eBay $55.5bn",
+      "text": "GameStop makes $55.5bn takeover offer for eBay",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:124",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "iOS 27 Apple Wallet Create Pass",
+      "text": "iOS 27: Apple Wallet adding new 'Create a Pass' feature, per report",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:125",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Wired headphone Bluetooth backlash",
+      "text": "Wired headphone sales volumes rise amid Bluetooth backlash",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:126",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Britney Spears guilty reckless",
+      "text": "Britney Spears pleads guilty to reckless driving",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:127",
+      "src": "gnews-uk",
+      "region": "UK",
+      "label": "Met Gala live Bezos protests",
+      "text": "Met Gala 2026 live: stars walk red carpet on fashion's biggest night as Bezos backing could spark protests",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:128",
+      "src": "sky",
+      "region": "UK",
+      "label": "Coventry City Premier League 25 years",
+      "text": "Thousands of fans cheer Coventry City's return to the Premier League after 25 years",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:129",
+      "src": "sky",
+      "region": "UK",
+      "label": "Woman man die explosion domestic",
+      "text": "Woman and man die in explosion after 'domestic-related incident'",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:130",
+      "src": "sky",
+      "region": "UK",
+      "label": "Fish eels River Spey pollution",
+      "text": "Fish, eels and birds killed in suspected river pollution incident",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:131",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "People naming celebs everyone nice",
+      "text": "People Are Naming Celebs Everyone Agrees Are Genuinely Nice, So Let's See If Your Faves Made The Cut",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:132",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Met Gala 2026 Red Carpet looks",
+      "text": "See Every Look from the Met Gala 2026 Red Carpet",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:133",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "celebrity passport photos",
+      "text": "Ready for their close-ups: celebrity passport photos",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:134",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Emily Blunt John Krasinski date",
+      "text": "Emily Blunt and John Krasinski Step Out for Date Night in New York City, Plus The West Wing Reunion, Lindsay Lohan and More",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:135",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Atlantic Great Actor Perfect Celebrity",
+      "text": "A Great Actor Who Is Also a Perfect Celebrity",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:136",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Kentucky Derby celebrity sightings",
+      "text": "Celebrity sightings at the 2026 Kentucky Derby",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:137",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "celebrity outfits Derby photos",
+      "text": "Photos of our favorite celebrity outfits from the 2026 Kentucky Derby",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:138",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Derby Belichick Hudson Bird Gronk",
+      "text": "Kentucky Derby sports celebrity sightings include Bill Belichick, Jordon Hudson, Sue Bird, Rob Gronkowski",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:139",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Angelina Jolie estate quit US",
+      "text": "Angelina Jolie Lists Her Iconic Los Angeles Estate for $30 Million—as Rumors Swirl She's Set To Quit U.S. for Good",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:140",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Cameron Diaz Madden third child",
+      "text": "Cameron Diaz and Benji Madden Announce Birth of Third Child With Ocean-Inspired Name",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:141",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrity Traitors 2 BBC",
+      "text": "Celebrity Traitors 2026: Full line-up of series two confirmed",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:142",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "21 Celebrity Traitors stars",
+      "text": "'Celebrity Traitors' Season 2 Full Cast: See the 21 Stars",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:143",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Only Sane Celebrity America",
+      "text": "She's the Only Sane Celebrity in America. This Is How She Did It.",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:144",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Famous birthdays May 4",
+      "text": "Today's famous birthdays list for May 4, 2026 includes celebrities Will Arnett, Ana Gasteyer",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:145",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrity Autobiography Broadway",
+      "text": "'Celebrity Autobiography' to return to Broadway this spring",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:146",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "9 Celebrity Moms after 50",
+      "text": "9 Celebrity Moms Who Welcomed Children After 50",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:147",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Stars NYC Met Gala arrived",
+      "text": "All the Stars Have Arrived in NYC for Tonight's Met Gala",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:148",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrity chef Louisville cheesecake",
+      "text": "Celebrity chef tries Louisville business' beloved cheesecake at Kentucky Derby",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:149",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Desert Hot Springs sculptors celebrity",
+      "text": "Desert Hot Springs Father-Son Sculptors Create Stone Art for Celebrity Homes",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:150",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Every notable celebrity absence Met Gala",
+      "text": "Every notable celebrity absence from 2026's controversial Met Gala",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:151",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Bobby Flay cheesecake",
+      "text": "Celebrity chef Bobby Flay meets owners of Big Nita's, and he tried the cheesecake",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:152",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "Celebrities Love Setting Sprays",
+      "text": "Celebrities Love These Setting Sprays to Make Their Makeup Last All Night Long",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:153",
+      "src": "gnews-us-celeb",
+      "region": "US",
+      "label": "MET Gala social media circle",
+      "text": "The MET Gala has come full circle and more Celebrity Social Media for May 4, 2026",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:154",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "US Stryker Vilseck",
+      "text": "US-Armee zieht 5.000 Soldaten der Stryker-Brigade aus Vilseck ab",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:155",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Hantavirus Kap Verde",
+      "text": "Kreuzfahrtschiff darf nach Hantavirus-Ausbruch nicht in Kap Verde anlegen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:156",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Hormus USA Iran Angriff zurück",
+      "text": "Straße von Hormus: USA weisen Bericht über iranischen Angriff auf US-Kriegsschiff zurück",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:157",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Wal Timmy Vitalzeichen",
+      "text": "Lebt Wal „Timmy\" noch?: Experten hinterfragen angebliche Vitalzeichen",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:158",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Laschet wütet Strack-Zimmermann",
+      "text": "„An Niedertracht nicht zu übertreffen\", wütet Laschet über Strack-Zimmermann",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:159",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Merz Klempner-Azubi",
+      "text": "Friedrich Merz bei Caren Miosga: „Ein Klempner-Azubi im ersten Ausbildungsjahr\"",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:160",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Elbtunnel Weströhre",
+      "text": "Alter Elbtunnel: Weströhre öffnet mit neuer Wege-Trennung",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:161",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Linke Grüne SPD X Rückzug",
+      "text": "„Ist im Chaos versunken\" – Linke, Grüne und SPD kündigen gleichzeitig Rückzug von X an",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:162",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Minenjagdboot Fulda Mittelmeer",
+      "text": "Straße von Hormus: Deutsches Minenjagdboot »Fulda« startet in Richtung Mittelmeer",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:163",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Rhein in Flammen Drohnenshow",
+      "text": "Zum letzten Mal in der Rheinaue: Rhein in Flammen verabschiedet sich mit großer Drohnenshow",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:164",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Österreich russische Diplomaten",
+      "text": "Spionage-Verdacht: Österreich weist drei russische Diplomaten aus",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:165",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Schwedische Küstenwache Tanker",
+      "text": "Schwedische Küstenwache nimmt Kapitän von Öltanker fest",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:166",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Putin Angst Attentat Umsturz",
+      "text": "Wladimir Putin und die Angst vor Attentat und Umsturz – Kreml verschärft Schutzmaßnahmen",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:167",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Trump kaputtes Land Merz",
+      "text": "„Kaputtes Land\": Trump rechnet gnadenlos mit Merz und Deutschland ab",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:168",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "UniCredit Commerzbank",
+      "text": "UniCredit-Aktionäre ebnen den Weg für Commerzbank-Übernahme",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:169",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "GameStop eBay 56 Mrd",
+      "text": "Für 56 Milliarden US-Dollar: GameStop macht Übernahmeangebot für eBay",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:170",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Negativer Strompreis 499 Euro",
+      "text": "Energie: Negativer Strompreis von 499 Euro liefert Reiche neue Argumente",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:171",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "VW Sachsen-Werke",
+      "text": "Volkswagen: VW verschiebt Zusammenlegung mit Sachsen-Werken",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:172",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "WhatsApp Avatare Profilbilder",
+      "text": "WhatsApp streicht Avatare als Profilbilder",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:173",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "iPhone 17 USB-C charging",
+      "text": "USB-C-Laden mit leerem Akku: Nutzer melden Probleme bei iPhone 17 Pro und Air",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:174",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "007 First Light Spielzeit",
+      "text": "007 First Light: Erste Berichte zur Spielzeit - So lange seid ihr als angehender Agent beschäftigt",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:175",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "PS Plus Mai Meisterwerk",
+      "text": "Gratis-Games: PS Plus liefert im Mai ein Meisterwerk ab, das ihr nicht übersehen dürft",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:176",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Prinzessin Eugenie schwanger BILD",
+      "text": "Prinzessin Eugenie zum dritten Mal schwanger",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:177",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Cameron Diaz Mutter 53",
+      "text": "Drittes Kind mit 53: Cameron Diaz ist erneut Mutter geworden",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:178",
+      "src": "gnews-de",
+      "region": "DE",
+      "label": "Nina Chuba Therapie",
+      "text": "Darum brauchte Nina Chuba eine Therapie",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:179",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Memmingen 14-Jähriger tot",
+      "text": "Memmingen: Vermisster 14-Jähriger wohl tot aufgefunden – Straftatverdacht",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:180",
+      "src": "tonline",
+      "region": "DE",
+      "label": "US-Kriegsschiffe Hormus",
+      "text": "News zum Iran-Krieg aktuell: US-Kriegsschiffe durchfahren Straße von Hormus",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:181",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Tomahawk-Deal Experten warnen",
+      "text": "Tomahawk-Deal geplatzt: Experten warnen vor den Folgen für Deutschland",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:182",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Vielseck Stützpunkt wackelt",
+      "text": "Vielseck: Bayerischer US-Truppenstützpunkt wackelt wohl als nächstes",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:183",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Russland Gefangene Nordkoreaner",
+      "text": "Ukraine-Krieg: Russland fordert kaum Gefangene zurück – außer Nordkoreaner",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:184",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Cameron Diaz Eltern",
+      "text": "Cameron Diaz und Benji Madden sind wieder Eltern geworden",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:185",
+      "src": "tonline",
+      "region": "DE",
+      "label": "PKV Pflegegrad 1",
+      "text": "Private Krankenversicherung: Pflegegrad 1 auf dem Prüfstand",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:186",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Pflegereform VdK warnt",
+      "text": "Pflegereform: VdK warnt vor Krisensituationen durch geplante Einschnitte",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:187",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Moos Pflaster Hausmittel",
+      "text": "Gartenarbeit: Moos auf Pflastersteinen bekämpfen – ein Hausmittel hilft",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:188",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Hammerschlagsrecht Grundstück",
+      "text": "Hammerschlagsrecht: Wann darf man das Grundstück des anderen betreten?",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:189",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Blattläuse bekämpfen schnell",
+      "text": "Blattläuse bekämpfen: Dieses Mittel schützt Ihre Pflanzen schnell",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:190",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Tatort Hollywood-Niveau",
+      "text": "\"Tatort: Könige der Nacht\": Folge auf Hollywood-Niveau – Migration im Fokus",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:191",
+      "src": "tonline",
+      "region": "DE",
+      "label": "DAX hinkt Gründe",
+      "text": "DAX hinkt hinterher: Diese Gründe bremsen Deutschlands Börse",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:192",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Trump Konsequenz Kolumne",
+      "text": "Krieg im Nahen Osten: Trump und Konsequenz vertragen sich nicht – Kolumne",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:193",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Armenien EU Wahl",
+      "text": "Armenien: EU schickt Expertenmission zum Schutz der Parlamentswahl",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:194",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Holm Brandmauer AfD heimliche",
+      "text": "Leif-Erik Holm: Brandmauer sprengen? Der heimliche Hoffnungsträger der AfD",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:195",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Festungsgürtel Kostjantyniwka",
+      "text": "Ukraine-Krieg: \"Festungsgürtel\" Kostjantyniwka steht unter Beschuss",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:196",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Alzheimer rückgängig",
+      "text": "Demenzforscher im Interview: Lässt sich Alzheimer rückgängig machen?",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:197",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Putin Schlaf",
+      "text": "Russland im Ukraine-Krieg: Das kostet Präsident Putin den Schlaf",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:198",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Gesundheitsreform Pflegerin",
+      "text": "Gesundheitsreform: Pflegerin warnt vor Plänen zulasten der Patienten",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:199",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Estland Zivilisten Russland",
+      "text": "Russland-Bedrohung: So bereitet Estland Zivilisten auf einen Angriff vor",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:200",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Russland queere Männer",
+      "text": "16 Festnahmen: Russland nimmt queere Männer als \"Extremisten\" fest",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:201",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Putin abgeschottet Bunker",
+      "text": "Wladimir Putin: So abgeschottet lebt der Präsident von Russland inzwischen",
+      "expected": "catch"
+    },
+    {
+      "id": "multiregion:202",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Tankrabatt Miersch Ölkonzerne",
+      "text": "Kritik an Tankrabatt: Miersch erhebt Vorwürfe gegen Ölkonzerne",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:203",
+      "src": "tonline",
+      "region": "DE",
+      "label": "Deutschland am Morgen emotionslos",
+      "text": "RTL und ntv: \"Deutschland am Morgen\" fällt durch – \"emotionslos\"",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:204",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "NBA Magic Mosley entlassen",
+      "text": "NBA: Nach Playoff-Aus: Orlando Magic entlassen Trainer Mosley",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:205",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Potsdam Bürgerforen",
+      "text": "Kulturpolitische Maßnahmen für Potsdam: Vier Bürgerforen sollen im Mai stattfinden",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:206",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "artspring Berlin Pankow",
+      "text": "Auf zu neuen Ufern: Wenn Kunst in Pankow ausbricht",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:207",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Köpke Neuer WM",
+      "text": "Dauer-Gerücht um WM-Comeback: Köpke schwärmt von Neuer",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:208",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Wandeltheater Orangerieschloss",
+      "text": "Willkommen im preußischen Arkadien: Inklusives Wandeltheater am Orangerieschloss in Potsdam",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:209",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Ramelow Polen Grenze",
+      "text": "So kann man mit Europa nicht umgehen: Ramelow dringt auf Ende der Kontrollen an Grenze zu Polen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:210",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "NRW Tochter eingesperrt",
+      "text": "Strafprozess: Tochter jahrelang eingesperrt - Freiheitsstrafe für Mutter",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:211",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "WirVerlassenX Parteien",
+      "text": "Internet: #WirVerlassenX: Parteien wenden sich von Musks Plattform ab",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:212",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Sonnensystem Eisbrocken 550km",
+      "text": "Objekt am Rand des Sonnensystems überrascht Forschende",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:213",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Persiusspeicher Investitionen",
+      "text": "Persiusspeicher im Potsdamer Westen: Neuer Eigentümer verspricht Investitionen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:214",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Eintracht Riera Dortmund",
+      "text": "Bundesliga: Bericht: Eintracht auch in Dortmund mit Trainer Riera",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:215",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "CDU Star Wars Tag",
+      "text": "Star Wars Tag: Brandenburgs CDU-Fraktion spielt Star Wars",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:216",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "FU-Professorin Wissenschaftspreis",
+      "text": "FU-Professorin ausgezeichnet: Romanistin erhält Berliner Wissenschaftspreis",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:217",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Freibadsaison 25000",
+      "text": "Sommer, Sonne, Sonnenschein: Freibadsaison startet mit mehr als 25.000 Gästen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:218",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Pedro Pascal Lehrer",
+      "text": "Leute: Pedro Pascals Lehrer meinten: Dann bist Du am Arsch",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:219",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Städtebau Brandenburg",
+      "text": "Ausstellung zu Städtebau in Brandenburg",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:220",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Iran Biennale Venedig",
+      "text": "Kunst: Iran nimmt nicht an Biennale in Venedig teil",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:221",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Potsdam Jugendinnovationspreis",
+      "text": "Potsdamer Jugendinnovationspreis: Animationsfilme zur mentalen Gesundheit ausgezeichnet",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:222",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Berlin Tötung Tabletten",
+      "text": "Ich wollte helfen, aber ich wusste, dass es strafbar ist",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:223",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Klingbeil Trump Zoll",
+      "text": "Neue Drohungen aus den USA: Klingbeil fordert von Trump Einhaltung von Zoll-Zusagen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:224",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Iran Sanktionen Öl",
+      "text": "Iran umgeht Sanktionen sehr virtuos",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:225",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Brandenburg Beamtenbesoldung",
+      "text": "Brandenburg muss Beamtenbesoldung anpassen",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:226",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Seethaler Roman",
+      "text": "Der neue Roman von Bestsellerautor Robert Seethaler",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:227",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Spahn Plum Merz",
+      "text": "Er stellte sich schon einmal gegen Merz",
+      "expected": "pass"
+    },
+    {
+      "id": "multiregion:228",
+      "src": "tagesspiegel",
+      "region": "DE",
+      "label": "Goldspürhunde Manching",
+      "text": "Diebstahl aus Museum: Goldspürhunde suchen den Schatz von Manching",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:0",
+      "src": "kom",
+      "region": null,
+      "label": "Жители Тюмени массово жаловаться на запах газа",
+      "text": "Жители Тюмени начали массово жаловаться на запах газа. Около 300 жителей пожаловались на запах газа, но специалисты утечек не обнаружили.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:1",
+      "src": "kom",
+      "region": null,
+      "label": "Фицо: Словакия не поддержит кредиты Украине",
+      "text": "Фицо: Словакия не будет поддерживать военные кредиты для Украины. Премьер-министр заявил, что страна не поддержит военные кредиты для Украины.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:2",
+      "src": "kom",
+      "region": null,
+      "label": "Родные Мохаммади об ухудшении здоровья",
+      "text": "Родные иранской правозащитницы Наргиз Мохаммади заявили об ухудшении ее здоровья. Родственники опасаются за жизнь лауреатки Нобелевской премии мира.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:3",
+      "src": "kom",
+      "region": null,
+      "label": "Армения–UK партнёрство",
+      "text": "Армения подписала соглашение о стратегическом партнерстве с Великобританией. Премьер-министр Пашинян объявил о подписании соглашения с Великобританией.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:4",
+      "src": "kom",
+      "region": null,
+      "label": "Туапсе мазут после пожаров",
+      "text": "В Туапсе собрали 17 тыс. кубометров мазута после пожаров на НПЗ. Специалисты вывезли загрязненный мазут и грунт из Туапсе.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:5",
+      "src": "kom",
+      "region": null,
+      "label": "Суда США через Ормуз",
+      "text": "Два торговых судна под флагами США прошли через Ормузский пролив. Суда успешно прошли через пролив без угрозы безопасности.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:6",
+      "src": "kom",
+      "region": null,
+      "label": "Меликов поможет врио Дагестана",
+      "text": "Меликов поможет новому врио главы Дагестана «вникнуть в дела». Ушедший с поста Меликов пообещал помочь преемнику освоиться в должности.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:7",
+      "src": "kom",
+      "region": null,
+      "label": "Бывший начальник РХБЗ найден мертвым",
+      "text": "Бывшего начальника войск РХБЗ Петрова нашли мертвым в квартире в Москве. Генерал-полковник найден мертвым; по предварительным данным, покончил с собой.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:8",
+      "src": "kom",
+      "region": null,
+      "label": "Сбито 8 БПЛА на подлете",
+      "text": "Число сбитых на подлете к Москве БПЛА возросло до восьми. Силы ПВО уничтожили еще два беспилотника, летевших на Москву.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:9",
+      "src": "kom",
+      "region": null,
+      "label": "Axios: США разрешили атаковать в Ормузе",
+      "text": "Axios: силам США разрешили атаковать угрожающие судам в Ормузском проливе цели. США изменили правила применения вооруженных сил для защиты судоходства.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:10",
+      "src": "kom",
+      "region": null,
+      "label": "4 госпитализированы после ДТП на МКАД",
+      "text": "Четырех человек госпитализировали после аварии с участием 14 авто на МКАД. В аварии пострадали четверо, включая двух детей.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:11",
+      "src": "kom",
+      "region": null,
+      "label": "ОАЭ обвинили Иран в атаке на танкер",
+      "text": "ОАЭ обвинили Иран в атаке на свой танкер в Ормузском проливе. Два иранских беспилотника ударили по танкеру компании Adnoc.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:12",
+      "src": "kom",
+      "region": null,
+      "label": "NTSB причина крушения Boeing",
+      "text": "В США раскрыли причину крушения Boeing 737-800 авиакомпании China Eastern. NTSB опубликовал данные черных ящиков разбившегося в 2022 году самолета.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:13",
+      "src": "kom",
+      "region": null,
+      "label": "Умер солист Земляне",
+      "text": "Умер бывший солист группы «Земляне» Юрий Жучков. Музыкант скончался в возрасте 67 лет.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:14",
+      "src": "kom",
+      "region": null,
+      "label": "Бывшему помощнику Жириновского 8 лет",
+      "text": "Бывшему помощнику Жириновского запросили восемь лет за мошенничество. Обвинение попросило приговорить депутата Госдумы к восьми годам колонии.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:15",
+      "src": "kom",
+      "region": null,
+      "label": "Путин сменил шерпу G20",
+      "text": "Путин сменил шерпу России в G20. Денис Агафонов назначен шерпой вместо Светланы Лукаш.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:16",
+      "src": "kom",
+      "region": null,
+      "label": "Путин поддержал Здунова Мордовия",
+      "text": "Путин поддержал переизбрание Здунова на пост главы Мордовии. Президент встретился с главой Мордовии, обсудившим планы переизбрания.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:17",
+      "src": "kom",
+      "region": null,
+      "label": "FT: страховки от политнасилия",
+      "text": "FT: компании США стали активнее покупать страховки от политического насилия. Американские корпорации увеличили спрос на страховки от актов насилия.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:18",
+      "src": "kom",
+      "region": null,
+      "label": "Швеция арест капитана Jin Hui",
+      "text": "В Швеции арестован капитан танкера Jin Hui. Капитан подсанкционного танкера задержан по подозрению в перевозке российской нефти.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:19",
+      "src": "kom",
+      "region": null,
+      "label": "Linkerbot $6 млрд",
+      "text": "Мировой лидер по производству роботизированных рук стремится к оценке в $6 млрд. Китайский стартап Linkerbot планирует достичь оценки бизнеса в $6 миллиардов.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:20",
+      "src": "kom",
+      "region": null,
+      "label": "Путин продлил срок Чиханчина",
+      "text": "Путин продлил на год срок госслужбы главе Росфинмониторинга. Срок Юрия Чиханчина продлен до июня 2027 года.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:21",
+      "src": "kom",
+      "region": null,
+      "label": "МОК приостановил киберспорт",
+      "text": "МОК приостановил деятельность комиссии по киберспорту. Международный олимпийский комитет планирует свернуть инициативы по киберспорту.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:22",
+      "src": "kom",
+      "region": null,
+      "label": "3 БПЛА сбиты",
+      "text": "На подлете к Москве сбиты еще три беспилотника. Силы ПВО уничтожили три БПЛА, летевших в сторону столицы.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:23",
+      "src": "kom",
+      "region": null,
+      "label": "Совбез: учения Финляндии",
+      "text": "Совбез заявил о росте масштабов учений Финляндии вблизи границы с Россией. Масштаб военных учений Финляндии увеличился после вступления в НАТО.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:24",
+      "src": "kom",
+      "region": null,
+      "label": "Краснодар осквернили могилы СВО",
+      "text": "В Краснодаре осквернили могилы участников СВО. СКР возбудило дело об осквернении 14 памятников на воинском кладбище.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:25",
+      "src": "ria",
+      "region": null,
+      "label": "Что случилось со звездой КВН",
+      "text": "Елена Рыбалко: что случилось со звездой команды КВН \"Утомленные солнцем\"",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:26",
+      "src": "ria",
+      "region": null,
+      "label": "Мелони о выводе войск США",
+      "text": "Мелони выразила несогласие с планами США по выводу войск из Италии",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:27",
+      "src": "ria",
+      "region": null,
+      "label": "Путин гранты АПК",
+      "text": "Путин дал поручения по конкурсу грантов среди проектов по решениям для АПК",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:28",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биотех безопасность",
+      "text": "Путин поручил обеспечить безопасность внутреннего рынка биотехнологий",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:29",
+      "src": "ria",
+      "region": null,
+      "label": "Путин медаль экс-главе",
+      "text": "Путин наградил медалью \"За храбрость\" экс-главу района Горловки",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:30",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биотех популяризация",
+      "text": "Путин дал поручения по популяризации биотехнологий и биоэкономики",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:31",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биоэкопоселения",
+      "text": "Путин поручил рассмотреть вопрос об биоэкопоселениях",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:32",
+      "src": "ria",
+      "region": null,
+      "label": "Путин биотех приборостроение",
+      "text": "Путин поручил принять меры по поддержке биотехнологического приборостроения",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:33",
+      "src": "ria",
+      "region": null,
+      "label": "Путин нацпроект биоэкономика",
+      "text": "Путин дал поручения по финансированию нацпроекта по биоэкономике",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:34",
+      "src": "ria",
+      "region": null,
+      "label": "Путин стратегия биоэкономики",
+      "text": "Путин поручил утвердить стратегию развития биоэкономики в России",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:35",
+      "src": "ria",
+      "region": null,
+      "label": "Путин БРИКС наука",
+      "text": "Путин поручил обеспечить обсуждение научных вопросов в рамках БРИКС",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:36",
+      "src": "ria",
+      "region": null,
+      "label": "Путин Ночная хоккейная лига",
+      "text": "Путин отметил вклад фестиваля Ночной хоккейной лиги в продвижение спорта",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:37",
+      "src": "ria",
+      "region": null,
+      "label": "Путин ядерные технологии медицина",
+      "text": "Путин поручил создать группу по развитию ядерных технологий в медицине",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:38",
+      "src": "ria",
+      "region": null,
+      "label": "Места вузах биоэкономика",
+      "text": "В России увеличат число мест в вузах по биоэкономическим специальностям",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:39",
+      "src": "ria",
+      "region": null,
+      "label": "Боевик ВСУ инсульт",
+      "text": "В Сумской области от инсульта умер мобилизованный в ВСУ боевик",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:40",
+      "src": "ria",
+      "region": null,
+      "label": "На Западе высказались",
+      "text": "\"Хорошо для России\". На Западе неожиданно высказались об одном шаге США",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:41",
+      "src": "ria",
+      "region": null,
+      "label": "Фицо моральный долг Москва",
+      "text": "Фицо заявил, что считает моральным долгом посетить Москву на День Победы",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:42",
+      "src": "ria",
+      "region": null,
+      "label": "Метро поезд День Победы",
+      "text": "В московском метро начал курсировать тематический поезд ко Дню Победы",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:43",
+      "src": "ria",
+      "region": null,
+      "label": "ПМР молдавский национализм",
+      "text": "В ПМР призвали молдавские власти отказаться от политики национализма",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:44",
+      "src": "ria",
+      "region": null,
+      "label": "Танзания SputnikPro",
+      "text": "Вуз Танзании впервые присоединился к SputnikPro",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:45",
+      "src": "ria",
+      "region": null,
+      "label": "Минпромторг ноутбуки",
+      "text": "Минпромторг прокомментировал исключение ноутбуков из параллельного импорта",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:46",
+      "src": "ria",
+      "region": null,
+      "label": "Челябинск благоустройство",
+      "text": "Жители Челябинской области выберут объекты благоустройства на 2027 год",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:47",
+      "src": "ria",
+      "region": null,
+      "label": "Умер актер Бандитский Петербург",
+      "text": "Умер актер из сериала \"Бандитский Петербург\"",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:48",
+      "src": "ria",
+      "region": null,
+      "label": "Путин многодетные семьи",
+      "text": "Путин наградил многодетные семьи из 15 регионов",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:49",
+      "src": "ria",
+      "region": null,
+      "label": "Путин Хованский медаль",
+      "text": "Путин наградил Хованского медалью \"За труды в культуре и искусстве\"",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:50",
+      "src": "lenta",
+      "region": null,
+      "label": "Xiaomi воскресит модель",
+      "text": "Xiaomi воскресит забытую модель смартфонов",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:51",
+      "src": "lenta",
+      "region": null,
+      "label": "Турецкий город завалило снегом",
+      "text": "Турецкий город внезапно завалило снегом",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:52",
+      "src": "lenta",
+      "region": null,
+      "label": "Лучшие наряды для выпускного",
+      "text": "Россиянам назвали лучшие наряды для выпускного",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:53",
+      "src": "lenta",
+      "region": null,
+      "label": "Язык переговоров Зеленский Пашинян",
+      "text": "Стал известен язык переговоров Зеленского и Пашиняна",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:54",
+      "src": "lenta",
+      "region": null,
+      "label": "Брекоткин о популярности",
+      "text": "Брекоткин из «Уральских пельменей» высказался о своей популярности у молодежи",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:55",
+      "src": "lenta",
+      "region": null,
+      "label": "Аномальное потепление в Москве",
+      "text": "В Москву придет аномальное потепление",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:56",
+      "src": "lenta",
+      "region": null,
+      "label": "Археолог о предчувствии перед арестом",
+      "text": "Археолог Бутягин рассказал о нехорошем предчувствии перед арестом",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:57",
+      "src": "lenta",
+      "region": null,
+      "label": "Космонавты выход в космос",
+      "text": "Российские космонавты подготовились к выходу в открытый космос",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:58",
+      "src": "lenta",
+      "region": null,
+      "label": "Российский город невыносимый запах",
+      "text": "Российский город окутал невыносимый запах",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:59",
+      "src": "lenta",
+      "region": null,
+      "label": "ЦСКА тренер иностранец",
+      "text": "Подходящим для ЦСКА тренером назвали другого иностранца из РПЛ",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:60",
+      "src": "lenta",
+      "region": null,
+      "label": "Десятки могил повредили",
+      "text": "Десятки могил повредили на российском кладбище",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:61",
+      "src": "lenta",
+      "region": null,
+      "label": "Эндокринолог секреты шашлыка",
+      "text": "Эндокринолог раскрыла секреты идеального шашлыка",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:62",
+      "src": "lenta",
+      "region": null,
+      "label": "Помощнику Жириновского срок",
+      "text": "Бывшему помощнику Владимира Жириновского запросили срок за аферы",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:63",
+      "src": "lenta",
+      "region": null,
+      "label": "Met Gala протестующие",
+      "text": "Сотни протестующих попытались сорвать Met Gala из-за одного человека",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:64",
+      "src": "lenta",
+      "region": null,
+      "label": "Причины нападения на губернатора",
+      "text": "Названы возможные причины нападения на российского губернатора",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:65",
+      "src": "lenta",
+      "region": null,
+      "label": "Овощ защита клеток мозга",
+      "text": "Обычный овощ оказался неожиданно эффективен в защите клеток мозга",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:66",
+      "src": "lenta",
+      "region": null,
+      "label": "Чубайс секретное досье",
+      "text": "Стало известно о собранном Чубайсом секретном досье",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:67",
+      "src": "lenta",
+      "region": null,
+      "label": "Выгодные месяцы для отпусков",
+      "text": "Россиянам назвали наиболее выгодные месяцы для отпусков",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:68",
+      "src": "lenta",
+      "region": null,
+      "label": "Блокировка VPN миллиарды",
+      "text": "Блокировка VPN в России обойдется в сотни миллиардов рублей",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:69",
+      "src": "lenta",
+      "region": null,
+      "label": "Зеленский переговоры Пашинян",
+      "text": "Зеленский начал переговоры с Пашиняном",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:70",
+      "src": "lenta",
+      "region": null,
+      "label": "Производитель сжиженного газа",
+      "text": "Крупнейший производитель сжиженного газа продлил форс-мажор",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:71",
+      "src": "lenta",
+      "region": null,
+      "label": "Балетмейстер схема Долиной",
+      "text": "Балетмейстер Мариинского театра решила вернуть квартиру по «схеме Долиной»",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:72",
+      "src": "lenta",
+      "region": null,
+      "label": "Россиянина женили и отправили на СВО",
+      "text": "Россиянина женили и отправили на СВО ради миллионов",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:73",
+      "src": "lenta",
+      "region": null,
+      "label": "Призвали к изменениям на СВО",
+      "text": "В России призвали к изменениям на СВО после атаки дронов ВСУ на Москву",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:74",
+      "src": "lenta",
+      "region": null,
+      "label": "Предпринимателя заставляли отдать миллионы",
+      "text": "Российского предпринимателя под страхом смерти заставляли отдать миллионы",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:75",
+      "src": "kp",
+      "region": null,
+      "label": "Хантавирус нужно ли бояться",
+      "text": "Хантавирус, бушующий на океанском лайнере, есть и в России: нужно ли бояться эпидемии. Вирусолог Альтштейн: сотни россиян заражаются хантавирусом каждый год",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:76",
+      "src": "kp",
+      "region": null,
+      "label": "Защитите ваш счёт мошенники",
+      "text": "«Защитите ваш счет»: В банках предупредили о новой схеме мошенников. Россиян предупредили о новой схеме мошенников с сертификатом безопасности",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:77",
+      "src": "kp",
+      "region": null,
+      "label": "Лекарства от хантавируса нет",
+      "text": "Лекарства от хантавируса нет: может ли начаться пандемия после смертей на круизном лайнере. Академик Нетесов: без должных мер хантавирус может спровоцировать эпидемию",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:78",
+      "src": "kp",
+      "region": null,
+      "label": "Молодая вдова и могила мужа",
+      "text": "Пять лет на Новодевичьем кладбище без памятника: Молодая вдова получила квартиру диктора Игоря Кириллова и забросила могилу мужа. Могила диктора Игоря Кириллова заброшена",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:79",
+      "src": "kp",
+      "region": null,
+      "label": "Очевидная попытка испортить майские",
+      "text": "«Очевидная попытка испортить майские праздники»: военэксперт объяснил очередные атаки ВСУ. Военэксперт Дрозденко: ВСУ пытаются поднять напряженность в РФ к Дню Победы",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:80",
+      "src": "kp",
+      "region": null,
+      "label": "Друг оказался Николом",
+      "text": "Если «друг» оказался вдруг … Николом. Пашинян созвал в Ереван всех врагов России",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:81",
+      "src": "kp",
+      "region": null,
+      "label": "Пить украинскую кровь",
+      "text": "Пить украинскую кровь: Европа и Зеленский придумали план, как прожить без США. Обозреватель Умеренков сравнил Европу с людоедом",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:82",
+      "src": "kp",
+      "region": null,
+      "label": "Ставки депозитам банки",
+      "text": "Ставки по депозитам упали: какие проценты теперь банки дают вкладчикам. KP.RU: стали известны проценты по вкладам, которые сейчас дают российские банки",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:83",
+      "src": "kp",
+      "region": null,
+      "label": "Онищенко Парад Победы",
+      "text": "Онищенко: Наш Парад Победы охладит перегревшиеся головы реваншистов всех мастей. Академик РАН Геннадий Онищенко",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:84",
+      "src": "kp",
+      "region": null,
+      "label": "Триллер на круизном лайнере",
+      "text": "Триллер на круизном лайнере: тело жертвы хантавируса доставили на остров, где умер Наполеон. Участников круиза после трех смертей от вируса отказались выпускать в Кабо-Верде",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:85",
+      "src": "kp",
+      "region": null,
+      "label": "В мае выгоднее трудиться",
+      "text": "В мае выгоднее трудиться, чем отдыхать: когда россиянам стоит уходить в отпуск. Минтруд напомнил, когда россиянам должны начислять отпускные",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:86",
+      "src": "kp",
+      "region": null,
+      "label": "Боевики оружие бросали",
+      "text": "«Боевики просто оружие бросали и убегали. Но встречались и упоротые». Сложные укрепрайоны очистили от ВСУ подразделения группировок войск «Север» и «Центр»",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:87",
+      "src": "kp",
+      "region": null,
+      "label": "Путешествие к себе тур",
+      "text": "Путешествие к себе. Участники туристического проекта «Своих не бросаем!» открыли юбилейный сезон поездок по стране",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:88",
+      "src": "kp",
+      "region": null,
+      "label": "Отдых с заботой лагеря",
+      "text": "Отдых с заботой. В детских лагерях России стартовали особые смены. Их участники - дети из семей героев СВО",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:89",
+      "src": "kp",
+      "region": null,
+      "label": "Сцена для подвига Чувашия",
+      "text": "Сцена для подвига. В Чувашии поставили спектакль, посвященный Герою России Николаю Петрову",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:90",
+      "src": "kp",
+      "region": null,
+      "label": "Зеленский угрожает Параду",
+      "text": "Зеленский начал открыто угрожать Параду Победы: нахамил России с территории Армении - нашего военного союзника. Коц: Удивляет, что Зеленский угрожает ударить по Параду Победы с территории Армении - союзника России",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:91",
+      "src": "kp",
+      "region": null,
+      "label": "Щукин назначен главой Дагестана",
+      "text": "Федор Щукин назначен главой Дагестана: президент подписал указ о смене руководства республики. Владимир Путин назначил Федора Щукина врио главы Республики Дагестан",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:92",
+      "src": "kp",
+      "region": null,
+      "label": "Человекоподобные роботы 2027",
+      "text": "Человекоподобные роботы на поле боя могут выйти в 2027 году: как изменилась роль людей и машин в военных конфликтах. Военэксперт Клинцевич: человекоподобные роботы на поле боя могут выйти в 2027-м",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:93",
+      "src": "kp",
+      "region": null,
+      "label": "Met Gala скандал Безос",
+      "text": "Подготовка к главному балу Америки Met Gala: скандал из-за Джеффа Безоса и Лорен Санчес, дружба с Анной Винтур и отказ Мерил Стрип от участия. Ирина Шейк в мини с разрезами, Кендалл Дженнер в total black",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:94",
+      "src": "kp",
+      "region": null,
+      "label": "Виза талантов бешеная популярность",
+      "text": "В Россию — с «визой талантов»: новый способ осесть в нашей стране получил у иностранцев бешеную популярность. Мария Бутина: За 2025 год в РФ переехали 2500 семей из недружественных стран",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:95",
+      "src": "kp",
+      "region": null,
+      "label": "Дом-2 золотой состав",
+      "text": "Им повезло попасть в золотой состав «Дома-2»: Как распорядились славой самые яркие выпускники самого долгого реалити-шоу страны. Такая разная судьба выпускников «золотого состава» телешоу «Дом-2»",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:96",
+      "src": "kp",
+      "region": null,
+      "label": "Армения променяла правду",
+      "text": "Армения променяла правду на Европу. Гришин: Власти Армении идут по пути отречения от национальной идентичности",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:97",
+      "src": "kp",
+      "region": null,
+      "label": "Юбилей Андрейченко",
+      "text": "Natasha: К юбилею Натальи Андрейченко. 3 мая актрисе исполнилось 70 лет",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:98",
+      "src": "kp",
+      "region": null,
+      "label": "В заначках в четыре раза больше",
+      "text": "\"В заначках лежит в четыре раза больше, чем мы должны банкам!\": Раскрыты неожиданные факты о сбережениях россиян. Россияне держат в разных финактивах 187 трлн 700 млрд рублей накоплений",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:99",
+      "src": "kp",
+      "region": null,
+      "label": "2027 каждый третий день отдыха",
+      "text": "В 2027 году отдыхать будем каждый третий день: опубликован график. Минтруд: в 2027 у россиян будет 118 дней на отдых - вдвое меньше, чем на работу",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:100",
+      "src": "rbc",
+      "region": null,
+      "label": "Трамп и Мерц о Иране",
+      "text": "Как Трамп и Мерц поспорили из-за Ирана. Президент США раскритиковал канцлера Германии за непонимание иранской ситуации.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:101",
+      "src": "rbc",
+      "region": null,
+      "label": "Путин ядерные технологии медицина",
+      "text": "Путин поручил кабмину создать группу по ядерным технологиям в медицине.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:102",
+      "src": "rbc",
+      "region": null,
+      "label": "Германия лишится Stryker",
+      "text": "Германия лишится усиления бригадой с американскими бронемашинами Stryker. США выведут механизированную бригаду с базы в Баварии.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:103",
+      "src": "rbc",
+      "region": null,
+      "label": "МОК комитет киберспорту",
+      "text": "МОК приостановил деятельность комитета по киберспорту. Международный олимпийский комитет приостановил работу.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:104",
+      "src": "rbc",
+      "region": null,
+      "label": "ЕГЭ без выгорания стресс",
+      "text": "Как пережить ЕГЭ без выгорания: стресс, сон и подготовка к экзаменам. Почти 40% старшеклассников испытывают сильный стресс перед ЕГЭ.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:105",
+      "src": "rbc",
+      "region": null,
+      "label": "Боеприпас взорвался у ребенка Крым",
+      "text": "Найденный боеприпас взорвался в руках у ребенка в Крыму. Школьник получил травму руки.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:106",
+      "src": "rbc",
+      "region": null,
+      "label": "Отопительный сезон Подмосковье",
+      "text": "Отопительный сезон в Подмосковье начнут завершать с 5 мая. Полное отключение — на 12 мая.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:107",
+      "src": "rbc",
+      "region": null,
+      "label": "Ракетная опасность Дубай",
+      "text": "В Дубае объявили ракетную опасность. В ОАЭ объявили ракетную опасность, но спустя несколько минут отменили тревогу.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:108",
+      "src": "rbc",
+      "region": null,
+      "label": "АвтоВАЗ корпоративный отпуск",
+      "text": "АвтоВАЗ отправил сотрудников в корпоративный отпуск. Сотрудники АвтоВАЗа ушли в единый корпоративный отпуск до 13 мая.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:109",
+      "src": "rbc",
+      "region": null,
+      "label": "Погиб БПЛА Белгород",
+      "text": "Один человек погиб во время атаки БПЛА в Белгородской области. Три муниципалитета подверглись ударам ВСУ.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:110",
+      "src": "rbc",
+      "region": null,
+      "label": "Умер Филонов",
+      "text": "Умер актер из «Бандитского Петербурга» Валерий Филонов. На 86-м году жизни скончался актер.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:111",
+      "src": "rbc",
+      "region": null,
+      "label": "Алиев топливо Армении",
+      "text": "Алиев раскрыл объем поставленного Армении топлива. Азербайджан экспортировал в Армению 12 тысяч тонн нефтепродуктов.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:112",
+      "src": "rbc",
+      "region": null,
+      "label": "Челестини ЦСКА увольнение",
+      "text": "Челестини попрощался с футболистами ЦСКА после увольнения. Главный тренер ЦСКА расторг контракт по обоюдному согласию.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:113",
+      "src": "rbc",
+      "region": null,
+      "label": "ДТП КАМАЗ МКАД",
+      "text": "Момент массового ДТП с «КАМАЗом» на МКАД. На МКАД произошло массовое ДТП с участием КАМАЗа; повреждены 14 машин.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:114",
+      "src": "rbc",
+      "region": null,
+      "label": "Axios Трамп Иран война",
+      "text": "Axios раскрыл, как решения Трампа по Ирану могут возобновить войну. Трамп разрешил американским силам атаковать цели в Ормузском проливе.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:115",
+      "src": "rbc",
+      "region": null,
+      "label": "Собянин 2 БПЛА",
+      "text": "Собянин сообщил об уничтожении еще двух летевших на Москву беспилотников. Средствами ПВО уничтожены еще два беспилотника.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:116",
+      "src": "rbc",
+      "region": null,
+      "label": "Взрыв на заводе фейерверков Китай",
+      "text": "В Китае произошел взрыв на заводе по производству фейерверков. На заводе в провинции Хунань произошел взрыв.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:117",
+      "src": "rbc",
+      "region": null,
+      "label": "3 муниципалитета Белгород",
+      "text": "Три муниципалитета Белгородской области подверглись ударам.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:118",
+      "src": "rbc",
+      "region": null,
+      "label": "PZU MetLife Украина",
+      "text": "Польская компания PZU купила крупнейшего украинского страховщика. Польская страховая компания PZU приобрела украинское подразделение MetLife.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:119",
+      "src": "rbc",
+      "region": null,
+      "label": "Европарламент пошлины Трампа",
+      "text": "В Европарламенте назвали пошлины Трампа направленными против Германии. Депутат Европарламента заявил, что 25-процентные пошлины на европейские автомобили направлены против Германии.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:120",
+      "src": "rbc",
+      "region": null,
+      "label": "Меликов попросил время",
+      "text": "Меликов попросил пока не отправлять его на новую работу. Сергей Меликов просит время для передачи дел новому руководству.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:121",
+      "src": "rbc",
+      "region": null,
+      "label": "ЦСКА причина неудач",
+      "text": "В ЦСКА заявили, что не смогли найти причину неудач клуба. Генеральный директор ЦСКА признал, что с Челестини не нашли ответ на причины неудач.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:122",
+      "src": "rbc",
+      "region": null,
+      "label": "Теннисисты Ролан Гаррос",
+      "text": "Теннисисты раскритиковали «Ролан Гаррос» за экономию на призовых. Ведущие теннисисты требуют повысить долю призовых.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:123",
+      "src": "rbc",
+      "region": null,
+      "label": "РБЦ 3 БПЛА",
+      "text": "На подлете к Москве сбили три беспилотника.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:124",
+      "src": "rbc",
+      "region": null,
+      "label": "Челестини не убедил ЦСКА",
+      "text": "Челестини признал, что не смог убедить ЦСКА в возможности побед.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:125",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Мособлсуд контрабанда наркотиков",
+      "text": "Мособлсуд вынес приговор за контрабанду почти 100 кг наркотиков",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:126",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Газпром рекордный объем газа",
+      "text": "«Газпром» в апреле поставил россиянам рекордный объем газа",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:127",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Причина ДТП Камаз",
+      "text": "Стала известна причина массового ДТП с «Камазом» на МКАД в Москве",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:128",
+      "src": "vedomosti",
+      "region": null,
+      "label": "США выводят военных Германия",
+      "text": "США начали выводить своих военных из Германии",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:129",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Умер Жучков",
+      "text": "Умер экс-солист группы «Земляне» Юрий Жучков",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:130",
+      "src": "vedomosti",
+      "region": null,
+      "label": "СПБ Биржа объем торгов",
+      "text": "Объем торгов на «СПБ бирже» вырос в 1,6 раза в апреле",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:131",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Газпром медиа убыток",
+      "text": "Медиабизнес «Газпрома» показал убыток в 2025 году",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:132",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Собянин ПВО БПЛА",
+      "text": "Собянин: силы ПВО уничтожили еще два летевших на Москву БПЛА",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:133",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Моторика прибыль -21%",
+      "text": "Чистая прибыль «Моторики» снизилась на 21% в 2025 году",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:134",
+      "src": "vedomosti",
+      "region": null,
+      "label": "ОАЭ обвинили Иран ADNOC",
+      "text": "ОАЭ обвинили Иран в атаке на танкер ADNOC в Ормузском проливе",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:135",
+      "src": "vedomosti",
+      "region": null,
+      "label": "ПВО 90 БПЛА",
+      "text": "Средства ПВО уничтожили 90 беспилотников за шесть часов",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:136",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Источники Ведомостей Чайко ВКС",
+      "text": "Источники «Ведомостей» подтвердили назначение Чайко главкомом ВКС",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:137",
+      "src": "vedomosti",
+      "region": null,
+      "label": "ВСМПО убыток квартал",
+      "text": "«ВСМПО-Ависма» получила убыток за I квартал",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:138",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Меликов не направлять",
+      "text": "Меликов попросил пока не направлять его на новую должность",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:139",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Axios право удары Ормуз",
+      "text": "Axios: ВС США получили право наносить удары при угрозе судам в Ормузе",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:140",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Белоусов взятие Мирополья",
+      "text": "Белоусов поздравил военных со взятием Мирополья",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:141",
+      "src": "vedomosti",
+      "region": null,
+      "label": "НРА Сибавтотранс рейтинг",
+      "text": "НРА понизило кредитный рейтинг «Сибавтотранса»",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:142",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Армения UK партнёрство",
+      "text": "Армения и Великобритания заключили стратегическое партнерство. Пашинян и Стармер подписали документ в Ереване",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:143",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Внуково 50 рейсов задержки",
+      "text": "Около 50 рейсов задерживаются во «Внуково»",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:144",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Путин шерпа G20",
+      "text": "Путин сменил шерпу в G20",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:145",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Ведомости 3 БПЛА",
+      "text": "На подлете к Москве сбили три БПЛА",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:146",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Умер химзащита СССР",
+      "text": "Умер бывший глава войск химической защиты СССР",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:147",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Накопительные счета ставки",
+      "text": "Ставки по накопительным счетам в топ-банках опустились до 14,23%",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:148",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Путин Чиханчин Росфинмониторинг",
+      "text": "Путин продлил срок службы директору Росфинмониторинга",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:149",
+      "src": "vedomosti",
+      "region": null,
+      "label": "Москва ответит высылку Австрия",
+      "text": "Посольство РФ: Москва жестко ответит на высылку дипломатов из Австрии",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:150",
+      "src": "meduza",
+      "region": null,
+      "label": "Опрос про 9 Мая",
+      "text": "Мы хотим узнать, как за годы российско-украинской войны изменилось отношение к 9 Мая. Медуза просит читателей поделиться своими ощущениями",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:151",
+      "src": "meduza",
+      "region": null,
+      "label": "Банки отключают чаты",
+      "text": "Российские банки начали отключать чаты в своих приложениях. Сбер и Т-Банк отключили функцию переписки с другими пользователями",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:152",
+      "src": "meduza",
+      "region": null,
+      "label": "Oracle уволила 30 тыс письмом",
+      "text": "Oracle уволила 30 тысяч сотрудников одним письмом. Компания заменяет работников искусственным интеллектом",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:153",
+      "src": "meduza",
+      "region": null,
+      "label": "Чайко командующий ВКС",
+      "text": "Генерал Александр Чайко — новый командующий ВКС РФ. Назначенный генерал находится под санкциями ЕС за причастность к массовым убийствам в Буче",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:154",
+      "src": "meduza",
+      "region": null,
+      "label": "Spiegel издательства цензоры",
+      "text": "Spiegel: российские издательства нанимают цензоров. Издатели нанимают экспертов для проверки книг на \"чувствительные\" темы",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:155",
+      "src": "meduza",
+      "region": null,
+      "label": "Русагро арест имущества",
+      "text": "Суд арестовал имущество основателя «Русагро». Генпрокуратура добилась ареста активов Вадима Мошковича стоимостью более 1 млрд рублей",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:156",
+      "src": "meduza",
+      "region": null,
+      "label": "Захарова о гражданстве США",
+      "text": "«Глубинное государство» впихивает гражданство США детям российских дипломатов. Мария Захарова обвинила США в принудительном присвоении гражданства",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:157",
+      "src": "meduza",
+      "region": null,
+      "label": "56% россиян возвращение брендов",
+      "text": "Больше половины россиян хотят возвращения западных брендов. 56% опрошенных выражают желание вернуть ушедшие из России западные компании",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:158",
+      "src": "meduza",
+      "region": null,
+      "label": "Операторы отключения интернета",
+      "text": "Операторы связи предупредили об отключениях интернета. С 5 по 9 мая в Москве будут ограничения мобильного интернета и СМС",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:159",
+      "src": "meduza",
+      "region": null,
+      "label": "Задержан директор Красмаша",
+      "text": "Задержан директор «Красмаша». Руководитель завода, производящего баллистические ракеты, находится в СИЗО по подозрению в растрате",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:160",
+      "src": "meduza",
+      "region": null,
+      "label": "Путин опасается покушения",
+      "text": "Путин опасается покушения и переворота. Европейская разведка сообщает об усилении мер безопасности; он неделями находится в бункерах",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:161",
+      "src": "meduza",
+      "region": null,
+      "label": "Роскомнадзор VPN 92%",
+      "text": "Роскомнадзор требует 92% эффективности блокировок VPN. Документ выявил государственную задачу по блокировке VPN с конкретными KPI на миллиарды рублей",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:162",
+      "src": "meduza",
+      "region": null,
+      "label": "Гладков продлил отпуск",
+      "text": "Губернатор Белгородской области продлил отпуск. Вячеслав Гладков остается в отпуске еще две недели; в Кремле рассматривают его замену",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:163",
+      "src": "meduza",
+      "region": null,
+      "label": "США сопровождать суда Ормуз",
+      "text": "США будут сопровождать торговые суда в Ормузском проливе. Трамп объявил о миссии \"Проект Свобода\" для безопасного прохода судов",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:164",
+      "src": "meduza",
+      "region": null,
+      "label": "БПЛА в многоэтажку Москва",
+      "text": "Украинский беспилотник попал в многоэтажку в Москве. Дрон поразил жилой комплекс менее чем в 10 км от Кремля; пострадавших нет",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:165",
+      "src": "meduza",
+      "region": null,
+      "label": "Delta Chat обход блокировок",
+      "text": "Белые списки и мобильные шатдауны можно обойти через Delta Chat. Мессенджер с открытым кодом может работать при режиме белых списков",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:166",
+      "src": "meduza",
+      "region": null,
+      "label": "Чепик принудительное видео ФСБ",
+      "text": "София Чепик рассказала о принудительном видео для ФСБ. Участница чата «Алый лебедь» освобождена после того, как ФСБ вынудила её снять \"оперативное видео\"",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:167",
+      "src": "meduza",
+      "region": null,
+      "label": "Лидеры ЕС в Ереване",
+      "text": "В Ереван съехались лидеры ЕС на саммит. На восьмой саммит Европейского политического сообщества прибыл президент Украины",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:168",
+      "src": "tass",
+      "region": null,
+      "label": "Москва жёлтый уровень",
+      "text": "В Москве и Подмосковье объявили желтый уровень погодной опасности. С 09:00 до 21:00 мск 5 мая ожидается гроза.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:169",
+      "src": "tass",
+      "region": null,
+      "label": "Ставрополье террористы 10 лет",
+      "text": "Жителя Ставрополья осудили за приверженность террористам. Мужчину приговорили к 10 годам 6 месяцам.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:170",
+      "src": "tass",
+      "region": null,
+      "label": "Тува лесные пожары ЧС",
+      "text": "В лесах Тувы из-за пожаров ввели режим ЧС. Мера необходима для безопасности населенных пунктов.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:171",
+      "src": "tass",
+      "region": null,
+      "label": "Фицо Зеленский консультации",
+      "text": "Фицо на встрече с Зеленским обсудил перспективу межправительственных консультаций. Премьер-министр Словакии подчеркнул иной взгляд на вопросы энергоэкспорта.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:172",
+      "src": "tass",
+      "region": null,
+      "label": "Чечня линия электропередачи 579 млн",
+      "text": "В Чечне построили линию электропередачи для развития высокогорных районов. Проект обошелся в 579 млн рублей.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:173",
+      "src": "tass",
+      "region": null,
+      "label": "Путин биоэкопоселения Трансарктика",
+      "text": "Путин поручил создать биоэкопоселения вдоль Трансарктического коридора",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:174",
+      "src": "tass",
+      "region": null,
+      "label": "США Норвегия задержки оружия",
+      "text": "США проинформировали Норвегию о возможных задержках в поставках оружия",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:175",
+      "src": "tass",
+      "region": null,
+      "label": "Metro Baikal Pearl небезопасная",
+      "text": "Metro сняла с продажи партию потенциально небезопасной воды Baikal Pearl. Речь идет о продукции, произведенной в августе 2025 года.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:176",
+      "src": "tass",
+      "region": null,
+      "label": "Минздрав Ливана 2696 человек",
+      "text": "Минздрав Ливана заявил о гибели 2 696 человек со 2 марта из-за атак Израиля",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:177",
+      "src": "tass",
+      "region": null,
+      "label": "Меликов Дагестан 5 лет",
+      "text": "Экс-глава Дагестана Меликов рассказал о достижениях региона за пять лет. Запущены 12 промпредприятий, построено 200+ школ.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:178",
+      "src": "tass",
+      "region": null,
+      "label": "Эксперт Данилин о Щукине",
+      "text": "Эксперт Данилин назвал Щукина человеком \"с большим кредитом доверия\". Ключевая задача врио главы Дагестана — взаимодействие с правовым обществом.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:179",
+      "src": "tass",
+      "region": null,
+      "label": "Путин Сириус биоисследования",
+      "text": "Путин поручил разработать экспериментальный режим для биоисследований в \"Сириусе\"",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:180",
+      "src": "tass",
+      "region": null,
+      "label": "Эксперт Шуров кофе зависимость",
+      "text": "Эксперт Шуров рассказал, вызывает ли кофе зависимость. Это крайне редкое явление, напиток считается легким стимулятором.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:181",
+      "src": "tass",
+      "region": null,
+      "label": "Путин кадры биоэкономика",
+      "text": "Путин поручил оценить эффективность кадрового обеспечения проектов в биоэкономике",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:182",
+      "src": "tass",
+      "region": null,
+      "label": "Reuters хантавирус двое симптомы",
+      "text": "Reuters: на борту лайнера выявили еще двух человек с симптомами хантавируса. Готовится их эвакуация на берег.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:183",
+      "src": "tass",
+      "region": null,
+      "label": "Путин Стратегия биоэкономики 2036",
+      "text": "Путин поручил утвердить Стратегию долгосрочного развития биоэкономики в РФ до 2036 года",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:184",
+      "src": "tass",
+      "region": null,
+      "label": "Путин стандарты ИИ",
+      "text": "Путин поручил обновить образовательные стандарты с учетом внедрения ИИ",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:185",
+      "src": "tass",
+      "region": null,
+      "label": "Форум технологий 2027 цифра",
+      "text": "Форум будущих технологий в 2027 году будет посвящен внедрению \"цифры\"",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:186",
+      "src": "tass",
+      "region": null,
+      "label": "Замглавы Великолепетихского выписали",
+      "text": "Пострадавшего при атаке ВСУ замглавы Великолепетихского округа выписали. Медики оценивают состояние Дмитрия Толчеева как удовлетворительное.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:187",
+      "src": "tass",
+      "region": null,
+      "label": "Путин МИД БРИКС наука",
+      "text": "Путин поручил МИД поднять вопросы совместных исследований в БРИКС",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:188",
+      "src": "tass",
+      "region": null,
+      "label": "США влияние цен Иран",
+      "text": "В США признали влияние скачка цен из-за конфликта с Ираном на американцев. Завершение конфликта способствует снижению стоимости топлива.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:189",
+      "src": "tass",
+      "region": null,
+      "label": "Бессмертный полк Амстердам",
+      "text": "Посольство РФ: \"Бессмертный полк\" в Амстердаме пытались сорвать беженцы с Украины",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:190",
+      "src": "tass",
+      "region": null,
+      "label": "Воронеж отменили Парад",
+      "text": "В Воронеже отменили Парад Победы. Причиной стали возможные провокации ВСУ.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:191",
+      "src": "tass",
+      "region": null,
+      "label": "Газпром апрель рекорд газа",
+      "text": "\"Газпром\" в апреле поставил российским потребителям рекордные объемы газа. Повышенный спрос связан с холодной погодой.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:192",
+      "src": "tass",
+      "region": null,
+      "label": "Mein Kampf Украина",
+      "text": "ТАСС: украинские нацисты переиздали запрещенную книгу Гитлера. Речь идет о запрещенной в России книге Mein Kampf",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:193",
+      "src": "iz",
+      "region": null,
+      "label": "Хантавирус M/V Hondius россиянин",
+      "text": "На круизном лайнере со вспышкой хантавируса M/V Hondius есть гражданин России. Среди членов экипажа лайнера, на борту которого вспышка хантавируса, есть гражданин России, объявила Oceanwide Expeditions.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:194",
+      "src": "iz",
+      "region": null,
+      "label": "Электромобили с пробегом 23%",
+      "text": "Россияне стали чаще покупать электромобили с пробегом. Россияне приобрели 3112 подержанных электромобилей в I квартале 2026 года, рост 23% год-к-году, лидер вторичного рынка Nissan.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:195",
+      "src": "iz",
+      "region": null,
+      "label": "Владивосток теплотрасса",
+      "text": "Во Владивостоке при прорыве теплотрассы пострадали двое мужчин. Двое мужчин получили травмы при прорыве теплотрассы на улице Калинина.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:196",
+      "src": "iz",
+      "region": null,
+      "label": "Аварийные автомобили Lada",
+      "text": "Страховщик назвал самые аварийные автомобили в 2026 году. Lada возглавила рейтинг аварийности в I квартале 2026.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:197",
+      "src": "iz",
+      "region": null,
+      "label": "Путин Леонидова заслуж артистка",
+      "text": "Путин присвоил Анне Леонидовой звание заслуженной артистки России",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:198",
+      "src": "iz",
+      "region": null,
+      "label": "UVB-76 плавбаза",
+      "text": "Радиостанция Судного дня передала в эфире слово «плавбаза». Радиостанция UVB-76 передала слово после нескольких дней молчания.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:199",
+      "src": "iz",
+      "region": null,
+      "label": "Оман воды покраснели креветки",
+      "text": "Видео. В Омане прибрежные воды покраснели из-за массовой гибели креветок",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:200",
+      "src": "iz",
+      "region": null,
+      "label": "Крым ребенок взрыв боеприпаса",
+      "text": "В Крыму ребенок пострадал при взрыве найденного на улице боеприпаса. 12-летний мальчик получил травмы.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:201",
+      "src": "iz",
+      "region": null,
+      "label": "Эксперт договоры дарения",
+      "text": "Эксперт назвала последствия усложнения заключения договора дарения. Обязательное нотариальное заверение может временно сократить количество таких сделок.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:202",
+      "src": "iz",
+      "region": null,
+      "label": "США поставки оружия Европе",
+      "text": "США задержат поставки оружия Европе из-за войны в Иране. Что это означает",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:203",
+      "src": "iz",
+      "region": null,
+      "label": "ЕР Здоровая семья",
+      "text": "ЕР подвела итоги выполнения программы по направлению «Здоровая семья». Партия Единая Россия представила результаты программы в Санкт-Петербурге.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:204",
+      "src": "iz",
+      "region": null,
+      "label": "Остров Мечты 9 Мая",
+      "text": "К 9 Мая в «Острове Мечты» пройдет специальная программа. Развлекательный комплекс подготовил программу ко Дню Победы.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:205",
+      "src": "iz",
+      "region": null,
+      "label": "МО ФРГ Tomahawk",
+      "text": "МО ФРГ сообщило об отсутствии сигналов от США об отмене развертывания Tomahawk",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:206",
+      "src": "iz",
+      "region": null,
+      "label": "Адвокат запрещенные цветы",
+      "text": "Адвокат напомнила список запрещенных к выращиванию цветов в России. Некоторые растения запрещены для домашнего выращивания.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:207",
+      "src": "iz",
+      "region": null,
+      "label": "Госдума ВСУ День Победы",
+      "text": "В Госдуме предостерегли ВСУ от атак в День Победы. Член Госдумы предупредил украинские силы о последствиях.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:208",
+      "src": "iz",
+      "region": null,
+      "label": "Графика вакансии пенсионеров",
+      "text": "Графика. В каких сферах наибольшее число вакансий для пенсионеров",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:209",
+      "src": "iz",
+      "region": null,
+      "label": "Приморье минивэн в реку",
+      "text": "В Приморье при съезде минивэна в реку погиб автомобилист. 47-летний водитель погиб когда Toyota Isis съехала в реку Большая Уссурка.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:210",
+      "src": "iz",
+      "region": null,
+      "label": "Умер Филонов Иззвестия",
+      "text": "Умер актер из «Бандитского Петербурга» Валерий Филонов. Актер и режиссер скончался во время операции 3 мая.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:211",
+      "src": "iz",
+      "region": null,
+      "label": "Путин Приходько медаль Горловка",
+      "text": "Путин наградил мэра Горловки Приходько медалью «За храбрость» II степени. Иван Приходько получил медаль за храбрость второй степени.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:212",
+      "src": "iz",
+      "region": null,
+      "label": "UMO электрокар каршеринг",
+      "text": "Электрокар UMO сборки «Москвича» появился в каршеринге. UMO 5 теперь доступен в каршеринге Москвы.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:213",
+      "src": "iz",
+      "region": null,
+      "label": "Туапсе 250 помещений",
+      "text": "В Туапсе обследовали более 250 поврежденных помещений после атаки ВСУ. Более 250 помещений были обследованы после атаки украинских беспилотников.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:214",
+      "src": "iz",
+      "region": null,
+      "label": "Axios катера КСИР Ормуз",
+      "text": "Axios сообщил о разрешении американским военным атаковать катера КСИР в Ормузе. Силы США получили разрешение наносить удары по иранским катерам IRGC.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:215",
+      "src": "iz",
+      "region": null,
+      "label": "Абельцеву 8 лет",
+      "text": "Экс-депутату Госдумы Абельцеву запросили восемь лет колонии по делу о мошенничестве. Прокуроры запросили восемь лет лишения свободы для бывшего депутата.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:216",
+      "src": "iz",
+      "region": null,
+      "label": "Дефект свободы Ормуз",
+      "text": "Дефект свободы: операция США в Ормузе усилит напряженность с Ираном. Анализ как операции США в Ормузе могут эскалировать напряженность.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:217",
+      "src": "iz",
+      "region": null,
+      "label": "Волгоград ограничения полётов",
+      "text": "В аэропорту Волгограда ввели ограничения на полеты",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:218",
+      "src": "iz",
+      "region": null,
+      "label": "Графика помочь подростку",
+      "text": "Графика. Как помочь подростку",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:219",
+      "src": "iz",
+      "region": null,
+      "label": "Белгород БПЛА 1 погиб 7 ранены",
+      "text": "Один человек погиб и семеро пострадали при атаке ВСУ в Белгородской области. Один мирный житель погиб и ещё семеро ранены при ударах ВСУ.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:220",
+      "src": "iz",
+      "region": null,
+      "label": "ЦСКА Челестини видео прощания",
+      "text": "ЦСКА показал видео прощания Фабио Челестини с игроками. ЦСКА Москва опубликовал видео прощания экс-главного тренера.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:221",
+      "src": "iz",
+      "region": null,
+      "label": "Хорватия 4 мигранта тела",
+      "text": "Полиция Хорватии обнаружила тела четырех мигрантов на границе со Словенией. Хорватская полиция нашла тела четырёх мигрантов.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:222",
+      "src": "iz",
+      "region": null,
+      "label": "Baikal Pearl 112 тыс бутылок",
+      "text": "В России приостановили продажу 112 тыс. бутылок питьевой воды Baikal pearl. Россия приостановила продажу 112 000 бутылок воды.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:223",
+      "src": "forbes",
+      "region": null,
+      "label": "Cerebras IPO $3.5 млрд",
+      "text": "ИИ-стартап Cerebras планирует IPO на $3,5 млрд. Американская компания подала заявку на листинг на Nasdaq.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:224",
+      "src": "forbes",
+      "region": null,
+      "label": "ЭсЭфАй дивиденды 172 руб",
+      "text": "Акционеры «ЭсЭфАй» утвердили финальные дивиденды за 2025 год. Одобрены выплаты в размере 172 рублей на акцию.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:225",
+      "src": "forbes",
+      "region": null,
+      "label": "ATP/WTA Ролан Гаррос призовые",
+      "text": "Теннисисты топ-20 ATP и WTA выразили недовольство уровнем призовых на «Ролан Гаррос». Ведущие игроки, включая Джоковича и Синнера, критикуют турнир.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:226",
+      "src": "forbes",
+      "region": null,
+      "label": "Билайн ограничения интернета",
+      "text": "Билайн предупредил абонентов в Москве об ограничениях мобильного интернета и СМС. Оператор уведомил пользователей о временных сбоях с 5 по 9 мая.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:227",
+      "src": "forbes",
+      "region": null,
+      "label": "Аиом Технологии 25 млн",
+      "text": "Горное дело: российский стартап экс-сотрудников Dassault Systèmes привлек инвестора. Компания «Аиом Технологии» привлекла 25 млн рублей.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:228",
+      "src": "forbes",
+      "region": null,
+      "label": "Мир миллиардеров digest",
+      "text": "Мир миллиардеров: Apple без Кука, квартира за $550 млн, спасение бегемотов Эскобара. Дайджест освещает уход Тима Кука, покупку Ахметовым квартиры в Монако.",
+      "expected": "catch"
+    },
+    {
+      "id": "phase1:229",
+      "src": "forbes",
+      "region": null,
+      "label": "Агата Кристи памятная доска",
+      "text": "В Екатеринбурге установят памятную доску группе «Агата Кристи». Памятная доска будет открыта 7 мая на территории Уральского федерального университета.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:230",
+      "src": "forbes",
+      "region": null,
+      "label": "Forbes Club Вьюгин экономика",
+      "text": "Ситуация «на троечку»: Forbes Club обсудил перспективы экономики с Олегом Вьюгиным. Экономист дал неутешительную оценку состоянию российской экономики.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:231",
+      "src": "forbes",
+      "region": null,
+      "label": "Свобода фабрика банкротство",
+      "text": "Косметическая фабрика «Свобода» может стать банкротом. Компания задолжала 125 млн рублей.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:232",
+      "src": "forbes",
+      "region": null,
+      "label": "8 альтернативных педсистем",
+      "text": "Против течения: восемь альтернативных педагогических систем. Статья рассматривает восемь методик образования, от Монтессори до вальдорфской педагогики.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:233",
+      "src": "forbes",
+      "region": null,
+      "label": "Керлингисты ЧМ визы",
+      "text": "Российские керлингисты не выступят на юниорском ЧМ в Канаде из-за невыдачи виз. Российская сборная не получила визы для участия.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:234",
+      "src": "forbes",
+      "region": null,
+      "label": "Москва жесткая реакция Австрия",
+      "text": "Посольство России пообещало «жесткую реакцию» Москвы на высылку дипломатов из Австрии. Вена выслала трех российских дипломатов.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:235",
+      "src": "forbes",
+      "region": null,
+      "label": "56% за возвращение брендов Forbes",
+      "text": "Более половины россиян высказались за возвращение западных компаний. Опрос показал, что 56% граждан ждут возвращения западного бизнеса.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:236",
+      "src": "forbes",
+      "region": null,
+      "label": "Ричард Гир Асимметрия",
+      "text": "Ричард Гир сыграет в мелодраме «Асимметрия» Эдварда Цвика. Актер займет главную роль в романтической драме.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:237",
+      "src": "forbes",
+      "region": null,
+      "label": "Русагро арест 100% акций",
+      "text": "Суд по иску Генпрокуратуры арестовал 100% акций «Русагро». Хамовнический суд наложил арест на акции стоимостью более 1,174 млрд рублей.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:238",
+      "src": "forbes",
+      "region": null,
+      "label": "РБК Чайко главком ВКС",
+      "text": "РБК узнал о назначении новым главнокомандующим ВКС генерала Чайко. Генерал-полковник Александр Чайко сменил Виктора Афзалова.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:239",
+      "src": "forbes",
+      "region": null,
+      "label": "Заболотный допинг-тест",
+      "text": "Нападающий «Спартака» Антон Заболотный сдал положительный допинг-тест. 34-летний футболист сдал положительную пробу.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:240",
+      "src": "forbes",
+      "region": null,
+      "label": "Генпрокуратура Мошкович активы",
+      "text": "Генпрокуратура потребовала изъять активы основателя «Русагро» миллиардера Мошковича. Надзорный орган подал иск об обращении в доход государства активов.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:241",
+      "src": "kom-econ",
+      "region": null,
+      "label": "ВШЭ цифровая маркировка прибыль",
+      "text": "Эксперты ВШЭ зафиксировали рост прибыли производителей благодаря цифровой маркировке. Исследователи установили, что внедрение цифровой маркировки привело к устойчивому росту чистой прибыли.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:242",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Долг регионам -114 млрд",
+      "text": "Правительство сократит долг регионам по бюджетным кредитам на 114 млрд рублей. Премьер-министр Мишустин объявил о частичном списании.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:243",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Минэкономики ОЭЗ",
+      "text": "От зон ждут большего. Минэкономики предложило меры по повышению эффективности ОЭЗ. Министерство представило инициативы.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:244",
+      "src": "kom-econ",
+      "region": null,
+      "label": "ВВП Q1 темп спада 0.3%",
+      "text": "Население и обработка подтянули ВВП. Темпы спада экономики РФ по итогам первого квартала сократились до 0,3%.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:245",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Джини 0.375",
+      "text": "Неравенство стало более равным. Борьба с бедностью потребовала изменения способа расчета коэффициента Джини. Новый коэффициент Джини составил 0,375 за 2025 год.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:246",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Минфин 200 млрд нефть",
+      "text": "В Минфине оценили доходы бюджета России от подорожания нефти в 200 млрд рублей. Минфин прогнозирует доходы.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:247",
+      "src": "kom-econ",
+      "region": null,
+      "label": "ОПЕК+ 188K баррелей",
+      "text": "Семь стран ОПЕК+ приняли первое решение по добыче нефти после ухода ОАЭ. Семь стран увеличили добычу на 188 тысяч баррелей в день.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:248",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Турция импорт -3.5 млрд",
+      "text": "Минторг Турции сообщил о сокращении импорта из России на $3,5 млрд за квартал. Турецкий импорт из России снизился на $3,5 млрд.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:249",
+      "src": "kom-econ",
+      "region": null,
+      "label": "Дмитриев пошлины Трампа удар ЕС",
+      "text": "Дмитриев назвал пошлины Трампа смертельным ударом для промышленности ЕС. Глава РФПИ охарактеризовал пошлины Трампа.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:250",
+      "src": "rt",
+      "region": null,
+      "label": "Макдональд КНР санкции",
+      "text": "Макдональд: решение КНР игнорировать санкции США — хорошая новость для России. Ирландский журналист заявил, что решение Китая игнорировать санкции США может быть положительным для России.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:251",
+      "src": "rt",
+      "region": null,
+      "label": "Домогаров и Сурганова Кубок",
+      "text": "Домогаров и Сурганова выступят на матчах Кубка России с песнями военных лет. Российские актеры выступят с песнями военных лет на матчах Кубка России.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:252",
+      "src": "rt",
+      "region": null,
+      "label": "Михал Эстония БПЛА",
+      "text": "Михал призвал, чтобы обломки атакующих Россию БПЛА ВСУ не падали на Эстонию. Премьер-министр Эстонии попросил, чтобы обломки украинских беспилотников не падали на территорию Эстонии.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:253",
+      "src": "rt",
+      "region": null,
+      "label": "Лавров МИД Египта",
+      "text": "Лавров обсудил с главой МИД Египта ситуацию на Ближнем Востоке. Сергей Лавров обсуждает ситуацию на Ближнем Востоке с египетским коллегой.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:254",
+      "src": "rt",
+      "region": null,
+      "label": "Axios Проект Свобода Иран",
+      "text": "Axios: «Проект Свобода» может дать повод США возобновить войну с Ираном. Неудачная попытка США провести суда через Ормузский пролив.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:255",
+      "src": "rt",
+      "region": null,
+      "label": "Bild США 5 тыс солдат Германия",
+      "text": "Bild: США готовятся вывести 5 тысяч солдат с крупнейшей базы в Германии. США готовятся вывести 5000 солдат с крупнейшей американской военной базы в Германии.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:256",
+      "src": "rt",
+      "region": null,
+      "label": "Колосков Челестини",
+      "text": "Колосков: Челестини завалил индивидуальную работу, поддерживаю решение ЦСКА. Почетный президент Российского футбольного союза комментирует увольнение тренера ЦСКА.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:257",
+      "src": "rt",
+      "region": null,
+      "label": "Госдума подработка мошенничество",
+      "text": "В Госдуме объяснили, как подработка в сети может обернуться мошенничеством. Государственная Дума предупреждает о схемах онлайн-мошенничества.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:258",
+      "src": "rt",
+      "region": null,
+      "label": "Путин биотех приборостроение RT",
+      "text": "Путин поручил принять меры по поддержке биотехнологического приборостроения",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:259",
+      "src": "rt",
+      "region": null,
+      "label": "Путин ядерные технологии медицина RT",
+      "text": "Путин поручил создать рабочую группу по применению ядерных технологий в медицине",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:260",
+      "src": "rt",
+      "region": null,
+      "label": "Путин места биоэкономика RT",
+      "text": "Путин призвал увеличить число мест в вузах по направлениям биоэкономики",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:261",
+      "src": "rt",
+      "region": null,
+      "label": "МОК отказался киберспорт",
+      "text": "МОК окончательно отказался от развития киберспорта. Международный олимпийский комитет отказывается развивать киберспорт.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:262",
+      "src": "rt",
+      "region": null,
+      "label": "Минпромторг параллельный импорт RT",
+      "text": "Минпромторг: исключение техники из параллельного импорта не изменит ассортимент. Министерство заявляет, что исключение компьютеров не повлияет на ассортимент.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:263",
+      "src": "rt",
+      "region": null,
+      "label": "Yle Финляндия БПЛА",
+      "text": "Yle: Финляндия не сбила залетевшие БПЛА из-за близости к границе с Россией. Финляндия не сбила беспилотники из-за близости к границе.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:264",
+      "src": "rt",
+      "region": null,
+      "label": "Безос яхта $500 млн",
+      "text": "Безос выставил на продажу 127-метровую парусную яхту за $500 млн. Основатель Amazon Джефф Безос выставил на продажу 127-метровый парусник.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:265",
+      "src": "rt",
+      "region": null,
+      "label": "Игдисамов ЦСКА",
+      "text": "И. о. главного тренера ЦСКА Игдисамов: сейчас нам стоит объединиться. Временный главный тренер ЦСКА призывает к единству команды.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:266",
+      "src": "rt",
+      "region": null,
+      "label": "Умер Филонов RT",
+      "text": "Умер актёр из «Бандитского Петербурга» и «Убойной силы» Валерий Филонов. Актер Валерий Филонов скончался в возрасте 86 лет.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:267",
+      "src": "rt",
+      "region": null,
+      "label": "Крым ребёнок взрыв RT",
+      "text": "В Крыму ребёнок пострадал при детонации взрывоопасного предмета. Ребёнок получил травму при детонации найденного взрывоопасного предмета.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:268",
+      "src": "rt",
+      "region": null,
+      "label": "Россияне регучёт",
+      "text": "Россиянам объяснили, что изменилось в процедуре снятия с регистрационного учёта. Изменения упрощают процедуру снятия с регистрации.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:269",
+      "src": "rt",
+      "region": null,
+      "label": "Путин омский школьник медаль",
+      "text": "Путин наградил омского школьника, который спас из горящего дома брата и сестёр. Президент наградил школьника медалью за спасение братьев и сестёр.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:270",
+      "src": "rt",
+      "region": null,
+      "label": "Колесник лишить безопасности Киев",
+      "text": "Депутат Колесник: нужно лишить чувства безопасности лиц, принимающих решения в Киеве. Депутат Государственной Думы комментирует атаки украинских беспилотников.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:271",
+      "src": "rt",
+      "region": null,
+      "label": "РИА Дубай ракетная угроза",
+      "text": "РИА Новости: жители Дубая получили оповещение о ракетной угрозе. Жители Дубая получили мобильное оповещение о потенциальной ракетной угрозе.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:272",
+      "src": "rt",
+      "region": null,
+      "label": "Кизеветтер Томагавк",
+      "text": "Депутат бундестага Кизеветтер призвал создать аналог «Томагавка» вместе с Киевом. Депутат бундестага предлагает разработать европейский аналог ракеты.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:273",
+      "src": "rt",
+      "region": null,
+      "label": "Бабаев Челестини отставка",
+      "text": "Бабаев — об отставке Челестини: мы так и не нашли ответа, что именно и в какой момент пошло не так. Директор ЦСКА обсуждает изменения тренерского штаба.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:274",
+      "src": "rt",
+      "region": null,
+      "label": "Россияне фото геолокация",
+      "text": "Россиян предупредили, какие фото с геолокацией опасно выкладывать в соцсетях. Эксперты по кибербезопасности предупреждают о публикации фото с геотегами.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:275",
+      "src": "rt",
+      "region": null,
+      "label": "Интерфакс 32% Киев украинский",
+      "text": "Интерфакс-Украина: только треть жителей Киева постоянно говорит на украинском. Опрос показывает, что только 32 процента жителей Киева постоянно говорят по-украински.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:276",
+      "src": "rt",
+      "region": null,
+      "label": "Россияне фишинг 9 Мая",
+      "text": "Россиянам рассказали о росте фишинга со стороны мошенников в преддверии 9 Мая. Сотрудники кибербезопасности сообщают об увеличении фишинговых атак.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:277",
+      "src": "rt",
+      "region": null,
+      "label": "Меликов отсрочка назначения",
+      "text": "Экс-глава Дагестана попросил отсрочку нового назначения ради помощи врио. Бывший глава Дагестана просит отсрочки нового назначения.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:278",
+      "src": "rt",
+      "region": null,
+      "label": "Белгород 1 погиб 7 ранены RT",
+      "text": "В Белгородской области при атаках ВСУ погиб мирный житель, ещё семеро ранены. Один мирный житель погиб, семеро ранены при атаках ВСУ.",
+      "expected": "pass"
+    },
+    {
+      "id": "phase1:279",
+      "src": "rt",
+      "region": null,
+      "label": "Туск Польша военные США",
+      "text": "Туск заявил, что Польша не примет выводимых из Европы военных США. Премьер-министр Польши заявил, что Польша не разместит войска США.",
+      "expected": "pass"
+    }
+  ]
+}

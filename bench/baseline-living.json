@@ -1,0 +1,1020 @@
+{
+  "schema_version": 2,
+  "set": "living",
+  "pack_stack": [
+    "news",
+    "news-de",
+    "epistemology",
+    "healthcare"
+  ],
+  "corpus_size": 111,
+  "summary": {
+    "accuracy": 0.7837837837837838,
+    "ok": 87,
+    "fp": 2,
+    "fn": 22
+  },
+  "results": [
+    {
+      "id": "multiregion:229",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Bahamas election",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:230",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Hantavirus cruise",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:231",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Canvas ransomware",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:232",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Ted Turner dies",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:233",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Wu Yize snooker",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:234",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Russian strikes Kyiv",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:235",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Iran Chinese Hormuz",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:236",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Yemen prisoner swap",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:237",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "FIFA halftime show",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:238",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Cuba diesel depletion",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:239",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Pakistan US ceasefire",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:240",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Starmer cabinet resign",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:241",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Pope Leo LGBT report",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:242",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Thaksin released",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:243",
+      "src": "wiki-events",
+      "region": "INTL",
+      "label": "Israel military trials",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:244",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Trump US-Iran China",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:245",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Bolivia mining protest",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:246",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Cuba Diaz-Canel US aid",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:247",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Musk OpenAI lawsuit",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:248",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Border Patrol Banks resigns",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:249",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Lebanon Israel talks",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:250",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Abbas Fatah conference",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:251",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Mbappe France squad",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:252",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Trump Beijing return",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:253",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Lebanon Israel goals",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:254",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Iran tiered internet",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:255",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Jerusalem Day chants",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:256",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Powell Fed COVID",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:257",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Trump UN aid 1.8bn",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:258",
+      "src": "aljazeera",
+      "region": "INTL",
+      "label": "Sudan 20mn hunger",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:259",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "Lupita Nyongo MAGA minds",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:260",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "35 OUTRAGEOUSLY wholesome",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:261",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "OUCH OWIE 29 posts abs",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:262",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "15 events not reaching US",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:263",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "41 times odd identify",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:264",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "Internet cannot stop Trump restaurant",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:265",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "body problems 36 products",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:266",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "35 shoes Amazon walking",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:267",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "50 times awful record",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:268",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "23 wild random comments",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:269",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "50 funnier than ever",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:270",
+      "src": "buzzfeed2026",
+      "region": "US",
+      "label": "21 wrong wrong wrong",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:271",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "husband volunteers wife babysit",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:272",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "daily timeline game",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:273",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "55 cat tweets every owner",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:274",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "French president slap actress",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:275",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "Demi Moore risks red carpet",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:276",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "mom dark secrets drowned",
+      "expected": "catch",
+      "caught": true,
+      "correct": true
+    },
+    {
+      "id": "multiregion:277",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "Blake Lively chilling blacklisted",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:278",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "tourist rock seal rich",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:279",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "TUI flight drunk bites",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:280",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "19YO coma triplets devastating",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:281",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "65 street photos magic",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:282",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "Epstein survivor chilling courtroom",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:283",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "54 beauty fails hide",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:284",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "match 25 opening lyrics",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:285",
+      "src": "boredpanda",
+      "region": "US",
+      "label": "54 cringe people laughingstock",
+      "expected": "catch",
+      "caught": false,
+      "correct": false
+    },
+    {
+      "id": "multiregion:286",
+      "src": "axios",
+      "region": "US",
+      "label": "Trump Beijing summit",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:287",
+      "src": "axios",
+      "region": "US",
+      "label": "House leaders absentee",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:288",
+      "src": "axios",
+      "region": "US",
+      "label": "SCOTUS abortion pill",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:289",
+      "src": "axios",
+      "region": "US",
+      "label": "AI robot tires",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:290",
+      "src": "axios",
+      "region": "US",
+      "label": "CIA director Cuba",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:291",
+      "src": "axios",
+      "region": "US",
+      "label": "House Ethics Edwards",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:292",
+      "src": "axios",
+      "region": "US",
+      "label": "Tennessee map",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:293",
+      "src": "axios",
+      "region": "US",
+      "label": "Wilson reelection",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:294",
+      "src": "axios",
+      "region": "US",
+      "label": "Seniors dating apps",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:295",
+      "src": "axios",
+      "region": "US",
+      "label": "Cruise boom",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:296",
+      "src": "axios",
+      "region": "US",
+      "label": "OpenAI codex phone",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:297",
+      "src": "axios",
+      "region": "US",
+      "label": "July 4 fireworks record",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:298",
+      "src": "axios",
+      "region": "US",
+      "label": "Doctors autonomous vehicles",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:299",
+      "src": "axios",
+      "region": "US",
+      "label": "House Ethics Chuck Edwards",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:300",
+      "src": "axios",
+      "region": "US",
+      "label": "Judge rejects Tennessee Democrats",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:301",
+      "src": "propublica",
+      "region": "US",
+      "label": "Oregon healthcare law",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:302",
+      "src": "propublica",
+      "region": "US",
+      "label": "FDA wont tell medications",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:303",
+      "src": "propublica",
+      "region": "US",
+      "label": "Counterterrorism czar blueprint",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:304",
+      "src": "propublica",
+      "region": "US",
+      "label": "Chicago immigrant raid damages",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:305",
+      "src": "propublica",
+      "region": "US",
+      "label": "Noncitizen vote detained",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:306",
+      "src": "propublica",
+      "region": "US",
+      "label": "Medicine cabinet FDA gamble",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:307",
+      "src": "propublica",
+      "region": "US",
+      "label": "Generic drugs where made",
+      "expected": "pass",
+      "caught": true,
+      "correct": false
+    },
+    {
+      "id": "multiregion:308",
+      "src": "propublica",
+      "region": "US",
+      "label": "Connecticut DMV tow cars",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:309",
+      "src": "propublica",
+      "region": "US",
+      "label": "DMV employee towed cars",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:310",
+      "src": "propublica",
+      "region": "US",
+      "label": "Trump cake aid cholera",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:311",
+      "src": "propublica",
+      "region": "US",
+      "label": "Trump hunger crisis",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:312",
+      "src": "propublica",
+      "region": "US",
+      "label": "Agent Orange cleanup halted",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:313",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Super El Nino forecast",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:314",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Farmers markets shoppers",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:315",
+      "src": "theconversation",
+      "region": "US",
+      "label": "TikTok microdramas",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:316",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Is AI really writing",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:317",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Trump tariffs economic policy",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:318",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Moon missions sustainable",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:319",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Space archaeology galaxy",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:320",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Trump supporters voter remorse",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:321",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Nudge theory responsibility",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:322",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Bat economic worth",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:323",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Adams Jefferson revolution",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:324",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Baloch insurgency Pakistan",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:325",
+      "src": "theconversation",
+      "region": "US",
+      "label": "World Cup ball test",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:326",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Tarot readers AI",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:327",
+      "src": "theconversation",
+      "region": "US",
+      "label": "Detroit water affordability",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:328",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Green stamps loyalty",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:329",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Fetuses catch yawns",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:330",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Kahlo Rivera opera",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:331",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Fish manta rays",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:332",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Mel Brooks archive",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:333",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Bering Strait dam",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:334",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "American history 250 objects",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:335",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Philadelphia loyalist",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:336",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Seabird Sue art science",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:337",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "High schooler AI retina",
+      "expected": "pass",
+      "caught": true,
+      "correct": false
+    },
+    {
+      "id": "multiregion:338",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Mary Boleyn research",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    },
+    {
+      "id": "multiregion:339",
+      "src": "smithsonian",
+      "region": "US",
+      "label": "Pregnancy changes brain",
+      "expected": "pass",
+      "caught": false,
+      "correct": true
+    }
+  ],
+  "frozen_at": "2026-06-05T20:46:02.619Z",
+  "guard_version": "0.4.2"
+}

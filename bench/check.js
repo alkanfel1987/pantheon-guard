@@ -1,91 +1,83 @@
 /**
- * pantheon-guard · regression check vs frozen baseline
+ * pantheon-guard · regression check vs frozen + living baselines
  *
- * Runs the production pack stack against the same N=509 corpus and compares
- * to bench/baseline.json case-by-case. Reports:
- *   - corpus-hash mismatch (corpus mutated since freeze)
- *   - per-case verdict drift
- *   - aggregated accuracy / FP / FN delta
- *   - exact-binomial McNemar test on discordant pairs
+ * FROZEN (bench/baseline.json, pre-registered N=509) — hard gate:
+ *   - corpus-hash mismatch (the immutable snapshot must never change)
+ *   - any new FP (strict: pass-case that flips to caught)
+ *   - statistically significant McNemar regression (exact binomial sign test)
  *
- * Exit codes:
- *   0  no drift, or drift is statistically not significant AND no new FPs
- *   1  significant regression OR new FP introduced OR corpus hash changed
+ * LIVING (bench/baseline-living.json, growing set) — soft gate:
+ *   - fails ONLY if a case already recorded in the living baseline REGRESSES
+ *     (was correct, now wrong). Newly-added cases never fail CI — corpus growth
+ *     is expected. Re-freeze the living baseline (`npm run bench:freeze`) to
+ *     accept current verdicts on new cases.
  *
- * Significance gate (paired McNemar, exact binomial sign test):
- *   discordant pairs (b, c) where b = newly-correct, c = newly-wrong
- *   p_one_sided = P(X >= c | n = b+c, p = 0.5)  → fails CI if p < 0.05 and c > b
- *
- * On N=509 the floor is ~5 cases shifted one-sided, ≈0.98pp accuracy delta.
+ * Exit codes: 0 = clean (or only benign growth); 1 = frozen drift / regression.
  *
  * Usage: npm run bench:check
  */
 
 import { readFileSync } from 'node:fs';
-import { runCorpus } from './run.js';
+import { runFrozen, runLiving } from './run.js';
+
+const failures = [];
+const lines = [];
+
+// ────────────────────────────── FROZEN (N=509) ──────────────────────────────
 
 const baseline = JSON.parse(
   readFileSync(new URL('./baseline.json', import.meta.url), 'utf8'),
 );
-const current = runCorpus();
+const frozen = runFrozen();
 
-const failures = [];
-
-if (current.corpus_hash !== baseline.corpus_hash) {
+if (frozen.corpus_hash !== baseline.corpus_hash) {
   failures.push(
-    `corpus hash mismatch — corpus files mutated since freeze\n` +
+    `[frozen] corpus hash mismatch — the pre-registered N=509 snapshot was mutated\n` +
       `  baseline: ${baseline.corpus_hash}\n` +
-      `  current : ${current.corpus_hash}`,
+      `  current : ${frozen.corpus_hash}\n` +
+      `  bench/corpus-frozen.json is immutable; new examples belong in the living set.`,
   );
 }
-
-if (current.corpus_size !== baseline.corpus_size) {
+if (frozen.corpus_size !== baseline.corpus_size) {
   failures.push(
-    `corpus size mismatch: baseline=${baseline.corpus_size} current=${current.corpus_size}`,
+    `[frozen] corpus size mismatch: baseline=${baseline.corpus_size} current=${frozen.corpus_size}`,
   );
 }
 
-const baselineById = new Map(baseline.results.map((r) => [r.id, r]));
-const drift = [];
-let newlyCorrect = 0; // baseline wrong → current correct (b in McNemar)
-let newlyWrong = 0; //   baseline correct → current wrong (c in McNemar)
+const baseById = new Map(baseline.results.map((r) => [r.id, r]));
+let newlyCorrect = 0;
+let newlyWrong = 0;
 let newFp = 0;
 let newFn = 0;
 let fixedFp = 0;
 let fixedFn = 0;
+const frozenDrift = [];
 
-for (const c of current.results) {
-  const b = baselineById.get(c.id);
+for (const c of frozen.results) {
+  const b = baseById.get(c.id);
   if (!b) {
-    drift.push({ id: c.id, kind: 'new-case', current: c });
+    frozenDrift.push({ id: c.id, kind: 'new-case', current: c });
     continue;
   }
   if (b.caught === c.caught && b.correct === c.correct) continue;
-
-  drift.push({
+  frozenDrift.push({
     id: c.id,
     label: c.label,
     expected: c.expected,
     baseline: { caught: b.caught, correct: b.correct },
     current: { caught: c.caught, correct: c.correct },
   });
-
   if (!b.correct && c.correct) newlyCorrect++;
   if (b.correct && !c.correct) newlyWrong++;
-
-  // Targeted regression flags
   if (c.expected === 'pass' && c.caught && !b.caught) newFp++;
   if (c.expected === 'pass' && !c.caught && b.caught) fixedFp++;
   if (c.expected === 'catch' && !c.caught && b.caught) newFn++;
   if (c.expected === 'catch' && c.caught && !b.caught) fixedFn++;
 }
 
-// Exact binomial McNemar (sign-test variant) on discordant pairs.
-// One-sided test for "current is worse than baseline": p = P(X >= newlyWrong)
-// under null p=0.5 with n = newlyCorrect + newlyWrong.
+// Exact binomial McNemar (sign-test) on discordant pairs.
 function binomCdfRight(k, n, p = 0.5) {
   if (n === 0) return 1;
-  // sum_{i=k..n} C(n,i) * p^i * (1-p)^(n-i)
   let logFactN = 0;
   for (let i = 1; i <= n; i++) logFactN += Math.log(i);
   let total = 0;
@@ -100,79 +92,98 @@ function binomCdfRight(k, n, p = 0.5) {
   return Math.min(1, total);
 }
 
-const discordantTotal = newlyCorrect + newlyWrong;
-const pRegression =
-  discordantTotal === 0 ? 1 : binomCdfRight(newlyWrong, discordantTotal, 0.5);
+const discordant = newlyCorrect + newlyWrong;
+const pRegression = discordant === 0 ? 1 : binomCdfRight(newlyWrong, discordant, 0.5);
+const accDelta = frozen.summary.accuracy - baseline.summary.accuracy;
 
-const accDelta =
-  current.summary.accuracy - baseline.summary.accuracy;
-
-const reportLines = [];
-reportLines.push('═'.repeat(72));
-reportLines.push('  pantheon-guard · bench:check vs frozen baseline');
-reportLines.push('═'.repeat(72));
-reportLines.push(`  baseline guard v${baseline.guard_version}  frozen ${baseline.frozen_at}`);
-reportLines.push(`  corpus N=${current.corpus_size}  hash=${current.corpus_hash.slice(0, 12)}…`);
-reportLines.push('');
-reportLines.push('  ── summary delta ──');
-reportLines.push(
-  `  accuracy : ${(baseline.summary.accuracy * 100).toFixed(2)}% → ${(current.summary.accuracy * 100).toFixed(2)}%   (Δ ${(accDelta * 100 >= 0 ? '+' : '')}${(accDelta * 100).toFixed(2)}pp)`,
+lines.push('═'.repeat(72));
+lines.push('  pantheon-guard · bench:check');
+lines.push('═'.repeat(72));
+lines.push(`  ── frozen (pre-registered) · baseline v${baseline.guard_version} frozen ${baseline.frozen_at} ──`);
+lines.push(`  corpus N=${frozen.corpus_size}  hash=${frozen.corpus_hash.slice(0, 12)}…`);
+lines.push(
+  `  accuracy : ${(baseline.summary.accuracy * 100).toFixed(2)}% → ${(frozen.summary.accuracy * 100).toFixed(2)}%   (Δ ${(accDelta * 100 >= 0 ? '+' : '')}${(accDelta * 100).toFixed(2)}pp)`,
 );
-reportLines.push(
-  `  FP       : ${baseline.summary.fp} → ${current.summary.fp}   (newFP=${newFp}, fixedFP=${fixedFp})`,
-);
-reportLines.push(
-  `  FN       : ${baseline.summary.fn} → ${current.summary.fn}   (newFN=${newFn}, fixedFN=${fixedFn})`,
-);
-reportLines.push('');
-reportLines.push('  ── McNemar (paired, exact binomial) ──');
-reportLines.push(
-  `  newly-correct (b) = ${newlyCorrect}   newly-wrong (c) = ${newlyWrong}`,
-);
-reportLines.push(
-  `  P(regression | null) one-sided = ${pRegression.toFixed(4)}   ${
-    pRegression < 0.05 && newlyWrong > newlyCorrect ? '** SIGNIFICANT REGRESSION **' : 'n.s.'
-  }`,
-);
-
-if (drift.length === 0) {
-  reportLines.push('');
-  reportLines.push('  ✓ no drift — every case matches baseline');
+lines.push(`  FP       : ${baseline.summary.fp} → ${frozen.summary.fp}   (newFP=${newFp}, fixedFP=${fixedFp})`);
+lines.push(`  FN       : ${baseline.summary.fn} → ${frozen.summary.fn}   (newFN=${newFn}, fixedFN=${fixedFn})`);
+lines.push(`  McNemar  : newly-correct=${newlyCorrect} newly-wrong=${newlyWrong}  p=${pRegression.toFixed(4)} ${pRegression < 0.05 && newlyWrong > newlyCorrect ? '** SIGNIFICANT **' : 'n.s.'}`);
+if (frozenDrift.length === 0) {
+  lines.push('  ✓ no drift — every frozen case matches baseline');
 } else {
-  reportLines.push('');
-  reportLines.push(`  ── drift (${drift.length} cases) ──`);
-  for (const d of drift.slice(0, 25)) {
+  lines.push(`  drift (${frozenDrift.length}):`);
+  for (const d of frozenDrift.slice(0, 25)) {
     if (d.kind === 'new-case') {
-      reportLines.push(`    [new] ${d.id}  ${d.current.label ?? ''}`);
+      lines.push(`    [unexpected-new] ${d.id}  ${d.current.label ?? ''}`);
       continue;
     }
-    const bMark = d.baseline.correct ? '✓' : '✗';
-    const cMark = d.current.correct ? '✓' : '✗';
-    reportLines.push(
-      `    ${d.id}  ${bMark}→${cMark}  exp=${d.expected}  baseCaught=${d.baseline.caught} curCaught=${d.current.caught}  ${d.label ?? ''}`,
-    );
+    const bm = d.baseline.correct ? '✓' : '✗';
+    const cm = d.current.correct ? '✓' : '✗';
+    lines.push(`    ${d.id}  ${bm}→${cm}  exp=${d.expected}  ${d.label ?? ''}`);
   }
-  if (drift.length > 25) reportLines.push(`    … and ${drift.length - 25} more`);
+  if (frozenDrift.length > 25) lines.push(`    … and ${frozenDrift.length - 25} more`);
 }
 
-console.log(reportLines.join('\n'));
-
-// CI gate logic
 if (newFp > 0) {
-  failures.push(
-    `${newFp} new false positive(s) introduced — strict gate: any new FP fails CI`,
-  );
+  failures.push(`[frozen] ${newFp} new false positive(s) — strict gate: any new FP on the pre-registered set fails CI`);
 }
 if (pRegression < 0.05 && newlyWrong > newlyCorrect) {
-  failures.push(
-    `McNemar regression p=${pRegression.toFixed(4)} (newly-wrong=${newlyWrong} vs newly-correct=${newlyCorrect})`,
-  );
+  failures.push(`[frozen] McNemar regression p=${pRegression.toFixed(4)} (newly-wrong=${newlyWrong} vs newly-correct=${newlyCorrect})`);
 }
+
+// ────────────────────────────── LIVING (growing) ─────────────────────────────
+
+lines.push('');
+lines.push('  ── living (growing regression set) ──');
+
+let livingBaseline = null;
+try {
+  livingBaseline = JSON.parse(
+    readFileSync(new URL('./baseline-living.json', import.meta.url), 'utf8'),
+  );
+} catch {
+  /* no living baseline yet — first run */
+}
+
+const living = runLiving();
+
+if (!livingBaseline) {
+  lines.push(`  N=${living.corpus_size}  (no living baseline yet — run npm run bench:freeze to record)`);
+} else {
+  const livBaseById = new Map(livingBaseline.results.map((r) => [r.id, r]));
+  let regressed = 0;
+  let improved = 0;
+  let added = 0;
+  const regressions = [];
+  for (const c of living.results) {
+    const b = livBaseById.get(c.id);
+    if (!b) {
+      added++;
+      continue; // new example — growth, never fails CI
+    }
+    if (b.correct && !c.correct) {
+      regressed++;
+      regressions.push(c);
+    } else if (!b.correct && c.correct) {
+      improved++;
+    }
+  }
+  lines.push(
+    `  N=${living.corpus_size} (baseline ${livingBaseline.corpus_size})  accuracy=${(living.summary.accuracy * 100).toFixed(2)}%  FP=${living.summary.fp} FN=${living.summary.fn}`,
+  );
+  lines.push(`  vs living baseline: +${added} new (informational), ${improved} improved, ${regressed} regressed`);
+  for (const r of regressions.slice(0, 15)) {
+    lines.push(`    ✗ regressed ${r.id}  exp=${r.expected} caught=${r.caught}  ${r.label ?? ''}`);
+  }
+  if (regressed > 0) {
+    failures.push(`[living] ${regressed} previously-correct case(s) regressed (correct → wrong)`);
+  }
+}
+
+console.log(lines.join('\n'));
 
 if (failures.length > 0) {
   console.error('\n✗ bench:check failed:');
   for (const f of failures) console.error(`  - ${f}`);
   process.exit(1);
 }
-
 console.log('\n✓ bench:check passed');

@@ -1,18 +1,19 @@
 {
-  "schema_version": 1,
+  "schema_version": 2,
+  "set": "frozen",
   "pack_stack": [
     "news",
     "news-de",
     "epistemology",
     "healthcare"
   ],
-  "corpus_hash": "8503c5980aba7e7e976767e5e267006ee2861b4b08462540afe8caba72047823",
+  "corpus_hash": "f6f29ac26b1a215ada0de0cacde6828feabefdee353f923855c405e5e1f92e32",
   "corpus_size": 509,
   "summary": {
-    "accuracy": 0.925343811394892,
-    "ok": 471,
+    "accuracy": 0.9273084479371316,
+    "ok": 472,
     "fp": 1,
-    "fn": 37
+    "fn": 36
   },
   "results": [
     {
@@ -2631,8 +2632,8 @@
       "region": null,
       "label": "Эндокринолог секреты шашлыка",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "phase1:62",
@@ -4597,6 +4598,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-05-07T15:57:10.112Z",
-  "guard_version": "0.4.0-pre.3"
+  "frozen_at": "2026-06-05T20:46:02.619Z",
+  "guard_version": "0.4.2"
 }

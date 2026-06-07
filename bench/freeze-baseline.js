@@ -1,36 +1,44 @@
 /**
- * pantheon-guard · freeze regression baseline
+ * pantheon-guard · freeze regression baselines
  *
- * Runs the production pack stack against the frozen N=509 corpus and writes
- * bench/baseline.json. Re-run only when an intentional behavior change ships
- * — and commit the diff with a CHANGELOG entry explaining it.
+ * Writes two baselines:
+ *   bench/baseline.json         — frozen pre-registered N=509 (immutable corpus)
+ *   bench/baseline-living.json  — recorded verdicts on the growing living set
+ *
+ * Re-run only on an intentional behavior change, and commit the diff with a
+ * CHANGELOG entry explaining it. Re-freezing the LIVING baseline is the normal
+ * way to "accept" the current verdicts on newly-added examples; it never hides
+ * a frozen-set regression (that set is gated independently and hard).
  *
  * Usage: npm run bench:freeze
  */
 
 import { writeFileSync, readFileSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { runCorpus } from './run.js';
+import { runFrozen, runLiving } from './run.js';
 
-const baselinePath = fileURLToPath(new URL('./baseline.json', import.meta.url));
 const pkg = JSON.parse(
   readFileSync(new URL('../package.json', import.meta.url), 'utf8'),
 );
+const stamp = new Date().toISOString();
 
-const out = runCorpus();
-const payload = {
-  ...out,
-  frozen_at: new Date().toISOString(),
-  guard_version: pkg.version,
-};
+// ── frozen (pre-registered N=509) ──
+const frozenPath = fileURLToPath(new URL('./baseline.json', import.meta.url));
+const frozen = { ...runFrozen(), frozen_at: stamp, guard_version: pkg.version };
+writeFileSync(frozenPath, JSON.stringify(frozen, null, 2) + '\n');
 
-writeFileSync(baselinePath, JSON.stringify(payload, null, 2) + '\n');
+// ── living (growing set) ──
+const livingPath = fileURLToPath(new URL('./baseline-living.json', import.meta.url));
+const living = { ...runLiving(), frozen_at: stamp, guard_version: pkg.version };
+writeFileSync(livingPath, JSON.stringify(living, null, 2) + '\n');
 
-const { ok, fp, fn } = payload.summary;
-const acc = (payload.summary.accuracy * 100).toFixed(2);
-console.log(`baseline frozen → bench/baseline.json`);
-console.log(`  guard_version : ${payload.guard_version}`);
-console.log(`  corpus_hash   : ${payload.corpus_hash}`);
-console.log(`  N             : ${payload.corpus_size}`);
-console.log(`  packs         : ${payload.pack_stack.join(', ')}`);
-console.log(`  accuracy      : ${acc}%  (ok=${ok}, FP=${fp}, FN=${fn})`);
+function report(name, p) {
+  const { ok, fp, fn } = p.summary;
+  const acc = (p.summary.accuracy * 100).toFixed(2);
+  console.log(`${name} frozen → guard v${p.guard_version}`);
+  console.log(`  N=${p.corpus_size}  accuracy=${acc}%  (ok=${ok}, FP=${fp}, FN=${fn})`);
+  if (p.corpus_hash) console.log(`  corpus_hash=${p.corpus_hash}`);
+}
+
+report('baseline.json        (frozen N=509)', frozen);
+report('baseline-living.json (living)      ', living);
