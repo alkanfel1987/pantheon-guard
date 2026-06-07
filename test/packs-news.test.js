@@ -330,3 +330,24 @@ test('curiosity-gap: factual named-source reveal ("NTSB reveals cause") is NOT c
   const r = runPack(newsPack, 'NTSB reveals cause of 2022 Boeing 737 crash in final report');
   assert.ok(!r.packViolations.some(v => v.source.includes('curiosity_reveal_en')));
 });
+
+// ─────────────────────────────────────────────
+// Proof-layer (verdict before proof) — Arthaśāstra 4.8.06: a verdict/character
+// label presented as fact on a subject who is only ACCUSED (not proven guilty)
+// = manipulation. Target living FN #278.
+// ─────────────────────────────────────────────
+
+test('proof-layer: pejorative label + only-charged subject → satya', () => {
+  const r = runPack(newsPack, "Entitled Tourist Who Threw A Rock At Beloved Hawaiian Seal Before Yelling 'I'm Rich' Officially Charged");
+  assert.ok(r.packViolations.some(v => v.rule === 'satya' && v.source.includes('verdict_before_proof_en')));
+});
+
+test('proof-layer: PROVEN guilt (convicted/sentenced) is NOT caught', () => {
+  const r = runPack(newsPack, 'Greedy landlord convicted of fraud and sentenced to five years');
+  assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
+});
+
+test('proof-layer: neutral accusation (no pejorative label) is NOT caught', () => {
+  const r = runPack(newsPack, 'Driver charged after fatal crash on the M1 motorway');
+  assert.ok(!r.packViolations.some(v => v.source.includes('verdict_before_proof_en')));
+});

@@ -9,10 +9,10 @@
   ],
   "corpus_size": 111,
   "summary": {
-    "accuracy": 0.8558558558558559,
-    "ok": 95,
+    "accuracy": 0.8648648648648649,
+    "ok": 96,
     "fp": 2,
-    "fn": 14
+    "fn": 13
   },
   "results": [
     {
@@ -462,8 +462,8 @@
       "region": "US",
       "label": "tourist rock seal rich",
       "expected": "catch",
-      "caught": false,
-      "correct": false
+      "caught": true,
+      "correct": true
     },
     {
       "id": "multiregion:279",
@@ -1015,6 +1015,6 @@
       "correct": true
     }
   ],
-  "frozen_at": "2026-06-07T09:04:20.588Z",
+  "frozen_at": "2026-06-07T21:08:20.601Z",
   "guard_version": "0.4.2"
 }

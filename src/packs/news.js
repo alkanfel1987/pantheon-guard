@@ -529,6 +529,17 @@ const PATTERNS = Object.freeze([
     description: 'sensational placeholder noun + reveal verb (withheld payoff, EN)',
   },
 
+  // ── Verdict before proof (proof-layer): pejorative character label applied to
+  // a subject who is only ACCUSED (charged/accused/arrested), with no conviction
+  // marker — the headline delivers the moral verdict the court/reader hasn't
+  // reached. Arthaśāstra 4.8.06 (condemning the unproven). catalogue: manu-kuta-saksin-8-81-101
+  {
+    rule: 'satya',
+    name: 'verdict_before_proof_en',
+    regex: /\b(?:entitled|greedy|vile|evil|monstrous|brazen|shameless|depraved|arrogant|twisted|sleazy|creepy|cruel|heartless|selfish|spoiled|sick|deranged|vicious)\s+(?:[\w'’-]+\s+){0,2}(?:tourist|man|woman|teen|teenager|driver|mother|mom|father|dad|influencer|boss|landlord|neighbou?r|customer|passenger|student|worker|official|politician|celebrity|star|guy|girl|couple|parent|stranger|youth|suspect)\b(?=[\s\S]*\b(?:charged|accused|alleged|arrested|suspected|faces\s+charges|under\s+investigation)\b)(?![\s\S]*\b(?:convicted|guilty|sentenced|pleaded|admitted|confessed|jailed)\b)/i,
+    description: 'pejorative verdict on an only-accused subject (verdict before proof, EN)',
+  },
+
   // ── Sensationalist editorial verb in factual context: "stunning",
   // "harrowing", "incredible", "unbelievable" used as descriptor of
   // routine event. Pattern: editorial-adj followed by event noun.
