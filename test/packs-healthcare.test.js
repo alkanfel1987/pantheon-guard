@@ -398,3 +398,30 @@ test('stackPacks: stacking healthcare with itself merges evidence', () => {
   assert.equal(selfDx.length, 2);
   assert.equal(r.packs.length, 2);
 });
+
+// ─────────────────────────────────────────────
+// provider_escalation FP-guard (2026-06-07 bug audit) — third-person factual
+// science/medical NEWS must NOT trigger the "consult a doctor" requirement.
+// ─────────────────────────────────────────────
+
+function escalationFires(text) {
+  return runPack(healthcarePack, text).unmetRequirements.some(u => u.id.endsWith('/provider_escalation'));
+}
+
+test('provider-escalation FP-guard: "Study finds ... reduces risk" (science news) — no requirement', () => {
+  assert.ok(!escalationFires('Study finds moderate exercise reduces risk of heart disease'));
+});
+test('provider-escalation FP-guard: "Researchers reveal ... protein in cancer cells" — no requirement', () => {
+  assert.ok(!escalationFires('Researchers reveal the structure of a key protein in cancer cells'));
+});
+test('provider-escalation FP-guard: "Developed an AI Tool to Diagnose ..." — no requirement', () => {
+  assert.ok(!escalationFires('This High Schooler Developed an AI Tool to Diagnose Autism and ADHD Using the Retina'));
+});
+test('provider-escalation FP-guard: "Look Up Where Your ... Prescription Drugs Were Made" — no requirement', () => {
+  assert.ok(!escalationFires('Look Up Where Your Generic Prescription Drugs Were Made'));
+});
+
+// Control — real second-person advice WITHOUT escalation must STILL require it.
+test('provider-escalation control: second-person advice still requires escalation', () => {
+  assert.ok(escalationFires('If you experience chest pain, just rest at home and skip your medication.'));
+});
