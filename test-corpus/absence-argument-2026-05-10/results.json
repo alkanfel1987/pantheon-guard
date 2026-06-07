@@ -1,0 +1,52 @@
+{
+  "date": "2026-05-10T06:04:39.978Z",
+  "detector": "absence_argument",
+  "pack_version": "0.3.0-pre.1",
+  "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical conspiracy/anti-vaccine/alt-med commentary phrasings I (test author) have encountered. Negative class A (comparative) is paraphrased analytical text; negative class B (bounded-with-scope) is research-abstract style. Per CLAUDE.md selection-bias discipline this is structured sanity, NOT external validation. Live-corpus probe required before stable claim.",
+  "corpus_size": {
+    "positive": 12,
+    "neg_comparative": 6,
+    "neg_bounded": 8
+  },
+  "metrics": {
+    "catch_raw": {
+      "mean": 1,
+      "lo": 0.7574992425007574,
+      "hi": 0.9999999999999998
+    },
+    "catch_effective": {
+      "mean": 1,
+      "lo": 0.7574992425007574,
+      "hi": 0.9999999999999998
+    },
+    "fp_all_effective": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.21531701192718142
+    },
+    "fp_bounded_raw": {
+      "mean": 0.375,
+      "lo": 0.13684175946152105,
+      "hi": 0.6942621454161982
+    },
+    "fp_bounded_effective": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3244156195108769
+    },
+    "inhibitor_false_suppression": 0,
+    "catch_en_effective": {
+      "mean": 1,
+      "lo": 0.6096569663469354,
+      "hi": 1
+    },
+    "catch_ru_effective": {
+      "mean": 1,
+      "lo": 0.6096569663469354,
+      "hi": 1
+    }
+  },
+  "fn_ids": [],
+  "fp_ids": [],
+  "decision": "PROMOTE_PARTIAL — synthesis-validated release-candidate; live-corpus probe required"
+}

@@ -1,0 +1,2002 @@
+[
+    {
+        "id":  "lenta:0",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Зеленский пожаловался на ЕС из-за «половинчатых мер»",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:1",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Мужчина продал жену друзьям за 37 тысяч рублей",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:2",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Вяльбе рассказала о своей пенсии",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:3",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "С Артемия Лебедева взыскали сотни тысяч рублей по иску Мизулиной",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:4",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Рубио рассказал о больших проблемах у Кубы",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:5",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Макрон высказался о присоединении соседней с Россией страны к «ядерному зонтику»",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:6",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Неймар прилетел в расположение сборной Бразилии на собственном вертолете",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:7",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Жена Зеленского грубо нарушила протокол на официальной встрече",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:8",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Пашинян заявил о трансформации в отношениях с Россией",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:9",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "«Спартак» разместил в клубном музее сломанный Кубок России",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:10",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Пашинян раскрыл планы Армении на ЕАЭС и ЕС",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:11",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Россиян предупредили о популярной схеме обмана c жильем на курортах",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:12",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Зеленский сделал заявление в связи с письмом Трампу",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:13",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "На всей территории Украины объявлена воздушная тревога",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:14",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Зеленскому поставили условие для встречи с премьером Венгрии",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:15",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Трамп неожиданно высказался о влиянии России на выборы в США",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:16",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Желтую ветку московского метро продлят за аэропорт Внуково",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:17",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "ВСУ нанесли удар по гимназии в ЛНР",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:18",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В НАТО захотели «застрелиться» из-за России",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:19",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В сети оценили откровенные фото Иванки Трамп с отдыха",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:20",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Военкор сообщил об ударах по учебным центрам ВСУ с инструкторами НАТО",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:21",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В письме Зеленского Трампу заметили важную деталь",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:22",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В России начали производить уникальную отечественную линзу для лечения катаракты",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:23",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Трамп пообещал разнести близкую к Ирану страну",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:24",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Трамп пообещал разнести близкую к Ирану страну",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:25",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В Европарламенте заговорили о трибунале для Зеленского из-за удара по Старобельску",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:26",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Москвичей предупредили об аномальных холодах",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:27",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Трамп перепутал Иран с Венесуэлой",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:28",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Журналист сделал мрачное предсказание о судьбе Украины",
+        "desc":  ""
+    },
+    {
+        "id":  "lenta:29",
+        "source":  "lenta",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Дмитриев дал совет Украине после обращения Зеленского к Трампу",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:0",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Британские СМИ отрабатывают заказ по дискредитации России, заявил Келин",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:1",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Суд арестовал Семизорова, которого СМИ называют замглавы \"Уралвагонзавода\"",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:2",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В Сумской области прогремел взрыв",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:3",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Пашинян пообещал Армении газ за счет его транзита",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:4",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Россия заявила о важности безопасного пропуска судов через Ормузский пролив",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:5",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В США рассказали о заказах украинских чиновников на суперъяхты",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:6",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Космонавты Кудь-Сверчков и Микаев вернулись на МКС",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:7",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Зверев пробился в третий круг \"Ролан Гаррос\"",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:8",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Оверчук рассказал, к чему приведет курс Армении на евроинтеграцию",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:9",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Рубио заявил о развитии отношений с Арменией после долгого застоя",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:10",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В ДНР 11 человек пострадали из-за атак украинских дронов",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:11",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "ВСУ совершили теракт в Старобельске западными дронами, заявил Полянский",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:12",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "НАТО посоветовали \"застрелиться\", если она не обгонит Россию по дронам",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:13",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "\"Кристал Пэлас\" и \"Райо Вальекано\" не забили в первом тайме финала ЛК",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:14",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Рубио утверждает, что у Кубы большие проблемы, но США готовы к диалогу",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:15",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В Удмуртии погибла женщина, прятавшаяся в теплице от непогоды",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:16",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Мирра Андреева вышла в третий круг \"Ролан Гаррос\"",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:17",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Ефимов: образовательный комплекс в Очакове-Матвеевском достроен на 50%",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:18",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "В Башкирии ученые обнаружили следы неандертальцев",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:19",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Россия добьется целей СВО, заявил Слуцкий",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:20",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Федоров стал главой Минобороны Украины неслучайно, заявил Мирошник",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:21",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Посол Тарабрин привлек внимание Гааги к атакам ВСУ на российские регионы",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:22",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Есмантович рассказал, когда завершится строительство новой арены ЦСКА",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:23",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Гаага отправила Киеву пикапы, популярные у террористов на Ближнем Востоке",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:24",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Сенатор назвал призыв Киева прекратить огонь пафосным воззванием",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:25",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Россия заявила Гааге о готовности искать пути к урегулированию на Украине",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:26",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Уколов и Иванова победили в лазании на скорость на чемпионате России",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:27",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Гаага не желает признавать сущность Киева, заявили в российском посольстве",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:28",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "\"Покупали кокаин?\" Слова фон дер Ляйен об Украине вызвали переполох в Сети",
+        "desc":  ""
+    },
+    {
+        "id":  "ria:29",
+        "source":  "ria",
+        "region":  "RU",
+        "domain":  "general",
+        "title":  "Третья штурмовая бригада ВСУ потеряла более 200 роботов за месяц",
+        "desc":  ""
+    },
+    {
+        "id":  "finam:0",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "В России задолженность по зарплате на конец апреля достигла почти 3 млрд рублей",
+        "desc":  "Это на 35% больше месяц к месяцу и на 94% больше год к году...\u003ca href=\"https://www.finam.ru/publications/item/v-rossii-zadolzhennost-po-zarplate-na-konets-aprelya-dostigla-pochti-3-mlrd-rubley-20260527-2046/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:1",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Рост без прорыва",
+        "desc":  "Индекс МосБиржи остался ниже 2600 пунктов...\u003ca href=\"https://www.finam.ru/publications/item/rost-bez-proryva-20260527-2016/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:2",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Российские акции отыгрывают рекомендации по дивидендам",
+        "desc":  "Индекс МосБиржи прибавил 0,32%...\u003ca href=\"https://www.finam.ru/publications/item/rossiyskie-aktsii-otygryvayut-rekomendatsii-po-dividendam-20260527-1936/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:3",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Инфляция в России с 19 по 25 мая выросла на 0,07%",
+        "desc":  "С начала месяца потребительские цены выросли на 0,11%, с начала года - на 3,22%...\u003ca href=\"https://www.finam.ru/publications/item/inflyatsiya-v-rossii-s-19-po-25-maya-vyrosla-na-007-20260527-1917/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:4",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Индекс промышленного производства в России в апреле вырос на 1,9%",
+        "desc":  "По итогам 4 месяцев 2026 года рост промышленности в целом составил 0,7%...\u003ca href=\"https://www.finam.ru/publications/item/indeks-promyshlennogo-proizvodstva-v-rossii-v-aprele-vyros-na-19-20260527-1916/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:5",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Лихачев сообщил о старте активной фазы строительства первой в Казахстане АЭС в 2027 году",
+        "desc":  "Уже в следующем году \"Росатом\" планирует развернуть строительно-монтажную базу...\u003ca href=\"https://www.finam.ru/publications/item/likhachev-soobshchil-o-starte-aktivnoy-fazy-stroitelstva-pervoy-v-kazakhstane-aes-v-2027-godu-20260527-1852/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:6",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Совет директоров “Делимобиля” рекомендовал не выплачивать дивиденды за 2025 год",
+        "desc":  "ГОСА по вопросу дивидендов состоится 30 июня...\u003ca href=\"https://www.finam.ru/publications/item/sovet-direktorov-delimobilya-rekomendoval-ne-vyplachivat-dividendy-za-2025-god-20260527-1833/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:7",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Совет директоров ЛСР рекомендовал дивиденды за 2025 год в размере 78 рублей на акцию",
+        "desc":  "Акционеры примут решение на ГОСА 30 июня...\u003ca href=\"https://www.finam.ru/publications/item/sovet-direktorov-lsr-rekomendoval-dividendy-za-2025-god-v-razmere-78-rubley-na-aktsiyu-20260527-1809/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:8",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Выручка “ОГК-2” по РСБУ за 1 квартал выросла на 22%",
+        "desc":  "Чистая прибыль составила 1,95 млрд рублей...\u003ca href=\"https://www.finam.ru/publications/item/vyruchka-ogk-2-po-rsbu-za-1-kvartal-vyrosla-na-22-20260527-1803/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:9",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Чистая прибыль банков в апреле снизилась на 22% - до 348 млрд рублей",
+        "desc":  "Банки потеряли на валютной переоценке из-за укрепления рубля, но основная прибыль выросла...\u003ca href=\"https://www.finam.ru/publications/item/chistaya-pribyl-bankov-v-aprele-snizilas-na-22-do-348-mlrd-rubley-20260527-1752/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:10",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Общее число клиентов “Т-Технологии” в апреле составило 55,2 млн",
+        "desc":  "Кредитный портфель компании увеличился на 24%...\u003ca href=\"https://www.finam.ru/publications/item/obshchee-chislo-klientov-t-tekhnologii-v-aprele-sostavilo-552-mln-20260527-1751/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:11",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Средства населения в банках выросли в апреле после спада в марте",
+        "desc":  "Этому способствовали индексация соцвыплат и досрочные пенсии...\u003ca href=\"https://www.finam.ru/publications/item/sredstva-naseleniya-v-bankakh-vyrosli-v-aprele-posle-spada-v-marte-20260527-1745/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:12",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Доли проблемных кредитов в апреле почти не изменились",
+        "desc":  "На 1 мая проблемная ипотека составила 1,9% от портфеля, проблемные потребительские кредиты - 13,2%...\u003ca href=\"https://www.finam.ru/publications/item/doli-problemnykh-kreditov-v-aprele-pochti-ne-izmenilis-20260527-1739/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:13",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Объем выдач ипотеки в апреле увеличился на 9% - до 359 млрд рублей",
+        "desc":  "А задолженность населения по ипотеке в апреле выросла на 0,4%...\u003ca href=\"https://www.finam.ru/publications/item/obem-vydach-ipoteki-v-aprele-uvelichilsya-na-9-do-359-mlrd-rubley-20260527-1734/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:14",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "ЦБ снизил официальный курс доллара на 28 мая до 70,9012 рубля",
+        "desc":  "Курс евро уменьшен до 82,7224 рубля...\u003ca href=\"https://www.finam.ru/publications/item/tsb-snizil-ofitsialnyy-kurs-dollara-na-28-maya-do-709012-rublya-20260527-1733/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:15",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "В 2025 году ломбарды выдали россиянам займы на 412 млрд рублей",
+        "desc":  "Число заключенных договоров увеличилось на 13% до 19 млн...\u003ca href=\"https://www.finam.ru/publications/item/v-2025-godu-lombardy-vydali-rossiyanam-zaymy-na-412-mlrd-rubley-20260527-1727/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:16",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "ОГК-2 зафиксировала чистый убыток по МСФО в 2025 году против прибыли годом ранее",
+        "desc":  "В то же время выручка уменьшилась на 1,3%...\u003ca href=\"https://www.finam.ru/publications/item/ogk-2-zafiksirovala-chistyy-ubytok-po-msfo-v-2025-godu-protiv-pribyli-godom-ranee-20260527-1719/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:17",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Чистая прибыль ОГК-2 по МСФО снизилась в 1 квартале на 23,8%",
+        "desc":  "В то же время выручка увеличилась почти на 22%...\u003ca href=\"https://www.finam.ru/publications/item/chistaya-pribyl-ogk-2-po-msfo-snizilas-v-1-kvartale-na-238-20260527-1715/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:18",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Совет директоров «АПРИ» рекомендовал не объявлять дивиденды за 2025 год",
+        "desc":  "«АПРИ» планирует направить часть прибыли на развитие бизнеса и стратегические инвестиции...\u003ca href=\"https://www.finam.ru/publications/item/sovet-direktorov-apri-rekomendoval-ne-obyavlyat-dividendy-za-2025-god-20260527-1700/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:19",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Госдума одобрила в первом чтении законопроект о защите интересов держателей «префов»",
+        "desc":  "Согласно проекту, владельцы «префов» смогут требовать невыплаченные дивиденды в течение 3 месяцев, если компания выплатила дивиденды по обыкновенным акциям, но не по «префам»...\u003ca href=\"https://www.finam.ru/publications/item/gosduma-odobrila-v-pervom-chtenii-zakonoproekt-o-zashchite-interesov-derzhateley-prefov-20260527-1649/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" ti"
+    },
+    {
+        "id":  "finam:20",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Турция в июне может сократить импорт российской нефти Urals до минимума за полтора года",
+        "desc":  "По данным Kpler, импорт может составить в среднем около 161 тысячи баррелей в сутки...\u003ca href=\"https://www.finam.ru/publications/item/turtsiya-v-iyune-mozhet-sokratit-import-rossiyskoy-nefti-urals-do-minimuma-za-poltora-goda-20260527-1625/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:21",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Чистая прибыль “Россети Северо-Запад” за 1 квартал по МСФО выросла на 57,9%",
+        "desc":  "Показатель составил 3,19 млрд рублей...\u003ca href=\"https://www.finam.ru/publications/item/chistaya-pribyl-rosseti-severo-zapad-za-1-kvartal-po-msfo-vyrosla-na-579-20260527-1551/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:22",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Совет директоров «Полюса» рекомендовал дивиденды за 1 квартал в размере 29,05 рубля на акцию",
+        "desc":  "Предложенная дата закрытия реестра для получения дивидендов - 13 июля 2026 года...\u003ca href=\"https://www.finam.ru/publications/item/sovet-direktorov-polyusa-rekomendoval-dividendy-za-1-kvartal-v-razmere-2905-rublya-na-aktsiyu-20260527-1507/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:23",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Совет директоров “Фармсинтеза” рекомендовал не выплачивать дивиденды за 2025 год",
+        "desc":  "ГОСА по этому вопросу состоится 30 июня...\u003ca href=\"https://www.finam.ru/publications/item/sovet-direktorov-farmsinteza-rekomendoval-ne-vyplachivat-dividendy-za-2025-god-20260527-1501/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:24",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Верховный Суд РФ проведет анализ судебной практики по использованию ИИ",
+        "desc":  "Исследование должно помочь выработать единые подходы к рассмотрению дел, связанных с ИИ...\u003ca href=\"https://www.finam.ru/publications/item/verkhovnyy-sud-rf-provedet-analiz-sudebnoy-praktiki-po-ispolzovaniyu-ii-20260527-1454/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:25",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Рынок в тумане",
+        "desc":  "После двухдневных продаж индекс МосБиржи пытается расти...\u003ca href=\"https://www.finam.ru/publications/item/rynok-v-tumane-20260527-1444/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:26",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Чистая прибыль “Россети Центр” в 1 квартале по МСФО выросла на 21,8%",
+        "desc":  "Выручка компании увеличилась на 13,3%...\u003ca href=\"https://www.finam.ru/publications/item/chistaya-pribyl-rosseti-tsentr-v-1-kvartale-po-msfo-vyrosla-na-218-20260527-1422/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:27",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Чистая прибыль «Россети Центр и Приволжье» по МСФО в 1 квартале выросла до 8,83 млрд рублей",
+        "desc":  "Выручка увеличилась до 46,4 млрд рублей...\u003ca href=\"https://www.finam.ru/publications/item/chistaya-pribyl-rosseti-tsentr-i-privolzhe-po-msfo-v-1-kvartale-vyrosla-do-883-mlrd-rubley-20260527-1420/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:28",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Чистый убыток ДВМП в 1 квартале по РСБУ составил 1,14 млрд рублей против прибыли годом ранее",
+        "desc":  "Выручка компании увеличилась до 1,65 млрд рублей...\u003ca href=\"https://www.finam.ru/publications/item/chistyy-ubytok-dvmp-v-1-kvartale-po-rsbu-sostavil-114-mlrd-rubley-protiv-pribyli-godom-ranee-20260527-1413/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "finam:29",
+        "source":  "finam",
+        "region":  "RU",
+        "domain":  "financial",
+        "title":  "Расчет акциза на импортную сталь будет привязан к конечной продукции из жидкой стали",
+        "desc":  "Межведомственное обсуждение акциза на импортную сталь пока идет...\u003ca href=\"https://www.finam.ru/publications/item/raschet-aktsiza-na-importnuyu-stal-budet-privyazan-k-konechnoy-produktsii-iz-zhidkoy-stali-20260527-1411/?utm_source=rss\u0026utm_medium=new_compaigns\u0026news_to_finamb=new_compaigns\" title=\"Далее\" target=\"_blank\"/\u003e"
+    },
+    {
+        "id":  "bbc:0",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Burnham and Streeting accuse Blair of ignoring inequality as they hit back at ex-PM",
+        "desc":  "Labour mayor Burnham and former minister Streeting were responding to the former PM\u0027s 5,600-word essay."
+    },
+    {
+        "id":  "bbc:1",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Safety warning after nine water-related deaths during heatwave",
+        "desc":  "Charities urge people to take precautions after at least nine people died after getting into difficulty in water during the warm weather."
+    },
+    {
+        "id":  "bbc:2",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Trump says US \u0027not satisfied\u0027 with Iran deal yet",
+        "desc":  "The US president says he believes Iran wants to reach a deal but there is still no agreement on its terms."
+    },
+    {
+        "id":  "bbc:3",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Family of mum, 30, shot dead outside Sheffield bar pay tribute to \u0027beautiful soul\u0027",
+        "desc":  "Shanice Brookes, 30, worked for a charity and was studying for a university degree, her family say."
+    },
+    {
+        "id":  "bbc:4",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "\u0027It\u0027s not a nice world to bring children into\u0027: Births fall to the lowest level in 50 years",
+        "desc":  "Live births in England and Wales are at their lowest since 1977, while the age of first-time mothers has also risen."
+    },
+    {
+        "id":  "bbc:5",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Matthew Perry\u0027s assistant jailed for 41 months over actor\u0027s ketamine death",
+        "desc":  "Kenneth Iwamasa, who pleaded guilty last year to one count of conspiracy to distribute ketamine causing death, said he \"will forever regret\" his actions."
+    },
+    {
+        "id":  "bbc:6",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Watch: Moment rescuers find five people trapped in Laos cave for a week",
+        "desc":  "Rescuers in Laos have found five villagers alive inside a flooded cave after they were trapped for a week."
+    },
+    {
+        "id":  "bbc:7",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Fifa ordered to explain World Cup ticket pricing",
+        "desc":  "Fifa must answer questions about 2026 World Cup ticket sales after the attorneys general of New York and New Jersey launch an investigation."
+    },
+    {
+        "id":  "bbc:8",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Almost 500,000 Russian soldiers killed in Ukraine war, GCHQ says",
+        "desc":  "GCHQ\u0027s director Anne Keast-Butler set out the threats facing the UK in her inaugural public speech."
+    },
+    {
+        "id":  "bbc:9",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Israel issues evacuation order for swathes of southern Lebanon",
+        "desc":  "The military says areas south of the Zahrani River are now \"combat zones\" as it threatens Hezbollah with fresh strikes."
+    },
+    {
+        "id":  "bbc:10",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Resident doctors in England to strike for 16th time over pay",
+        "desc":  "British Medical Association resident doctor members in England announce new strike for four days from 15 June."
+    },
+    {
+        "id":  "bbc:11",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "What are the signs of heatstroke in dogs?",
+        "desc":  "How to make sure your pets are cool and comfortable during periods of hot weather."
+    },
+    {
+        "id":  "bbc:12",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Travelling solo and bunking up - life on the lower rung of tennis circuit",
+        "desc":  "Top tennis players are demanding the four Grand Slams give a larger chunk of their revenue in prize money to those ranked lower."
+    },
+    {
+        "id":  "bbc:13",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Will Tony Blair\u0027s intervention change the Labour debate?",
+        "desc":  "While the former PM still has some admirers in Labour, others wings of the party are not listening."
+    },
+    {
+        "id":  "bbc:14",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "The footballer setting the record straight after 46 years",
+        "desc":  "Roly Gregoire, Sunderland\u0027s first black player, sometimes wishes he had never played football because of the racist abuse he found too painful to talk about for decades."
+    },
+    {
+        "id":  "bbc:15",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "How you can save money on your energy bill",
+        "desc":  "Experts say action now can save money when the pinch comes this winter."
+    },
+    {
+        "id":  "bbc:16",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Relief for Iranians as internet shutdown ends: \u0027Like a prisoner being released\u0027",
+        "desc":  "The government imposed the blackout after the start of the war with the US and Israel in February, cutting most Iranians off from the outside world."
+    },
+    {
+        "id":  "bbc:17",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Spider-Noir turns Spider Universe black and white",
+        "desc":  "The show starring Nicolas Cage will be available to watch in both colour and black and white."
+    },
+    {
+        "id":  "bbc:18",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Student loans inquiry finds many did not understand terms",
+        "desc":  "The Treasury inquiry is looking at student loan plans in England and whether repayment terms are \"reasonable\"."
+    },
+    {
+        "id":  "bbc:19",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Migrants jailed and charged after bank holiday crossings",
+        "desc":  "It comes after nearly 1,000 people arrived in the UK on small boats between Friday and Monday."
+    },
+    {
+        "id":  "bbc:20",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Rybakina out in biggest French Open upset so far",
+        "desc":  "World number two Elena Rybakina suffers a second-round defeat by Yuliia Starodubtseva in the biggest French Open upset so far."
+    },
+    {
+        "id":  "bbc:21",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Ebola-hit DR Congo faces \u0027catastrophic collision\u0027 of disease and conflict, WHO warns",
+        "desc":  "Tedros Adhanom Ghebreyesus said fighting in DR Congo was hampering efforts to stop spread"
+    },
+    {
+        "id":  "bbc:22",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Former US Attorney General Pam Bondi diagnosed with cancer",
+        "desc":  "Bondi, who was diagnosed shortly after being ousted in April, is also joining the White House\u0027s new advisory council on AI."
+    },
+    {
+        "id":  "bbc:23",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Starmer arson accused refused to film attack, court told",
+        "desc":  "Ukrainian-born Romanian national Stanislav Carpiuc is accused of conspiring to set fire to a car linked to the prime minster."
+    },
+    {
+        "id":  "bbc:24",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Biden sues US justice department to block release of recordings",
+        "desc":  "Biden allegedly referred to classified information during the interviews, but he says the government wants to release the records for other reasons."
+    },
+    {
+        "id":  "bbc:25",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "BBC News app",
+        "desc":  "Top stories, breaking news, live reporting, and follow news topics that match your interests"
+    },
+    {
+        "id":  "bbc:26",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Why Did Teenage Rapists Avoid Custody?",
+        "desc":  "Sentences of boys spared custody over rape referred to Court of Appeal."
+    },
+    {
+        "id":  "bbc:27",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "The political fight for American men",
+        "desc":  "An interview with author and professor, Scott Galloway"
+    },
+    {
+        "id":  "bbc:28",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Barca agree £69m-plus deal with Newcastle for Gordon",
+        "desc":  "Barcelona agree a deal worth more than £69m with Newcastle United for England forward Anthony Gordon."
+    },
+    {
+        "id":  "bbc:29",
+        "source":  "bbc",
+        "region":  "EN",
+        "domain":  "general",
+        "title":  "Heated exchange and no handshake in French Open \u0027cheating\u0027 row",
+        "desc":  "Germany\u0027s Tamara Korpatsch says it would be \"embarrassing\" if she cheated against China\u0027s Wang Xinyu following their heated exchange at the French Open."
+    },
+    {
+        "id":  "bbc-biz:0",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Energy bills to rise for millions as impact of Iran war hits",
+        "desc":  "A household using a typical amount of energy will pay £221 a year more, under the regulator\u0027s new price cap."
+    },
+    {
+        "id":  "bbc-biz:1",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "How you can save money on your energy bill",
+        "desc":  "Experts say action now can save money when the pinch comes this winter."
+    },
+    {
+        "id":  "bbc-biz:2",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "\u0027Bullying\u0027 and \u0027overbearing\u0027 behaviour behind abrupt BP chairman removal",
+        "desc":  "BP declined to comment on whether bullying behaviour was part of the reason for his immediate dismissal."
+    },
+    {
+        "id":  "bbc-biz:3",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Booming AI chip demand helps create two new $1tn club members",
+        "desc":  "SK Hynix and Micron are the latest tech firms to join the growing list of stocks with mega valuations."
+    },
+    {
+        "id":  "bbc-biz:4",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Ferrari shares slump after it unveils first fully electric car",
+        "desc":  "The new Luce model has divided opinion on social media, and comes despite intense pressure from Chinese EV makers."
+    },
+    {
+        "id":  "bbc-biz:5",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Instagram betting ads featuring Kane and Haaland banned",
+        "desc":  "The advertising watchdog said the adverts featuring top footballers had a strong appeal to under-18s."
+    },
+    {
+        "id":  "bbc-biz:6",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Champion ethical hacker warns AI tools like Mythos will make competing harder",
+        "desc":  "Chompie, one of the world\u0027s tops ethical hackers, says AI like Claude Mythos will make it harder for people like her to compete."
+    },
+    {
+        "id":  "bbc-biz:7",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Farmers\u0027 warning as milk prices fall below cost",
+        "desc":  "Farmers worry more family farms will be sold unless dairy prices rise quickly."
+    },
+    {
+        "id":  "bbc-biz:8",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Post Office investigation could be delayed by five years, police warn",
+        "desc":  "The commander leading the national police inquiry says the size of the investigation team would need to double in order to meet its current timeline"
+    },
+    {
+        "id":  "bbc-biz:9",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Better WiFi for hundreds of trains under government plans",
+        "desc":  "Campaigners welcome the move but say passengers are mostly worried about train fares and delays."
+    },
+    {
+        "id":  "bbc-biz:10",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Next boss warns of \u0027dramatic\u0027 fall in entry-level jobs",
+        "desc":  "Lord Wolfson tells the BBC Next now typically receives double the number of applicants for one role than it did two years ago."
+    },
+    {
+        "id":  "bbc-biz:11",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Starmer vows to act on social media after meeting bereaved parents",
+        "desc":  "Some parents believe whether the government will take strong enough action remains to be seen."
+    },
+    {
+        "id":  "bbc-biz:12",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Oil prices slide on hopes of US-Iran peace deal",
+        "desc":  "Trump said on Saturday that an agreement would include the reopening of the Strait of Hormuz, without giving further details."
+    },
+    {
+        "id":  "bbc-biz:13",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "\u0027I live in survival mode\u0027: The rise of the multi-job workforce",
+        "desc":  "More people are taking second jobs as rising costs and insecure work reshape how we earn a living."
+    },
+    {
+        "id":  "bbc-biz:14",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "How Saudi Arabia\u0027s spending spree reached the end of the line",
+        "desc":  "MBS\u0027s Vison 2030 project seemed the stuff of science fiction. Now reality has bitten"
+    },
+    {
+        "id":  "bbc-biz:15",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Beer boom goes flat as breweries call last orders",
+        "desc":  "The UK\u0027s brewery scene is shrinking as pubs close, costs rise and drinking habits change."
+    },
+    {
+        "id":  "bbc-biz:16",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Indian billionaires buy foreign companies as growth slows at home",
+        "desc":  "India Inc spent $18bn on global buyouts in 2025 and the deal value could cross $15bn in the first half of 2026."
+    },
+    {
+        "id":  "bbc-biz:17",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "\u0027Shameful\u0027 more spent on benefits than jobs for young people, says Milburn",
+        "desc":  "Reforms are needed of the welfare system to tackle the high numbers of young people not in work or education, says Alan Milburn."
+    },
+    {
+        "id":  "bbc-biz:18",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "SpaceX launches massive Starship V3 rocket on test flight",
+        "desc":  "The largest and most powerful rocket in history blasted off after its first attempted launch was postponed."
+    },
+    {
+        "id":  "bbc-biz:19",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Stop blaming young people for being unemployed, says Amazon\u0027s UK boss",
+        "desc":  "John Boumphrey says the education system \"isn\u0027t necessarily producing young people who are ready for work\"."
+    },
+    {
+        "id":  "bbc-biz:20",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Bank boss sorry after describing workers as \u0027lower value human capital\u0027",
+        "desc":  "The Standard Chartered boss said he values all colleagues and is committed to helping them cope with change."
+    },
+    {
+        "id":  "bbc-biz:21",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "AI may speed up search for drugs to treat brain conditions",
+        "desc":  "Researchers hope the work will help identify affordable, effective drugs to treat conditions like MND."
+    },
+    {
+        "id":  "bbc-biz:22",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Trump wants new Fed chair to be \u0027totally independent\u0027",
+        "desc":  "The US president piled major pressure on Kevin Warsh\u0027s predecessor to cut interest rates."
+    },
+    {
+        "id":  "bbc-biz:23",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Morrisons planning to close 100 stores in next few months",
+        "desc":  "It said difficulties had been exacerbated by \"significant cost increases resulting from government policy choices\"."
+    },
+    {
+        "id":  "bbc-biz:24",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "UK sees hottest day of year as bank holiday travellers face queues",
+        "desc":  "Temperatures hit 28.4C in parts of England on Friday, while delays have been reported at the Port of Dover and Birmingham Airport ahead of the bank holiday weekend."
+    },
+    {
+        "id":  "bbc-biz:25",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "The rise of the fruit that tastes like custard",
+        "desc":  "Custard apple plants are prized for their hardiness but exporting their delicate fruit is difficult."
+    },
+    {
+        "id":  "bbc-biz:26",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Morocco wants tourists to visit Western Sahara. Some say it\u0027s tightening its control",
+        "desc":  "The Moroccan government wants more Western holidaymakers to visit the territory it claims to own."
+    },
+    {
+        "id":  "bbc-biz:27",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "\u0027Six eggs used to be £1\u0027 - why everyday essentials cost so much more now",
+        "desc":  "Six supermarket brand eggs cost £1 in 2022. How much are they now, why have they gone up, and is anyone profiteering?"
+    },
+    {
+        "id":  "bbc-biz:28",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Love factually: Dating start-ups promise to cut the cheats",
+        "desc":  "Frustration with fake dating profiles has spurred new dating services with different approaches."
+    },
+    {
+        "id":  "bbc-biz:29",
+        "source":  "bbc-biz",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "The fight against foreign developers buying Caribbean beaches",
+        "desc":  "Campaigners in Barbuda, Grenada and Jamaica say they can no longer access their coastlines."
+    },
+    {
+        "id":  "cnbc:0",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Snowflake soars 33% on earnings beat and plan to spend $6 billion on Amazon cloud",
+        "desc":  "Snowflake is going deeper with Amazon\u0027s Web Services, and plans to use its Arm-based Graviton chips."
+    },
+    {
+        "id":  "cnbc:1",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Meta to start testing AI subscription services, with cheapest plan at $7.99 a month",
+        "desc":  "Meta confirmed Wednesday that it will begin testing two subscription plans for its AI offerings."
+    },
+    {
+        "id":  "cnbc:2",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Zscaler tanks 31% for worst day ever on \u0027prudent\u0027 guidance, sales shakeup",
+        "desc":  "Zscaler has shed half its value over the last year."
+    },
+    {
+        "id":  "cnbc:3",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Traders are skeptical of Iran timeline for Strait of Hormuz reopening",
+        "desc":  "Despite reports Iran could return the passageway to normal traffic flows within a month of a peace deal, Kalshi traders thought that was unlikely."
+    },
+    {
+        "id":  "cnbc:4",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Oil prices fall more than 5% after Rubio says U.S. will give Iran talks \u0027every chance to succeed\u0027",
+        "desc":  "U.S. crude oil prices trim losses as traders assess whether U.S. is nearing a deal with Iran that would restore traffic in the Strait of Hormuz."
+    },
+    {
+        "id":  "cnbc:5",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Republicans stare down inflation abyss with midterms fast approaching",
+        "desc":  "Republicans are struggling to find a clear message to battle high prices as President Trump pushes for funding for a White House ballroom."
+    },
+    {
+        "id":  "cnbc:6",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Low-income households face ‘remarkable’ rise in food insecurity in K-shaped economy: New York Fed",
+        "desc":  "The rising threat of food insecurity is partly why Americans feel worse off than ever before, according to research by the Federal Reserve Bank of New York."
+    },
+    {
+        "id":  "cnbc:7",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Mortgage refinance demand drops 18% as rates hit highest level since August",
+        "desc":  "Mortgage rates rose to the highest level in nine months, hitting refinance demand hardest. Homebuyers also pulled back but were still more active than last year."
+    },
+    {
+        "id":  "cnbc:8",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Analysis: What Stephen Miller gets wrong about debt, deficits and immigration",
+        "desc":  "The White House immigration hawk and deputy chief of staff is pointing the finger in the wrong direction when he\u0027s seeking blame for the federal budget deficit."
+    },
+    {
+        "id":  "cnbc:9",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Trump opposes Russia or China taking Iran\u0027s highly enriched uranium",
+        "desc":  "Trump also said the Strait of Hormuz, the vital oil-shipping route, is \"going to be open to everybody.\""
+    },
+    {
+        "id":  "cnbc:10",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "After Ferrari Luce backlash, Lamborghini CEO says canceling its own EV was the right choice",
+        "desc":  "Lamborghini CEO said the automaker\u0027s decision to kill its EV to focus on plug-in hybrid electric vehicles was \"the right way to go\" for his company."
+    },
+    {
+        "id":  "cnbc:11",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Jamie Dimon says JPMorgan Chase could spend $20 billion on acquisition: \u0027We are on the lookout\u0027",
+        "desc":  "A $20 billion deal would be among the largest in JPMorgan\u0027s history and could invite regulatory scrutiny given its position as the largest U.S. bank by assets."
+    },
+    {
+        "id":  "cnbc:12",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Bears load up bets against small-cap stocks ahead of economic data releases",
+        "desc":  "Despite a 40% rally the past year – compared to 27% in the S\u0026P 500 and 39% in the Nasdaq-100 – options traders look the most bearish on the Russell 2000."
+    },
+    {
+        "id":  "cnbc:13",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Alabama asks Supreme Court to allow congressional map that dilutes Black vote",
+        "desc":  "A three-judge panel in Birmingham, Alabama, found that the state\u0027s proposed map of House districts was \u0027intentionally discriminatory.\""
+    },
+    {
+        "id":  "cnbc:14",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Boeing CEO says company met requirements to increase 737 Max production to 47 jets per month",
+        "desc":  "Boeing CEO Kelly Ortberg said the company has met FAA requirements to ramp up its production of 737 Max aircraft to 47 per month."
+    },
+    {
+        "id":  "cnbc:15",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Here’s our monthly update on all 33 portfolio stocks, including 4 to buy right now",
+        "desc":  "AI stocks aren\u0027t the only place to put money to work, Jim Cramer said at the Investing Club\u0027s May Monthly Meeting."
+    },
+    {
+        "id":  "cnbc:16",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Abercrombie shares jump 12% on earnings beat even as Iran conflict hits sales",
+        "desc":  "Abercrombie \u0026 Fitch saw sales in Europe, Middle East and Africa decline by 10%, thanks in large part to the conflict in the Middle East."
+    },
+    {
+        "id":  "cnbc:17",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Russia just passed a law allowing its central bank to down drones",
+        "desc":  "Russia\u0027s State Duma has passed a law allowing certain financial institutions to operate anti-drone defense systems after attacks on its territory."
+    },
+    {
+        "id":  "cnbc:18",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "UK spy chief: Time is running out for the West to confront threats from Russia and China",
+        "desc":  "Britain and its allies face a “moment of consequence,” according to the head of its intelligence agency."
+    },
+    {
+        "id":  "cnbc:19",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Amazon starts selling its AI shopping technology to other retailers",
+        "desc":  "Amazon said it\u0027s already signed up Kate Spade as a customer for its AI shopping technology."
+    },
+    {
+        "id":  "cnbc:20",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Healthy Returns: Eli Lilly makes a new push into vaccines — here’s what to know",
+        "desc":  "The drugmaker announced it will buy three privately held vaccine makers in deals worth almost $4 billion combined."
+    },
+    {
+        "id":  "cnbc:21",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Your AI agent can now trade for you on Robinhood. And buy stuff with your credit card too",
+        "desc":  "The new products allow customers to create AI assistants capable of carrying out investing strategies or spending instructions with minimal human involvement."
+    },
+    {
+        "id":  "cnbc:22",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Lululemon settles proxy battle with founder Chip Wilson, agrees to two board nominees",
+        "desc":  "Lululemon has been battling with founder Chip Wilson since December, as he says the company has lost its strategic vision and needs a new board of directors."
+    },
+    {
+        "id":  "cnbc:23",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Paxton bests Cornyn in Texas Republican Senate primary after Trump endorsement",
+        "desc":  "President Donald Trump last week endorsed Texas Attorney General Ken Paxton over incumbent Sen. John Cornyn."
+    },
+    {
+        "id":  "cnbc:24",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "New bull market in software stocks hinges on this report",
+        "desc":  "Options traders are convinced the \"SAAS-pocalypse\" is over. Whether that\u0027s true will likely depend on the market\u0027s reaction to one earnings report Wednesday."
+    },
+    {
+        "id":  "cnbc:25",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "SpaceX-Tesla merger chatter reignites as Musk pushes rocket company toward Nasdaq",
+        "desc":  "With SpaceX headed for the public markets next month, industry experts and people close to Elon Musk are speculating about a potential tie-up with Tesla."
+    },
+    {
+        "id":  "cnbc:26",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Energy shock starts to bite in Europe: UK household bills set for \u0027deeply unwelcome\u0027 2-year high",
+        "desc":  "“Ongoing conflict in the Middle East is impacting the price we pay for energy,” the head of the U.K.’s energy regulator said."
+    },
+    {
+        "id":  "cnbc:27",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Foot Locker returns to growth but weighs on Dick\u0027s Sporting Goods as earnings miss",
+        "desc":  "Since acquiring Foot Locker, Dick\u0027s Sporting Goods sales have surged, but its profitability has taken a hit given the high costs of the brand\u0027s turnaround."
+    },
+    {
+        "id":  "cnbc:28",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Millions of people with disabilities may be missing out on this little-known savings tool",
+        "desc":  "Millions of Americans with disabilities may qualify for ABLE accounts, which allow up to $100,000 in savings without losing benefits."
+    },
+    {
+        "id":  "cnbc:29",
+        "source":  "cnbc",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "BP\u0027s ousted chairman Albert Manifold disputes accusations over his conduct",
+        "desc":  "Former BP Chairman Albert Manifold has pushed back against accusations over his conduct following his shock departure from the British energy major."
+    },
+    {
+        "id":  "marketwatch:0",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Salesforce shares sink on soft revenue outlook as AI disruption concerns linger",
+        "desc":  "While the company’s Agentforce offering is picking up steam, Salesforce didn’t deliver the top-line growth investors wanted to see"
+    },
+    {
+        "id":  "marketwatch:1",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "‘I’m unsure of the best approach’: My father, 91, is in hospice care. He left his six children CDs. Can we cash out?",
+        "desc":  "“His banker suggested that it might be easier after my father’s passing if we liquidate all of the CDs.”"
+    },
+    {
+        "id":  "marketwatch:2",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Sam Altman’s toxic ‘culture of silence’ is an overlooked risk for OpenAI’s investors",
+        "desc":  "‘Conflict-averse’ CEO’s management style encourages groupthink — and it’s a massive corporate liability."
+    },
+    {
+        "id":  "marketwatch:3",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "More Americans are raiding their emergency savings just to fill up their gas tanks",
+        "desc":  "Most people think of emergencies as job loss or a hospital bill. For many today, it’s soaring energy costs."
+    },
+    {
+        "id":  "marketwatch:4",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Investors are rushing to buy TIPS ETFs to beat inflation. They could end up losing.",
+        "desc":  "Inflation-protected funds don’t always protect against inflation. As consumer-price inflation hits a three-year high due to the Iran war, the premise in their names is being tested."
+    },
+    {
+        "id":  "marketwatch:5",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Zscaler’s stock seeing record drop after investors are blindsided by a disappointing outlook",
+        "desc":  "Shares of Zscaler were headed for a record one-day decline of more than 31% after the cybersecurity company shocked investors with a downbeat revenue outlook."
+    },
+    {
+        "id":  "marketwatch:6",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "America is losing the AI productivity war to 3.5 million Chinese STEM graduates",
+        "desc":  "Big Tech’s structural mistakes are costing stock investors and fueling a massive talent crisis."
+    },
+    {
+        "id":  "marketwatch:7",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Why double-digit earnings growth won’t stop the next bear market",
+        "desc":  "Spiking S\u0026P 500 profits often signal the final innings of a bull market. History says stocks are on thin ice."
+    },
+    {
+        "id":  "marketwatch:8",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Micron investors are partying like it’s 1987. Analysts say the stock still looks pretty cheap.",
+        "desc":  "Shares of Micron were headed for their best monthly performance since 1987, but analysts still see them as a value play."
+    },
+    {
+        "id":  "marketwatch:9",
+        "source":  "marketwatch",
+        "region":  "EN",
+        "domain":  "financial",
+        "title":  "Big Tech gets the AI profits. You get the higher utility bills.",
+        "desc":  "The AI data-center boom is quietly cannibalizing America’s power grid."
+    },
+    {
+        "id":  "cointelegraph:0",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin treasury company Nakamoto falls nearly 67% YTD after reverse stock split",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9hbmFseXMtYW5hbHl0aWNzLWJpc2luZXNzLW1hbi13b21hbi1kb3duLWNpdHktY3Jhc2gtMS5qcGc=.jpg\" alt=\"Bitcoin treasury company Nakamoto falls nearly 67% YTD after reverse stock split \" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eThe company owns"
+    },
+    {
+        "id":  "cointelegraph:1",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Ether bears at risk of $2B squeeze as short positions build around $2K",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9iZWFyLW1hcmtldC5qcGc=.jpg\" alt=\"Ether bears at risk of $2B squeeze as short positions build around $2K\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eEther futures positioning tightened near $2,000 as rising open interest and dense s"
+    },
+    {
+        "id":  "cointelegraph:2",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Price predictions 5/27: BTC, ETH, BNB, XRP, SOL, DOGE, HYPE, ZEC, ADA, XMR",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1ob3ctdG8tdHJhZGUtY3J5cHRvY3VycmVuY2llcy0yLmpwZw==.jpg\" alt=\"Price predictions 5/27: BTC, ETH, BNB, XRP, SOL, DOGE, HYPE, ZEC, ADA, XMR\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitcoin briefly lost the $75,000 level after ne"
+    },
+    {
+        "id":  "cointelegraph:3",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Mastercard secures New York BitLicense for crypto operations",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1iaXRsaWNlbnNlLWFwcHJvdmFsLXNoaW5lcy1mcmVzaC1saWdodC1vbi1uZXcteW9yay1jcnlwdG8tcmVsYXRpb25zaGlwLmpwZw==.jpg\" alt=\"Mastercard secures New York BitLicense for crypto operations\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eThe payme"
+    },
+    {
+        "id":  "cointelegraph:4",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Prediction markets enter the derivatives era: XBIT DEX opens whitelist for prediction leverage, launching a 35,000 USDC campaign",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy8yMzQxNDEzMi5qcGc=.jpg\" alt=\"Prediction markets enter the derivatives era: XBIT DEX opens whitelist for prediction leverage, launching a 35,000 USDC campaign\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eXBIT DEX takes the lead in in"
+    },
+    {
+        "id":  "cointelegraph:5",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin price threatens $75K loss as US-Iran peace progress sparks new stocks records",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9yb2FkLXNpZ24tcmVub3ZhdGlvbi1yZWd1bGF0aW9uLWNoYW5nZXMtYml0Y29pbi13ZWxjb21lMjItMy5qcGc=.jpg\" alt=\"Bitcoin price threatens $75K loss as US-Iran peace progress sparks new stocks records\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitc"
+    },
+    {
+        "id":  "cointelegraph:6",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "BTC Prague 2026: Europe’s leading Bitcoin conference expands its cultural reach",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy8yNjAyMjAyNS0zLmpwZw==.jpg\" alt=\"BTC Prague 2026: Europe’s leading Bitcoin conference expands its cultural reach\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBTC Prague, Europe’s premier Bitcoin conference, returns to the PVA Expo P"
+    },
+    {
+        "id":  "cointelegraph:7",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Here’s what happened in crypto today",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9hcnRpY2xlLWNvdmVycy0xMTA1ODktd2hhdC1oYXBwZW5lZC1pbi1jcnlwdG8tdG9kYXkuanBn.jpg\" alt=\"Here’s what happened in crypto today\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eNeed to know what happened in crypto today? Here is the latest ne"
+    },
+    {
+        "id":  "cointelegraph:8",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "StakeDAO exploit creates 5.4 trillion vsdCRV but nets only $91K",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9zdG9wLWhhbmQtbG9nby1sYXB0b3Atc2Vuc29yLXN3aXRjaDIuanBn.jpg\" alt=\"StakeDAO exploit creates 5.4 trillion vsdCRV but nets only $91K\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003ePeckShield said the attacker bridged 43.7 ETH to Ethereum "
+    },
+    {
+        "id":  "cointelegraph:9",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "HTX denies UK sanctions allegations as new data flags $7.6B Russia-linked flows",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1iaWctYmFua3MtYW5kLWluc3RpdHV0aW9ucy10ZWxsaW5nLXBlb3BsZS10by1hdm9pZC1jcnlwdG8tMS5qcGc=.jpg\" alt=\"HTX denies UK sanctions allegations as new data flags $7.6B Russia-linked flows\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eUK san"
+    },
+    {
+        "id":  "cointelegraph:10",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Banca Sella gets MiCA clearance for crypto services in Italy",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1jbWMtaXMtY2hhbmdpbmctaXRzLWNhbGN1bGF0aW9uczExLmpwZw==.jpg\" alt=\"Banca Sella gets MiCA clearance for crypto services in Italy\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eThe bank plans to launch digital asset custody, transfer "
+    },
+    {
+        "id":  "cointelegraph:11",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin price shrugs off $1.3B BlackRock ETF block sale",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9iaXRjb2luLWV0Zi0xLmpwZw==.jpg\" alt=\"Bitcoin price shrugs off $1.3B BlackRock ETF block sale\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitcoin’s price stayed firm despite a massive $1.3 billion block sale executed by a mysterious"
+    },
+    {
+        "id":  "cointelegraph:12",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Sold in May and went away? Bitcoin risks another 10% drop as month turns red",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9iaXRjb2luLXByaWNlLWFuYWx5c2lzLWZhbGxpbmcuanBn.jpg\" alt=\"Sold in May and went away? Bitcoin risks another 10% drop as month turns red\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitcoin is on track to end May in the red, a historic"
+    },
+    {
+        "id":  "cointelegraph:13",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Aeternum brings the second edition of Unchained Summit to Vietnam on May 28-29",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9wcmVzc3JlbGVhc2VwYXJ0aWNsZXMuanBn.jpg\" alt=\"Aeternum brings the second edition of Unchained Summit to Vietnam on May 28-29\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eAeternum, organisers of the Unchained Summit series, will host "
+    },
+    {
+        "id":  "cointelegraph:14",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "China’s top court to study rules for crypto and AI cases",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9sYXdzdWl0LWxpdGlnYXRpb24tY291cnQxLmpwZw==.jpg\" alt=\"China’s top court to study rules for crypto and AI cases\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eChina’s Supreme People’s Court plans to study adjudication rules for crypto a"
+    },
+    {
+        "id":  "cointelegraph:15",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Crypto-backed candidates win key Texas primary runoffs",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS13aHktdGV4YXMtYml0Y29pbi1yZXNlcnZlLW1vdmUtc2lnbmFscy1hLXNoaWZ0LWluLWdvdmVybm1lbnQtY3J5cHRvMi5qcGc=.jpg\" alt=\"Crypto-backed candidates win key Texas primary runoffs\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eCrypto PACs threw s"
+    },
+    {
+        "id":  "cointelegraph:16",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Three key XRP metrics suggest ‘explosive price expansion’ is next",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy94cnAtY292ZXItbWF5LTI3LmpwZw==.jpg\" alt=\"Three key XRP metrics suggest ‘explosive price expansion’ is next\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eFalling MVRV ratio, high XRP Ledger activity and a bullish wedge pattern signal "
+    },
+    {
+        "id":  "cointelegraph:17",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "ETHConf brings Ethereum’s leaders, institutions, and policymakers to New York City on June 8–10",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9wcmVzc3JlbGVhc2Vib2xkLmpwZw==.jpg\" alt=\"ETHConf brings Ethereum’s leaders, institutions, and policymakers to New York City on June 8–10\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eETHConf, produced by ETHGlobal, will bring more th"
+    },
+    {
+        "id":  "cointelegraph:18",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Spot HYPE ETFs absorb 1% of market cap in first 10 trading days: Kairos",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9iaW5hbmNlLWNvaW5tYXJrZXRjYXAuanBn.jpg\" alt=\"Spot HYPE ETFs absorb 1% of market cap in first 10 trading days: Kairos\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eSpot HYPE ETFs absorbed 1.04% of Hyperliquid’s market cap in 10 tradin"
+    },
+    {
+        "id":  "cointelegraph:19",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin analysis eyes sharp rebound after BTC collapses below M2 supply \u0027fair value\u0027",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1tYXJrZXRzLXZvbGF0aWxpdHktcm9sbGVyY29hc3Rlci1iaXRjb2luLmpwZw==.jpg\" alt=\"Bitcoin analysis eyes sharp rebound after BTC collapses below M2 supply \u0027fair value\u0027\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitcoin remained trapped "
+    },
+    {
+        "id":  "cointelegraph:20",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "South Korea charges CATFI memecoin operators in first DEX rug-pull case: Report",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9hcnJlc3QtcG9saWNlLWhhY2tlci1jeWJlcmNyaW1lNi5qcGc=.jpg\" alt=\"South Korea charges CATFI memecoin operators in first DEX rug-pull case: Report\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eSouth Korean prosecutors reportedly charged a "
+    },
+    {
+        "id":  "cointelegraph:21",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Ethereum bull David Hoffman explains why he sold his ETH",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS13aHktZGlkLWV0aC1icmVhay1pdHMtYXRoLmpwZw==.jpg\" alt=\"Ethereum bull David Hoffman explains why he sold his ETH\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003e“Ethereum got the ETH price it deserves, and I don’t see ETH being rerate"
+    },
+    {
+        "id":  "cointelegraph:22",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Falcon Finance, SoFi unveil stablecoin products tied to banking infrastructure",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1ldmVyZ3JlZW4tZ3VpZGUtYWJvdXQtd2FsbC1zdHJlZXQtc3RhYmxlY29pbi5qcGc=.jpg\" alt=\"Falcon Finance, SoFi unveil stablecoin products tied to banking infrastructure\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eWhile Falcon’s new fUSD is "
+    },
+    {
+        "id":  "cointelegraph:23",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Sharplink, Forward Industries among crypto firms considered for Russell indexes",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS13aGF0LWlzLXRoZS1ncmF5c2NhbGUtYml0Y29pbi10cnVzdDAtMS5qcGc=.jpg\" alt=\"Sharplink, Forward Industries among crypto firms considered for Russell indexes\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitmine and Galaxy Digital may als"
+    },
+    {
+        "id":  "cointelegraph:24",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin’s recent drop coincides with $1.3B ‘dark pool’ ETF sale: Analyst",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS13aHktY3J5cHRvLW1hcmtldC1pcy1mYWxsaW5nLWJpdGNvaW4tMS5qcGc=.jpg\" alt=\"Bitcoin’s recent drop coincides with $1.3B ‘dark pool’ ETF sale: Analyst\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eGalaxy Digital’s Alex Thorn says a $1.3 b"
+    },
+    {
+        "id":  "cointelegraph:25",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Base launches new tool to connect crypto wallets to AI agents",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS13aGF0LWlzLWJhc2UtY29pbmJhc2UtbDItbmV0d29yay5qcGc=.jpg\" alt=\"Base launches new tool to connect crypto wallets to AI agents\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eAI models will be able to transfer funds, swap tokens, check"
+    },
+    {
+        "id":  "cointelegraph:26",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Tom Lee predicts supercycle amid Bitmine’s largest Ethereum buy in 2026",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1ob3ctdG8tYnV5LWV0aGVyZXVtLXdpdGgtYml0bWluZS5qcGc=.jpg\" alt=\"Tom Lee predicts supercycle amid Bitmine’s largest Ethereum buy in 2026\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitmine purchased 111,942 Ether last week, its big"
+    },
+    {
+        "id":  "cointelegraph:27",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Trump backs CFTC authority over prediction markets",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS10cnVtcC1jZnRjLTEuanBn.jpg\" alt=\"Trump backs CFTC authority over prediction markets\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eUS President Donald Trump says it is “critically important” that the CFTC has sole authority over p"
+    },
+    {
+        "id":  "cointelegraph:28",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin drops after $78K pop, but ‘value investor’ keeps ‘hoovering up cheap’ BTC",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9idW5nZWVqdW1waW5nYml0Y29pbi5qcGc=.jpg\" alt=\"Bitcoin drops after $78K pop, but ‘value investor’ keeps ‘hoovering up cheap’ BTC\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eBitcoin’s rangebound trading carries on as bears defend $77,"
+    },
+    {
+        "id":  "cointelegraph:29",
+        "source":  "cointelegraph",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "HYPE chases new highs as ETF inflows, institutional adoption accelerate",
+        "desc":  "\u003cp style=\"float:right; margin:0 0 10px 15px; width:240px;\"\u003e\u003cimg src=\"https://images.cointelegraph.com/images/528_aHR0cHM6Ly9zMy1pbWFnZXMuY3RtZWRpYS5pby9tZWRpYS9hcnRpY2xlLWNvdmVycy9oaS1tYXJrZXRzLXByby10cmFkaW5nLXN0cmF0ZWd5LmpwZw==.jpg\" alt=\"HYPE chases new highs as ETF inflows, institutional adoption accelerate\" class=\"type:primaryImage\"\u003e\u003c/p\u003e\u003cp\u003eHYPE reached new highs above $65 following record ETF "
+    },
+    {
+        "id":  "decrypt:0",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "ElevenLabs, Stability AI Drop New AI Music Models—Can They Catch Suno?",
+        "desc":  "Music v2 brings genre-shifting and section-by-section composition to ElevenLabs. Stable Audio 3.0 ships open weights and six-minute tracks. Is either good enough to dethrone the category leader?"
+    },
+    {
+        "id":  "decrypt:1",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Marvel Comics Icon Stan Lee Has Been \u0027Revived\u0027 With AI Tech—Again",
+        "desc":  "ElevenLabs has licensed Stan Lee’s voice and likeness, adding the late Marvel comic creator to a growing market for AI celebrity replicas."
+    },
+    {
+        "id":  "decrypt:2",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "DeepSeek, Xiaomi Just Made Frontier AI 99% Cheaper. American Labs Went the Other Way",
+        "desc":  "Back-to-back price cuts from China\u0027s top AI labs have made their models a fraction of the cost of GPT-5.5 and Claude Opus."
+    },
+    {
+        "id":  "decrypt:3",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Cash App Now Supports Stablecoins, Despite Bitcoin Maxi Jack Dorsey\u0027s \u0027Gatekeeper\u0027 Gripes",
+        "desc":  "Cash App has begun supporting stablecoin transactions on networks including Ethereum and Solana, pushing past its Bitcoin-based roots."
+    },
+    {
+        "id":  "decrypt:4",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "OpenAI Foundation Pledges $250 Million to Help Cushion AI\u0027s Economic Disruption",
+        "desc":  "The philanthropic arm of ChatGPT maker OpenAI will fund research, worker support, and new models for sharing the gains from automation."
+    },
+    {
+        "id":  "decrypt:5",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "YouTube Makes AI Content Labels More Prominent as Google Pushes Video Remix Tools",
+        "desc":  "YouTube says new disclosure tools and automatic AI detection will help viewers more easily identify AI-generated videos."
+    },
+    {
+        "id":  "decrypt:6",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "SoFi Launches SoFiUSD Stablecoin Across Ethereum and Solana",
+        "desc":  "SoFi is making its SoFiUSD token available to members, marking a milestone in the convergence of regulated banking and blockchain."
+    },
+    {
+        "id":  "decrypt:7",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Kraken Now Lets You Earn Yield on Bitcoin Holdings via Lending Vaults",
+        "desc":  "Kraken customers can make use of their Bitcoin holdings and generate BTC yield without ever leaving the exchange."
+    },
+    {
+        "id":  "decrypt:8",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Huawei\u0027s New Benchmark Gives AI Agents Months of Your Life—Then Watches Them Fail",
+        "desc":  "Claw-Anything simulates a real digital existence and asks AI assistants to handle it. GPT-5.5, the best model available, scored 34.5%."
+    },
+    {
+        "id":  "decrypt:9",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Mastercard Secures New York BitLicense in Push for Stablecoins, Tokenized Deposits",
+        "desc":  "Mastercard has secured a highly coveted BitLicense in New York, anchoring its compliance-first strategy for stablecoins on Wall Street."
+    },
+    {
+        "id":  "decrypt:10",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Robinhood Opens Platform to AI Agents for Stock Trading and Credit Card Spending",
+        "desc":  "Retail brokerage Robinhood now lets users delegate stock purchases and credit card transactions to third-party AI systems."
+    },
+    {
+        "id":  "decrypt:11",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Solana Meme Coin Surges 6,000% After Creators Arrested Over \u0027Rug Pull\u0027",
+        "desc":  "The charges against the CatFi creators mark the first time South Korean prosecutors have applied the new Virtual Asset User Protection Act."
+    },
+    {
+        "id":  "decrypt:12",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Morning Minute: Dark Pool Trader Dumps $1.3B in IBIT in Single Clip",
+        "desc":  "Strategy is paying down its debt instead of buying Bitcoin, and AI tokens are now massively outperforming BTC."
+    },
+    {
+        "id":  "decrypt:13",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Trump Backs CFTC Over Prediction Markets, Calls State Officials ‘Scum’",
+        "desc":  "Federal oversight gains the president’s backing as states push to bring prediction markets under their own gambling laws."
+    },
+    {
+        "id":  "decrypt:14",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "$1.3B Worth of BlackRock\u0027s IBIT Changes Hands in Dark Pool Sale",
+        "desc":  "A $1.3 billion off-exchange IBIT block sale shook Bitcoin Tuesday, but experts say the real test is yet to come."
+    },
+    {
+        "id":  "decrypt:15",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Some Non-Enhanced Athletes Beat Their Juiced Rivals at the \u0027Steroid Olympics\u0027",
+        "desc":  "The inaugural games produced a record-breaking swim, but several non-enhanced athletes still beat the enhanced competitors."
+    },
+    {
+        "id":  "decrypt:16",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Someone Just Destroyed $8.2 Million in Bitcoin—Why?",
+        "desc":  "Five unknown addresses removed 107 Bitcoin worth $8.2 million from circulation today, sparking intrigue on social media."
+    },
+    {
+        "id":  "decrypt:17",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "This Half-Gigabyte AI Model Runs Local Agents on Your Phone",
+        "desc":  "OpenBMB\u0027s 1B-parameter model brings MCP support and agentic tool use to on-device AI—but it has trouble with logic traps."
+    },
+    {
+        "id":  "decrypt:18",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Ethereum Firm Sharplink, Solana Treasury Forward Industries Joining Russell 2000, 3000 Indexes",
+        "desc":  "Crypto treasury firms Sharplink and Forward Industries will both be included in the Russell 2000 and 3000 indexes at the end of June."
+    },
+    {
+        "id":  "decrypt:19",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Grand Theft Data: Threat Actors Weaponizing GTA 6 Hype, NordVPN Warns",
+        "desc":  "Cybercriminals are weaponizing the hype surrounding Grand Theft Auto 6, flooding the internet with GTA phishing traps and malware."
+    },
+    {
+        "id":  "decrypt:20",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Spain Blocks Prediction Markets Kalshi, Polymarket for Potential Gambling Law Violations",
+        "desc":  "Spain is the latest country to clamp down on the rising use of prediction market platforms like Polymarket and Kalshi."
+    },
+    {
+        "id":  "decrypt:21",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "AI Chatbots Show Bias Toward Catholicism, Researchers Say",
+        "desc":  "Researchers find AI models steer users toward Catholicism and away from other religions, like Jehovah’s Witnesses."
+    },
+    {
+        "id":  "decrypt:22",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "TeraWulf Stock Pops as Bitcoin Miner Acquires Kentucky Site to Meet AI Power Demands",
+        "desc":  "Bitcoin miner TeraWulf’s latest deal adds more than a gigawatt of potential data center capacity in a region eager for economic investment."
+    },
+    {
+        "id":  "decrypt:23",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Inaudible Audio Attacks Can Hijack AI Voice Models, Study Finds",
+        "desc":  "Researchers were able to embed hidden signals in audio clips that silently commandeer AI model behavior."
+    },
+    {
+        "id":  "decrypt:24",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "UK Issues Sanctions Against Justin Sun\u0027s HTX, Other Crypto Firms Over Alleged Russia Ties",
+        "desc":  "British financial institutions are now barred from doing business with the exchanges—and may face penalties for interacting with crypto transactions that pass through them."
+    },
+    {
+        "id":  "decrypt:25",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Tom Lee\u0027s BitMine Makes Biggest Ethereum Buy Yet in 2026",
+        "desc":  "BitMine Immersion Technologies made its largest Ethereum acquisition yet this year—just weeks after saying it might slow down its ETH buys."
+    },
+    {
+        "id":  "decrypt:26",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Indonesia Blocks Polymarket After Bets on President’s Early Departure",
+        "desc":  "The ban came on the heels of markets linked to the early departure of Indonesian President Prabowo Subianto."
+    },
+    {
+        "id":  "decrypt:27",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "StepFun\u0027s Voice AI Topped Every Benchmark. It Also Hears Your Sighs",
+        "desc":  "The Shanghai lab that builds LLMs that punch above their weight just turned that same energy on voice—and the results are hard to ignore."
+    },
+    {
+        "id":  "decrypt:28",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "China Imposes Travel Limits on AI Workers at Private Firms: Report",
+        "desc":  "Beijing is reportedly making some private-sector AI workers seek travel approval, widening its control over tech talent."
+    },
+    {
+        "id":  "decrypt:29",
+        "source":  "decrypt",
+        "region":  "EN",
+        "domain":  "crypto",
+        "title":  "Bitcoin Giant Strategy Slashes Cash Reserves by 61% to Repurchase $1.5 Billion in Debt",
+        "desc":  "Strategy used 61% of its dedicated cash buffer to repurchase $1.5 billion in convertible notes, leaving its Bitcoin stash untouched."
+    }
+]

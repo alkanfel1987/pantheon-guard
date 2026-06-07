@@ -1,11 +1,20 @@
 /**
- * Smoke tests for clickbait pack v0.0.1
+ * Tests for clickbait pack v0.0.4 (closed-loop rebuild)
  *
- * Covers: pack-shape validation, key positive examples per detector class
- * (catch confirmation), and key negative examples (FP non-firing on
- * mainstream factual reporting).
+ * VALIDATION DISCIPLINE — PROCESS-FINDING-2026-05-16 corrective action #2:
+ *   No detector is validated by a string its author wrote. Every positive
+ *   and negative case below is a verbatim held-out headline, pulled from
+ *   the benchmark corpora BY LABEL — there is no opportunity to paraphrase
+ *   a pattern into passing. The v0.0.3 test file did the opposite (author
+ *   paraphrased real headlines into unit-test strings, closing the loop);
+ *   that is the bug this rewrite removes.
  *
- * Foundation: see src/packs/clickbait.js header.
+ * The load-bearing regression guards are the two corpus-wide tests:
+ *   - 0 false positives across all 142 pass-labelled held-out headlines
+ *   - catch-rate floor across all 98 catch-labelled held-out headlines
+ *
+ * Reproduce the full per-detector measurement:
+ *   node examples/clickbait-detector-probe.js
  */
 
 import { test } from 'node:test';
@@ -13,6 +22,23 @@ import assert from 'node:assert/strict';
 
 import { validatePack, applyPack, runPack } from '../src/packs/index.js';
 import { clickbaitPack } from '../src/packs/clickbait.js';
+import { HELDOUT } from '../examples/benchmark-heldout-clickbait-corpus.js';
+import { HELDOUT_V2 } from '../examples/benchmark-heldout-clickbait-v2-corpus.js';
+import { CONTROL } from '../examples/benchmark-control-2026-05-16-corpus.js';
+
+const ALL = [...HELDOUT, ...HELDOUT_V2, ...CONTROL];
+
+function fires(text) {
+  return runPack(clickbaitPack, text).packViolations.length > 0;
+}
+
+// Pull a real held-out headline by its corpus label. Throws if the label
+// is gone — so a test can never silently fall back to an invented string.
+function headline(label) {
+  const e = ALL.find((x) => x.label === label);
+  if (!e) throw new Error(`no held-out corpus entry labelled "${label}"`);
+  return e.text;
+}
 
 // ─────────────────────────────────────────────
 // Pack shape
@@ -24,8 +50,8 @@ test('clickbait: pack is well-formed', () => {
 
 test('clickbait: has expected pack metadata', () => {
   assert.equal(clickbaitPack.id, 'clickbait');
-  assert.equal(clickbaitPack.version, '0.0.3');
-  assert.ok(clickbaitPack.detectionPatterns.length >= 16);
+  assert.equal(clickbaitPack.version, '0.0.5');
+  assert.equal(clickbaitPack.detectionPatterns.length, 5);
 });
 
 test('clickbait: every pattern routes to a valid mahavrata rule', () => {
@@ -40,239 +66,141 @@ test('clickbait: applicableFrames is public_information', () => {
 });
 
 // ─────────────────────────────────────────────
-// Positive cases — these MUST catch
+// Load-bearing regression guards — corpus-wide
 // ─────────────────────────────────────────────
 
-function catches(text) {
-  const { packViolations } = runPack(clickbaitPack, text);
-  return packViolations.length > 0;
-}
-
-test('clickbait: forward-reference-authority catches «doctors hate this»', () => {
-  assert.ok(catches('The secret doctors hate that doubles your energy'));
+test('clickbait: 0 false positives across all 142 held-out pass headlines', () => {
+  const pass = ALL.filter((e) => e.expected === 'pass');
+  assert.equal(pass.length, 142);
+  const fp = pass.filter((e) => fires(e.text));
+  assert.equal(fp.length, 0,
+    `false positives: ${fp.map((e) => `${e.src}/${e.label}`).join('; ')}`);
 });
 
-test('clickbait: forward-reference-revealer catches «reveals chilling»', () => {
-  assert.ok(catches("Reporter reveals chilling reason Blake Lively left"));
-});
-
-test('clickbait: vague-revealer-adjective catches «chilling reason»', () => {
-  assert.ok(catches('The chilling reason her marriage ended'));
-});
-
-test('clickbait: vague-revealer-adjective catches «devastating reality»', () => {
-  assert.ok(catches('Doctors have to tell her the devastating reality'));
-});
-
-test('clickbait: numeric-listicle catches «35 Shoes From Amazon»', () => {
-  assert.ok(catches('35 Shoes From Amazon That Really Were Made For Walking'));
-});
-
-test('clickbait: numeric-listicle catches «41 Times People»', () => {
-  assert.ok(catches('41 Times People Found Something Really Really Odd'));
-});
-
-test('clickbait: numeric-listicle-people catches «50 People Who»', () => {
-  assert.ok(catches('50 People Who Logged On And Posted Something'));
-});
-
-test('clickbait: caps-emotional-tokens catches «OUCH OWIE»', () => {
-  assert.ok(catches('OUCH! OWIE! OWWWWWW! These 29 Posts'));
-});
-
-test('clickbait: caps-intensifier catches «OUTRAGEOUSLY»', () => {
-  assert.ok(catches('35 OUTRAGEOUSLY Wholesome Pictures'));
-});
-
-test('clickbait: extreme-intensifier catches «hilariously accurate»', () => {
-  assert.ok(catches('55 Hilariously Accurate Cat Tweets'));
-});
-
-test('clickbait: universal-quantifier catches «every cat owner should»', () => {
-  assert.ok(catches('Every Cat Owner Should Recognize These Immediately'));
-});
-
-test('clickbait: collective-cannot-stop catches «Internet Cannot Stop»', () => {
-  assert.ok(catches('The Internet Cannot Stop Talking About His Take'));
-});
-
-test('clickbait: nominalization catches «the chilling reality»', () => {
-  assert.ok(catches('Doctors have to tell her the devastating reality'));
-});
-
-test('clickbait: judgment-adjective catches «entitled tourist»', () => {
-  assert.ok(catches('Entitled Tourist Who Threw A Rock At Beloved Seal'));
-});
-
-test('clickbait: drama-verb catches «risks getting»', () => {
-  assert.ok(catches('Demi Moore Risks Getting Kicked Off Red Carpet'));
-});
-
-test('clickbait: descends-into-chaos catches «descends into chaos»', () => {
-  assert.ok(catches('TUI Flight Descends Into Chaos After Drunken Passenger'));
-});
-
-test('clickbait: wild-rampage catches «wild rampage»', () => {
-  assert.ok(catches('Punches And Bites Flight Attendant During Wild Rampage'));
+test('clickbait: catch-rate floor — >= 42/98 held-out catch headlines (v0.0.4 baseline)', () => {
+  const cat = ALL.filter((e) => e.expected === 'catch');
+  assert.equal(cat.length, 98);
+  const caught = cat.filter((e) => fires(e.text)).length;
+  // v0.0.4 measured 42/98 (heldout#1 19, heldout#2 10, control 13). This
+  // floor fails loudly if a future edit silently loses real catch.
+  assert.ok(caught >= 42, `caught ${caught}/98, expected floor 42`);
 });
 
 // ─────────────────────────────────────────────
-// Curiosity-gap detector family — v0.0.3
-// Mechanism-derived from Loewenstein information-gap theory.
+// Per-detector — each positive case is a verbatim held-out headline
 // ─────────────────────────────────────────────
 
-test('clickbait CG-1: demonstrative-withheld «this 60-second trick»', () => {
-  assert.ok(catches('How to stop sounding long-winded with this 60-second trick'));
+test('clickbait numeric-listicle: BrightSide «16 Acts of Kindness»', () => {
+  assert.ok(fires(headline('BS 16 acts of kindness')));
 });
 
-test('clickbait CG-2: quantified-withheld «one powerful habit»', () => {
-  assert.ok(catches('Dostoevsky shared one powerful habit for an authentic life'));
+test('clickbait numeric-listicle: LittleThings «9 Very Doable ... Daily Habits»', () => {
+  assert.ok(fires(headline('LT 9 daily habits')));
 });
 
-test('clickbait CG-3a: outcome-teaser «you won\'t believe»', () => {
-  assert.ok(catches("You won't believe what she found in the attic"));
+test('clickbait numeric-listicle: ScaryMommy «11 French Skincare Products»', () => {
+  assert.ok(fires(headline('SM 11 french skincare')));
 });
 
-test('clickbait CG-3b: outcome-teaser «the results are alarming»', () => {
-  assert.ok(catches('Scientists tested 3 water brands. The results are alarming.'));
+test('clickbait numeric-listicle-plus: AdMe «20+ историй»', () => {
+  assert.ok(fires(headline('AdMe necнеобычные фамилии')));
 });
 
-test('clickbait CG-4: gap-pointer «Here\'s why»', () => {
-  assert.ok(catches("Taylor Sheridan was not involved in the spinoff — Here's Why"));
+test('clickbait numeric-listicle-plus: AdMe «15+ зарисовок»', () => {
+  assert.ok(fires(headline('AdMe школа 30 лет')));
 });
 
-test('clickbait CG-4: gap-pointer «Here\'s the Scoop»', () => {
-  assert.ok(catches("Are the baby rumors true? Here's the Scoop on the Chatter"));
+test('clickbait numeric-listicle-ru: AdMe «20 подарков, которых не ждали»', () => {
+  assert.ok(fires(headline('AdMe подарки')));
 });
 
-test('clickbait CG-5: relation-question «Who Is X\'s Husband»', () => {
-  assert.ok(catches("Who Is Yellowstone Star Kelly Reilly's Husband?"));
+test('clickbait numeric-listicle-ru: AdMe «17 душевных историй о людях»', () => {
+  assert.ok(fires(headline('AdMe роза из палки')));
 });
 
-test('clickbait CG-6: hidden-knowledge «facts you didn\'t know»', () => {
-  assert.ok(catches('15 facts about coffee you didn\'t know'));
+test('clickbait here-is-gap-pointer: Distractify «Here\'s the Scoop»', () => {
+  assert.ok(fires(headline('DF Willow Smith scoop')));
 });
 
-test('clickbait v0.0.3: numeric-listicle broadened lexicon «16 Acts»', () => {
-  assert.ok(catches('16 Acts of Kindness From Family That Prove Compassion'));
+test('clickbait here-is-gap-pointer: LittleThings «Here\'s A List Of»', () => {
+  assert.ok(fires(headline('LT heres a list baby names')));
 });
 
-test('clickbait v0.0.3: numeric-listicle broadened lexicon «9 fascinating words»', () => {
-  assert.ok(catches('9 fascinating Colonial-era words to brush up on'));
+test('clickbait here-is-gap-pointer: Newsweek «Here is Why»', () => {
+  assert.ok(fires(headline('NW NFL international heres why')));
 });
 
-// ─────────────────────────────────────────────
-// Negative cases — these MUST NOT fire (FP guards)
-// ─────────────────────────────────────────────
-
-function passes(text) {
-  const { packViolations } = runPack(clickbaitPack, text);
-  return packViolations.length === 0;
-}
-
-test('clickbait FP guard: «20 million people» (quantifier, not listicle)', () => {
-  assert.ok(passes('Acute hunger grips nearly 20 million people in Sudan'));
+test('clickbait shock-adjective-nominalization: LADbible «chilling tribute»', () => {
+  assert.ok(fires(headline('LB Shirilla chilling tribute')));
 });
 
-test('clickbait FP guard: «May 4, 2026» year does not trigger numeric-listicle', () => {
-  assert.ok(passes("Today's famous birthdays list for May 4, 2026 includes celebrities"));
+test('clickbait shock-adjective-nominalization: LADbible «traumatising moment»', () => {
+  assert.ok(fires(headline('LB traumatising moment Blake Lively')));
 });
 
-test('clickbait FP guard: factual Wikipedia event headline', () => {
-  assert.ok(passes('Russian forces launch overnight strikes on Kyiv, killing 16 and wounding 57'));
-});
-
-test('clickbait FP guard: Al Jazeera mainstream news', () => {
-  assert.ok(passes('Cuba Diaz-Canel open to US aid amid worsening fuel crisis, blackouts'));
-});
-
-test('clickbait FP guard: Reuters-style factual reporting', () => {
-  assert.ok(passes('Pakistan and U.S. discuss ceasefire mediation efforts in Iran war'));
-});
-
-test('clickbait FP guard: 4-digit year does not match numeric-listicle', () => {
-  assert.ok(passes('In 2026 the company shipped products to 30 countries'));
+test('clickbait shock-adjective-nominalization: TheThings «Shocking ... Finale Reveal»', () => {
+  assert.ok(fires(headline('TT Sophia Bush shocking reveal')));
 });
 
 // ─────────────────────────────────────────────
-// Adversarial FP guards — v0.0.2
-// Real headlines from live-pulled mainstream cohort 2026-05-15,
-// deliberately selected for high-FP-risk register. These MUST pass —
-// they are legitimate journalism that uses engaging-but-honest framing.
-// Regression guard: future pattern edits must not break these.
+// FP guards — verbatim mainstream headlines that MUST NOT fire
 // ─────────────────────────────────────────────
 
-test('clickbait adv-FP: ProPublica «What the FDA Won\'t Tell You»', () => {
-  // Curiosity-gap headline used legitimately by investigative journalism.
-  // "FDA" is not in forward-reference-authority lexicon (doctors/experts/
-  // scientists/insiders/they/nobody/no one) — intentionally narrow.
-  assert.ok(passes("What the FDA Won't Tell You About Your Medications"));
+test('clickbait FP guard: «2 senators call on FAA» (count + plural noun, not listicle)', () => {
+  // numeric-listicle excludes "people" and requires an enumerable
+  // listicle-noun; "senators ... staffing" supplies none.
+  assert.ok(!fires(headline('CBS FAA flight attendant')));
 });
 
-test('clickbait adv-FP: ProPublica «Threat in Your Medicine Cabinet»', () => {
-  assert.ok(passes("Threat in Your Medicine Cabinet: The FDA's Gamble on America's Drugs"));
+test('clickbait FP guard: «150 тысяч вакансий» (RU count + quantity word)', () => {
+  // numeric-listicle-ru noun set is generic enumeration nouns only;
+  // "тысяч/вакансий" are not in it.
+  assert.ok(!fires(headline('MK 150 тысяч вакансий')));
 });
 
-test('clickbait adv-FP: ProPublica «Generic Drugs Were Made»', () => {
-  assert.ok(passes('Look Up Where Your Generic Prescription Drugs Were Made'));
+test('clickbait FP guard: LADbible «horrific crash» — excluded shock-adjective', () => {
+  // "horrific" is deliberately NOT in the shock-adjective set: it occurs
+  // in straight crime reporting. This headline is pass-labelled.
+  assert.ok(!fires(headline('LB Top Gear comeback')));
 });
 
-test('clickbait adv-FP: ProPublica «at Risk for Poisoning» ≠ risks-getting', () => {
-  // "at Risk for" must not trigger drama-verb-risks-getting (which needs
-  // "risks getting/being/having/...").
-  assert.ok(passes('Trump Halted an Agent Orange Cleanup. That Puts Hundreds of Thousands at Risk for Poisoning.'));
+test('clickbait FP guard: PBS mainstream diplomacy headline', () => {
+  assert.ok(!fires(headline('PBS China welcomes Trump')));
 });
 
-test('clickbait adv-FP: The Conversation «Why it\'s too early to forecast»', () => {
-  // "Why X" explainer framing — presupposition-why-never needs 2nd/3rd
-  // person pronoun + modal + never/always; "it's" is not in the list.
-  assert.ok(passes("A super El Nino? Why it's too early to forecast one with certainty"));
+test('clickbait FP guard: ORF.at mainstream German headline', () => {
+  assert.ok(!fires(headline('ORF Trump Aktien')));
 });
 
-test('clickbait adv-FP: The Conversation «Why a growing number of supporters»', () => {
-  assert.ok(passes('Why a growing number of Trump supporters are experiencing voter remorse'));
+// Regression guards for the two FP classes the v0.0.4 rebuild hit during
+// validation against benchmark-phase1-corpus.js. Strings are verbatim from
+// that corpus (src 'tass') — real headlines, not author-written.
+
+test('clickbait FP guard: «N человек» RU casualty count is not a listicle', () => {
+  // numeric-listicle-ru deliberately excludes «человек»: «N человек
+  // погибли» is the most common RU death-toll headline form.
+  assert.ok(!fires('Минздрав Ливана заявил о гибели 2 696 человек со 2 марта из-за атак Израиля'));
 });
 
-test('clickbait adv-FP: Smithsonian «Hilarious Archive» (adjective, not adverb)', () => {
-  // extreme-intensifier-adverb needs adverb+adjective ("hilariously funny");
-  // "Hilarious Archive" is adjective+noun — must not fire.
-  assert.ok(passes('Ahead of His 100th Birthday, Mel Brooks Donates His Archive to the National Comedy Center'));
-});
-
-test('clickbait adv-FP: Smithsonian «New Research Debunks the Myths»', () => {
-  assert.ok(passes('History Remembers Mary Boleyn as the Other Boleyn Girl. New Research Debunks the Myths.'));
-});
-
-test('clickbait adv-FP: Axios «Doctors rally behind autonomous vehicles»', () => {
-  // "Doctors rally" — forward-reference-authority needs hate/love/won't-tell
-  // type verb; "rally" is not a withholding verb — must not fire.
-  assert.ok(passes('Doctors rally behind autonomous vehicles as public health issue'));
-});
-
-test('clickbait adv-FP: numeric «15 Days» (time unit, not listicle)', () => {
-  assert.ok(passes("Gone in 15 Days: How the Connecticut DMV Allows Tow Companies to Sell People's Cars"));
-});
-
-test('clickbait adv-FP: «250 Objects» museum count is borderline — verify current behavior', () => {
-  // "250 Objects to Commemorate" — numeric-listicle requires a listicle-noun
-  // (reasons/times/photos/...); "objects" is not in the lexicon. Passes.
-  assert.ok(passes('The National Museum of American History Is Displaying 250 Objects to Commemorate the Big Birthday'));
+test('clickbait FP guard: mid-sentence «200+» is not a headline-initial listicle', () => {
+  // numeric-listicle-plus is anchored to headline start; "построено 200+
+  // школ" is a mid-sentence achievement count, not a listicle.
+  assert.ok(!fires('Экс-глава Дагестана Меликов рассказал о достижениях региона за пять лет. Запущены 12 промпредприятий, построено 200+ школ.'));
 });
 
 // ─────────────────────────────────────────────
 // Integration via applyPack
 // ─────────────────────────────────────────────
 
-test('clickbait: applyPack fails on clickbait headline', () => {
+test('clickbait: applyPack fails on a held-out clickbait headline', () => {
   const inspect = applyPack(clickbaitPack);
-  const r = inspect('35 OUTRAGEOUSLY Wholesome Pictures That Make Me Smile');
+  const r = inspect(headline('BS 16 acts of kindness'));
   assert.equal(r.passes, false);
   assert.ok(r.packViolations.length > 0);
 });
 
-test('clickbait: applyPack passes on mainstream news', () => {
+test('clickbait: applyPack packViolations empty on mainstream news', () => {
   const inspect = applyPack(clickbaitPack);
-  const r = inspect('Russian forces launch overnight strikes on Kyiv, killing 16');
-  // Note: only checks packViolations specifically — core may have its own opinion
+  const r = inspect(headline('CBS Ebola Congo'));
   assert.equal(r.packViolations.length, 0);
 });

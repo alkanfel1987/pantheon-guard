@@ -1,0 +1,260 @@
+{
+  "_meta": {
+    "date": "2026-05-10",
+    "purpose": "Real-corpus probe for epistemology v0.3.0-pre.1 false_equivalence_levelling detector",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical op-ed framings I (test author) have encountered. Negatives draw on public-domain / analytical text. Per CLAUDE.md selection-bias discipline this constitutes structured sanity, NOT external validation. A live-corpus probe is required before any 'production-validated' claim.",
+    "deviation_from_prereg": "none"
+  },
+  "entries": [
+    {
+      "id": "P-EN-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of common centrist op-ed)",
+      "text": "Both sides are equally bad — Republicans and Democrats have spent decades destroying public trust, and at this point there is no real difference between them.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "double-marker: «both sides are equally bad» + «no real difference between»"
+    },
+    {
+      "id": "P-EN-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of anti-establishment op-ed)",
+      "text": "All politicians are the same. Whether you vote left or right you get the same lobbyist-funded outcome.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«all politicians are the same» — direct detector pattern"
+    },
+    {
+      "id": "P-EN-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of media-criticism op-ed)",
+      "text": "All journalists are the same — corporate stenographers selling whatever narrative their owners want.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«all journalists are the same» — detector pattern"
+    },
+    {
+      "id": "P-EN-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of horseshoe-theory commentary)",
+      "text": "Both sides are just as wrong on this. Far-left and far-right end up advocating identical policies.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«both sides are just as wrong»"
+    },
+    {
+      "id": "P-EN-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of tech-criticism op-ed)",
+      "text": "All corporations are the same when it comes to data privacy — they all sell you out the moment it becomes profitable.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«all corporations are the same»"
+    },
+    {
+      "id": "P-EN-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of media-skeptic op-ed)",
+      "text": "There is no real difference between Fox News and MSNBC — both are equally guilty of partisan distortion.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "double-marker: «no real difference between» + «both are equally guilty»"
+    },
+    {
+      "id": "P-EN-07",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of accelerationist commentary)",
+      "text": "Both parties are equally bad for working families. Every election cycle the same betrayal repeats.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«both parties are equally bad»"
+    },
+    {
+      "id": "P-RU-01",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of typical RU oppositional commentary)",
+      "text": "Все политики одинаковы. Что Единая Россия, что оппозиция — на выходе одни и те же воровство и обман.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«все политики одинаковы»"
+    },
+    {
+      "id": "P-RU-02",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of media-skeptic op-ed)",
+      "text": "Все журналисты одинаковы — продажные перья, обслуживающие интересы своих хозяев.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«все журналисты одинаковы»"
+    },
+    {
+      "id": "P-RU-03",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of corporate-criticism op-ed)",
+      "text": "Все корпорации одинаковы. Независимо от вывески, по сути это одно и то же — выкачивать прибыль любой ценой.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "double-marker: «все корпорации одинаковы» + «по сути это одно и то же»"
+    },
+    {
+      "id": "P-RU-04",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of bothsidesism Russian commentary)",
+      "text": "Обе стороны одинаково виноваты в этом конфликте, и обвинять одну из них было бы наивно.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«обе стороны одинаково виноваты»"
+    },
+    {
+      "id": "P-RU-05",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of cynical political column)",
+      "text": "Нет принципиальной разницы между либералами и консерваторами в нашей политике — и те и другие одинаково плохи для рядового гражданина.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "double-marker: «нет принципиальной разницы между» + «и те и другие одинаково плохи»"
+    },
+    {
+      "id": "P-RU-06",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of leftist anti-elite op-ed)",
+      "text": "Все олигархи одинаковы. В конечном счёте все равны в своей жадности.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "double-marker: «все олигархи одинаковы» + «в конечном счёте все равны»"
+    },
+    {
+      "id": "P-RU-07",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of anti-establishment commentary)",
+      "text": "Все чиновники одинаковы. От уровня к уровню меняются только суммы взяток, по сути это одно и то же.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "double-marker: «все чиновники одинаковы» + «по сути это одно и то же»"
+    },
+
+    {
+      "id": "N-EN-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "Federalist No. 10 (James Madison, public domain)",
+      "text": "Among the numerous advantages promised by a well constructed Union, none deserves to be more accurately developed than its tendency to break and control the violence of faction.",
+      "synthesis": false,
+      "notes": "comparative analysis without leveling lexicon"
+    },
+    {
+      "id": "N-EN-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of analytical political-science framing)",
+      "text": "Republicans and Democrats differ substantially on tax policy: Republicans favor lower marginal rates and broader bases, while Democrats favor progressive structures and targeted credits.",
+      "synthesis": true,
+      "notes": "explicit substantive comparison — no leveling"
+    },
+    {
+      "id": "N-EN-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of policy-comparison commentary)",
+      "text": "Both parties moved toward higher defense spending in the 2010s, but for different strategic reasons and with different procurement priorities.",
+      "synthesis": true,
+      "notes": "«both parties» co-occurs with substantive distinction — should not fire"
+    },
+    {
+      "id": "N-EN-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "Plutarch, Lives — Lycurgus and Numa (public domain)",
+      "text": "These men were so similar in disposition that comparison is natural, yet their methods of legislation diverged: Lycurgus drew the Spartans toward austerity, while Numa softened the Romans through religion.",
+      "synthesis": false,
+      "notes": "explicit comparison-with-divergence — should not fire"
+    },
+    {
+      "id": "N-EN-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of media analysis)",
+      "text": "Cable news outlets share a structural reliance on conflict-driven coverage, but their editorial selection of which conflicts to cover diverges sharply.",
+      "synthesis": true,
+      "notes": "shared property + explicit divergence — comparative not levelling"
+    },
+    {
+      "id": "N-EN-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of policy paper)",
+      "text": "While many corporations have similar privacy policies on paper, enforcement and audit transparency vary widely in practice.",
+      "synthesis": true,
+      "notes": "shared-surface + practical-divergence framing"
+    },
+    {
+      "id": "N-RU-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of carnegie-style analytic)",
+      "text": "Российские партии демонстрируют сходную централизованную структуру принятия решений, однако отличаются в риторике и составе электората.",
+      "synthesis": true,
+      "notes": "сходство + различие — НЕ leveling"
+    },
+    {
+      "id": "N-RU-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of policy commentary)",
+      "text": "И либералы, и консерваторы поддержали этот закон, но по разным причинам и с разными оговорками.",
+      "synthesis": true,
+      "notes": "co-occurrence без дескрипторов одинаковости"
+    },
+    {
+      "id": "N-RU-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of academic political-science abstract)",
+      "text": "Сравнительный анализ программ двух партий показывает совпадение по ряду пунктов и существенные расхождения по налоговой политике.",
+      "synthesis": true,
+      "notes": "академический язык, без leveling-маркеров"
+    },
+    {
+      "id": "N-RU-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of media analysis)",
+      "text": "Государственные и частные СМИ конкурируют за внимание аудитории и опираются на сходные форматы, но различаются по редакционным стандартам.",
+      "synthesis": true,
+      "notes": "shared-property + divergence framing"
+    },
+    {
+      "id": "N-RU-05",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of historical commentary)",
+      "text": "Реформы 1860-х и 1990-х годов имеют структурные параллели, хотя их социальные последствия отличаются принципиально.",
+      "synthesis": true,
+      "notes": "параллели + принципиальные отличия — НЕ leveling"
+    },
+    {
+      "id": "N-RU-06",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of policy think-tank text)",
+      "text": "Корпоративные политики приватности часто похожи по букве, но их реальное применение существенно расходится между компаниями.",
+      "synthesis": true,
+      "notes": "схожесть + расхождение — comparative analysis"
+    }
+  ]
+}

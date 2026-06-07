@@ -1,0 +1,45 @@
+{
+  "date": "2026-05-10T06:32:49.309Z",
+  "detector": "silence_as_concession",
+  "pack_version": "0.3.0-pre.1",
+  "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical political commentary / gossip / discreditation framings I (test author) have encountered. Negative class is paraphrased neutral journalism reporting + legal-restraint passages + procedural-silence framings. Per CLAUDE.md selection-bias discipline this is structured sanity, NOT external validation. Live-corpus probe required before stable claim.",
+  "corpus_size": {
+    "positive": 12,
+    "negative": 12
+  },
+  "metrics": {
+    "catch_point": {
+      "mean": 1,
+      "lo": 0.7574992425007574,
+      "hi": 0.9999999999999998
+    },
+    "fp_point": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.2425007574992425
+    },
+    "catch_en": {
+      "mean": 1,
+      "lo": 0.6096569663469354,
+      "hi": 1
+    },
+    "catch_ru": {
+      "mean": 1,
+      "lo": 0.6096569663469354,
+      "hi": 1
+    },
+    "fp_en": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3903430336530645
+    },
+    "fp_ru": {
+      "mean": 0,
+      "lo": 0,
+      "hi": 0.3903430336530645
+    }
+  },
+  "fn_ids": [],
+  "fp_ids": [],
+  "decision": "PROMOTE_PARTIAL — synthesis-validated release-candidate; live-corpus probe required"
+}

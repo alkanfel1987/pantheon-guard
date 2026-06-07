@@ -1,0 +1,240 @@
+{
+  "_meta": {
+    "date": "2026-05-10",
+    "purpose": "Real-corpus probe for epistemology v0.3.0-pre.1 anecdotal_override detector (no inhibitor)",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical alt-med / experience-trumps-data forum commentary I (test author) have encountered. Negative class is paraphrased honest-experience-sharing + bounded-personal-experience framings. Per CLAUDE.md selection-bias discipline this is structured sanity, NOT external validation. Live-corpus probe required before stable claim.",
+    "deviation_from_prereg": "none"
+  },
+  "entries": [
+    {
+      "id": "P-EN-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of alt-med forum)",
+      "text": "I saw it myself — my mother was cured of arthritis after one week on this regimen, so the systematic reviews must be missing something.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«I saw it myself» + override of systematic reviews"
+    },
+    {
+      "id": "P-EN-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of healthcare-skepticism commentary)",
+      "text": "In my 25 years of clinical practice I have never seen a single case of vaccine harm severe enough to be concerning, regardless of what the registries say.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«in my 25 years of practice» + override of registry data"
+    },
+    {
+      "id": "P-EN-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of workplace forum)",
+      "text": "I have a friend who works at the company and management is wonderful — these whistleblower reports are clearly exaggerated.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«I have a friend who» + override of reports"
+    },
+    {
+      "id": "P-EN-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of diet-skepticism)",
+      "text": "I witnessed it with my own eyes when I lost 30 pounds on this protocol — meta-analyses claiming it does not work are simply wrong.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«I witnessed it with my own eyes» + override of meta-analyses"
+    },
+    {
+      "id": "P-EN-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of education-skepticism)",
+      "text": "In my experience as a teacher, screen time has no effect on attention. Whatever the research papers claim, the kids in my class are perfectly fine.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«in my experience» + override of research"
+    },
+    {
+      "id": "P-EN-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of climate-skepticism)",
+      "text": "I have a friend who has farmed this land for 40 years and he says winters are getting colder. Whatever the climate models claim, his experience speaks for itself.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«I have a friend who» + override of climate models"
+    },
+    {
+      "id": "P-RU-01",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of RU alt-med forum)",
+      "text": "Я лично видел, как этот препарат полностью убрал у соседки опухоль за месяц. Что бы ни писали в исследованиях, факт остаётся фактом.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«я лично видел» + override"
+    },
+    {
+      "id": "P-RU-02",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of healthcare-skepticism RU)",
+      "text": "За 30 лет работы хирургом я не видел ни одного случая, чтобы это правило подтвердилось — статистика, видимо, искажена.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«за 30 лет работы» + «не видел» + override"
+    },
+    {
+      "id": "P-RU-03",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of workplace-discussion)",
+      "text": "У меня есть знакомый, который работал в этой компании, и условия там отличные. Все эти разоблачения — раздутая медиа-история.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«у меня есть знакомый, который»"
+    },
+    {
+      "id": "P-RU-04",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of diet/wellness commentary)",
+      "text": "Своими глазами видел, как голодание убрало хроническое воспаление за две недели. Любые научные обзоры, отрицающие это, упускают главное.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«своими глазами видел» + override"
+    },
+    {
+      "id": "P-RU-05",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of education-commentary)",
+      "text": "Мой личный опыт показывает, что строгая дисциплина в классе работает лучше всех современных методик, что бы там ни говорили исследования.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«мой личный опыт показывает» + override of research"
+    },
+    {
+      "id": "P-RU-06",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of parenting-commentary)",
+      "text": "Я сам убедился, что от сахара дети становятся гиперактивными — мне неинтересны двойные слепые исследования, отрицающие очевидное.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«я сам убедился» + override"
+    },
+
+    {
+      "id": "N-EN-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of bounded-experience commentary)",
+      "text": "Anecdotally, our small clinic has not encountered cases of this side effect in three years, although I recognize the larger registries are the more reliable signal.",
+      "synthesis": true,
+      "notes": "personal experience EXPLICITLY bounded; defers to broader evidence"
+    },
+    {
+      "id": "N-EN-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of analytical commentary)",
+      "text": "Several teachers in our district have reported similar patterns, though we treat these as hypothesis-generating rather than conclusive.",
+      "synthesis": true,
+      "notes": "experience as data-point alongside systematic framing — no override"
+    },
+    {
+      "id": "N-EN-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of careful policy text)",
+      "text": "Practitioners have observed comparable trends, but the evidence base from controlled studies remains the primary basis for the recommendation.",
+      "synthesis": true,
+      "notes": "no first-person override markers"
+    },
+    {
+      "id": "N-EN-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "Plutarch, Lives — Themistocles (public domain)",
+      "text": "Themistocles answered, that his own knowledge could but compass small things, while the genius of his country was equal to the greatest.",
+      "synthesis": false,
+      "notes": "public-domain literary text mentioning personal knowledge without override-framing"
+    },
+    {
+      "id": "N-EN-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of research commentary)",
+      "text": "Patient case reports remain useful for hypothesis generation; they are not a substitute for systematic review and should be triangulated with broader evidence.",
+      "synthesis": true,
+      "notes": "metacommentary on anecdote-vs-systematic — no first-person override"
+    },
+    {
+      "id": "N-EN-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of mentor advice)",
+      "text": "My experience here is limited to a handful of cases, and the broader literature points in a different direction — readers should weigh accordingly.",
+      "synthesis": true,
+      "notes": "explicit limit-acknowledgment, defers to literature"
+    },
+    {
+      "id": "N-RU-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of bounded clinical comment)",
+      "text": "На уровне нашей небольшой клиники подобных случаев за три года не наблюдалось, хотя я понимаю, что регистровые данные надёжнее.",
+      "synthesis": true,
+      "notes": "experience EXPLICITLY bounded + defers to registries"
+    },
+    {
+      "id": "N-RU-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of careful op-ed)",
+      "text": "Преподаватели нашего округа отмечают похожие тенденции, хотя относятся к ним как к гипотезе, требующей дальнейшей проверки.",
+      "synthesis": true,
+      "notes": "experience as data-point + hypothesis framing — no override"
+    },
+    {
+      "id": "N-RU-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of analytical text)",
+      "text": "Практикующие специалисты замечают сходные закономерности, но главным основанием для рекомендации остаются результаты контролируемых исследований.",
+      "synthesis": true,
+      "notes": "no first-person override markers"
+    },
+    {
+      "id": "N-RU-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of methodology commentary)",
+      "text": "Личные наблюдения врачей полезны как источник гипотез, но они не заменяют систематический обзор и должны быть сопоставлены с более широкими данными.",
+      "synthesis": true,
+      "notes": "metacommentary — no first-person override"
+    },
+    {
+      "id": "N-RU-05",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of mentor commentary)",
+      "text": "Мой опыт здесь ограничен несколькими случаями, и более широкая литература указывает на другое направление — читателям стоит взвесить оба источника.",
+      "synthesis": true,
+      "notes": "explicit limit-acknowledgment + literature-deference"
+    },
+    {
+      "id": "N-RU-06",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of clinical case-report style)",
+      "text": "В одном из недавних случаев в нашей практике было зафиксировано необычное проявление, которое требует дополнительной проверки в более крупных выборках.",
+      "synthesis": true,
+      "notes": "case-report neutral framing — no override"
+    }
+  ]
+}

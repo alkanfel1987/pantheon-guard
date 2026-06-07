@@ -1,0 +1,307 @@
+{
+  "date": "2026-05-15T14:06:32.775Z",
+  "corpus": "false-equivalence-LIVE-2026-05-10",
+  "hypothesis": "There is no meaningful difference between the political parties.",
+  "threshold": 0.55,
+  "embedder": {
+    "name": "mdeberta-xnli",
+    "version": "0.0.1+model:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli"
+  },
+  "counts": {
+    "positives": 6,
+    "negatives": 12
+  },
+  "metrics": {
+    "regex_only": {
+      "catch": {
+        "mean": 0.6666666666666666,
+        "lo": 0.2999883213415286,
+        "hi": 0.903230667440783
+      },
+      "fp": {
+        "mean": 0,
+        "lo": 0,
+        "hi": 0.2425007574992425
+      }
+    },
+    "semantic_only": {
+      "catch": {
+        "mean": 0.3333333333333333,
+        "lo": 0.09676933255921684,
+        "hi": 0.7000116786584712
+      },
+      "fp": {
+        "mean": 0,
+        "lo": 0,
+        "hi": 0.2425007574992425
+      }
+    },
+    "union": {
+      "catch": {
+        "mean": 1,
+        "lo": 0.6096569663469354,
+        "hi": 1
+      },
+      "fp": {
+        "mean": 0,
+        "lo": 0,
+        "hi": 0.2425007574992425
+      }
+    }
+  },
+  "per_entry": [
+    {
+      "id": "P-EN-LIVE-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "Both the Democrats and the Republicans are vested in this machine and are funded by billionaires.",
+      "notes": "FE-spirit. Lexical: «Both X and Y are vested» — pattern requires «both (sides|parties|teams|camps) (are )? (equally|just as) (bad|good|wrong|guilty)». Detector likely MISS — names parties instead of using abstract «sides/parties».",
+      "regexFires": true,
+      "semanticFires": false,
+      "semanticScore": 0.264,
+      "unionFires": true,
+      "latency_ms": 889
+    },
+    {
+      "id": "P-EN-LIVE-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "The odd that the political establishment will initiate the move to replace neo-liberalism or even overhaul it are virtually non-existent.",
+      "notes": "FE-spirit (political-establishment leveling). No detector marker. Likely MISS.",
+      "regexFires": false,
+      "semanticFires": true,
+      "semanticScore": 0.6983,
+      "unionFires": true,
+      "latency_ms": 1725
+    },
+    {
+      "id": "P-EN-LIVE-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/the-opposition-party-has-done-nothing (reader comment)",
+      "synthesis": false,
+      "text": "Apparently, both parties are dominated by war pigs.",
+      "notes": "FE-spirit. Lexical: «both parties are dominated by» — pattern requires «equally|just as» + «bad|good|wrong|guilty». Detector likely MISS.",
+      "regexFires": true,
+      "semanticFires": false,
+      "semanticScore": 0.4017,
+      "unionFires": true,
+      "latency_ms": 971
+    },
+    {
+      "id": "P-EN-LIVE-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/mike-johnsons-crusade-to-renew-warrantless",
+      "synthesis": false,
+      "text": "elected officials who purport to oppose domestic warrantless spying when the other party is in the White House typically change their minds once their party is in power.",
+      "notes": "FE-spirit (uniparty behavioral pattern across parties). No detector marker. Likely MISS.",
+      "regexFires": true,
+      "semanticFires": false,
+      "semanticScore": 0.3771,
+      "unionFires": true,
+      "latency_ms": 1323
+    },
+    {
+      "id": "P-EN-LIVE-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/mike-johnsons-crusade-to-renew-warrantless",
+      "synthesis": false,
+      "text": "as Trump, Mike Johnson, Nancy Pelosi, and so many others have proven, their steadfast opposition magically transforms into vehement support once they ascend to power.",
+      "notes": "FE-spirit (cross-party behavioral collapse). No detector marker. Likely MISS.",
+      "regexFires": true,
+      "semanticFires": false,
+      "semanticScore": 0.0925,
+      "unionFires": true,
+      "latency_ms": 1497
+    },
+    {
+      "id": "P-EN-LIVE-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/trump-reverses-himself-joins-obama",
+      "synthesis": false,
+      "text": "Trump on Monday demanded that FISA be fully renewed: yet again, with no reforms, safeguards, or limits of any kind.",
+      "notes": "FE-spirit (per article framing of Trump joining Obama+Biden in identical demand). Sentence alone is single-actor critique without explicit leveling words. Likely MISS.",
+      "regexFires": false,
+      "semanticFires": true,
+      "semanticScore": 0.6414,
+      "unionFires": true,
+      "latency_ms": 1458
+    },
+    {
+      "id": "N-EN-LIVE-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/09/right-wing-influencers-dont-understand-what-makes-america-great/",
+      "synthesis": false,
+      "text": "The Dissident Right rejects mutual forbearance in favor of a 'will-to-power' political approach and cannot save America's culture by sacrificing its creed.",
+      "notes": "Substantive ideological critique without leveling rhetoric.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.4039,
+      "unionFires": false,
+      "latency_ms": 1749
+    },
+    {
+      "id": "N-EN-LIVE-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/08/contra-aoc-you-dont-have-to-be-a-billionaire-to-be-a-leech/",
+      "synthesis": false,
+      "text": "Contra AOC, there are makers and moochers on every rung of the income ladder.",
+      "notes": "Distinction-making argument across income classes. Should NOT fire.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.3961,
+      "unionFires": false,
+      "latency_ms": 919
+    },
+    {
+      "id": "N-EN-LIVE-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/07/trumps-government-funded-retirement-plan-misses-the-point/",
+      "synthesis": false,
+      "text": "Wall Street firms see new customers. Progressives see expanded government involvement in retirement. Some conservatives see a backdoor route to Social Security privatization.",
+      "notes": "Multi-perspective enumeration — three distinct stakeholder views, NOT leveling. FP stress-test.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.2778,
+      "unionFires": false,
+      "latency_ms": 1059
+    },
+    {
+      "id": "N-EN-LIVE-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/what-will-happen-when-trump-meets-xi/",
+      "synthesis": false,
+      "text": "The relationship has stabilized since the two leaders met last November, but it remains fragile—defined more by an absence of friction than any affirmative agenda.",
+      "notes": "Substantive analytical observation about US-China dynamics.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.4009,
+      "unionFires": false,
+      "latency_ms": 880
+    },
+    {
+      "id": "N-EN-LIVE-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/what-will-happen-when-trump-meets-xi/",
+      "synthesis": false,
+      "text": "Both leaders will likely announce Chinese purchases of American products, such as Boeing airplanes and agricultural goods.",
+      "notes": "«Both leaders will likely announce» — pattern requires (sides|parties|teams|camps), not «leaders». Should NOT fire — confirms pattern is correctly narrow.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.3507,
+      "unionFires": false,
+      "latency_ms": 833
+    },
+    {
+      "id": "N-EN-LIVE-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "A weak Democratic Party opened the gates for the Republican Party in 2024, and they haven't made inroads since.",
+      "notes": "Differentiated critique. Should NOT fire.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.528,
+      "unionFires": false,
+      "latency_ms": 834
+    },
+    {
+      "id": "N-EN-LIVE-07",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed51.asp",
+      "synthesis": false,
+      "text": "Ambition must be made to counteract ambition.",
+      "notes": "Federalist No. 51, public domain. Substantive comparison principle. Should NOT fire.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.2063,
+      "unionFires": false,
+      "latency_ms": 561
+    },
+    {
+      "id": "N-EN-LIVE-08",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed51.asp",
+      "synthesis": false,
+      "text": "The remedy for this inconveniency is to divide the legislature into different branches.",
+      "notes": "Federalist No. 51, public domain.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.3459,
+      "unionFires": false,
+      "latency_ms": 665
+    },
+    {
+      "id": "N-RU-LIVE-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://aif.ru/politics/opinion/volodin-nazval-zhulikami-teh-kto-hochet-zavladet-rossiyskimi-aktivami",
+      "synthesis": false,
+      "text": "Лица, пытающиеся захватить российские активы, являются ворами и жуликами.",
+      "notes": "Substantive characterization, не leveling. Не должно fire.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.2854,
+      "unionFires": false,
+      "latency_ms": 738
+    },
+    {
+      "id": "N-RU-LIVE-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://aif.ru/politics/opinion/volodin-nazval-zhulikami-teh-kto-hochet-zavladet-rossiyskimi-aktivami",
+      "synthesis": false,
+      "text": "Страны ЕС не хотят становиться соучастниками этого воровства.",
+      "notes": "Substantive distinction. Не должно fire.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.3294,
+      "unionFires": false,
+      "latency_ms": 672
+    },
+    {
+      "id": "N-RU-LIVE-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://www.vedomosti.ru/opinion/columns/2026/05/09/1196047-yug-druzhit",
+      "synthesis": false,
+      "text": "Уровень отношений между странами БРИКС системно растет.",
+      "notes": "Substantive analytical comparison BRICS vs West.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.3021,
+      "unionFires": false,
+      "latency_ms": 518
+    },
+    {
+      "id": "N-RU-LIVE-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://www.vedomosti.ru/opinion/columns/2026/05/09/1196047-yug-druzhit",
+      "synthesis": false,
+      "text": "Фактическое поражение в самими же начатой войне продемонстрировало глубину раскола между различными частями некогда единого западного мира.",
+      "notes": "Distinction-making (разные части западного мира). Не должно fire.",
+      "regexFires": false,
+      "semanticFires": false,
+      "semanticScore": 0.4878,
+      "unionFires": false,
+      "latency_ms": 790
+    }
+  ],
+  "latency_mean_ms": 1004.5
+}

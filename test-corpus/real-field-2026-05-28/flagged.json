@@ -1,0 +1,29 @@
+[
+  {
+    "source": "lenta",
+    "domain": "general",
+    "region": "RU",
+    "title": "Пашинян раскрыл планы Армении на ЕАЭС и ЕС",
+    "fired": [
+      "news/vague_reveal_open_ru"
+    ]
+  },
+  {
+    "source": "lenta",
+    "domain": "general",
+    "region": "RU",
+    "title": "В России начали производить уникальную отечественную линзу для лечения катаракты",
+    "fired": [
+      "healthcare/provider_escalation"
+    ]
+  },
+  {
+    "source": "bbc-biz",
+    "domain": "financial",
+    "region": "EN",
+    "title": "AI may speed up search for drugs to treat brain conditions",
+    "fired": [
+      "healthcare/provider_escalation"
+    ]
+  }
+]

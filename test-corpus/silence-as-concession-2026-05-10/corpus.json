@@ -1,0 +1,240 @@
+{
+  "_meta": {
+    "date": "2026-05-10",
+    "purpose": "Real-corpus probe for epistemology v0.3.0-pre.1 silence_as_concession detector (no inhibitor)",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical political commentary / gossip / discreditation framings I (test author) have encountered. Negative class is paraphrased neutral journalism reporting + legal-restraint passages + procedural-silence framings. Per CLAUDE.md selection-bias discipline this is structured sanity, NOT external validation. Live-corpus probe required before stable claim.",
+    "deviation_from_prereg": "none"
+  },
+  "entries": [
+    {
+      "id": "P-EN-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of opinion column)",
+      "text": "The senator declined to comment, which tells you everything you need to know about his role in the affair.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«declined to comment, which tells» — direct detector pattern"
+    },
+    {
+      "id": "P-EN-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of political commentary)",
+      "text": "His silence speaks volumes — anyone with nothing to hide would have responded by now.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«his silence speaks volumes»"
+    },
+    {
+      "id": "P-EN-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of corporate discreditation)",
+      "text": "Their silence speaks volumes about the corporate culture they refuse to defend in public.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«their silence speaks volumes»"
+    },
+    {
+      "id": "P-EN-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of accusatory op-ed)",
+      "text": "Failure to respond proves they have no defensible answer to these allegations.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«failure to respond proves»"
+    },
+    {
+      "id": "P-EN-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of social-media commentary)",
+      "text": "Her silence speaks volumes — anyone wrongly accused would push back hard, and she has not.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«her silence speaks volumes»"
+    },
+    {
+      "id": "P-EN-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of investigative-commentary)",
+      "text": "The agency declined to comment, which says more than any official statement could.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«declined to comment, which says»"
+    },
+    {
+      "id": "P-RU-01",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of RU political column)",
+      "text": "Министерство отказалось комментировать ситуацию, что само за себя говорит о масштабе проблемы.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«отказалось комментировать» + «само за себя говорит»"
+    },
+    {
+      "id": "P-RU-02",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of accusatory commentary)",
+      "text": "Молчание депутата в этом вопросе говорит само за себя — оправдаться ему явно нечем.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«молчание... говорит само за себя»"
+    },
+    {
+      "id": "P-RU-03",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of gossip-column)",
+      "text": "Молчание звезды на эту тему не случайно — слишком многое выходит наружу.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«молчание... не случайно»"
+    },
+    {
+      "id": "P-RU-04",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of corporate criticism)",
+      "text": "Компания не нашла что ответить на запрос журналистов — значит, обвинения попали в цель.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«не нашла что ответить — значит»"
+    },
+    {
+      "id": "P-RU-05",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of political accusation)",
+      "text": "Показательно, что чиновник промолчал в ответ на прямой вопрос — это и есть подтверждение всего сказанного.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«показательно... промолчал»"
+    },
+    {
+      "id": "P-RU-06",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of investigative-style)",
+      "text": "Глава ведомства отказался отвечать на ключевой вопрос, что многозначительно — обычно по таким темам он охотно высказывается.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«отказался отвечать... многозначительно»"
+    },
+
+    {
+      "id": "N-EN-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of neutral journalism)",
+      "text": "The senator declined to comment, citing pending litigation and the advice of his legal counsel.",
+      "synthesis": true,
+      "notes": "neutral reporting + explicit legal context — no guilt-inference"
+    },
+    {
+      "id": "N-EN-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of newswire)",
+      "text": "Representatives of the company declined to comment when contacted on Tuesday afternoon.",
+      "synthesis": true,
+      "notes": "bare neutral reportage — no guilt-inference"
+    },
+    {
+      "id": "N-EN-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of analytical commentary)",
+      "text": "Standard agency policy is to neither confirm nor deny ongoing investigations until charges are filed.",
+      "synthesis": true,
+      "notes": "procedural-silence framing — no guilt-inference"
+    },
+    {
+      "id": "N-EN-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of legal commentary)",
+      "text": "His attorney advised him to remain silent during the deposition, which is consistent with standard legal practice.",
+      "synthesis": true,
+      "notes": "silence as legal practice + explicit context"
+    },
+    {
+      "id": "N-EN-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of careful op-ed)",
+      "text": "It is too early to draw conclusions from the absence of public comment; we should wait for the formal statement promised next week.",
+      "synthesis": true,
+      "notes": "explicit caution against guilt-inference"
+    },
+    {
+      "id": "N-EN-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "synthesis (paraphrase of process journalism)",
+      "text": "Multiple parties have not yet returned our requests for comment, and the article will be updated when responses are received.",
+      "synthesis": true,
+      "notes": "bare procedural note + update-promise"
+    },
+    {
+      "id": "N-RU-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of newswire)",
+      "text": "В пресс-службе сообщили, что комментариев пока не будет до завершения внутренней проверки.",
+      "synthesis": true,
+      "notes": "neutral procedural reporting — no guilt-inference"
+    },
+    {
+      "id": "N-RU-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of legal commentary)",
+      "text": "Адвокаты обвиняемого рекомендовали воздержаться от комментариев до окончания судебного процесса.",
+      "synthesis": true,
+      "notes": "legal-restraint framing — no guilt-inference"
+    },
+    {
+      "id": "N-RU-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of analytical commentary)",
+      "text": "Стандартная практика ведомства — не подтверждать и не опровергать ход расследования до предъявления обвинения.",
+      "synthesis": true,
+      "notes": "procedural-silence framing"
+    },
+    {
+      "id": "N-RU-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of careful journalism)",
+      "text": "Делать выводы из отсутствия публичной реакции пока преждевременно — официальная позиция должна быть представлена на следующей неделе.",
+      "synthesis": true,
+      "notes": "explicit caution against guilt-inference"
+    },
+    {
+      "id": "N-RU-05",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of process journalism)",
+      "text": "На момент публикации запросы редакции остаются без ответа; материал будет дополнен по мере получения комментариев.",
+      "synthesis": true,
+      "notes": "bare procedural note + update-promise"
+    },
+    {
+      "id": "N-RU-06",
+      "lang": "ru",
+      "class": "negative",
+      "source": "synthesis (paraphrase of business reportage)",
+      "text": "Представители компании отказались комментировать сделку до её юридического оформления.",
+      "synthesis": true,
+      "notes": "bare neutral reportage with explicit context"
+    }
+  ]
+}

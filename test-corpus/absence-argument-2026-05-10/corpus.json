@@ -1,0 +1,259 @@
+{
+  "_meta": {
+    "date": "2026-05-10",
+    "purpose": "Real-corpus probe for epistemology v0.3.0-pre.1 absence_argument detector + hasScopeQualifier inhibitor",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "synthesis_flag": "POSITIVE-CLASS-SYNTHESIS — entries paraphrase canonical conspiracy/anti-vaccine/alt-med commentary phrasings I (test author) have encountered. Negative class A (comparative) is paraphrased analytical text; negative class B (bounded-with-scope) is research-abstract style. Per CLAUDE.md selection-bias discipline this is structured sanity, NOT external validation. Live-corpus probe required before stable claim.",
+    "deviation_from_prereg": "none"
+  },
+  "entries": [
+    {
+      "id": "P-EN-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of typical anti-vaccine forum)",
+      "text": "No one has ever shown that vaccines actually prevent disease in healthy children. The studies don't exist.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«no one has ever shown» — direct detector pattern"
+    },
+    {
+      "id": "P-EN-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of climate-skepticism commentary)",
+      "text": "Not a single piece of evidence has ever proven that human activity drives the warming we observe. They simply assume it.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«not a single piece of evidence»"
+    },
+    {
+      "id": "P-EN-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of conspiracy commentary)",
+      "text": "Nobody has ever seen a real moon-rock outside the official narrative — yet we are told to believe what we cannot verify.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«nobody has ever seen»"
+    },
+    {
+      "id": "P-EN-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of alt-med commentary)",
+      "text": "Absence of evidence proves they hid the cure. If it existed in the literature, we would all know about it.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«absence of evidence proves»"
+    },
+    {
+      "id": "P-EN-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of pseudoscience forum)",
+      "text": "No one has ever proven that homeopathic dilution works through any conventional mechanism — yet that is precisely what makes it work.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«no one has ever proven»"
+    },
+    {
+      "id": "P-EN-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "synthesis (paraphrase of UFO-skeptic-skeptic commentary)",
+      "text": "Not a single case of definitive disproof has ever been documented. The phenomenon stands.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«not a single case»"
+    },
+    {
+      "id": "P-RU-01",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of typical RU anti-vaccine forum)",
+      "text": "Никто никогда не видел вируса под микроскопом своими глазами. Это всё абстрактные модели.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«никто никогда не видел»"
+    },
+    {
+      "id": "P-RU-02",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of conspiracy commentary)",
+      "text": "Нигде не показано, что эти препараты работают на самом деле. Все ссылки уходят в официальную пропаганду.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«нигде не показано»"
+    },
+    {
+      "id": "P-RU-03",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of alt-med forum)",
+      "text": "Нет ни одного доказательства того, что антибиотики безопасны для долгосрочного приёма. Об этом просто не говорят.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«нет ни одного доказательства»"
+    },
+    {
+      "id": "P-RU-04",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of climate-skepticism RU)",
+      "text": "Ни один исследователь не подтвердил эту связь экспериментально. Только корреляции и моделирование.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«ни один исследователь не подтвердил»"
+    },
+    {
+      "id": "P-RU-05",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of pseudoscience commentary)",
+      "text": "Нигде не зафиксировано влияние этого фактора в контролируемых условиях. Тем не менее, нам внушают, что эффект существует.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«нигде не зафиксировано»"
+    },
+    {
+      "id": "P-RU-06",
+      "lang": "ru",
+      "class": "positive",
+      "source": "synthesis (paraphrase of conspiracy variant)",
+      "text": "Ни один учёный не обнаружил прямых следов этой технологии — потому что её настоящие операторы остаются в тени.",
+      "synthesis": true,
+      "in_scope": true,
+      "notes": "«ни один учёный не обнаружил»"
+    },
+
+    {
+      "id": "NA-EN-01",
+      "lang": "en",
+      "class": "negative_comparative",
+      "source": "synthesis (paraphrase of policy analysis)",
+      "text": "The current data show several plausible mechanisms, though research funding has historically prioritized one of them over the others.",
+      "synthesis": true,
+      "notes": "discusses evidence-availability without absence framing"
+    },
+    {
+      "id": "NA-EN-02",
+      "lang": "en",
+      "class": "negative_comparative",
+      "source": "synthesis (paraphrase of analytical journalism)",
+      "text": "Multiple replications have established the effect, while a smaller subset of studies failed to find it under stricter conditions.",
+      "synthesis": true,
+      "notes": "presence + bounded absence — comparative not universal"
+    },
+    {
+      "id": "NA-EN-03",
+      "lang": "en",
+      "class": "negative_comparative",
+      "source": "synthesis (paraphrase of policy review)",
+      "text": "Although the evidence base is uneven across regions, the overall trend is consistent across the surveyed populations.",
+      "synthesis": true,
+      "notes": "no absence-framing markers"
+    },
+    {
+      "id": "NA-RU-01",
+      "lang": "ru",
+      "class": "negative_comparative",
+      "source": "synthesis (paraphrase of analytical text)",
+      "text": "Существующие данные показывают неоднозначную картину: одни исследования подтверждают эффект, другие — нет.",
+      "synthesis": true,
+      "notes": "comparative — no universal absence"
+    },
+    {
+      "id": "NA-RU-02",
+      "lang": "ru",
+      "class": "negative_comparative",
+      "source": "synthesis (paraphrase of policy report)",
+      "text": "Хотя доказательная база остаётся ограниченной по ряду регионов, общая тенденция прослеживается достаточно последовательно.",
+      "synthesis": true,
+      "notes": "ограниченность ≠ отсутствие; нет fallacy markers"
+    },
+    {
+      "id": "NA-RU-03",
+      "lang": "ru",
+      "class": "negative_comparative",
+      "source": "synthesis (paraphrase of news commentary)",
+      "text": "Различные источники по-разному оценивают объём накопленных данных, но никто из серьёзных исследователей не отрицает наличие эффекта.",
+      "synthesis": true,
+      "notes": "discusses data-availability + named-context, not absence-framing"
+    },
+
+    {
+      "id": "NB-EN-01",
+      "lang": "en",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of research abstract)",
+      "text": "Within the scope of this trial, not a single case of severe adverse events was observed in the treatment arm at the 12-month follow-up.",
+      "synthesis": true,
+      "notes": "BOUNDED: «within the scope of» + «not a single case» — detector raw fires, inhibitor must suppress"
+    },
+    {
+      "id": "NB-EN-02",
+      "lang": "en",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of policy paper)",
+      "text": "To our current knowledge, no peer-reviewed study has shown a consistent dose-response relationship for this compound.",
+      "synthesis": true,
+      "notes": "BOUNDED: «to our current knowledge» — inhibitor pattern"
+    },
+    {
+      "id": "NB-EN-03",
+      "lang": "en",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of meta-analysis)",
+      "text": "As of 2024, no large-scale randomized controlled trial has been completed for this specific indication.",
+      "synthesis": true,
+      "notes": "BOUNDED: «as of 2024»"
+    },
+    {
+      "id": "NB-EN-04",
+      "lang": "en",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of systematic review)",
+      "text": "Within the scope of the included studies, no statistically-significant heterogeneity was detected across subgroups.",
+      "synthesis": true,
+      "notes": "BOUNDED: «within the scope of» — methodological framing"
+    },
+    {
+      "id": "NB-RU-01",
+      "lang": "ru",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of research abstract)",
+      "text": "В рамках исследования, охватившего 1200 пациентов за 24-месячный период, нигде не зафиксировано статистически значимых различий между группами.",
+      "synthesis": true,
+      "notes": "BOUNDED: «в рамках исследования» + «нигде не зафиксировано» — раw fires, inhibitor must suppress"
+    },
+    {
+      "id": "NB-RU-02",
+      "lang": "ru",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of policy review)",
+      "text": "По данным на 2024 год, ни один регулятор не подтвердил долгосрочную безопасность этого препарата.",
+      "synthesis": true,
+      "notes": "BOUNDED: «по данным на 2024 год»"
+    },
+    {
+      "id": "NB-RU-03",
+      "lang": "ru",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of meta-analysis)",
+      "text": "Согласно имеющимся данным, в текущей выборке не наблюдается ни одного случая повторного эпизода.",
+      "synthesis": true,
+      "notes": "BOUNDED: «согласно имеющимся данным»"
+    },
+    {
+      "id": "NB-RU-04",
+      "lang": "ru",
+      "class": "negative_bounded",
+      "source": "synthesis (paraphrase of clinical guideline)",
+      "text": "В рамках методики, описанной в протоколе, нет ни одного доказательства превосходства этой схемы над стандартом.",
+      "synthesis": true,
+      "notes": "BOUNDED: «в рамках методики» + «нет ни одного доказательства» — inhibitor stress-test"
+    }
+  ]
+}

@@ -1,0 +1,176 @@
+{
+  "_meta": {
+    "date": "2026-05-10",
+    "purpose": "LIVE-corpus probe for epistemology v0.3.0-pre.1 false_equivalence_levelling detector. Companion to synthesis probe test-corpus/false-equivalence-2026-05-10/.",
+    "pre_registration": "PRE-REGISTRATION.md",
+    "fetched_via": "WebFetch rounds 1-3, 2026-05-10",
+    "synthesis_flag": "POSITIVE-CLASS-LIVE — verbatim sentences extracted from real articles via WebFetch. Test author chose URLs (URL-selection-bias acknowledged in PRE-REGISTRATION); did NOT author the resulting text. Negative class includes mix of live extractions + 2 Federalist verbatim short quotes (public domain).",
+    "url_selection_bias": "EN positives drawn from sites known by genre to use FE/uniparty rhetoric (Greenwald Substack, CounterPunch). EN negatives from analytical sources (Reason policy critique, Brookings, Federalist Papers). RU corpus is sparse — Vedomosti + AIF surfaced no FE-positives in fetched columns; included as negatives only.",
+    "limitations": "Reddit r/Centrism blocked by Claude Code CSP (would have been densest live source for exact-lexical 'both sides equally' framing). RU live positives missing — none found in fetched op-ed pages. Corpus is op-ed-leaning, EN-heavy."
+  },
+  "entries": [
+    {
+      "id": "P-EN-LIVE-01",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "Both the Democrats and the Republicans are vested in this machine and are funded by billionaires.",
+      "notes": "FE-spirit. Lexical: «Both X and Y are vested» — pattern requires «both (sides|parties|teams|camps) (are )? (equally|just as) (bad|good|wrong|guilty)». Detector likely MISS — names parties instead of using abstract «sides/parties»."
+    },
+    {
+      "id": "P-EN-LIVE-02",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "The odd that the political establishment will initiate the move to replace neo-liberalism or even overhaul it are virtually non-existent.",
+      "notes": "FE-spirit (political-establishment leveling). No detector marker. Likely MISS."
+    },
+    {
+      "id": "P-EN-LIVE-03",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/the-opposition-party-has-done-nothing (reader comment)",
+      "synthesis": false,
+      "text": "Apparently, both parties are dominated by war pigs.",
+      "notes": "FE-spirit. Lexical: «both parties are dominated by» — pattern requires «equally|just as» + «bad|good|wrong|guilty». Detector likely MISS."
+    },
+    {
+      "id": "P-EN-LIVE-04",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/mike-johnsons-crusade-to-renew-warrantless",
+      "synthesis": false,
+      "text": "elected officials who purport to oppose domestic warrantless spying when the other party is in the White House typically change their minds once their party is in power.",
+      "notes": "FE-spirit (uniparty behavioral pattern across parties). No detector marker. Likely MISS."
+    },
+    {
+      "id": "P-EN-LIVE-05",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/mike-johnsons-crusade-to-renew-warrantless",
+      "synthesis": false,
+      "text": "as Trump, Mike Johnson, Nancy Pelosi, and so many others have proven, their steadfast opposition magically transforms into vehement support once they ascend to power.",
+      "notes": "FE-spirit (cross-party behavioral collapse). No detector marker. Likely MISS."
+    },
+    {
+      "id": "P-EN-LIVE-06",
+      "lang": "en",
+      "class": "positive",
+      "source": "https://greenwald.substack.com/p/trump-reverses-himself-joins-obama",
+      "synthesis": false,
+      "text": "Trump on Monday demanded that FISA be fully renewed: yet again, with no reforms, safeguards, or limits of any kind.",
+      "notes": "FE-spirit (per article framing of Trump joining Obama+Biden in identical demand). Sentence alone is single-actor critique without explicit leveling words. Likely MISS."
+    },
+
+    {
+      "id": "N-EN-LIVE-01",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/09/right-wing-influencers-dont-understand-what-makes-america-great/",
+      "synthesis": false,
+      "text": "The Dissident Right rejects mutual forbearance in favor of a 'will-to-power' political approach and cannot save America's culture by sacrificing its creed.",
+      "notes": "Substantive ideological critique without leveling rhetoric."
+    },
+    {
+      "id": "N-EN-LIVE-02",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/08/contra-aoc-you-dont-have-to-be-a-billionaire-to-be-a-leech/",
+      "synthesis": false,
+      "text": "Contra AOC, there are makers and moochers on every rung of the income ladder.",
+      "notes": "Distinction-making argument across income classes. Should NOT fire."
+    },
+    {
+      "id": "N-EN-LIVE-03",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://reason.com/2026/05/07/trumps-government-funded-retirement-plan-misses-the-point/",
+      "synthesis": false,
+      "text": "Wall Street firms see new customers. Progressives see expanded government involvement in retirement. Some conservatives see a backdoor route to Social Security privatization.",
+      "notes": "Multi-perspective enumeration — three distinct stakeholder views, NOT leveling. FP stress-test."
+    },
+    {
+      "id": "N-EN-LIVE-04",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/what-will-happen-when-trump-meets-xi/",
+      "synthesis": false,
+      "text": "The relationship has stabilized since the two leaders met last November, but it remains fragile—defined more by an absence of friction than any affirmative agenda.",
+      "notes": "Substantive analytical observation about US-China dynamics."
+    },
+    {
+      "id": "N-EN-LIVE-05",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/what-will-happen-when-trump-meets-xi/",
+      "synthesis": false,
+      "text": "Both leaders will likely announce Chinese purchases of American products, such as Boeing airplanes and agricultural goods.",
+      "notes": "«Both leaders will likely announce» — pattern requires (sides|parties|teams|camps), not «leaders». Should NOT fire — confirms pattern is correctly narrow."
+    },
+    {
+      "id": "N-EN-LIVE-06",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/transcending-the-trump-obsession/",
+      "synthesis": false,
+      "text": "A weak Democratic Party opened the gates for the Republican Party in 2024, and they haven't made inroads since.",
+      "notes": "Differentiated critique. Should NOT fire."
+    },
+    {
+      "id": "N-EN-LIVE-07",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed51.asp",
+      "synthesis": false,
+      "text": "Ambition must be made to counteract ambition.",
+      "notes": "Federalist No. 51, public domain. Substantive comparison principle. Should NOT fire."
+    },
+    {
+      "id": "N-EN-LIVE-08",
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed51.asp",
+      "synthesis": false,
+      "text": "The remedy for this inconveniency is to divide the legislature into different branches.",
+      "notes": "Federalist No. 51, public domain."
+    },
+    {
+      "id": "N-RU-LIVE-01",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://aif.ru/politics/opinion/volodin-nazval-zhulikami-teh-kto-hochet-zavladet-rossiyskimi-aktivami",
+      "synthesis": false,
+      "text": "Лица, пытающиеся захватить российские активы, являются ворами и жуликами.",
+      "notes": "Substantive characterization, не leveling. Не должно fire."
+    },
+    {
+      "id": "N-RU-LIVE-02",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://aif.ru/politics/opinion/volodin-nazval-zhulikami-teh-kto-hochet-zavladet-rossiyskimi-aktivami",
+      "synthesis": false,
+      "text": "Страны ЕС не хотят становиться соучастниками этого воровства.",
+      "notes": "Substantive distinction. Не должно fire."
+    },
+    {
+      "id": "N-RU-LIVE-03",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://www.vedomosti.ru/opinion/columns/2026/05/09/1196047-yug-druzhit",
+      "synthesis": false,
+      "text": "Уровень отношений между странами БРИКС системно растет.",
+      "notes": "Substantive analytical comparison BRICS vs West."
+    },
+    {
+      "id": "N-RU-LIVE-04",
+      "lang": "ru",
+      "class": "negative",
+      "source": "https://www.vedomosti.ru/opinion/columns/2026/05/09/1196047-yug-druzhit",
+      "synthesis": false,
+      "text": "Фактическое поражение в самими же начатой войне продемонстрировало глубину раскола между различными частями некогда единого западного мира.",
+      "notes": "Distinction-making (разные части западного мира). Не должно fire."
+    }
+  ]
+}

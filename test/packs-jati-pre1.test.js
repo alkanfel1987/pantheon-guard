@@ -26,10 +26,15 @@ import { newsPack } from '../src/packs/news.js';
 // epistemology v0.3.0-pre.1
 // ─────────────────────────────────────────────
 
-test('epistemology v0.3.0-pre.1: pack metadata declares pre.1 status', () => {
+test('epistemology v0.3.0-pre.5+: pack metadata stable status', () => {
   assert.equal(epistemologyPack.id, 'epistemology');
-  assert.equal(epistemologyPack.version, '0.3.0-pre.1');
-  assert.equal(epistemologyPack.requirements.length, 10);
+  // Patches pre.5/pre.6/... extend pattern coverage without adding requirements
+  assert.match(epistemologyPack.version, /^0\.3\.0-pre\.[5-9]/);
+  // pre.1 = 10 requirements; pre.2 added pseudo_technical_simulacrum → 11;
+  // pre.3 = bug-fixes (no new req); pre.4 +morphic_field_simulacrum → 12;
+  // pre.5+ = gap-class broadening only (no new requirement)
+  assert.equal(epistemologyPack.requirements.length, 12);
+  // pre.1 added 5 detectors; that count is historical and does not change
   assert.equal(epistemologyPack.metadata.v030pre1.addedDetectors.length, 5);
 });
 
@@ -50,10 +55,14 @@ test('epistemology v0.3.0-pre.1: false equivalence fires on RU + EN', () => {
 });
 
 test('epistemology v0.3.0-pre.1: absence argument inhibited by scope qualifier', () => {
+  // Universal absence — raw fires.
   assert.ok(hasAbsenceArgument('Никто никогда не видел этого, значит этого нет.'));
+  // Bounded absence — raw STILL fires (with W_STAR fix from
+  // absence-argument-2026-05-10 probe iter-2). The inhibitor is what makes
+  // the bounded case safe — pack runner uses condition && !check.
   const scoped = 'В рамках имеющихся данных по состоянию на 2024 год нет ни одного случая.';
-  assert.equal(hasAbsenceArgument(scoped), false);
-  assert.equal(hasScopeQualifier(scoped), true);
+  assert.ok(hasAbsenceArgument(scoped), 'raw condition must fire on bounded — inhibitor is the safety net');
+  assert.equal(hasScopeQualifier(scoped), true, 'inhibitor must recognize the scope qualifier');
 });
 
 test('epistemology v0.3.0-pre.1: anecdotal override fires on first-person experience', () => {
@@ -79,9 +88,9 @@ test('epistemology v0.3.0-pre.1: neutral text does not fire jāti detectors', ()
 // news v0.5.0-pre.1
 // ─────────────────────────────────────────────
 
-test('news v0.5.0-pre.1: pack metadata declares pre.1 status', () => {
+test('news v0.5.0-pre.2: pack metadata declares pre.2 status', () => {
   assert.equal(newsPack.id, 'news');
-  assert.equal(newsPack.version, '0.5.0-pre.1');
+  assert.equal(newsPack.version, '0.5.0-pre.2');
   assert.equal(newsPack.metadata.v050pre1.addedDetectors.length, 3);
 });
 

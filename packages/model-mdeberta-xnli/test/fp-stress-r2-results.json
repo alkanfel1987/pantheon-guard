@@ -1,0 +1,156 @@
+{
+  "date": "2026-05-15T14:06:24.521Z",
+  "purpose": "FP-stress test on Round-2 held-out negatives",
+  "hypothesis": "There is no meaningful difference between the political parties.",
+  "embedder": {
+    "name": "mdeberta-xnli",
+    "version": "0.0.1+model:MoritzLaurer/mDeBERTa-v3-base-mnli-xnli"
+  },
+  "n_negatives": 8,
+  "per_entry": [
+    {
+      "id": "N-EN-R2-01",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/supreme-court-decision-alters-2026-midterm-election-outlook/",
+      "synthesis": false,
+      "text": "This Supreme Court decision may still end up being a political victory for Republicans, but it isn't as straightforward as it looks.",
+      "notes": "FP-stress NEW source. Substantive analytical comparison.",
+      "score": 0.4176562388195051,
+      "latency_ms": 1222
+    },
+    {
+      "id": "N-EN-R2-02",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.brookings.edu/articles/supreme-court-decision-alters-2026-midterm-election-outlook/",
+      "synthesis": false,
+      "text": "GOP efforts to gerrymander congressional districts by redistributing Democratic voters could backfire if large numbers of voters reject Trump's policies.",
+      "notes": "FP-stress NEW source — mentions both parties without leveling.",
+      "score": 0.355014567865052,
+      "latency_ms": 1927
+    },
+    {
+      "id": "N-EN-R2-03",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed10.asp",
+      "synthesis": false,
+      "text": "A landed interest, a manufacturing interest, a mercantile interest, a moneyed interest, with many lesser interests, grow up of necessity in civilized nations.",
+      "notes": "FP-stress NEW source — Federalist 10 on factions (public domain).",
+      "score": 0.18995334895457777,
+      "latency_ms": 1446
+    },
+    {
+      "id": "N-EN-R2-04",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed10.asp",
+      "synthesis": false,
+      "text": "The regulation of these various and interfering interests forms the principal task of modern legislation.",
+      "notes": "FP-stress NEW source — Federalist 10.",
+      "score": 0.19530913319880938,
+      "latency_ms": 969
+    },
+    {
+      "id": "N-EN-R2-05",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed78.asp",
+      "synthesis": false,
+      "text": "The judiciary, on the contrary, has no influence over either the sword or the purse; no direction either of the strength or of the wealth of the society.",
+      "notes": "FP-stress NEW source — Federalist 78.",
+      "score": 0.6805997013381619,
+      "latency_ms": 1391
+    },
+    {
+      "id": "N-EN-R2-06",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://avalon.law.yale.edu/18th_century/fed78.asp",
+      "synthesis": false,
+      "text": "The interpretation of the laws is the proper and peculiar province of the courts.",
+      "score": 0.38330917020751304,
+      "latency_ms": 1147
+    },
+    {
+      "id": "N-EN-R2-07",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/roaming-charges-pity-the-poor-billionaire/",
+      "synthesis": false,
+      "text": "The rich whom the politicians are targeting started with nothing, and are the epitome of the American dream.",
+      "notes": "FP-stress NEW source — substantive billionaire-critique without FE-leveling.",
+      "score": 0.4827638940054527,
+      "latency_ms": 982
+    },
+    {
+      "id": "N-EN-R2-08",
+      "round": 2,
+      "lang": "en",
+      "class": "negative",
+      "source": "https://www.counterpunch.org/2026/05/08/roaming-charges-pity-the-poor-billionaire/",
+      "synthesis": false,
+      "text": "Under capitalism, the underclass has always been permanent, but under AI Capitalism, the permanent underclass will eventually encompass almost all of us.",
+      "notes": "FP-stress NEW source — has «under X / under Y» comparative + «always been» (potential N-fp risk if naturalization detector fires; not relevant for FE).",
+      "score": 0.37601738435769994,
+      "latency_ms": 1438
+    }
+  ],
+  "threshold_sweep": [
+    {
+      "threshold": 0.45,
+      "fp_count": 2,
+      "fp_ids": [
+        "N-EN-R2-05",
+        "N-EN-R2-07"
+      ],
+      "fp_rate": 0.25
+    },
+    {
+      "threshold": 0.5,
+      "fp_count": 1,
+      "fp_ids": [
+        "N-EN-R2-05"
+      ],
+      "fp_rate": 0.125
+    },
+    {
+      "threshold": 0.55,
+      "fp_count": 1,
+      "fp_ids": [
+        "N-EN-R2-05"
+      ],
+      "fp_rate": 0.125
+    },
+    {
+      "threshold": 0.6,
+      "fp_count": 1,
+      "fp_ids": [
+        "N-EN-R2-05"
+      ],
+      "fp_rate": 0.125
+    },
+    {
+      "threshold": 0.65,
+      "fp_count": 1,
+      "fp_ids": [
+        "N-EN-R2-05"
+      ],
+      "fp_rate": 0.125
+    },
+    {
+      "threshold": 0.7,
+      "fp_count": 0,
+      "fp_ids": [],
+      "fp_rate": 0
+    }
+  ]
+}

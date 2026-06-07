@@ -1,0 +1,269 @@
+{
+  "date": "2026-05-15T14:06:48.659Z",
+  "hypotheses": [
+    {
+      "id": "H1-original",
+      "text": "This text frames two or more political parties, factions, or institutions as morally or behaviorally equivalent, dismissing meaningful distinctions between them."
+    },
+    {
+      "id": "H2-direct-en",
+      "text": "Both sides are equally bad."
+    },
+    {
+      "id": "H3-no-difference",
+      "text": "There is no meaningful difference between the political parties."
+    },
+    {
+      "id": "H4-uniparty",
+      "text": "Both political parties are essentially the same entity."
+    },
+    {
+      "id": "H5-RU-direct",
+      "text": "Все политические стороны одинаково плохи."
+    },
+    {
+      "id": "H6-mixed",
+      "text": "The text claims that opposing political parties are equivalent and indistinguishable."
+    }
+  ],
+  "samples": [
+    {
+      "text": "Both Democrats and Republicans are vested in this corrupt machine and funded by the same billionaires.",
+      "expect": "high",
+      "label": "FE-EN-Dem-Rep-vested"
+    },
+    {
+      "text": "All politicians are the same — they say one thing in opposition and do the opposite in power.",
+      "expect": "high",
+      "label": "FE-EN-all-same"
+    },
+    {
+      "text": "Все политики одинаковы — нет принципиальной разницы между ними, все одинаково коррумпированы.",
+      "expect": "high",
+      "label": "FE-RU-all-same"
+    },
+    {
+      "text": "There is no real difference between the two parties on any issue that matters.",
+      "expect": "high",
+      "label": "FE-EN-no-diff"
+    },
+    {
+      "text": "Both parties have always been controlled by the same lobbying class.",
+      "expect": "high",
+      "label": "FE-EN-both-controlled"
+    },
+    {
+      "text": "Republicans favor lower marginal tax rates while Democrats prefer progressive structures with targeted credits.",
+      "expect": "low",
+      "label": "NEG-EN-tax-policy-distinct"
+    },
+    {
+      "text": "Российские партии демонстрируют сходную централизованную структуру, но отличаются в риторике и составе электората.",
+      "expect": "low",
+      "label": "NEG-RU-similar-but-differ"
+    },
+    {
+      "text": "The Dissident Right rejects mutual forbearance in favor of a will-to-power political approach.",
+      "expect": "low",
+      "label": "NEG-EN-single-actor-critique"
+    },
+    {
+      "text": "Both leaders will likely announce Chinese purchases of American products, such as Boeing airplanes.",
+      "expect": "low",
+      "label": "NEG-EN-both-leaders-coincidence"
+    }
+  ],
+  "matrix": [
+    {
+      "sample": {
+        "text": "Both Democrats and Republicans are vested in this corrupt machine and funded by the same billionaires.",
+        "expect": "high",
+        "label": "FE-EN-Dem-Rep-vested"
+      },
+      "scores": [
+        0.29807006053913415,
+        0.6582680155466296,
+        0.30378641068249124,
+        0.7182169302944911,
+        0.7357389756317546,
+        0.4136049374007327
+      ]
+    },
+    {
+      "sample": {
+        "text": "All politicians are the same — they say one thing in opposition and do the opposite in power.",
+        "expect": "high",
+        "label": "FE-EN-all-same"
+      },
+      "scores": [
+        0.45077625530853094,
+        0.4292542577235857,
+        0.5929855722996222,
+        0.7163398851905495,
+        0.7784980108414455,
+        0.5255607269853687
+      ]
+    },
+    {
+      "sample": {
+        "text": "Все политики одинаковы — нет принципиальной разницы между ними, все одинаково коррумпированы.",
+        "expect": "high",
+        "label": "FE-RU-all-same"
+      },
+      "scores": [
+        0.6339792319919065,
+        0.714968736339142,
+        0.9272604424475083,
+        0.7701992472389375,
+        0.9024830634362907,
+        0.6388886918563313
+      ]
+    },
+    {
+      "sample": {
+        "text": "There is no real difference between the two parties on any issue that matters.",
+        "expect": "high",
+        "label": "FE-EN-no-diff"
+      },
+      "scores": [
+        0.5870003168045234,
+        0.3811341963216523,
+        0.9684270637202127,
+        0.5184927829156546,
+        0.28993254905644045,
+        0.5117314678865825
+      ]
+    },
+    {
+      "sample": {
+        "text": "Both parties have always been controlled by the same lobbying class.",
+        "expect": "high",
+        "label": "FE-EN-both-controlled"
+      },
+      "scores": [
+        0.27903236901134115,
+        0.5080835480870994,
+        0.46926055717260895,
+        0.7970574147136387,
+        0.6611038148843271,
+        0.42324665789402893
+      ]
+    },
+    {
+      "sample": {
+        "text": "Republicans favor lower marginal tax rates while Democrats prefer progressive structures with targeted credits.",
+        "expect": "low",
+        "label": "NEG-EN-tax-policy-distinct"
+      },
+      "scores": [
+        0.411579541876115,
+        0.4250016383727491,
+        0.37734684118656353,
+        0.4712025099246811,
+        0.6439105467593113,
+        0.32797024085410253
+      ]
+    },
+    {
+      "sample": {
+        "text": "Российские партии демонстрируют сходную централизованную структуру, но отличаются в риторике и составе электората.",
+        "expect": "low",
+        "label": "NEG-RU-similar-but-differ"
+      },
+      "scores": [
+        0.2581112275588484,
+        0.29251026617723513,
+        0.41352061653619326,
+        0.5439505003103485,
+        0.27991528591715226,
+        0.4251031658556601
+      ]
+    },
+    {
+      "sample": {
+        "text": "The Dissident Right rejects mutual forbearance in favor of a will-to-power political approach.",
+        "expect": "low",
+        "label": "NEG-EN-single-actor-critique"
+      },
+      "scores": [
+        0.545357524021393,
+        0.46314160792603404,
+        0.4619474924995601,
+        0.466960736521609,
+        0.52128095470123,
+        0.485273166576982
+      ]
+    },
+    {
+      "sample": {
+        "text": "Both leaders will likely announce Chinese purchases of American products, such as Boeing airplanes.",
+        "expect": "low",
+        "label": "NEG-EN-both-leaders-coincidence"
+      },
+      "scores": [
+        0.4584615204379131,
+        0.37954044746110205,
+        0.44849681303023137,
+        0.6117732744113017,
+        0.39953059380789435,
+        0.41977317462799635
+      ]
+    }
+  ],
+  "hypothesisStats": [
+    {
+      "id": "H3-no-difference",
+      "meanHigh": 0.6523440092644887,
+      "meanLow": 0.4253279408131371,
+      "separation": 0.22701606845135158,
+      "worstCaseSeparation": -0.15816108181706884,
+      "bestThresh": 0.3828669515910257,
+      "cleanSeparated": false
+    },
+    {
+      "id": "H5-RU-direct",
+      "meanHigh": 0.6735512827700518,
+      "meanLow": 0.46115934529639696,
+      "separation": 0.21239193747365487,
+      "worstCaseSeparation": -0.3539779977028708,
+      "bestThresh": 0.4669215479078759,
+      "cleanSeparated": false
+    },
+    {
+      "id": "H4-uniparty",
+      "meanHigh": 0.7040612520706543,
+      "meanLow": 0.5234717552919851,
+      "separation": 0.1805894967786692,
+      "worstCaseSeparation": -0.0932804914956471,
+      "bestThresh": 0.5651330286634781,
+      "cleanSeparated": false
+    },
+    {
+      "id": "H2-direct-en",
+      "meanHigh": 0.5383417508036217,
+      "meanLow": 0.3900484899842801,
+      "separation": 0.14829326081934158,
+      "worstCaseSeparation": -0.08200741160438174,
+      "bestThresh": 0.42213790212384317,
+      "cleanSeparated": false
+    },
+    {
+      "id": "H6-mixed",
+      "meanHigh": 0.5026064964046089,
+      "meanLow": 0.41452993697868523,
+      "separation": 0.08807655942592363,
+      "worstCaseSeparation": -0.07166822917624932,
+      "bestThresh": 0.44943905198885736,
+      "cleanSeparated": false
+    },
+    {
+      "id": "H1-original",
+      "meanHigh": 0.44977164673108716,
+      "meanLow": 0.41837745347356736,
+      "separation": 0.0313941932575198,
+      "worstCaseSeparation": -0.2663251550100519,
+      "bestThresh": 0.4121949465163671,
+      "cleanSeparated": false
+    }
+  ]
+}
