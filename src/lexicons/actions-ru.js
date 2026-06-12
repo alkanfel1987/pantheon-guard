@@ -71,7 +71,7 @@ export const PRETEXT_CHECKS = Object.freeze({
 export const ACTION_REGISTRY = Object.freeze([
   // ── EXECUTE: исполнение кода ──
   { id: 'install-update', cls: 'execute',
-    re: /(установ|скача)(и|ите|й|йте)\s+(срочно\s+)?обновлени|обнов(и|ите)\s+(приложение|программу|систему|версию|его|ее)/,
+    re: /(установ|скача)(и|ите|й|йте)\s+(срочно\s+)?обновлени|обнов(и|ите|ись|итесь)\s+(срочно\s+)?(приложение|программу|систему|версию|его|ее|по\s+ссылке)/,
     label: 'просьба установить/скачать обновление',
     pretext: { claim: 'приложению требуется обновление', check: 'app_update_status' },
     vrata: 'ahimsa', asura: 'Tāraka' },
@@ -147,7 +147,7 @@ export const ACTION_REGISTRY = Object.freeze([
     vrata: 'asteya', asura: 'Pūtanā',
     note: 'легитимных «безопасных счетов» не существует — сильный маркер сам по себе' },
   { id: 'transfer-money', cls: 'transfer',
-    re: /перевед(и|ите)\s+(деньги|средства|сумму|всю)/,
+    re: /(перевед(и|ите)|перекинь(те)?|скинь(те)?)\s+(деньги|средства|сумму|всю|на\s+(другой|друг)\s*\w*\s*сч[её]т)/,
     label: 'просьба перевести деньги',
     pretext: { claim: 'перевод что-то спасает/подтверждает', check: 'account_status_official' },
     vrata: 'asteya', asura: null },
@@ -166,7 +166,7 @@ export const ACTION_REGISTRY = Object.freeze([
   // ── ISOLATE: изоляция и увод (Vṛtra — запруживание потока; чистый тамас:
   //    отрезание жертвы от внешних источников различения) ──
   { id: 'tell-no-one', cls: 'isolate',
-    re: /никому\s+не\s+(говори|сообщай|рассказывай)/,
+    re: /никому\s+(пока\s+|сейчас\s+|об\s+этом\s+)?не\s+(говори|сообщай|рассказывай)/,
     label: 'требование секретности',
     pretext: null, // предлога нет: легитимный агент секретности не требует
     vrata: 'satya', asura: 'Vṛtra',
@@ -317,3 +317,63 @@ export const ACTION_STATS = Object.freeze({
   ),
   withPretext: ACTION_REGISTRY.filter((e) => e.pretext).length,
 });
+
+// ── NLI-RECALL (опциональный семантический слой извлечения действий) ────────
+// Реестр выше точен по форме, но пропускает ПАРАФРАЗЫ («поставь апдейтик по
+// ссылочке»). Замер action-paraphrase-probe.js 2026-06-12: NLI берёт парафраз
+// запроса действия (4/5), НО шумит на предупреждениях/нейтрали (тема vs позиция).
+// Поэтому NLI здесь — ИЗВЛЕКАТЕЛЬ-КАНДИДАТ, не детектор: добавляет действие
+// класса БЕЗ проверяемого предлога и с пометкой source:'semantic'; финальный
+// вердикт за композитом assessActionRequest (давление×фрейм×предлог гасит шум).
+//
+// Зависимость на модель — через внедрение (embedder передаётся хостом), реестр
+// остаётся синхронным и бесплатным по умолчанию. «Claude строит, не является».
+
+// Гипотезы классов (EN, кросс-язычно). Подтверждены замером 2026-06-12.
+export const ACTION_CLASS_HYPOTHESES = Object.freeze({
+  execute:  'The text asks the reader to install, download, or open software, a file, or a link sent to them.',
+  remote:   'The text asks the reader to grant remote access to their device or share their screen.',
+  navigate: 'The text asks the reader to follow a link and log in or confirm their details.',
+  secret:   'The text asks the reader to reveal a password, SMS code, card number, or secret phrase.',
+  transfer: 'The text asks the reader to send or transfer money or cryptocurrency.',
+});
+
+// Порог выше дефолтного 0.55: замер показал шум у 0.55, манип-парафразы давали
+// 0.60-0.66. 0.6 срезает пограничный шум. ЭВРИСТИКА, не калибровано на held-out.
+const SEMANTIC_ACTION_THRESHOLD = 0.6;
+
+/**
+ * Семантическое извлечение действий-кандидатов через NLI (recall-слой).
+ * @param {string} text
+ * @param {{classify:(text:string,hypothesis:string)=>Promise<number>}} embedder
+ * @param {{threshold?:number}} [opts]
+ * @returns {Promise<Array<{cls, label, source:'semantic', confidence, pretext:null}>>}
+ */
+export async function extractActionsSemantic(text, embedder, { threshold = SEMANTIC_ACTION_THRESHOLD } = {}) {
+  if (typeof text !== 'string' || !text || !embedder?.classify) return [];
+  const out = [];
+  for (const [cls, hyp] of Object.entries(ACTION_CLASS_HYPOTHESES)) {
+    const score = await embedder.classify(text, hyp);
+    if (score >= threshold) {
+      out.push({
+        cls, label: `запрошено действие класса «${ACTION_CLASSES[cls].label}» (семантика)`,
+        risk: ACTION_CLASSES[cls].risk, source: 'semantic',
+        confidence: Number(score.toFixed(3)), pretext: null,
+      });
+    }
+  }
+  return out;
+}
+
+/**
+ * Объединяет regex-реестр (точный, с предлогом) и NLI-recall (парафразы).
+ * Дедуп по классу: для класса, найденного реестром, семантику не добавляем
+ * (реестр точнее и несёт предлог). Семантика добавляет ТОЛЬКО новые классы.
+ * @returns {Promise<Array>} действия для assessActionRequest({actions})
+ */
+export async function extractActionsMerged(text, embedder, opts) {
+  const registry = extractActions(text);
+  const seen = new Set(registry.map((a) => a.cls));
+  const semantic = (await extractActionsSemantic(text, embedder, opts)).filter((a) => !seen.has(a.cls));
+  return [...registry, ...semantic];
+}
