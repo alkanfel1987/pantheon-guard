@@ -39,6 +39,46 @@ const SCARCITY_RE =
 const GURU_RE =
   /(стань|стать|сделаю\s+тебя)\s+(богат[а-яё]*|миллионером|успешн[а-яё]*)|финансов[а-яё]*\s+свобод[а-яё]*|выйти\s+на\s+(пассив[а-яё]*|доход)|наставник\s+по\s+(деньг|доход)|ментор\s+по\s+(деньг|успех)/i;
 
+// 5) testimonial = price — заявленный заработок ученика ≈ цене курса.
+//    Сильный самостоятельный признак фабрикации: «отзыв» подогнан под прайс.
+//    NB: кириллица ≠ \w → классы [а-яё]*; суффиксы к/тыс/млн → множитель.
+const AMOUNT = '(\\d[\\d\\s.]*)\\s*(млн|миллион[а-яё]*|к(?![а-яёa-z])|тыс[а-яё]*|000)?\\s*(₽|руб[а-яё]*|\\$|долл[а-яё]*)?';
+const EARN_RE = new RegExp('(заработ[а-яё]*|доход|получил[а-яё]*|вышел\\s+на|вышла\\s+на|подняла?)\\D{0,18}' + AMOUNT, 'gi');
+const PRICE_RE = new RegExp('(курс[а-яё]*|стоит|цена|ценой|тариф[а-яё]*|оплат[а-яё]*|за\\s+обучение|всего(?:\\s+за)?)\\D{0,18}' + AMOUNT, 'gi');
+
+function toNumber(digits, suffix) {
+  const base = Number(String(digits).replace(/[\s.]/g, ''));
+  if (!isFinite(base) || base === 0) return null;
+  const s = (suffix || '').toLowerCase();
+  if (s.startsWith('млн') || s.startsWith('миллион')) return base * 1e6;
+  if (s === 'к' || s.startsWith('тыс') || s === '000') return base * 1e3;
+  return base;
+}
+function amounts(text, re) {
+  const out = [];
+  for (const m of text.matchAll(re)) {
+    const v = toNumber(m[2], m[3]);
+    if (v) out.push(v);
+  }
+  return out;
+}
+
+/**
+ * testimonial = price: совпадает ли заявленный заработок с ценой курса
+ * (точно или в пределах ±15%). Возвращает совпавшую пару или null.
+ * @param {string} text
+ * @returns {{earn:number, price:number}|null}
+ */
+export function detectTestimonialPriceMatch(text) {
+  if (typeof text !== 'string' || !text) return null;
+  const earns = amounts(text, EARN_RE);
+  const prices = amounts(text, PRICE_RE);
+  for (const e of earns) for (const p of prices) {
+    if (p > 0 && Math.abs(e - p) / p <= 0.15) return { earn: e, price: p };
+  }
+  return null;
+}
+
 /**
  * Детектирует инфоцыганскую схему (композит ≥2 сигналов).
  * @param {string} text
@@ -67,6 +107,9 @@ export function detectInfocyganstvo(text) {
 
   if (SCARCITY_RE.test(text)) signals.push('искусственный дефицит набора (старт/осталось мест)');
   if (GURU_RE.test(text)) signals.push('guru-self-label / обещание финансовой трансформации');
+
+  const tp = detectTestimonialPriceMatch(text);
+  if (tp) signals.push(`заработок «ученика» ≈ цене курса (${tp.earn}≈${tp.price}) — отзыв подогнан под прайс`);
 
   const detected = !ironic && signals.length >= 2;
   const reasons = [];
