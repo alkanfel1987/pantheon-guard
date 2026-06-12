@@ -72,5 +72,8 @@
   "devDependencies": {
     "tsup": "^8.5.1",
     "typescript": "^6.0.3"
+  },
+  "dependencies": {
+    "@huggingface/transformers": "^4.2.0"
   }
 }
