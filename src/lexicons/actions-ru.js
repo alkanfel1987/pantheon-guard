@@ -34,6 +34,7 @@
  * 06-Integrations/2026-06-10-Asurya-guard-adversarial-map.md). Источник правды
  * в перспективе — pantheon-vedic-catalogue/lexicons/actions-ru.yaml.
  */
+import { actionLocale } from './i18n-actions.js';
 
 // ── Классы риск-действий ──────────────────────────────────────────────────
 export const ACTION_CLASSES = Object.freeze({
@@ -209,17 +210,18 @@ function norm(s) {
  * @param {string} text
  * @returns {Array<{id, cls, label, risk, pretext, vrata, asura, note?}>}
  */
-export function extractActions(text) {
+export function extractActions(text, lang = 'ru') {
   if (typeof text !== 'string' || !text) return [];
+  const loc = actionLocale(lang);
   const n = norm(text);
   const found = [];
   for (const entry of ACTION_REGISTRY) {
     if (entry.re.test(n)) {
       found.push({
         id: entry.id, cls: entry.cls, label: entry.label,
-        risk: ACTION_CLASSES[entry.cls].risk,
+        risk: loc.classes[entry.cls].risk,
         pretext: entry.pretext
-          ? { ...entry.pretext, recipe: PRETEXT_CHECKS[entry.pretext.check] }
+          ? { ...entry.pretext, recipe: loc.checks[entry.pretext.check] }
           : null,
         vrata: entry.vrata, asura: entry.asura,
         ...(entry.note ? { note: entry.note } : {}),

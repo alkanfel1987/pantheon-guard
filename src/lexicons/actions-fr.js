@@ -5,7 +5,9 @@
  * классы/проверки/фрейм-профили/композит общие (из actions-ru.js).
  * Нормализация: lowercase + снятие диакритики (NFD), как idioms-fr.
  */
-import { ACTION_CLASSES, PRETEXT_CHECKS } from './actions-ru.js';
+import { ACTION_CLASSES } from './actions-ru.js';
+import { actionLocale } from './i18n-actions.js';
+const LOC = actionLocale('fr');
 
 export const ACTION_REGISTRY_FR = Object.freeze([
   // EXECUTE
@@ -93,8 +95,8 @@ export function extractActionsFr(text) {
     if (entry.re.test(n)) {
       found.push({
         id: entry.id, cls: entry.cls, label: entry.label,
-        risk: ACTION_CLASSES[entry.cls].risk,
-        pretext: entry.pretext ? { ...entry.pretext, recipe: PRETEXT_CHECKS[entry.pretext.check] } : null,
+        risk: LOC.classes[entry.cls].risk,
+        pretext: entry.pretext ? { ...entry.pretext, recipe: LOC.checks[entry.pretext.check] } : null,
         vrata: entry.vrata, asura: entry.asura,
         ...(entry.note ? { note: entry.note } : {}),
       });

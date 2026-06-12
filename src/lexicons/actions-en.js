@@ -13,7 +13,9 @@
  * Нормализация: lowercase, схлопывание пробелов, срез пунктуации (свой norm —
  * без ё→е, не нужен для en).
  */
-import { ACTION_CLASSES, PRETEXT_CHECKS, assessActionRequest } from './actions-ru.js';
+import { ACTION_CLASSES, assessActionRequest } from './actions-ru.js';
+import { actionLocale } from './i18n-actions.js';
+const LOC = actionLocale('en');
 
 export const ACTION_REGISTRY_EN = Object.freeze([
   // ── EXECUTE ──
@@ -129,8 +131,8 @@ export function extractActionsEn(text) {
     if (entry.re.test(n)) {
       found.push({
         id: entry.id, cls: entry.cls, label: entry.label,
-        risk: ACTION_CLASSES[entry.cls].risk,
-        pretext: entry.pretext ? { ...entry.pretext, recipe: PRETEXT_CHECKS[entry.pretext.check] } : null,
+        risk: LOC.classes[entry.cls].risk,
+        pretext: entry.pretext ? { ...entry.pretext, recipe: LOC.checks[entry.pretext.check] } : null,
         vrata: entry.vrata, asura: entry.asura,
         ...(entry.note ? { note: entry.note } : {}),
       });

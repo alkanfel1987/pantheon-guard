@@ -6,7 +6,9 @@
  * Локализация рецептов/reasons — отдельный шаг (на детекцию не влияет).
  * Нормализация: lowercase + умлауты ä→ae/ö→oe/ü→ue, ß→ss (как idioms-de).
  */
-import { ACTION_CLASSES, PRETEXT_CHECKS } from './actions-ru.js';
+import { ACTION_CLASSES } from './actions-ru.js';
+import { actionLocale } from './i18n-actions.js';
+const LOC = actionLocale('de');
 
 export const ACTION_REGISTRY_DE = Object.freeze([
   // EXECUTE
@@ -94,8 +96,8 @@ export function extractActionsDe(text) {
     if (entry.re.test(n)) {
       found.push({
         id: entry.id, cls: entry.cls, label: entry.label,
-        risk: ACTION_CLASSES[entry.cls].risk,
-        pretext: entry.pretext ? { ...entry.pretext, recipe: PRETEXT_CHECKS[entry.pretext.check] } : null,
+        risk: LOC.classes[entry.cls].risk,
+        pretext: entry.pretext ? { ...entry.pretext, recipe: LOC.checks[entry.pretext.check] } : null,
         vrata: entry.vrata, asura: entry.asura,
         ...(entry.note ? { note: entry.note } : {}),
       });
