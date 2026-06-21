@@ -108,6 +108,25 @@
  * Calibrator override: NOISE_FLOOR lowered (0.30 → 0.22) — clickbait usually
  * surfaces via a single strong signal; threshold tuned for FP-strict policy.
  *
+ * Violation-calibration re-fit (2026-06-20, BENCHMARK v0.5 task): the default
+ * BASE_PER_HIT=0.45 makes a single fired detector score manip=1-exp(-0.45/0.7)
+ * =0.474 — BELOW 0.5, so the pack's own detector hits are UNDER-confident on
+ * true clickbait. Live-probe 04F on a held-out labelled corpus (N=55, SHA-256
+ * 984a2f9c…) measured ECE=0.34 / Brier=0.23 for this reason, and post-hoc
+ * temperature scaling could not fix it (it pivots at 0.5, the wrong side of a
+ * sub-0.5 true-positive cluster). The numeric-listicle detector is a strong
+ * STRUCTURAL signal (held-out precision 24/24 on this corpus; 0 FP on held-out
+ * news), so a single hit warrants a higher base. `violationCalibration` lifts
+ * BASE_PER_HIT to 0.90 (single-hit manip 0.724) — kept one notch below the
+ * conf-clamp ceiling because the catch sources are in-corpus (precision
+ * optimistic) and the held-out news FP CI upper is 13.3% (true precision
+ * ≥ ~0.87). Out-of-sample (5-fold + LOO CV, every fold/seed agreeing): ECE
+ * 0.339→0.218, Brier 0.230→0.136. The residual ECE is dominated by 6 false
+ * negatives sitting at score 0 — a RECALL gap, not a calibration one.
+ * Reproduce: `node C:\ProjectS\pantheon-eval-systems\calib_refit_04f.mjs`.
+ * Severity-weighting (low/medium/high) is deferred: only one detector fires on
+ * this corpus, so per-detector weights are not yet validatable (04F Bridge-B).
+ *
  * Foundation-level connection: Mahā-vrata `indriya-nigraha` (Patañjali
  * Yoga-sūtra II.30-31) ↔ Erickson «concentrating attention on a single
  * idea» (Braid 1843) — direct structural identity between ancient
@@ -151,16 +170,33 @@ const PATTERNS = Object.freeze([
       '(?!(?:million|billion|trillion|thousand|hundred|percent|years?|months?|weeks?|' +
       'days?|hours?|minutes?|seconds?|kilometers?|miles|kilograms?|pounds?|degrees?|' +
       'dollars?|euros?|people|per)\\b)' +
-      '(?:[\\w\'.,-]+\\s+){0,5}' +
-      '(?:reasons?|times?|ways?|things?|tips|tricks|signs|moments|secrets|hacks|facts|' +
-      'photos|tweets|posts|products|shoes|celebs|tries|fails|wins|finds|moms|dads|teens|' +
-      'kids|comments|memes|pics|images|stories|ideas|lessons|quotes|habits|rules|mistakes|' +
-      'examples|gems|acts|pets|words|recipes|gifts|places|foods|jobs|skills|lies|myths|' +
-      'trends|reactions|charts|maps|gadgets|outfits|looks|jokes|pranks|designs|hobbies|' +
-      'truths|questions|activities|reads|confessions|podcasts|names|hilarious)\\b',
+      '(?:' +
+        // (a) original: count + ≤5 filler + enumerable plural noun
+        '(?:[\\w\'.,-]+\\s+){0,5}' +
+        '(?:reasons?|times?|ways?|things?|tips|tricks|signs|moments|secrets|hacks|facts|' +
+        'photos|tweets|posts|products|shoes|celebs|tries|fails|wins|finds|moms|dads|teens|' +
+        'kids|comments|memes|pics|images|stories|ideas|lessons|quotes|habits|rules|mistakes|' +
+        'examples|gems|acts|pets|words|recipes|gifts|places|foods|jobs|skills|lies|myths|' +
+        'trends|reactions|charts|maps|gadgets|outfits|looks|jokes|pranks|designs|hobbies|' +
+        'truths|questions|activities|reads|confessions|podcasts|names|hilarious)\\b' +
+        // (b) human listicle + relative clause (people-who). Merged into THIS detector
+        // (not a separate one) so a headline with both a list-noun AND a who-clause
+        // counts as ONE hit, not two — keeps violationCalibration single-hit intact.
+        // Generalizes to 2 sources (BoredPanda + TheThings, WebFetch 2026-06-21), 0 FP
+        // on 142 pass + 8 casualty constructs. Two-tier casualty control: SAFE human
+        // nouns (houseguests/locals/...) allow 0 filler; casualty-prone (people/men/...)
+        // require ≥1 filler (an adjective) — «N people who died» has 0 filler → excluded.
+        // Reproduce: node C:\ProjectS\pantheon-eval-systems\merged_detector_probe.mjs
+        '|(?:[\\w\'.,-]+\\s+){0,5}(?:houseguests|locals|folks|bridezillas|masterminds|' +
+        'geniuses|legends|fans|brides|grooms|tourists|customers|neighbou?rs|coworkers|' +
+        'strangers|employees|teachers|parents|roommates|influencers)' +
+        '(?:\\s+[\\w\'.,-]+){0,4}\\s+(?:who|that)\\b' +
+        '|(?:[\\w\'.,-]+\\s+){1,5}(?:people|men|women|workers|students|families|family|' +
+        'couples|guys)(?:\\s+[\\w\'.,-]+){0,4}\\s+(?:who|that)\\b' +
+      ')',
       'iu'
     ),
-    description: 'numeric listicle structure (cardinal count + qualifier + enumerable plural noun, excluding quantity/unit nouns)',
+    description: 'numeric listicle structure (cardinal count + qualifier + enumerable plural noun OR human subject + relative clause), excluding quantity/unit nouns and casualty counts',
     vrttiAxis: 'nidra',
   },
 
@@ -287,6 +323,13 @@ export const clickbaitPack = Object.freeze({
   calibratorOverrides: {
     NOISE_FLOOR: 0.22,
     STRONG_THRESHOLD: 0.60,
+  },
+  // Params for calibrating THIS pack's own detector hits into a manipulation
+  // score (consumed by applyPack/stackPacks → result.packManipulation). Kept
+  // separate from calibratorOverrides, which tunes the CORE detector's
+  // thresholds — re-fit 2026-06-20 against held-out corpus (see header note).
+  violationCalibration: {
+    BASE_PER_HIT: 0.90,
   },
   applicableFrames: ['public_information'],
 });

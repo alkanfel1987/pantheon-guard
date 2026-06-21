@@ -70,6 +70,7 @@ export {
 export {
   validatePack,
   runPack,
+  calibratePackViolations,
   applyPack,
   stackPacks,
 } from './packs/index.js';
@@ -79,6 +80,23 @@ export { newsPack } from './packs/news.js';
 export { newsDePack } from './packs/news-de.js';
 export { newsHiPack } from './packs/news-hi.js';
 export { clickbaitPack } from './packs/clickbait.js';
+
+// ─────────────────────────────────────────────
+// Multilingual scam/action layer (ru/en/de/fr)
+// Request-action registries + composite verdict. Detection logic is
+// language-independent (keyed by class); only the form registry is per-language.
+// ─────────────────────────────────────────────
+export {
+  ACTION_CLASSES,
+  ACTION_REGISTRY,
+  ACTION_STATS,
+  extractActions,
+  assessActionRequest,
+} from './lexicons/actions-ru.js';
+export { extractActionsEn } from './lexicons/actions-en.js';
+export { extractActionsDe } from './lexicons/actions-de.js';
+export { extractActionsFr } from './lexicons/actions-fr.js';
+export { ACTION_I18N, actionLocale } from './lexicons/i18n-actions.js';
 
 // ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)

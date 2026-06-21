@@ -20,8 +20,9 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
-import { validatePack, applyPack, runPack } from '../src/packs/index.js';
+import { validatePack, applyPack, runPack, stackPacks, calibratePackViolations } from '../src/packs/index.js';
 import { clickbaitPack } from '../src/packs/clickbait.js';
+import { newsPack } from '../src/packs/news.js';
 import { HELDOUT } from '../examples/benchmark-heldout-clickbait-corpus.js';
 import { HELDOUT_V2 } from '../examples/benchmark-heldout-clickbait-v2-corpus.js';
 import { CONTROL } from '../examples/benchmark-control-2026-05-16-corpus.js';
@@ -219,4 +220,102 @@ test('clickbait: applyPack packViolations empty on mainstream news', () => {
   const inspect = applyPack(clickbaitPack);
   const r = inspect(headline('CBS Ebola Congo'));
   assert.equal(r.packViolations.length, 0);
+});
+
+// ─────────────────────────────────────────────
+// Calibrated pack score (violationCalibration re-fit, 2026-06-20)
+// ─────────────────────────────────────────────
+
+test('clickbait: pack declares violationCalibration BASE_PER_HIT 0.90', () => {
+  // The re-fit lives at the source (not in an eval script). If this value
+  // moves, the calibration claim in REPORT-calib-refit-2026-06-20 is stale.
+  assert.equal(clickbaitPack.violationCalibration.BASE_PER_HIT, 0.90);
+});
+
+test('clickbait: applyPack emits a calibrated packManipulation on a fired headline', () => {
+  const inspect = applyPack(clickbaitPack);
+  const r = inspect(headline('BS 16 acts of kindness'));
+  assert.ok(r.packViolations.length > 0);
+  // Single structural hit → re-fit lifts manip ABOVE 0.5 (root-cause fix:
+  // the 0.45 default produced 0.474, which post-hoc temperature can't rescue).
+  assert.ok(r.packManipulation > 0.5,
+    `packManipulation ${r.packManipulation} should exceed 0.5 after re-fit`);
+  // ... and matches the fitted single-hit value 0.724 (manip = 1-exp(-0.90/0.7)).
+  assert.ok(Math.abs(r.packManipulation - 0.724) < 0.01,
+    `packManipulation ${r.packManipulation} ≠ expected ~0.724`);
+});
+
+test('clickbait: calibrated packManipulation stays at 0 on mainstream news', () => {
+  const inspect = applyPack(clickbaitPack);
+  const r = inspect(headline('CBS Ebola Congo'));
+  assert.equal(r.packViolations.length, 0);
+  assert.equal(r.packManipulation, 0); // no hits → no evidence → manip 0
+});
+
+test('clickbait: re-fit beats the 0.45 default toward true precision (both above 0.5? only re-fit)', () => {
+  const text = headline('BS 16 acts of kindness');
+  const { packEvidence } = runPack(clickbaitPack, text);
+  const refit = calibratePackViolations(clickbaitPack, text, packEvidence).manipulation;
+  // Same evidence under the OLD default base → the under-confident 0.474.
+  const oldBase = calibratePackViolations(
+    { ...clickbaitPack, violationCalibration: { BASE_PER_HIT: 0.45 } },
+    text, packEvidence,
+  ).manipulation;
+  assert.ok(oldBase < 0.5, `old base manip ${oldBase} should be the sub-0.5 default`);
+  assert.ok(refit > oldBase, `re-fit ${refit} should exceed old ${oldBase}`);
+});
+
+test('calibratePackViolations: returns null for a pack with no violationCalibration', () => {
+  const noCal = { ...clickbaitPack, violationCalibration: undefined };
+  assert.equal(calibratePackViolations(noCal, 'whatever text here', {}), null);
+});
+
+// ─────────────────────────────────────────────
+// Graded gate verdict — the threshold consumer (04F §3.2 saṃśaya-gate)
+// ─────────────────────────────────────────────
+
+test('clickbait: a fired headline yields strong-flag verdict + packManipulationStrong', () => {
+  const inspect = applyPack(clickbaitPack);
+  const r = inspect(headline('BS 16 acts of kindness'));
+  // 0.724 ≥ pack STRONG_THRESHOLD 0.60 → strong gate verdict.
+  assert.equal(r.packManipulationStrong, true);
+  assert.equal(r.packVerdict, 'strong-flag');
+});
+
+test('clickbait: mainstream news yields clear verdict, not strong', () => {
+  const inspect = applyPack(clickbaitPack);
+  const r = inspect(headline('CBS Ebola Congo'));
+  assert.equal(r.packManipulationStrong, false);
+  assert.equal(r.packVerdict, 'clear');
+});
+
+test('clickbait: graded verdict does NOT relax passes (FP-strict — any hit fails)', () => {
+  const inspect = applyPack(clickbaitPack);
+  const r = inspect(headline('BS 16 acts of kindness'));
+  assert.equal(r.passes, false); // still blocked, regardless of grade
+});
+
+test('clickbait: a sub-threshold calibrated score is "flag", not "strong-flag"', () => {
+  // Synthetic pack: same detectors, but a per-hit base so low the single-hit
+  // manip lands below the gate threshold → exercises the weak-flag branch.
+  const weakPack = { ...clickbaitPack, violationCalibration: { BASE_PER_HIT: 0.20 } };
+  const inspect = applyPack(weakPack);
+  const r = inspect(headline('BS 16 acts of kindness'));
+  assert.ok(r.packViolations.length > 0);
+  assert.ok(r.packManipulation < 0.60, `manip ${r.packManipulation} should be below the 0.60 gate`);
+  assert.equal(r.packManipulationStrong, false);
+  assert.equal(r.packVerdict, 'flag');
+});
+
+test('stackPacks: aggregate verdict surfaces clickbait strong-flag (OR across stack)', () => {
+  const inspect = stackPacks([clickbaitPack, newsPack]);
+  const hit = inspect('16 Acts of Kindness That Will Restore Your Faith');
+  assert.equal(hit.packVerdict, 'strong-flag');
+  assert.equal(hit.packManipulationStrong, true);
+  // newsPack declares no violationCalibration → only clickbait contributes.
+  assert.deepEqual(Object.keys(hit.packManipulationByPack), ['clickbait']);
+
+  const clean = inspect('Mexican officials announce 10 dead in early-morning shooting');
+  assert.equal(clean.packVerdict, 'clear');
+  assert.equal(clean.packManipulationStrong, false);
 });

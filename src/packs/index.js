@@ -25,7 +25,7 @@
  */
 
 import { inspect as coreInspect } from '../inspect.js';
-import { CALIBRATOR_PARAMS } from '../calibrator.js';
+import { CALIBRATOR_PARAMS, calibrate, isStrong } from '../calibrator.js';
 import { normalizeText } from '../normalize.js';
 import { MAHAVRATA } from '../mahavrata.js';
 
@@ -85,7 +85,8 @@ export const VALID_FRAMES = Object.freeze([
  * @property {string} description
  * @property {DetectionPattern[]} detectionPatterns
  * @property {Requirement[]} requirements
- * @property {Partial<typeof CALIBRATOR_PARAMS>} [calibratorOverrides]
+ * @property {Partial<typeof CALIBRATOR_PARAMS>} [calibratorOverrides]  tunes the CORE detector's thresholds when this pack is applied.
+ * @property {Partial<typeof CALIBRATOR_PARAMS>} [violationCalibration]  params for calibrating THIS pack's OWN detector hits into a manipulation score (see calibratePackViolations / result.packManipulation). Distinct from calibratorOverrides so a pack can lift its own per-hit base without touching core calibration.
  * @property {Array<'diplomatic'|'judicial'|'medical'|'personal'|'educational'|'public_information'>} [applicableFrames]  optional frames where this pack applies (06A §5.1); absent ≡ universal.
  */
 
@@ -217,6 +218,63 @@ export function runPack(pack, text, options = {}) {
 }
 
 // ─────────────────────────────────────────────
+// Calibrated pack score
+// ─────────────────────────────────────────────
+
+/**
+ * Calibrate a pack's OWN detector hits into a manipulation probability.
+ *
+ * `runPack` reports pack hits as binary `packViolations`; this turns the
+ * same `packEvidence` (keyed by rule, the shape `calibrate` expects) into a
+ * graded score using the pack's `violationCalibration` merged over its
+ * `calibratorOverrides`. Packs that lift their per-hit base (e.g. clickbait's
+ * strong structural `numeric-listicle` detector) get a calibrated score that
+ * reflects the detector's real precision instead of the generic 0.45 base.
+ *
+ * Returns `null` when the pack declares no `violationCalibration` (opt-in —
+ * keeps the result shape unchanged for packs that haven't been re-fit).
+ *
+ * `strong` / `threshold` operationalise the saṃśaya-gate (04F §3.2): the
+ * pack's `STRONG_THRESHOLD` is the decision criterion β, and `strong` is the
+ * gate verdict — a graded consumer of the calibrated score that does NOT
+ * relax `passes` (any hit still fails for FP-strict packs like clickbait).
+ * A caller wanting a cost-matrix tuned gate reads `manipulation` + `threshold`.
+ *
+ * @param {Pack} pack
+ * @param {string} text
+ * @param {Object<string, string[]>} packEvidence  evidence map from runPack
+ * @returns {{manipulation: number, confidence: Object<string, number>, abstain: boolean, reason: string|null, threshold: number, strong: boolean}|null}
+ */
+export function calibratePackViolations(pack, text, packEvidence) {
+  if (!pack.violationCalibration) return null;
+  const overrides = { ...pack.calibratorOverrides, ...pack.violationCalibration };
+  const { confidence, manipulation, abstain, reason } =
+    calibrate(text, packEvidence || {}, overrides);
+  const threshold = overrides.STRONG_THRESHOLD ?? CALIBRATOR_PARAMS.STRONG_THRESHOLD;
+  const strong = isStrong(manipulation, threshold);
+  return { manipulation, confidence, abstain, reason, threshold, strong };
+}
+
+/**
+ * Classify a pack outcome into a graded verdict from its calibrated score.
+ * `passes` stays binary (FP-strict); this is the optional graded channel a
+ * consumer reads to distinguish "block" from "flag for review".
+ *
+ *   'clear'       — no hit (calibrated manip ≈ 0)
+ *   'flag'        — hit, but calibrated manip < pack threshold (weak claim)
+ *   'strong-flag' — hit AND calibrated manip ≥ pack threshold (strong claim)
+ *
+ * @param {number} hitCount  number of pack violations
+ * @param {{strong: boolean}|null} packCal  result of calibratePackViolations
+ * @returns {'clear'|'flag'|'strong-flag'|null} null when the pack has no violationCalibration
+ */
+function packVerdict(hitCount, packCal) {
+  if (!packCal) return null;
+  if (hitCount === 0) return 'clear';
+  return packCal.strong ? 'strong-flag' : 'flag';
+}
+
+// ─────────────────────────────────────────────
 // applyPack — one pack
 // ─────────────────────────────────────────────
 
@@ -242,6 +300,7 @@ export function applyPack(pack) {
       runPack(pack, text, { normalized });
 
     const passesPack = packViolations.length === 0 && unmetRequirements.length === 0;
+    const packCal = calibratePackViolations(pack, text, packEvidence);
     return {
       ...baseResult,
       passes: baseResult.passes && passesPack,
@@ -249,6 +308,14 @@ export function applyPack(pack) {
       packViolations,
       packEvidence,
       unmetRequirements,
+      // Calibrated score for the pack's own hits — present only when the pack
+      // declares violationCalibration (opt-in; null otherwise).
+      packManipulation: packCal ? packCal.manipulation : null,
+      packConfidence: packCal ? packCal.confidence : null,
+      // Graded consumer of the calibrated score against the pack's saṃśaya-gate
+      // threshold (04F §3.2). Does NOT relax `passes` — any hit still fails.
+      packManipulationStrong: packCal ? packCal.strong : null,
+      packVerdict: packVerdict(packViolations.length, packCal),
     };
   };
 }
@@ -289,6 +356,9 @@ export function stackPacks(packs) {
     const allPackEvidence = {};
     const allUnmet = [];
     const packIds = [];
+    const packManipulationByPack = {};
+    let anyCalibrated = false;
+    let strongAny = false;
     for (const pack of packs) {
       const { packViolations, packEvidence, unmetRequirements } =
         runPack(pack, text, { normalized });
@@ -299,8 +369,15 @@ export function stackPacks(packs) {
       }
       allUnmet.push(...unmetRequirements);
       packIds.push(`${pack.id}@${pack.version}`);
+      const packCal = calibratePackViolations(pack, text, packEvidence);
+      if (packCal) {
+        anyCalibrated = true;
+        packManipulationByPack[pack.id] = packCal.manipulation;
+        if (packViolations.length > 0 && packCal.strong) strongAny = true;
+      }
     }
 
+    const contributed = Object.values(packManipulationByPack);
     const passesPacks = allPackViolations.length === 0 && allUnmet.length === 0;
     return {
       ...baseResult,
@@ -309,6 +386,15 @@ export function stackPacks(packs) {
       packViolations: allPackViolations,
       packEvidence: allPackEvidence,
       unmetRequirements: allUnmet,
+      // Most-confident calibrated pack score (OR aggregation — 04F Bridge-B);
+      // null when no stacked pack declares violationCalibration.
+      packManipulation: contributed.length ? Math.max(...contributed) : null,
+      packManipulationByPack,
+      // Graded gate across the stack (any strong-flag wins; 04F §3.2).
+      packManipulationStrong: anyCalibrated ? strongAny : null,
+      packVerdict: !anyCalibrated
+        ? null
+        : (allPackViolations.length === 0 ? 'clear' : (strongAny ? 'strong-flag' : 'flag')),
     };
   };
 }

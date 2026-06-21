@@ -6,6 +6,56 @@ and the project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.
 
 ## [Unreleased]
 
+### Added — calibrated pack score + clickbait calibration re-fit (2026-06-20)
+
+`applyPack` / `stackPacks` now emit a calibrated `packManipulation` for a pack's own
+detector hits — previously the pack's hits were reported only as binary `packViolations`
+(the core calibrator never saw them). Opt-in and purely additive: `null` unless a pack
+declares `violationCalibration`, so the result shape is unchanged for every other pack.
+
+- New exported helper `calibratePackViolations(pack, text, packEvidence)`; new pack field
+  `violationCalibration` (params for calibrating the pack's OWN hits, distinct from
+  `calibratorOverrides`, which tunes the CORE detector's thresholds).
+- **Graded gate verdict** (the threshold consumer of the calibrated score — 04F §3.2
+  saṃśaya-gate). `applyPack` / `stackPacks` now also emit `packManipulationStrong`
+  (calibrated manip ≥ the pack's `STRONG_THRESHOLD`) and `packVerdict` ∈
+  `'clear' | 'flag' | 'strong-flag'`. This does NOT relax `passes` — any hit still fails
+  for FP-strict packs; the verdict is the graded channel a consumer reads to distinguish
+  "block" from "flag for review", or to build a cost-matrix tuned gate from
+  `packManipulation` + `threshold`. clickbait single hit → 0.724 ≥ 0.60 → `strong-flag`.
+- **clickbait re-fit:** `violationCalibration.BASE_PER_HIT = 0.90`. The default 0.45 scored
+  a single fired detector at `manip = 1−exp(−0.45/0.7) = 0.474` — below 0.5, so the pack's
+  own hits were under-confident and post-hoc temperature scaling (which pivots at 0.5)
+  could not fix it. The `numeric-listicle` detector is a strong structural signal
+  (held-out precision 24/24, 0 FP on held-out news), so a single hit now scores 0.724.
+- **Validation (out-of-sample, NOT in-sample):** held-out labelled corpus N=55, SHA-256
+  `984a2f9c…`. 5-fold (×3 seeds) + leave-one-out CV, every fold/seed agreeing →
+  ECE 0.339→0.218, Brier 0.230→0.136. Production path (`applyPack`) at the shipped 0.90:
+  ECE 0.2295, Brier 0.1423. Residual ECE is dominated by 6 false-negatives at score 0 —
+  a recall gap, not calibration. Reproduce: `node …/pantheon-eval-systems/calib_refit_04f.mjs`
+  (report: `REPORT-calib-refit-2026-06-20.md`). Severity-weighting deferred (only one
+  detector fires on this corpus → per-detector weights not yet validatable).
+- No core change: `bench:check` frozen N=509 McNemar p=1.0 (zero drift); tests 429/429.
+
+## [0.5.0] - 2026-06-20
+
+### Added — multilingual scam/action layer exposed in the public API (2026-06-20)
+
+The request-action detection layer (previously internal to `src/lexicons/*`) is now
+exported from the package root, so external callers can run multilingual scam detection
+without reaching into internals. Purely additive — no behaviour change to existing detectors.
+
+- Exported: `extractActions`, `extractActionsEn`, `extractActionsDe`, `extractActionsFr`,
+  `assessActionRequest`, `ACTION_CLASSES`, `ACTION_REGISTRY`, `ACTION_STATS`,
+  `ACTION_I18N`, `actionLocale`.
+- Detection is language-independent (keyed by class); per-language form registries:
+  ru 20 / en 17 / de 13 / fr 13 forms across 6 classes (execute, remote, navigate,
+  secret, transfer, isolate). Output (labels / risk / check recipes) localized for all
+  four languages via `i18n-actions`.
+- Consumer: `viveka-core-api` (ядро-сервис) now routes ru/en/de/fr through this layer.
+- NOTE: `reasons` strings of the composite remain Russian (output i18n is a separate step);
+  registries are SEED — no battle-tested corpus measurement on western scams yet.
+
 ### Added — `news` curiosity-gap + proof-layer detectors; `clickbait` into the stack (2026-06-07)
 
 Closes the living-set false negatives surfaced by the disputed-register

@@ -19,6 +19,7 @@
 import { detectPatternsCalibrated } from './detect-patterns.js';
 import { checkMahavrata } from './mahavrata.js';
 import { isStrong, CALIBRATOR_PARAMS } from './calibrator.js';
+import { MAX_INPUT_LENGTH } from './normalize.js';
 
 const DEFAULT_OPTIONS = Object.freeze({
   policy: 'calibrated',
@@ -55,6 +56,11 @@ const DEFAULT_OPTIONS = Object.freeze({
  */
 export function inspect(text, options = {}) {
   const opts = { ...DEFAULT_OPTIONS, ...options };
+  // DoS-guard: клампим недоверенный ввод один раз — дальше его получают
+  // и детектор, и нормализация, и checkMahavrata/calibrate.
+  if (typeof text === 'string' && text.length > MAX_INPUT_LENGTH) {
+    text = text.slice(0, MAX_INPUT_LENGTH);
+  }
   const detection = detectPatternsCalibrated(text, {
     overrides:  opts.calibratorOverrides,
     normalized: opts.normalized,
