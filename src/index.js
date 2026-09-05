@@ -80,6 +80,19 @@ export { newsPack } from './packs/news.js';
 export { newsDePack } from './packs/news-de.js';
 export { newsHiPack } from './packs/news-hi.js';
 export { clickbaitPack } from './packs/clickbait.js';
+export { aiSecurityPack } from './packs/ai-security.js';
+export { spiritualInflationPack } from './packs/spiritual-inflation.js';
+export { opacityPack, detectOpacity, autoDetectLang } from './packs/opacity.js';
+
+// ─────────────────────────────────────────────
+// Лексикон жаргона (4 языка) — питает opacity-пакет. Экспортируется, чтобы
+// вызывающая сторона могла показать автору сами совпавшие токены (Я-4:
+// свидетельство вместо глухого блока), а не только итоговый вердикт.
+// ─────────────────────────────────────────────
+export { JARGON_TOKENS as JARGON_TOKENS_RU } from './lexicons/jargon-ru.js';
+export { JARGON_TOKENS as JARGON_TOKENS_EN } from './lexicons/jargon-en.js';
+export { JARGON_TOKENS as JARGON_TOKENS_DE } from './lexicons/jargon-de.js';
+export { JARGON_TOKENS as JARGON_TOKENS_FR } from './lexicons/jargon-fr.js';
 
 // ─────────────────────────────────────────────
 // Multilingual scam/action layer (ru/en/de/fr)

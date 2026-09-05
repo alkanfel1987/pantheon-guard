@@ -10,6 +10,10 @@
 module.exports = {
   entry: {
     'index': 'src/index.js',
+    // Второй вход — слои без проверки на реальном корпусе. Разделение проходит
+    // по уровню сборки, чтобы граница «проверено / не проверено» была видна
+    // потребителю в самом импорте. См. src/experimental.js.
+    'experimental': 'src/experimental.js',
   },
   format: ['esm', 'cjs'],
   dts: true,

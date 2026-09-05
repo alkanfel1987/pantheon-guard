@@ -1,6 +1,6 @@
 {
   "name": "pantheon-guard",
-  "version": "0.4.2",
+  "version": "0.5.0",
   "description": "Deterministic conscience layer for AI agent output. Catches manipulative copy, false urgency, and dark patterns — the content-safety failure mode missed by input-attack guardrails.",
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
@@ -10,15 +10,17 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs"
+    },
+    "./experimental": {
+      "types": "./dist/experimental.d.ts",
+      "import": "./dist/experimental.mjs",
+      "require": "./dist/experimental.cjs"
     }
   },
   "type": "module",
   "files": [
     "dist",
-    "src",
     "examples",
-    "docs",
-    "bench",
     "README.md",
     "README.ru.md",
     "PITCH.md",
