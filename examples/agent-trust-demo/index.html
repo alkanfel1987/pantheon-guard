@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>pantheon-guard · trust layer for agent teams</title>
+<meta name="description" content="Deterministic, explainable trust layer for multi-agent pipelines: manipulation signatures, context-aware verdicts, distress veto, agent reputation, provenance gate." />
+<style>
+  :root {
+    --bg: #0d1117; --bg-2: #161b22; --bg-3: #1f2630;
+    --border: #2d343d; --text: #e6edf3; --dim: #8b949e;
+    --accent: #ff8c42; --pass: #3fb950; --warn: #d29922; --fail: #f85149; --veto: #2dd4bf; --info: #58a6ff;
+    --mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin:0; padding:0; background:var(--bg); color:var(--text);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.5; }
+  a { color: var(--accent); text-decoration: none; }
+  code, pre, .mono { font-family: var(--mono); }
+  main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 80px; }
+  header { border-bottom:1px solid var(--border); padding:14px 24px; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:10px; }
+  .brand { font-weight:700; font-size:18px; }
+  .brand span { color: var(--accent); font-family: var(--mono); }
+  .meta { color: var(--dim); font-size: 13px; }
+  h1 { font-size: 28px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  h2 { font-size: 15px; text-transform: uppercase; letter-spacing: .08em; color: var(--dim); margin: 0 0 14px; }
+  .lead { color: var(--dim); max-width: 820px; margin: 0 0 10px; }
+  .lead b { color: var(--text); font-weight: 600; }
+  .card { background: var(--bg-2); border: 1px solid var(--border); border-radius: 10px; padding: 18px 20px; margin-top: 22px; }
+  .row { display: grid; gap: 18px; }
+  @media (min-width: 980px) { .row.cols { grid-template-columns: 1.6fr 1fr; } }
+  .feed { display: flex; flex-direction: column; gap: 10px; min-height: 320px; }
+  .msg { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: var(--bg-3); opacity: 0; transform: translateY(6px); transition: all .35s; }
+  .msg.show { opacity: 1; transform: none; }
+  .msg .from { font-size: 12px; color: var(--dim); margin-bottom: 4px; display: flex; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .msg .text { font-size: 14px; }
+  .msg .verdict { margin-top: 8px; font-size: 12.5px; border-radius: 6px; padding: 7px 9px; display: none; }
+  .msg .trail { margin-top: 5px; font-size: 11.5px; color: var(--dim); font-family: var(--mono); display: none; }
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 999px; font-size: 11.5px; font-weight: 600; }
+  .p-warn { background: rgba(210,153,34,.15); color: var(--warn); border: 1px solid rgba(210,153,34,.4); }
+  .p-pass { background: rgba(63,185,80,.12); color: var(--pass); border: 1px solid rgba(63,185,80,.35); }
+  .p-veto { background: rgba(45,212,191,.12); color: var(--veto); border: 1px solid rgba(45,212,191,.35); }
+  .p-hold { background: rgba(248,81,73,.12); color: var(--fail); border: 1px solid rgba(248,81,73,.35); }
+  .p-live { background: rgba(88,166,255,.12); color: var(--info); border: 1px solid rgba(88,166,255,.35); }
+  .agents { display: flex; flex-direction: column; gap: 10px; }
+  .agent { border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; background: var(--bg-3); }
+  .agent .nm { font-size: 13px; font-weight: 600; display: flex; justify-content: space-between; }
+  .agent .nm .sc { font-family: var(--mono); }
+  .agent .bar { height: 6px; background: var(--bg); border-radius: 999px; margin-top: 6px; overflow: hidden; }
+  .agent .bar i { display: block; height: 100%; border-radius: 999px; transition: width .5s; }
+  .agent .note { font-size: 11.5px; color: var(--dim); margin-top: 5px; }
+  .progress { background: var(--bg-3); border: 1px solid var(--border); border-radius: 8px; padding: 10px 12px; margin-bottom: 12px; }
+  .progress .lbl { display: flex; justify-content: space-between; font-size: 12.5px; gap: 8px; flex-wrap: wrap; }
+  .progress .lbl b { font-weight: 600; }
+  .progress .pb { height: 7px; background: var(--bg); border-radius: 999px; margin-top: 7px; overflow: hidden; }
+  .progress .pb i { display: block; height: 100%; width: 0; background: var(--info); border-radius: 999px; transition: width .12s linear; }
+  .progress .vol { font-size: 11.5px; color: var(--dim); margin-top: 7px; font-family: var(--mono); }
+  button { background: var(--bg-3); color: var(--text); border: 1px solid var(--border); border-radius: 999px;
+    padding: 7px 14px; font-size: 13px; cursor: pointer; font-family: inherit; }
+  button:hover { border-color: var(--accent); color: var(--accent); }
+  button.active { background: var(--accent); color: var(--bg); border-color: var(--accent); }
+  button:disabled { opacity: .5; cursor: default; }
+  textarea { width: 100%; min-height: 64px; background: var(--bg-3); color: var(--text); border: 1px solid var(--border);
+    border-radius: 8px; padding: 10px 12px; font-family: var(--mono); font-size: 13px; resize: vertical; }
+  textarea:focus { outline: 0; border-color: var(--accent); }
+  .bars .b { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+  .bars .b .n { font-size: 12px; width: 130px; color: var(--dim); }
+  .bars .b .tr { flex: 1; height: 8px; background: var(--bg); border-radius: 999px; position: relative; }
+  .bars .b .tr i { display: block; height: 100%; border-radius: 999px; }
+  .bars .b .tr s { position: absolute; left: 55%; top: -3px; width: 2px; height: 14px; background: var(--dim); }
+  .bars .b .v { font-size: 12px; font-family: var(--mono); width: 110px; }
+  .layers { display: grid; gap: 8px; grid-template-columns: repeat(auto-fit, minmax(170px, 1fr)); margin-top: 10px; }
+  .layers .l { border: 1px solid var(--border); border-radius: 8px; padding: 8px 10px; background: var(--bg-3); }
+  .layers .l .t { font-size: 12px; font-weight: 600; }
+  .layers .l .d { font-size: 11.5px; color: var(--dim); }
+  .layers .l.hit { border-color: rgba(248,81,73,.5); }
+  .layers .l.hit .t { color: var(--fail); }
+  .layers .l.veto { border-color: rgba(45,212,191,.5); }
+  .layers .l.veto .t { color: var(--veto); }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; }
+  .chips span { font-size: 12px; padding: 4px 10px; border-radius: 999px; border: 1px solid var(--border); }
+  .chips .ok { color: var(--pass); border-color: rgba(63,185,80,.4); }
+  .chips .no { color: var(--dim); }
+  .grid2 { display: grid; gap: 18px; }
+  @media (min-width: 880px) { .grid2 { grid-template-columns: 1fr 1fr; } }
+  .footnote { color: var(--dim); font-size: 12px; margin-top: 10px; }
+  .kbd { background: var(--bg-3); border: 1px solid var(--border); border-radius: 6px; padding: 8px 12px; font-family: var(--mono); font-size: 13px; display: inline-block; }
+  ul.plain { margin: 8px 0 0; padding-left: 18px; color: var(--dim); font-size: 13.5px; }
+  ul.plain li { margin-bottom: 5px; }
+  ul.plain b { color: var(--text); font-weight: 600; }
+  .samples { display:flex; gap:6px; flex-wrap:wrap; margin-top:8px; }
+  .samples button { font-size: 12px; padding: 4px 10px; }
+</style>
+</head>
+<body>
+<header>
+  <div class="brand">pantheon-<span>guard</span> · trust layer for agent teams</div>
+  <div class="meta">offline · local models · deterministic core · MIT/dual · <span id="liveBadge" class="pill p-live">live: loading…</span></div>
+</header>
+<main>
+  <h1>Manipulation is not a property of text alone</h1>
+  <p class="lead">The same phrase is <b>pressure</b> on a sales page and a <b>cry for help</b> in a first-person message.
+    pantheon-guard judges <b>utterances in context</b> — never identities — and gives agent pipelines an explainable
+    decision: pass, warn, or hold. Every verdict unfolds into the exact rule, idiom or hypothesis that fired.</p>
+  <p class="lead mono" style="font-size:13px;" id="honesty">lexical rules, the idiom registry and the distress veto run <b>live in your browser</b> — real library code, your own text.
+    Semantic NLI scores are recorded from real local runs (~81 ms/hypothesis, laptop CPU) until you load the local model; the pipeline session is scripted and labeled as such.</p>
+
+  <div class="card">
+    <h2>1 · analyze any text — live</h2>
+    <textarea id="liveText">There is no other way out — decide now, or lose everything. Only 2 left at this price!</textarea>
+    <div class="samples">
+      <button onclick="setSample(0)">sales pressure (EN)</button>
+      <button onclick="setSample(1)">idiom pressure (RU)</button>
+      <button onclick="setSample(2)">distress, 1st person (RU)</button>
+      <button onclick="setSample(3)">wisdom proverb (RU)</button>
+      <button onclick="setSample(4)">clean text (EN)</button>
+    </div>
+    <div style="display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; align-items:center;">
+      <span style="font-size:12.5px; color:var(--dim);">frame:</span>
+      <button id="f0" class="active" onclick="setFrame(0)">sales landing</button>
+      <button id="f1" onclick="setFrame(1)">negotiation</button>
+      <button id="f2" onclick="setFrame(2)">support / private message</button>
+      <button onclick="analyze()" style="margin-left:auto;" id="goBtn">▶ analyze</button>
+      <button onclick="loadModel()" id="mdlBtn">load NLI model (~140 MB, runs in-browser)</button>
+    </div>
+    <div class="progress" style="margin-top:12px;">
+      <div class="lbl"><b id="stage">Ready</b><span id="stime" class="mono"></span></div>
+      <div class="pb"><i id="pbar"></i></div>
+      <div class="vol" id="vol"></div>
+    </div>
+    <div id="lv-verdict" style="border-radius:8px; padding:11px 14px; display:none;"></div>
+    <div class="bars" id="lv-bars" style="margin-top:12px;"></div>
+    <div class="layers" id="lv-layers"></div>
+    <p class="footnote">The frame is an <b>input parameter supplied by the platform</b>, not guessed from text.
+      Cross-lingual: English hypotheses score Russian text (recorded: «третьего не дано» / "no third option is given" → 0.79).</p>
+  </div>
+
+  <div class="card">
+    <h2>2 · scripted pipeline session — agents, reputation, provenance</h2>
+    <div style="margin-bottom:12px; display:flex; gap:8px;">
+      <button id="play" onclick="runFeed()">▶ run session</button>
+      <button onclick="resetFeed()">reset</button>
+      <span class="pill p-live" style="align-self:center;">scripted demo · verdict logic real</span>
+    </div>
+    <div class="row cols">
+      <div class="feed" id="feed"></div>
+      <div>
+        <div class="agents" id="agents"></div>
+        <p class="footnote">Reputation = aggregate of this session's verdicts per agent, with decay. It scores <b>behavior history of software agents</b> — never humans. Unsigned external content is held at the provenance gate, not "detected as fake": fact-checking and AI-authorship detection are explicitly out of scope.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="card grid2">
+    <div>
+      <h2>catches reliably</h2>
+      <div class="chips">
+        <span class="ok">urgency 0.61+</span><span class="ok">scarcity 0.77+</span><span class="ok">refusal-of-help 0.78+</span>
+        <span class="ok">24 idioms (RU registry)</span><span class="ok">distress veto (13 markers)</span><span class="ok">clickbait families</span>
+      </div>
+      <h2 style="margin-top:18px;">blind spots — stated, not hidden</h2>
+      <div class="chips">
+        <span class="no">half-truth (needs decomposition)</span><span class="no">fabricated authority</span>
+        <span class="no">figurative distress</span><span class="no">factual falsity (out of scope)</span><span class="no">AI-authorship (out of scope)</span>
+      </div>
+    </div>
+    <div>
+      <h2>what this is not</h2>
+      <ul class="plain">
+        <li><b>Not a fact-checker.</b> Truth requires world knowledge; we flag delivery pressure and gate provenance instead.</li>
+        <li><b>Not an AI-text detector.</b> Authorship classifiers are unreliable; we verify the source, not guess the author.</li>
+        <li><b>Not a person scorer.</b> Reputation applies to software agents and public channel behavior only — a rejected-by-design boundary.</li>
+      </ul>
+      <h2 style="margin-top:18px;">integrate</h2>
+      <div class="kbd">npm install pantheon-guard</div>
+      <div class="kbd" style="margin-top:8px;">inspect(text, { frame: 'sales' }) → { action, evidence[] }</div>
+    </div>
+  </div>
+</main>
+<script type="module">
+let guard = null, idioms = null, distress = null, hyps = null, nli = null;
+const SRC = { guard: 'unavailable', lex: 'unavailable' };
+try {
+  // import inspect directly: the package index pulls node:crypto (signing), browser-unsafe
+  guard = await import('../../src/inspect.js');
+  SRC.guard = 'local source (v0.4.2)';
+} catch (e) { console.warn('guard import failed', e); }
+try {
+  idioms = await import('../../src/lexicons/idioms-ru.js');
+  distress = await import('../../src/lexicons/distress-ru.js');
+  hyps = await import('../../src/packs/semantic/principle-hypotheses.js');
+  SRC.lex = 'local source';
+} catch (e) { console.warn('lexicon import failed (serve from repo root)', e); }
+
+const badge = document.getElementById('liveBadge');
+const liveBits = [];
+if (guard) liveBits.push('lexical');
+if (idioms && distress) liveBits.push('idioms+veto');
+badge.textContent = liveBits.length ? ('live: ' + liveBits.join(' · ') + ' (' + SRC.guard + ')') : 'live layers unavailable — serve from repo root';
+
+const SAMPLES = [
+  'There is no other way out — decide now, or lose everything. Only 2 left at this price!',
+  'Куй железо пока горячо — такой цены больше не будет, кто не успел, тот опоздал!',
+  'У меня нет другого выхода, я в полном отчаянии… ("I have no other way out, I am in complete despair…")',
+  'Семь раз отмерь, один раз отрежь. Утро вечера мудренее. ("Measure seven times, cut once.")',
+  'The quarterly report is attached. Three sources confirm the numbers, two disagree — uncertainty flagged in the summary.'
+];
+window.setSample = (i) => { document.getElementById('liveText').value = SAMPLES[i]; };
+
+// recorded semantic scores for the canonical sample texts (real local runs 2026-06-10)
+const RECORDED = new Map([
+  [SAMPLES[0], [{ n:'urgency', v:0.61 }, { n:'scarcity', v:0.77 }]],
+  [SAMPLES[1], [{ n:'urgency', v:0.59 }, { n:'scarcity', v:0.77 }]],
+]);
+
+let frame = 0;
+const FRAME_NOTE = [
+  'Sales frame: promoting is fine, cornering is not.',
+  'Negotiation frame: one-sided either/or pressure violates reciprocity.',
+  'Support frame: veto-first policy — distress routes to human care.'
+];
+window.setFrame = (i) => {
+  frame = i;
+  for (let k = 0; k < 3; k++) document.getElementById('f' + k).className = (k === i) ? 'active' : '';
+};
+
+window.loadModel = async () => {
+  const btn = document.getElementById('mdlBtn');
+  btn.disabled = true; btn.textContent = 'loading model…';
+  try {
+    const { pipeline } = await import('https://cdn.jsdelivr.net/npm/@huggingface/transformers@4.2.0');
+    nli = await pipeline('zero-shot-classification', 'Xenova/mdeberta-v3-base-mnli-xnli', {
+      dtype: 'q8',
+      progress_callback: (p) => {
+        if (p.status === 'progress' && p.total) btn.textContent = 'loading… ' + Math.round(p.loaded / p.total * 100) + '%';
+      }
+    });
+    btn.textContent = 'NLI model live ✓';
+    badge.textContent = badge.textContent.replace(/^live: /, 'live: semantic · ');
+  } catch (e) {
+    console.warn('model load failed', e);
+    btn.disabled = false; btn.textContent = 'model load failed — recorded scores in use';
+  }
+};
+
+function layerCard(t, d, cls) {
+  return '<div class="l ' + (cls || '') + '"><div class="t">' + t + '</div><div class="d">' + d + '</div></div>';
+}
+function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+
+window.analyze = async () => {
+  const text = document.getElementById('liveText').value.trim();
+  if (!text) return;
+  const chars = text.length, words = text.split(/\s+/).filter(Boolean).length;
+  const pbar = document.getElementById('pbar'), stage = document.getElementById('stage'), stime = document.getElementById('stime');
+  const t0 = performance.now();
+  const timings = {};
+
+  stage.textContent = 'layer 1 · lexical rules'; pbar.style.width = '15%';
+  let lex = null;
+  if (guard) { const s = performance.now(); lex = guard.inspect(text); timings.lex = performance.now() - s; }
+
+  stage.textContent = 'layer 2 · idiom registry (24)'; pbar.style.width = '35%';
+  let idiomHits = [];
+  if (idioms) { const s = performance.now(); idiomHits = idioms.explainIdioms(text); timings.idiom = performance.now() - s; }
+
+  stage.textContent = 'ahimsa veto · distress markers (13)'; pbar.style.width = '50%';
+  let veto = [];
+  if (distress) { const s = performance.now(); veto = distress.distressMarkers(text); timings.veto = performance.now() - s; }
+
+  stage.textContent = nli ? 'layer 3 · NLI (live, 3 hypotheses)' : 'layer 3 · NLI (recorded / not loaded)';
+  pbar.style.width = '70%';
+  let sem = [], semLive = false;
+  if (nli && hyps) {
+    const s = performance.now();
+    const labels = hyps.VALIDATED_HYPOTHESES.map(h => h.hypothesis);
+    const out = await nli(text, labels, { hypothesis_template: '{}', multi_label: true });
+    sem = out.labels.map((L, i) => {
+      const h = hyps.VALIDATED_HYPOTHESES.find(x => x.hypothesis === L);
+      return { n: h ? h.fn : ('h' + i), v: out.scores[i] };
+    });
+    timings.sem = performance.now() - s; semLive = true;
+  } else if (RECORDED.has(text)) {
+    sem = RECORDED.get(text);
+  }
+
+  const total = performance.now() - t0;
+  pbar.style.width = '100%';
+
+  // verdict assembly: veto > semantic/idiom/lexical evidence > pass
+  const semHits = sem.filter(b => b.v >= 0.55);
+  const idiomManip = idiomHits.filter(h => h.manipulative === 'yes');
+  const idiomWisdom = idiomHits.filter(h => h.manipulative === 'no');
+  const lexHits = lex ? Object.values(lex.evidence || {}).flat() : [];
+  const v = document.getElementById('lv-verdict');
+  v.style.display = 'block';
+  let title, sub, bg, tc, act, pcls;
+  if (veto.length) {
+    title = 'Ahimsa veto: reads as first-person distress'; act = 'pass → human care'; pcls = 'p-veto';
+    sub = 'Markers: ' + veto.join(', ') + '. Manipulation flags suppressed — err on the safe side. ' + FRAME_NOTE[2];
+    bg = 'rgba(45,212,191,.10)'; tc = 'var(--veto)';
+  } else if (semHits.length || idiomManip.length || lexHits.length) {
+    title = 'Pressure signatures found'; act = 'warn'; pcls = 'p-warn';
+    sub = FRAME_NOTE[frame] + (idiomManip.length ? ' Idiom: «' + idiomManip[0].idiom + '» — ' + idiomManip[0].pragmatics + '.' : '');
+    bg = 'rgba(210,153,34,.12)'; tc = 'var(--warn)';
+  } else {
+    title = 'No pressure signatures' + (idiomWisdom.length ? ' — wisdom proverb recognized, not flagged' : ''); act = 'pass'; pcls = 'p-pass';
+    sub = (idiomWisdom.length ? '«' + idiomWisdom[0].idiom + '»: ' + idiomWisdom[0].figurative + '. ' : '') + 'Within the blind-spot map below, this text is clean.';
+    bg = 'rgba(63,185,80,.10)'; tc = 'var(--pass)';
+  }
+  v.style.background = bg;
+  v.innerHTML = '<div style="display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap;">' +
+    '<div><div style="font-size:14px; font-weight:600; color:' + tc + ';">' + esc(title) + '</div>' +
+    '<div style="font-size:12.5px; color:var(--dim); margin-top:3px;">' + esc(sub) + '</div></div>' +
+    '<span class="pill ' + pcls + '" style="align-self:flex-start;">' + act + '</span></div>';
+
+  document.getElementById('lv-bars').innerHTML = sem.length
+    ? sem.map(b => {
+        const mute = veto.length > 0;
+        const color = mute ? 'var(--dim)' : (b.v >= 0.55 ? 'var(--fail)' : '#888780');
+        return '<div class="b"><span class="n">' + b.n + (semLive ? '' : ' (recorded)') + '</span>' +
+          '<span class="tr"><i style="width:' + Math.round(b.v * 100) + '%; background:' + color + ';"></i><s></s></span>' +
+          '<span class="v">' + b.v.toFixed(2) + ' / 0.55' + (mute ? ' · muted' : '') + '</span></div>';
+      }).join('')
+    : '<p class="footnote">semantic scores: load the in-browser model to score arbitrary text (recorded scores exist only for the canonical samples).</p>';
+
+  document.getElementById('lv-layers').innerHTML =
+    layerCard('lexical' + (guard ? ' · live' : ' · off'),
+      lex ? (lexHits.length + ' evidence item(s) · ' + (timings.lex || 0).toFixed(1) + ' ms' + (lex.abstain ? ' · abstain' : '')) : 'unavailable',
+      lexHits.length ? 'hit' : '') +
+    layerCard('idioms · ' + (idioms ? 'live' : 'off'),
+      idiomHits.length ? idiomHits.map(h => '«' + h.idiom + '» → ' + h.manipulative).join('; ') + ' · ' + (timings.idiom || 0).toFixed(1) + ' ms'
+                       : '0 of 24 matched · ' + (timings.idiom || 0).toFixed(1) + ' ms',
+      idiomManip.length ? 'hit' : '') +
+    layerCard('semantic NLI · ' + (semLive ? 'live' : (sem.length ? 'recorded' : 'not loaded')),
+      sem.length ? (semHits.length + ' of ' + sem.length + ' above threshold' + (timings.sem ? ' · ' + Math.round(timings.sem) + ' ms' : '')) : 'load model to score',
+      (semHits.length && !veto.length) ? 'hit' : '') +
+    layerCard('ahimsa veto · ' + (distress ? 'live' : 'off'),
+      veto.length ? veto.join(', ') + ' → active · ' + (timings.veto || 0).toFixed(1) + ' ms' : 'no markers · ' + (timings.veto || 0).toFixed(1) + ' ms',
+      veto.length ? 'veto' : '');
+
+  stage.textContent = 'Analysis complete';
+  stime.textContent = (total < 1 ? '<1' : Math.round(total)) + ' ms total' + (semLive ? ' (incl. live NLI)' : '');
+  document.getElementById('vol').textContent =
+    chars + ' chars · ' + words + ' words · checks: core lexical rules + 24 idioms + 13 distress markers' +
+    (semLive ? ' + 3 NLI hypotheses (live)' : (sem.length ? ' + 3 NLI hypotheses (recorded)' : ''));
+};
+window.setFrame(0);
+</script>
+<script>
+var MSGS = [
+  { from: 'sales-agent → customer', text: '"Last chance — only 2 left at this price. Decide now or lose everything."',
+    pill: ['p-warn', 'warn'], agent: 0, delta: -0.18,
+    verdict: 'Manipulation: scarcity + urgency. Sales frame allows promotion, not cornering.',
+    vbg: 'rgba(210,153,34,.12)', trail: 'idiom "lose everything" → pressure · NLI: scarcity 0.77, urgency 0.61 (thr 0.55) · veto: none' },
+  { from: 'news-agent → team feed · unsigned source', text: '"Scientists STUNNED: this everyday food destroys your brain — read before it\'s deleted!"',
+    pill: ['p-hold', 'hold'], agent: 1, delta: -0.25,
+    verdict: 'Held at provenance gate: unsigned external content + clickbait delivery (withheld-resolution, false urgency). Not judged "fake" — judged unverified.',
+    vbg: 'rgba(248,81,73,.10)', trail: 'provenance: no signature → hold · clickbait family hit · NLI: urgency 0.61 · escalate: human review' },
+  { from: 'user → support-agent · RU', text: '«У меня нет другого выхода, я в полном отчаянии…» <span style="color:var(--dim);">("I have no other way out, I am in complete despair…")</span>',
+    pill: ['p-veto', 'veto → pass'], agent: 2, delta: 0,
+    verdict: 'Ahimsa veto: first-person distress markers suppress the manipulation flag. Routed to human care, not to a filter verdict.',
+    vbg: 'rgba(45,212,191,.10)', trail: 'distress marker «нет выхода» ("no way out", 1st person) → veto active · erring on the safe side' },
+  { from: 'research-agent → team', text: '"Three sources confirm the claim, two disagree — flagging uncertainty in the summary."',
+    pill: ['p-pass', 'pass'], agent: 3, delta: +0.05,
+    verdict: 'Clean: no pressure signatures, uncertainty disclosed.',
+    vbg: 'rgba(63,185,80,.10)', trail: '0 pattern hits · 0 idioms · NLI below thresholds · veto: n/a' }
+];
+var AGENTS = [
+  { n: 'sales-agent', s: 0.80, c: 'var(--warn)', note: 'persuasion-heavy role — watched closely' },
+  { n: 'news-agent', s: 0.80, c: 'var(--fail)', note: 'external content — provenance required' },
+  { n: 'support-agent', s: 0.92, c: 'var(--veto)', note: 'handles humans — veto-first policy' },
+  { n: 'research-agent', s: 0.91, c: 'var(--pass)', note: 'discloses uncertainty — trusted' }
+];
+function renderAgents() {
+  var el = document.getElementById('agents');
+  el.innerHTML = AGENTS.map(function(a, i){
+    var pct = Math.round(a.s * 100);
+    return '<div class="agent"><div class="nm"><span>' + a.n + '</span><span class="sc" id="sc'+i+'">' + a.s.toFixed(2) + '</span></div>' +
+      '<div class="bar"><i id="ab'+i+'" style="width:'+pct+'%; background:'+a.c+';"></i></div>' +
+      '<div class="note">' + a.note + '</div></div>';
+  }).join('');
+}
+function resetFeed() {
+  for (var i=0;i<AGENTS.length;i++) AGENTS[i].s = [0.80,0.80,0.92,0.91][i];
+  renderAgents();
+  document.getElementById('feed').innerHTML = '';
+}
+var STAGES = ['normalize', 'layer 1 · lexical', 'layer 2 · idioms (24)', 'layer 3 · NLI (3 × ~81 ms)', 'ahimsa veto (13)', 'verdict + reputation'];
+function runFeed() {
+  resetFeed();
+  var feed = document.getElementById('feed'), mi = 0;
+  function nextMsg() {
+    if (mi >= MSGS.length) return;
+    var m = MSGS[mi];
+    var div = document.createElement('div'); div.className = 'msg';
+    div.innerHTML = '<div class="from"><span>' + m.from + '</span><span class="pill ' + m.pill[0] + '">' + m.pill[1] + '</span></div>' +
+      '<div class="text">' + m.text + '</div>' +
+      '<div class="verdict" style="background:' + m.vbg + ';">' + m.verdict + '</div>' +
+      '<div class="trail">decision trail: ' + m.trail + '</div>';
+    feed.appendChild(div);
+    requestAnimationFrame(function(){ div.classList.add('show'); });
+    setTimeout(function(){
+      div.querySelector('.verdict').style.display = 'block';
+      div.querySelector('.trail').style.display = 'block';
+      var a = AGENTS[m.agent];
+      a.s = Math.max(0.05, Math.min(0.99, a.s + m.delta));
+      document.getElementById('sc' + m.agent).textContent = a.s.toFixed(2);
+      document.getElementById('ab' + m.agent).style.width = Math.round(a.s*100) + '%';
+      mi++;
+      setTimeout(nextMsg, 800);
+    }, 900);
+  }
+  nextMsg();
+}
+renderAgents();
+</script>
+</body>
+</html>
