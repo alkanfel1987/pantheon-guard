@@ -341,6 +341,49 @@ Both runners print the SHA-256 of their corpus file as pre-registration of the t
 - That hypnosis itself is empirically settled — clinical effectiveness remains contested in some medical-context reviews; we use Erickson's *linguistic patterns* as descriptive ontology, not his effectiveness claims as warrant
 - Production-grade mainstream FP certainty — 0/263 is strong but not infinite; broader live-distribution sampling continues
 
+## Layer status — two entry points, and what each rests on
+
+The package ships **two entry points**. The split is not cosmetic: it marks the line between
+layers backed by unit tests and layers backed only by author-written fixtures. Exporting the
+latter under the main name would promise an accuracy nobody has measured.
+
+```js
+import { inspect, opacityPack }      from 'pantheon-guard';               // tested
+import { detectAntahksura }          from 'pantheon-guard/experimental';  // probe-only
+```
+
+### `pantheon-guard` — main entry
+
+| Layer | Exports | Backed by |
+|---|---|---|
+| Core detector | `inspect`, `detectPatterns`, `checkAction`, `wrapAgent` | unit tests + frozen benchmark — see [Benchmarks](#benchmarks), and read the fresh-corpus caveat there |
+| Domain packs | `healthcarePack`, `newsPack`, `newsDePack`, `newsHiPack`, `epistemologyPack`, `clickbaitPack`, `aiSecurityPack`, `opacityPack`, `spiritualInflationPack` | one unit-test file per pack |
+| Opacity detector | `detectOpacity`, `autoDetectLang` | `test/packs-opacity.test.js` |
+| Jargon lexicons | `JARGON_TOKENS_{RU,EN,DE,FR}` | exercised through the opacity pack |
+| Scam action layer | `extractActions{,En,De,Fr}`, `assessActionRequest`, `ACTION_CLASSES`, `ACTION_REGISTRY` | probes 14/14 (composite verdicts) and 13/13 (four languages) |
+
+### `pantheon-guard/experimental` — probe-only entry
+
+Weaker contract: shape may change without a major version, and catch/false-positive rates are
+**unmeasured outside author fixtures**. A probe is a sanity check written by whoever wrote the
+detector — it demonstrates the mechanism fires, it does not estimate how often it is right.
+
+| Layer | Exports | Status (live runs, 2026-09) |
+|---|---|---|
+| Antaḥkṣurā — care-mask over hidden harm, two-stage co-occurrence | `detectAntahksura` | probe 10/10, synthetic only; no unit tests |
+| Info-huckstering (pack #5) | `detectInfocyganstvo`, `detectTestimonialPriceMatch` | probe 11/11, synthetic only; no unit tests |
+| Idiom registry, 4 languages — explainable layer, returns the matched idiom and its reading | `explainIdioms{,En,De,Fr}`, `IDIOM_REGISTRY*`, `IDIOM_STATS*` | probe 34/34 (RU 10 · EN 8 · DE 8 · FR 8). **Brittle to inflection:** `"пассивный доход"` matches, `"на пассивном доходе"` does not — the registry stores flat normalized substrings |
+| Distress markers — ahimsa veto, so a person in trouble is not flagged for the *form* of their urgency | `distressMarkers`, `hasDistress`, `DISTRESS_MARKERS` | 13 markers, deterministic and behaving as designed. **A separate NLI-based veto failed measurement** (distress↔neutral separation −0.03): the semantic route needs a composite, the lexicon route works |
+| EU AI Act Article 50 — AI-content labelling | `checkCompliance`, `assessComplianceRisk`, `detectLabel`, `classifyPublicInterest`, `checkAttribution` | unit test present, **no field validation**. Kept experimental deliberately: the domain is legal, and `checkCompliance` sitting in the main entry would read as a compliance guarantee |
+
+### What "reachable" is enforced by
+
+`test/public-api-reachability.test.js` asserts that every layer listed above imports from its
+declared entry, that experimental names do **not** leak into the main one, and that `dist/`
+has not fallen behind `src/`. That test exists because of a real defect: a green suite of 468
+tests coexisted with 13 capabilities that were unreachable from the package boundary — every
+test imported its module directly by path, so nothing observed the public entry at all.
+
 ## API
 
 ### `checkMahavrata(action)` — the 5 absolute rules only
