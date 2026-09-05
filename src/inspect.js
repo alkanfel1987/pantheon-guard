@@ -48,6 +48,7 @@ const DEFAULT_OPTIONS = Object.freeze({
  *   abstain: boolean,
  *   reason: string|null,
  *   confidence: {falseUrgency: number, fearBased: number, clickbait: number, manipulation: number},
+ *   manipulationLabel: 'confirmed'|'possible'|'unlikely',
  *   evidence: {falseUrgency: string[], fearBased: string[], clickbait: string[]},
  *   violations: Array<{rule: string, reason: string}>,
  *   details: Object,
@@ -92,14 +93,52 @@ export function inspect(text, options = {}) {
     contains,
   });
 
+  // ── ВЕРОЯТНОСТНАЯ МЕТКА (принцип: не 100% → «возможно манипуляция»)
+  // Три уровня:
+  //   'confirmed' — manipulation-флаг активен (выше STRONG_THRESHOLD)
+  //   'possible'  — частичный сигнал (confidence.manipulation > 0.15, флаг не сработал)
+  //   'unlikely'  — сигналов нет (шум)
+  const manipulationLabel =
+    contains.manipulation                       ? 'confirmed' :
+    detection.confidence.manipulation > 0.15   ? 'possible'  :
+                                                  'unlikely';
+
+  // ── АННОТАЦИОННЫЙ СЛОЙ: подозрительные фрагменты с комментариями для UI-панели.
+  // Формат: { fragment, type, probability, comment }
+  // Потребитель: выделяет fragment в тексте, показывает comment в боковой панели.
+  const ANNOTATION_META = {
+    falseUrgency: 'Ложная срочность — ограничивает время на обдумывание и проверку',
+    fearBased:    'Давление страхом потери — подталкивает к импульсному решению',
+    clickbait:    'Кликбейт — манипуляция вниманием, скрытие реального смысла',
+    manipulation: 'Признак манипулятивного воздействия',
+  };
+
+  // evidence хранит "pattern_name:matched_text" → извлекаем реальный фрагмент текста
+  const extractFragment = (evidenceEntry) =>
+    evidenceEntry.includes(':') ? evidenceEntry.split(':').slice(1).join(':') : evidenceEntry;
+
+  const annotations = [];
+  for (const [type, comment] of Object.entries(ANNOTATION_META)) {
+    const fragments = detection.evidence?.[type] ?? [];
+    const prob      = detection.confidence[type] ?? 0;
+    if (prob > 0.05) {   // только ненулевые сигналы
+      for (const entry of fragments) {
+        const fragment = extractFragment(entry);
+        annotations.push({ fragment, type, probability: prob, comment });
+      }
+    }
+  }
+
   return {
-    passes:     mvResult.passes,
-    abstain:    detection.abstain,
-    reason:     detection.reason,
-    confidence: detection.confidence,
-    evidence:   detection.evidence,
-    violations: mvResult.violations,
-    details:    mvResult.details,
-    policy:     opts.policy,
+    passes:           mvResult.passes,
+    abstain:          detection.abstain,
+    reason:           detection.reason,
+    confidence:       detection.confidence,
+    manipulationLabel,
+    annotations,
+    evidence:         detection.evidence,
+    violations:       mvResult.violations,
+    details:          mvResult.details,
+    policy:           opts.policy,
   };
 }

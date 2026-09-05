@@ -83,8 +83,16 @@ const HAS_NON_ASCII = /[^\x00-\x7F]/;
 const HAS_LEET_CHAR = /[01345 7@$]/;
 const HAS_SPACED_LETTERS = /(?<![\p{L}])(?:[\p{L}] ){2}[\p{L}]/u;
 
+// Верхняя граница длины обрабатываемого текста. Встраиватели прогоняют через
+// guard вывод агента (недоверенный) в горячем пути — без лимита гигантская
+// строка тратит CPU/память на проходы и регулярки. ~100k символов с запасом
+// покрывает любой реальный ответ модели.
+export const MAX_INPUT_LENGTH = 100_000;
+
 export function normalizeText(text, options = {}) {
   if (typeof text !== 'string' || text.length === 0) return '';
+  // DoS-guard: ограничиваем недоверенный ввод до посимвольных проходов и регулярок.
+  if (text.length > MAX_INPUT_LENGTH) text = text.slice(0, MAX_INPUT_LENGTH);
   const deLeet = options.deLeet ?? true;
   const collapseSpacedLetters = options.collapseSpacedLetters ?? true;
 

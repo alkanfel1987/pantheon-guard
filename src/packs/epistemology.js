@@ -582,6 +582,73 @@ const SILENCE_AS_CONCESSION_PATTERNS = [
 
 
 // ─────────────────────────────────────────────
+// v0.4.0-pre.1 — Четыре новых детектора (SCAFFOLD, synthesis-only)
+//   weasel_words    — расплывчатая атрибуция без именного источника
+//   whataboutism    — апелляция к чужим недостаткам вместо ответа
+//   false_dilemma   — ложная дилемма («или-или», нет третьего варианта)
+//   question_evasion— уход от прямого вопроса (пивот, риторическое уклонение)
+// Статус: SCAFFOLD. Синтетическая проверка, live-corpus проба нужна перед v0.4.0 stable.
+// ─────────────────────────────────────────────
+
+// ── WEASEL WORDS: расплывчатая атрибуция без именного источника.
+// Inhibitor: hasNamedSource (если источник назван — не weaseling).
+const WEASEL_PATTERNS = [
+  re('некоторые\\s+(?:говорят|считают|утверждают|полагают|думают)'),
+  re('многие\\s+(?:говорят|считают|утверждают|эксперты|специалисты)'),
+  re('(?:ряд|часть)\\s+(?:экспертов|специалистов|учёных|аналитиков)\\s+(?:полагает|считает|утверждает)'),
+  re('по\\s+мнению\\s+(?:ряда|некоторых|многих)\\s+(?:экспертов|специалистов|источников)'),
+  re('(?:эксперты|специалисты|аналитики)\\s+(?:полагают|считают|отмечают)'),
+  re('(?:some|many)\\s+(?:experts|analysts|people|say|sources)\\s+(?:say|claim|believe|argue|suggest)'),
+  re('according\\s+to\\s+(?:some|many|(?:unnamed\\s+)?experts|(?:unnamed\\s+)?analysts)'),
+];
+
+// ── WHATABOUTISM: апелляция к чужим недостаткам вместо прямого ответа.
+// Нет inhibitor — паттерны достаточно специфичны.
+const WHATABOUTISM_PATTERNS = [
+  re('(?:а|но)\\s+(?:вы\\s+)?сами(?:-то)?\\s+(?:что|когда|как)'),
+  re('(?:а|но)\\s+у\\s+вас(?:\\s+там)?(?:\\s+(?:ведь|же|тоже))?'),
+  re('зато\\s+у\\s+(?:вас|них|них\\s+там)'),
+  re('что\\s+ж(?:е)?\\s+(?:вы|они)\\s+(?:молчали|не\\s+говорили)(?:\\s+когда)?'),
+  re('а\\s+что\\s+насчёт\\s+(?:того\\s+,?\\s+что|этого|[А-ЯЁ])'),
+  re('(?:а|но)\\s+(?:у|в)\\s+(?:США|Европе|Британии|Германии|Франции|Украине)\\s+(?:же|тоже|ведь)?'),
+  re('(?:whatabout|what\\s+about)\\s+(?:the|your|their|his|her)'),
+  re('you\\s+(?:did|do|are|were|have)\\s+the\\s+same'),
+  re('what\\s+about\\s+when\\s+(?:you|they|he|she)'),
+];
+
+// ── FALSE DILEMMA: сведение сложной ситуации к ложному бинарному выбору.
+// Нет inhibitor — формулировки достаточно специфичны.
+const FALSE_DILEMMA_PATTERNS = [
+  re('(?:или\\s+)?(?:с\\s+нами|за\\s+нас)\\s+(?:или|,\\s+или)\\s+против(?:\\s+нас)?'),
+  re('нет\\s+(?:никакого\\s+)?третьего\\s+(?:варианта|пути|выхода|альтернативы)'),
+  re('(?:только\\s+)?два\\s+(?:варианта|пути|выхода|выбора):?\\s+(?:либо|или)'),
+  re('(?:больше\\s+)?нет\\s+(?:других\\s+)?вариантов'),
+  re('(?:you\\s+are\\s+)?either\\s+with\\s+(?:us|me)\\s+or\\s+(?:against|with\\s+the\\s+enemy)'),
+  re('there\\s+(?:are\\s+)?(?:only\\s+)?two\\s+(?:options|choices|paths|ways)'),
+  re('no\\s+(?:other\\s+)?(?:alternative|middle\\s+ground|third\\s+option)'),
+  re('take\\s+it\\s+or\\s+leave\\s+it'),
+];
+
+// ── QUESTION EVASION: уход от прямого вопроса — пивот темы, риторическое уклонение.
+// Inhibitor: hasUncertaintyMarker (искренняя неопределённость ≠ уклонение).
+const QUESTION_EVASION_PATTERNS = [
+  // Пивот темы
+  re('(?:давайте|позвольте)\\s+(?:лучше\\s+)?(?:поговорим|обсудим|рассмотрим)\\s+о'),
+  re('(?:это|вопрос)\\s+совсем\\s+другой\\s+(?:вопрос|тема|история)'),
+  re('вопрос\\s+(?:на\\s+самом\\s+деле\\s+)?не\\s+в\\s+этом'),
+  re('(?:главное|важнее|важно)\\s+(?:другое|не\\s+это|говорить\\s+о)'),
+  // Риторическое уклонение
+  re('я\\s+(?:уже|неоднократно)\\s+(?:отвечал|говорил|объяснял)\\s+(?:на\\s+этот\\s+вопрос)?'),
+  re('всё\\s+(?:уже)?\\s+(?:сказано|написано|изложено)'),
+  re('не\\s+буду\\s+(?:отвечать|комментировать)\\s+(?:на\\s+)?(?:подобные|такие|провокационные|глупые)'),
+  // EN
+  re('(?:I|we)\\s+(?:have\\s+)?already\\s+(?:answered|addressed|explained|discussed)\\s+this'),
+  re('that\\s+(?:question|issue)\\s+(?:is\\s+)?(?:beside\\s+the\\s+point|not\\s+the\\s+real\\s+issue)'),
+  re('(?:let\'?s|let\\s+me)\\s+(?:focus|talk)\\s+(?:instead|rather)\\s+(?:on|about)'),
+  re('the\\s+(?:real|bigger|more\\s+important)\\s+(?:question|issue|point)\\s+is'),
+];
+
+// ─────────────────────────────────────────────
 // Inhibit patterns — uncertainty markers / named sources
 // ─────────────────────────────────────────────
 
@@ -778,12 +845,36 @@ function hasScopeQualifier(text) {
 }
 
 // ─────────────────────────────────────────────
+// v0.4.0-pre.1 — хелперы для новых детекторов
+// ─────────────────────────────────────────────
+
+function hasWeaselWords(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return anyMatch(text, WEASEL_PATTERNS);
+}
+
+function hasWhataboutism(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return anyMatch(text, WHATABOUTISM_PATTERNS);
+}
+
+function hasFalseDilemma(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return anyMatch(text, FALSE_DILEMMA_PATTERNS);
+}
+
+function hasQuestionEvasion(text) {
+  if (typeof text !== 'string' || text.length === 0) return false;
+  return anyMatch(text, QUESTION_EVASION_PATTERNS);
+}
+
+// ─────────────────────────────────────────────
 // Pack export
 // ─────────────────────────────────────────────
 
 export const epistemologyPack = Object.freeze({
   id: 'epistemology',
-  version: '0.3.0-pre.8',
+  version: '0.4.0-pre.1',
   description:
     'Epistemic-mode detection. Catches indifference-to-truth (Frankfurt), ' +
     'simulacrum-of-source (Baudrillard), and source-trace-break (Holiday) ' +
@@ -974,6 +1065,54 @@ export const epistemologyPack = Object.freeze({
         'beyond mainstream developmental biology methodology. Note: ' +
         'proper Sheldrake attribution ("Sheldrake (1981) proposed...") ' +
         'is inhibited by named-source check. Routes to asteya + satya.',
+    },
+    // ─────────────────────────────────────────────
+    // v0.4.0-pre.1 — Четыре новых детектора
+    // Статус: SCAFFOLD (synthesis-only). Live-corpus проба нужна перед stable.
+    // ─────────────────────────────────────────────
+    {
+      id: 'weasel_words',
+      condition: hasWeaselWords,
+      check: hasNamedSource,   // inhibitor: источник назван → не weaseling
+      severity: 'medium',
+      message:
+        'Расплывчатая атрибуция (weasel words) без именного источника — ' +
+        '"некоторые эксперты", "многие считают", "по мнению ряда специалистов". ' +
+        'Создаёт видимость общепризнанности без верифицируемой опоры. ' +
+        'Routes to satya (truthfulness via attribution integrity).',
+    },
+    {
+      id: 'whataboutism',
+      condition: hasWhataboutism,
+      check: () => false,   // нет inhibitor — паттерны специфичны
+      severity: 'medium',
+      message:
+        'Апелляция к чужим недостаткам (whataboutism) вместо прямого ответа — ' +
+        '"а вы сами", "зато у вас", "а что насчёт [другого]". ' +
+        'Перекладывает бремя доказательства, уходя от исходного вопроса. ' +
+        'Routes to satya (truthfulness, non-deflection) rule.',
+    },
+    {
+      id: 'false_dilemma',
+      condition: hasFalseDilemma,
+      check: () => false,   // нет inhibitor
+      severity: 'high',
+      message:
+        'Ложная дилемма — сведение сложной ситуации к бинарному выбору: ' +
+        '"или с нами или против", "нет третьего варианта", "only two options". ' +
+        'Подавляет рассмотрение промежуточных решений. ' +
+        'Routes to satya + ahimsa (cognitive coercion) rules.',
+    },
+    {
+      id: 'question_evasion',
+      condition: hasQuestionEvasion,
+      check: hasUncertaintyMarker,  // inhibitor: искренняя неопределённость ≠ уклонение
+      severity: 'medium',
+      message:
+        'Уход от прямого вопроса — пивот темы, риторическое уклонение: ' +
+        '"давайте лучше обсудим", "вопрос не в этом", "я уже отвечал на это", ' +
+        '"the real question is". Без маркера неопределённости — техника сокрытия. ' +
+        'Routes to satya (truthfulness via engagement) rule.',
     },
   ]),
 

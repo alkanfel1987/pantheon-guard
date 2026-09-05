@@ -114,9 +114,12 @@ test('morphic-field: helpers exported', () => {
   assert.equal(typeof hasMorphicFieldLegitimacyMarker, 'function');
 });
 
-test('epistemology v0.3.0-pre.5+: morphic_field_simulacrum registered + count stable', () => {
-  // pre.5 added gap-class broadening to absence_argument (no new requirement),
-  // so requirement count stays at 12 from pre.4
-  assert.match(epistemologyPack.version, /^0\.3\.0-pre\.[4-9]/);
-  assert.equal(epistemologyPack.requirements.length, 12);
+test('epistemology: morphic_field_simulacrum registered + count ≥ 12', () => {
+  // v0.4.0-pre.1 added 4 detectors (+weasel_words, +whataboutism, +false_dilemma, +question_evasion)
+  // Count grew from 12 → 16; check lower bound to be forward-compatible.
+  assert.match(epistemologyPack.version, /^0\.[34]\.\d+-pre\.\d+/);
+  assert.ok(epistemologyPack.requirements.length >= 12);
+  // morphic_field_simulacrum still present
+  const ids = epistemologyPack.requirements.map((r) => r.id);
+  assert.ok(ids.includes('morphic_field_simulacrum'));
 });

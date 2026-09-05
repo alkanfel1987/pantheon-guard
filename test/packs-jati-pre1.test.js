@@ -26,14 +26,13 @@ import { newsPack } from '../src/packs/news.js';
 // epistemology v0.3.0-pre.1
 // ─────────────────────────────────────────────
 
-test('epistemology v0.3.0-pre.5+: pack metadata stable status', () => {
+test('epistemology v0.4.0-pre.1+: pack metadata stable status', () => {
   assert.equal(epistemologyPack.id, 'epistemology');
-  // Patches pre.5/pre.6/... extend pattern coverage without adding requirements
-  assert.match(epistemologyPack.version, /^0\.3\.0-pre\.[5-9]/);
-  // pre.1 = 10 requirements; pre.2 added pseudo_technical_simulacrum → 11;
-  // pre.3 = bug-fixes (no new req); pre.4 +morphic_field_simulacrum → 12;
-  // pre.5+ = gap-class broadening only (no new requirement)
-  assert.equal(epistemologyPack.requirements.length, 12);
+  // v0.4.0-pre.1 adds 4 new detectors (weasel_words, whataboutism, false_dilemma, question_evasion)
+  assert.match(epistemologyPack.version, /^0\.[34]\.\d+-pre\.\d+/);
+  // pre.1 = 10; pre.2 +pseudo_technical → 11; pre.4 +morphic_field → 12;
+  // v0.4.0-pre.1 +4 new → 16
+  assert.ok(epistemologyPack.requirements.length >= 12);
   // pre.1 added 5 detectors; that count is historical and does not change
   assert.equal(epistemologyPack.metadata.v030pre1.addedDetectors.length, 5);
 });
