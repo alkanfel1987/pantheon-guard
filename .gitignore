@@ -24,3 +24,6 @@ npm-debug.log*
 
 # local IDE / agent config
 .claude/
+
+# teacher-labeler: долгоживущий OAuth setup-token — НИКОГДА не коммитить
+tools/teacher-labeler/.token
