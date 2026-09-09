@@ -112,6 +112,24 @@ export { extractActionsFr } from './lexicons/actions-fr.js';
 export { ACTION_I18N, actionLocale } from './lexicons/i18n-actions.js';
 
 // ─────────────────────────────────────────────
+// Белые классы скам-слоя: легитимный одноразовый код и антифрод-предупреждение.
+// Перенесены из Viveka 2026-09-09 после замера на не-author корпусе, где все три
+// ложных срабатывания из 41 оказались одним классом — «код для входа, никому
+// не сообщайте». Граница: банк ПРИСЫЛАЕТ код и просит не выдавать; мошенник
+// ЗАПРАШИВАЕТ код у жертвы. Запрос кода отменяет поблажку.
+// В стабильном входе, потому что покрыт юнит-тестами (test/otp-whitelist.test.js).
+// ─────────────────────────────────────────────
+export {
+  isLegitimateOtp,
+  isAntifraudAdvice,
+  checkWhitelist,
+  OTP_CODE_MARKERS,
+  OTP_PROTECT_PHRASES,
+  OTP_SOLICIT,
+  ANTIFRAUD_ADVICE,
+} from './lexicons/otp-whitelist.js';
+
+// ─────────────────────────────────────────────
 // Aliases & getters (kept stable for callers)
 // ─────────────────────────────────────────────
 

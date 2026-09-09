@@ -35,6 +35,7 @@
  * в перспективе — pantheon-vedic-catalogue/lexicons/actions-ru.yaml.
  */
 import { actionLocale } from './i18n-actions.js';
+import { checkWhitelist } from './otp-whitelist.js';
 
 // ── Классы риск-действий ──────────────────────────────────────────────────
 export const ACTION_CLASSES = Object.freeze({
@@ -261,6 +262,29 @@ export function extractActions(text, lang = 'ru') {
 export function assessActionRequest({ text, actions = null, pressure = [], frame = 'unknown', checks = {}, distress = false } = {}) {
   const found = actions ?? extractActions(text);
   if (!found.length) return { verdict: 'none', actions: [], reasons: [], recipes: [] };
+
+  // Белый класс — до всех остальных проверок. Перенесён из Viveka вместе с границей:
+  // легитимный банк ПРИСЫЛАЕТ код и просит не выдавать (защита), мошенник ЗАПРАШИВАЕТ
+  // код у жертвы (приём). Наличие запроса кода отменяет поблажку, поэтому подавления
+  // при живом скаме не происходит.
+  // Замер 2026-09-09: без этого фильтра все 3 ложных срабатывания из 41 на чистом
+  // корпусе давал именно этот класс — «код для входа, никому не сообщайте».
+  if (text) {
+    const white = checkWhitelist(text);
+    if (white.white) {
+      return {
+        verdict: 'none',
+        actions: [],
+        reasons: [
+          white.kind === 'legitimate-otp'
+            ? 'белый класс: одноразовый код прислан владельцу с защитной инструкцией, запроса кода нет'
+            : 'белый класс: предупреждение о мошенничестве от организации, запроса кода и требования перевода нет',
+        ],
+        recipes: [],
+        whitelisted: white.kind,
+      };
+    }
+  }
 
   const reasons = [];
   const profile = FRAME_PROFILES[frame] ?? FRAME_PROFILES.unknown;
