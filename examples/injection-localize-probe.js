@@ -43,12 +43,14 @@ function build() {
   return items;
 }
 
-// куски — предложения, упакованные до CHUNK символов, со смещениями
+// куски со смещениями: v1 — предложения, упакованные до CHUNK символов; v2 (SENT=1) — по одному предложению
+const SENT = process.env.SENT === '1';
 function chunks(text) {
   const starts = sentenceStarts(text), out = [];
   let cs = 0;
   for (let k = 1; k <= starts.length; k++) {
     const end = k < starts.length ? starts[k] : text.length;
+    if (SENT && end > cs) { for (; end - cs > CHUNK; cs += CHUNK) out.push([cs, cs + CHUNK]); out.push([cs, end]); cs = end; continue; }
     if (end - cs > CHUNK && starts[k - 1] > cs) { out.push([cs, starts[k - 1]]); cs = starts[k - 1]; }
     if (end - cs > CHUNK) { for (; end - cs > CHUNK; cs += CHUNK) out.push([cs, cs + CHUNK]); }
   }
