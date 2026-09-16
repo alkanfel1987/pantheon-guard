@@ -1,5 +1,6 @@
 ﻿$ErrorActionPreference = 'Continue'
-$scratch = 'C:\Users\8523~1\AppData\Local\Temp\claude\C--Pantheon\4a3817d2-5c97-4582-85a1-4a4caa53be23\scratchpad'
+# рабочая папка задаётся снаружи: $env:SCAM_SCRATCH, иначе временная папка текущего пользователя
+$scratch = if ($env:SCAM_SCRATCH) { $env:SCAM_SCRATCH } else { Join-Path $env:TEMP 'scam-ru-corpus' }
 
 $rows = Get-Content (Join-Path $scratch 'candidates-raw.jsonl') -Encoding UTF8 |
   Where-Object { $_.Trim() } | ForEach-Object { $_ | ConvertFrom-Json }
