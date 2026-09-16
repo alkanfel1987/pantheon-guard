@@ -15,7 +15,7 @@ import { pipeline, env } from '@huggingface/transformers';
 // переводчик лежит на диске (скачан curl, sha256 в предрегистрации) — сеть при работе не нужна
 env.localModelPath = 'C:/ProjectS/pantheon-yantra/data/models/';
 env.allowRemoteModels = false;
-import { franc } from 'franc';
+import { detectLang, franc } from './lang-id.js';
 import { createEmbedder } from '@pantheon-guard/model-mdeberta-xnli';
 
 const DIR = 'C:/ProjectS/pantheon-yantra/data/corpus/semantic';
@@ -63,7 +63,9 @@ async function toEnglish(text) {
   const pieces = [];
   for (const c of chunks(text)) {
     stats.chunks++;
-    const lang = c.trim().length >= MIN_DETECT ? franc(c) : whole;
+    // письменность решает первой, запасной вариант — язык всего текста, не куска
+    // (замер 2026-09-16: 98,7 % верных против 90,3 % у franc по куску; русский 96 % против 72 %)
+    const lang = detectLang(c, whole);
     detected.push(lang);
     if (lang === 'eng') { stats.english++; pieces.push(c); continue; }
     const src = flores(lang) || flores(whole);
