@@ -10,7 +10,8 @@
 import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createEmbedder } from '@pantheon-guard/model-mdeberta-xnli';
 
-const DIR = 'C:/ProjectS/pantheon-yantra/data/corpus/semantic';
+// SEM_DIR=…/semantic-rep — репликация на новой выборке
+const DIR = process.env.SEM_DIR || 'C:/ProjectS/pantheon-yantra/data/corpus/semantic';
 const HYP = {
   H1: 'The text instructs an AI assistant or automated system to perform an action.',
   H2: 'The text asks the reader to send an email or a message to a specific address.',

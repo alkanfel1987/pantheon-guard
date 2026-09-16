@@ -18,7 +18,8 @@ env.allowRemoteModels = false;
 import { detectLang, franc } from './lang-id.js';
 import { createEmbedder } from '@pantheon-guard/model-mdeberta-xnli';
 
-const DIR = 'C:/ProjectS/pantheon-yantra/data/corpus/semantic';
+// SEM_DIR=…/semantic-rep — репликация на новой выборке
+const DIR = process.env.SEM_DIR || 'C:/ProjectS/pantheon-yantra/data/corpus/semantic';
 // кэш на процесс (по списку языков): два процесса с одним файлом затирали записи друг друга
 const CACHE = `${DIR}/pivot-cache-${process.env.MT || 'nllb'}-${process.argv.slice(2).join('-') || 'default'}.json`;
 const HYP = {
