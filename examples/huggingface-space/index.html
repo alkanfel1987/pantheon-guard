@@ -388,7 +388,8 @@
     try {
       r = inspect(text, opts);
     } catch (err) {
-      resultsEl.innerHTML = `<div class="empty">Inspection error: ${err.message}</div>`;
+      resultsEl.innerHTML = '<div class="empty"></div>';
+      resultsEl.firstChild.textContent = `Inspection error: ${err.message}`;
       return;
     }
     const elapsed = (performance.now() - t0).toFixed(2);
